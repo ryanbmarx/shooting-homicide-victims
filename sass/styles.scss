@@ -2,6 +2,15 @@
 @import 'base-mixins';
 @include responsive_embed(16,9,25px);
 
+.shooting-icon{
+  height:15px;
+  width:15px;
+  background-color:$trib_red2;
+  border-radius: 50%;
+  border:1px solid black;
+}
+
+
 .category {
 	h2{
 @include serif-text(30px, 1.3em, bold);
