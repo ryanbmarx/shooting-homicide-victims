@@ -1,0 +1,96 @@
+@import 'base-variables';
+@import 'base-mixins';
+@include responsive_embed(16,9,25px);
+
+.category {
+	h2{
+@include serif-text(30px, 1.3em, bold);
+margin-bottom:0px;
+}
+	p{
+		margin-top:7px;
+	}
+}
+
+.big-numbers {
+	display:flex;
+
+	.number{
+		padding-right: 20px;
+		text-align:center;
+		width:320px;	
+
+		p.num2016 {
+			@include sans-serif-text(55px, 1 em, bold);
+			margin-top:20px;
+			margin-bottom:0px;
+		}
+		p.num2017 {
+			@include sans-serif-text(55px, 1 em, bold);
+			margin-top:20px;
+			margin-bottom:0px;
+			color:$trib_red2;
+		}
+		p.keynum{
+			@include sans-serif-text(16px, 1.4em);
+		}
+	}
+}
+
+.map{
+	@include responsive_embed(16,9,25px);
+}
+
+
+
+.trb_mainContent p{
+	width:100%;
+}
+
+ 
+
+@media (min-width:720px){
+      #g-cumulative-mobile{display:none}
+      #g-cumulative-phablet{display:none}
+      #g-cumulative-desktop{display:none} 
+      #g-cumulative-large{display:block}
+      #g-monthly-mobile{display:none}
+      #g-monthly-phablet{display:none}
+      #g-monthly-desktop{display:none} 
+      #g-monthly-large{display:block}    
+    }
+
+@media (max-width:719px){
+      #g-cumulative-mobile{display:none}
+      #g-cumulative-phablet{display:none}
+      #g-cumulative-desktop{display:block} 
+      #g-cumulative-large{display:none}
+      #g-monthly-mobile{display:none}
+      #g-monthly-phablet{display:none}
+      #g-monthly-desktop{display:block} 
+      #g-monthly-large{display:none}  
+    }
+@media (max-width:579px){
+      #g-cumulative-mobile{display:none}
+      #g-cumulative-phablet{display:block}
+      #g-cumulative-desktop{display:none} 
+      #g-cumulative-large{display:none}
+      #g-monthly-mobile{display:none}
+      #g-monthly-phablet{display:block}
+      #g-monthly-desktop{display:none} 
+      #g-monthly-large{display:none}    
+    }
+@media (max-width:429px){
+      #g-cumulative-mobile{display:block}
+      #g-cumulative-phablet{display:none}
+      #g-cumulative-desktop{display:none} 
+      #g-cumulative-large{display:none}
+      #g-monthly-mobile{display:block}
+      #g-monthly-phablet{display:none}
+      #g-monthly-desktop{display:none} 
+      #g-monthly-large{display:none}    
+    }           
+  
+
+
+
