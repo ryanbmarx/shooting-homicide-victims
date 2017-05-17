@@ -1,0 +1,72 @@
+{% block content %}
+
+{{intro|markdown}}
+
+<div class="category">
+<h2>{{ytd_headline}}</h2>
+</div>
+<div class="big-numbers">
+	
+	<div class="number">
+		<p class="num2016">{{'{:,}'.format(ytd_2016)}}</p>
+		<p class="keynum">{{key_2016}}</p>
+	</div>
+
+	<div class="number">
+		<p class="num2017">{{'{:,}'.format(ytd_2017)}}</p>
+		<p class="keynum">{{key_2017}}</p>
+	</div>
+
+</div>
+<div class="category">
+<h2>{{cumulative_headline}}</h2>
+{{cumulative_blurb|markdown}}
+</div>
+<div class='charts'>
+{% include 'ai/ai2html-output/cumulative.html' %}
+</div>
+
+<div class="category">
+<h2>{{monthly_headline}}</h2>
+{{monthly_blurb|markdown}}
+</div>
+
+<div class='charts'>
+{% include 'ai/ai2html-output/monthly.html' %}
+</div>
+
+<div class="category">
+<h2>{{map_headline}}</h2>
+{{map_blurb|markdown}}
+</div>
+<div class='map'>
+	<iframe src="http://www.stevensegallery.com/g/600/400"></iframe>
+</div>
+
+{{source|markdown}}
+{{tag|markdown}}
+
+{% endblock content %}
+
+{% block library_scripts %}
+{# Uncomment this if you are using libraries such as jQuery #}
+{# <script src="//{{ ROOT_URL }}/js/vendor.min.js"></script> #}
+{% endblock %}
+
+{% block scripts %}
+{# Uncomment this if you are using custom JavaScript #}
+{# <script src="//{{ ROOT_URL }}/js/app.min.js"></script> #}
+<script>
+(function(document) {
+  var CSS = [
+    "//{{ ROOT_URL }}/css/styles.css"
+  ];
+  CSS.forEach(function(url) {
+    var link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', url);
+    document.head.appendChild(link);
+  });
+})(document);
+</script>
+{% endblock scripts %}
