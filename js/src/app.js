@@ -16,7 +16,13 @@ L.tileLayer(
     minZoom: 9
 }).addTo(map);
 
+
+
 //load GeoJSON from an external file using jquery
+$.getJSON("data/commareas.geojson",function(hoodData){
+	L.geoJson( hoodData ).addTo(map);
+});
+
 $.getJSON("data/locations.geojson",function(data){
 	// add GeoJSON layer to the map once the file is loaded
 	L.geoJson(data,{

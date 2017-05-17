@@ -2,6 +2,7 @@
 @import 'base-mixins';
 @include responsive_embed(16,9,25px);
 
+//MAP STYLES GO HERE
 .shooting-icon{
   height:15px;
   width:15px;
@@ -10,7 +11,7 @@
   border:1px solid black;
 }
 
-
+//REST OF PROJECT STYLES
 .category {
 	h2{
 @include serif-text(30px, 1.3em, bold);
