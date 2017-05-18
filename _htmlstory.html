@@ -53,10 +53,10 @@
 
 {% block scripts %}
 {# Uncomment this if you are using custom JavaScript #}
-<script src="//{{ ROOT_URL }}/js/leaflet.js"></script>
-<script src="//{{ ROOT_URL }}/js/app.min.js"></script>
 <script>
 (function(document) {
+  window.ROOT_URL = "{{ ROOT_URL }}";
+
   var CSS = [
     "//{{ ROOT_URL }}/css/leaflet.css",
     "//{{ ROOT_URL }}/css/styles.css"
@@ -69,4 +69,6 @@
   });
 })(document);
 </script>
+<script src="//{{ ROOT_URL }}/js/leaflet.js"></script>
+<script src="//{{ ROOT_URL }}/js/app.min.js"></script>
 {% endblock scripts %}
