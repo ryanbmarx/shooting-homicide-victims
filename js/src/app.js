@@ -1,26 +1,39 @@
 //This makes jquery work. 
 var $ = require('jQuery');
 
-//This sets the shootings marker. Style it using .shooting-icon in css.
+//Sets class for shootings marker div
 var myIcon = L.divIcon({className: 'shooting-icon'});
 
+//Style for community areas
+var commStyle = {
+    "fillColor": "#FFF",
+    "color": "#222222",
+    "weight": 3,
+    "opacity": 0.5
+};
+
 // Sets up map and sets view and initial zoom
-var map = L.map('map').setView([41.875103,-87.619271],11);
+var map = L.map('map').setView([41.838299, -87.706953],11);
 
 // Sets up baselayer using older custom Trib tiles
 L.tileLayer(
   'http://{s}.tribapps.com/chicago-print/{z}/{x}/{y}.png', {
-    subdomains: ['maps1', 'maps2', 'maps3', 'maps4'],
+    subdomains: ['maps1'],
     attribution: 'Map data &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 16,
     minZoom: 9
-}).addTo(map);
+  }).addTo(map);
 
-
+//adds city mask
+L.tileLayer(
+  "http://media.apps.chicagotribune.com/maptiles/chicago-mask/{z}/{x}/{y}.png",
+  { maxZoom: 16, minZoom: 9, opacity: 0.5 }).addTo(map);
 
 //load GeoJSON from an external file using jquery
 $.getJSON("data/commareas.geojson",function(hoodData){
-	L.geoJson( hoodData ).addTo(map);
+	L.geoJson( hoodData, {
+		style: commStyle
+	}).addTo(map);
 });
 
 $.getJSON("data/locations.geojson",function(data){
