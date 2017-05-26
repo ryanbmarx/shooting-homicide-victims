@@ -1,10 +1,7 @@
-//This makes jquery work. 
 var $ = require('jQuery');
-
-//Sets class for shootings marker div
 var myIcon = L.divIcon({className: 'shooting-icon'});
 
-//Style for community areas
+//COMMUNITY AREA STYLING
 var commStyle = {
     "fillColor": "#FFF",
     "color": "#222222",
@@ -12,10 +9,10 @@ var commStyle = {
     "opacity": 0.5
 };
 
-// Sets up map and sets view and initial zoom
+//SETS UP MAP
 var map = L.map('map').setView([41.838299, -87.706953],11);
 
-// Sets up baselayer using older custom Trib tiles
+//ADDS TRIB BASELAYER
 L.tileLayer(
   'http://{s}.tribapps.com/chicago-print/{z}/{x}/{y}.png', {
     subdomains: ['maps1'],
@@ -24,7 +21,7 @@ L.tileLayer(
     minZoom: 9
   }).addTo(map);
 
-//adds city mask
+//ADDS CITY MASK
 L.tileLayer(
   "http://media.apps.chicagotribune.com/maptiles/chicago-mask/{z}/{x}/{y}.png",
   { maxZoom: 16, minZoom: 9, opacity: 0.5 }).addTo(map);
@@ -40,6 +37,7 @@ function getPointGeoJson(url){
       L.geoJson(data,{
         pointToLayer: function(feature,latlng){
           var marker = L.marker(latlng,{icon: myIcon});
+          //CREATES POPUP
           marker.bindPopup(feature.properties.Location + '<br/>' + 
             feature.properties.Date + '<br/>' +
             '<a href="' + feature.properties.Link + '" target="_blank">Read the story &raquo;</a>');
@@ -77,6 +75,7 @@ function getShapeGeoJson(url){
   request.send();
 };
 
+//MAPS LAYERS
 getPointGeoJson("http://" + window.ROOT_URL + "/data/locations.geojson");
 getShapeGeoJson('http://' + window.ROOT_URL + '/data/commareas.geojson');
 
