@@ -18,13 +18,13 @@ L.tileLayer(
     subdomains: ['maps1'],
     attribution: 'Map data &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 16,
-    minZoom: 9
+    minZoom: 10
   }).addTo(map);
 
 //ADDS CITY MASK
 L.tileLayer(
   "http://media.apps.chicagotribune.com/maptiles/chicago-mask/{z}/{x}/{y}.png",
-  { maxZoom: 16, minZoom: 9, opacity: 0.5 }).addTo(map);
+  { maxZoom: 16, minZoom: 10, opacity: 0.5 }).addTo(map);
 
 //FUNCTION FETCHES SHOOTING LOCATIONS
 function getPointGeoJson(url){
