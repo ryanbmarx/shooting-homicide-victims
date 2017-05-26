@@ -40,7 +40,9 @@ function getPointGeoJson(url){
       L.geoJson(data,{
         pointToLayer: function(feature,latlng){
           var marker = L.marker(latlng,{icon: myIcon});
-          marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.Date);
+          marker.bindPopup(feature.properties.Location + '<br/>' + 
+            feature.properties.Date + '<br/>' +
+            '<a href="' + feature.properties.Link + '" target="_blank">Read the story &raquo;</a>');
           return marker;
         }
       }).addTo(map);
