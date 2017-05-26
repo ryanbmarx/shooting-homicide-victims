@@ -10,7 +10,7 @@ var commStyle = {
 };
 
 //SETS UP MAP
-var map = L.map('map').setView([41.838299, -87.706953],11);
+var map = L.map('map', {scrollWheelZoom: false}).setView([41.838299, -87.706953],11);
 
 //ADDS TRIB BASELAYER
 L.tileLayer(
