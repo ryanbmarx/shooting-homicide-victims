@@ -6,7 +6,7 @@
 .shooting-icon{
   height:10px;
   width:10px;
-  background-color:$trib_red2;
+  background-color:$trib_blue2;
   border-radius: 50%;
   border:1px solid black;
   opacity:0.75;
@@ -15,11 +15,11 @@
 //REST OF PROJECT STYLES
 .category {
 	h2{
-@include serif-text(30px, 1.3em, bold);
-margin-bottom:0px;
-}
+    @include serif-text(30px, 1.3em, bold);
+    margin-bottom:0px;
+    }
 	p{
-		margin-top:7px;
+		margin-top:3px;
 	}
 }
 
@@ -40,7 +40,7 @@ margin-bottom:0px;
 			@include sans-serif-text(55px, 1 em, bold);
 			margin-top:20px;
 			margin-bottom:0px;
-			color:$trib_red2;
+			color:$trib_blue2;
 		}
 		p.keynum{
 			@include sans-serif-text(16px, 1.4em);
@@ -89,8 +89,12 @@ margin-bottom:0px;
       #g-monthly-mobile{display:none}
       #g-monthly-phablet{display:block}
       #g-monthly-desktop{display:none} 
-      #g-monthly-large{display:none}    
-    }
+      #g-monthly-large{display:none}  
+
+      .category{
+        h2{@include serif-text(24px, 1.3em, bold);}
+      }  
+}
 @media (max-width:429px){
       #g-cumulative-mobile{display:block}
       #g-cumulative-phablet{display:none}
