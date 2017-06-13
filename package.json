@@ -29,5 +29,8 @@
   "browserify": {
     "debug": true
   },
-  "tribune": {}
+  "tribune": {},
+  "dependencies": {
+    "d3": "^4.9.1"
+  }
 }

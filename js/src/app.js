@@ -1,4 +1,4 @@
-var $ = require('jQuery');
+// var $ = require('jQuery');
 var myIcon = L.divIcon({className: 'shooting-icon'});
 
 //COMMUNITY AREA STYLING

@@ -1,0 +1,6 @@
+.charts--monthly-table{
+	// This is the table underneath the monthly chart
+	table{
+		@include trib-table(compressed);
+	}
+}
