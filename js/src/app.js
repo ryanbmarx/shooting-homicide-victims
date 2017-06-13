@@ -1,4 +1,5 @@
-// var $ = require('jQuery');
+import * as L from 'leaflet';
+
 var myIcon = L.divIcon({className: 'shooting-icon'});
 
 //COMMUNITY AREA STYLING

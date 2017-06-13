@@ -6,8 +6,10 @@ module.exports = function(grunt) {
   // You'll also have to install them using a command similar to:
   //     npm install --save jquery
   var VENDOR_LIBRARIES = [
-    'jquery',
+    // 'jquery',
     //'underscore'
+    'leaflet',
+    'd3'
   ];
 
   config.browserify = {
@@ -65,7 +67,7 @@ module.exports = function(grunt) {
     options: {
       outputStyle: 'compressed',
       sourceMap: true,
-      includePaths: [ 'sass/', 'node_modules/trib-styles/sass/' ]
+      includePaths: [ 'sass/', 'node_modules/trib-styles/sass/', 'node_modules/leaflet/dist/' ]
     },
     app: {
       files: {
