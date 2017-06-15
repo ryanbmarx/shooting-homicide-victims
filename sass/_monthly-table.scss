@@ -2,5 +2,13 @@
 	// This is the table underneath the monthly chart
 	table{
 		@include trib-table(compressed);
+
+		tr td{
+			text-align:right;
+
+			&:first-child{
+				text-align:left;
+			}
+		}
 	}
 }

@@ -5,14 +5,22 @@
 
 @import 'monthly-table';
 
+.charts--monthly{
+  height:400px;
+  background:#eee;
+  margin: 0 0 10px 0;
+}
+
+
+
 //MAP STYLES GO HERE
 .shooting-icon{
   height:10px;
   width:10px;
   background-color:$trib_blue2;
   border-radius: 50%;
-  border:1px solid black;
-  opacity:0.75;
+  // border:1px solid black;
+  opacity:0.3;
 }
 
 //REST OF PROJECT STYLES
