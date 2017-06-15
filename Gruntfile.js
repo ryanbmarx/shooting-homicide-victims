@@ -1,15 +1,15 @@
 module.exports = function(grunt) {
   var config = {};
 
-  // Put your JavaScript library dependencies here. e.g. jQuery, underscore,
-  // etc.
-  // You'll also have to install them using a command similar to:
-  //     npm install --save jquery
   var VENDOR_LIBRARIES = [
-    // 'jquery',
-    //'underscore'
     'leaflet',
-    'd3'
+    'd3',
+    'lodash.filter',
+    'lodash.sumby',
+    'lodash.orderby',
+    'lodash.merge',
+    'lodash.union',
+    'd3-queue'
   ];
 
   config.browserify = {

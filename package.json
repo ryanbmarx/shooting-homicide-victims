@@ -5,7 +5,8 @@
   "main": "js/src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "grunt",
+    "build": "grunt && npm run build:table",
+    "build:table": "node node_scripts/makeMonthlyTable.js > subtemplates/_monthly-table.html",
     "watch": "grunt watch"
   },
   "repository": {
@@ -16,6 +17,7 @@
   "author": "Chicago Tribune News Applications",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.9.0",
     "babelify": "^7.3.0",
     "browserify": "^10.2.4",
@@ -32,6 +34,14 @@
   "tribune": {},
   "dependencies": {
     "d3": "^4.9.1",
-    "leaflet": "^1.0.3"
+    "d3-queue": "^3.0.7",
+    "leaflet": "^1.0.3",
+    "lodash.filter": "^4.6.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.merge": "^4.6.0",
+    "lodash.orderby": "^4.6.0",
+    "lodash.sortby": "^4.7.0",
+    "lodash.sumby": "^4.6.0",
+    "lodash.union": "^4.6.0"
   }
 }
