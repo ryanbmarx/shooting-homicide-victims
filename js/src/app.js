@@ -87,7 +87,7 @@ window.addEventListener('load', e => {
   console.log('loaded');
 
   const crimeSite = new CrimeSite({
-    ytd: document.querySelector('#year-to-date'),
+    ytd: document.querySelector('#ytd'),
     monthly: document.querySelector('#monthly'),
     ROOT_URL: window.ROOT_URL
   })
