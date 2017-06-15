@@ -9,6 +9,7 @@ module.exports = function(grunt) {
     'lodash.orderby',
     'lodash.merge',
     'lodash.union',
+    'lodash.groupby',
     'd3-queue'
   ];
 
