@@ -4,10 +4,15 @@
 		@include trib-table(compressed);
 
 		tr td{
-			text-align:right;
+			text-align: center;
+			border-right: 1px solid black;
 
 			&:first-child{
 				text-align:left;
+				width: 50px;
+			}
+			&:first-child, &:last-child{
+				border-right:none;
 			}
 		}
 	}

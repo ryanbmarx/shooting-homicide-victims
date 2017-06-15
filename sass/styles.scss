@@ -6,7 +6,13 @@
 @import 'monthly-table';
 
 .charts--monthly{
-  height:400px;
+  height:300px;
+  background:#eee;
+  margin: 0 0 10px 0;
+}
+
+.charts--ytd{
+  height:300px;
   background:#eee;
   margin: 0 0 10px 0;
 }
