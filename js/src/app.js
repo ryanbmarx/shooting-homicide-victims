@@ -1,5 +1,7 @@
+// import {csv} from 'd3';
 import * as L from 'leaflet';
-
+import CrimeSite from './crime-site.js'
+/*
 var myIcon = L.divIcon({className: 'shooting-icon'});
 
 //COMMUNITY AREA STYLING
@@ -79,5 +81,16 @@ function getShapeGeoJson(url){
 //MAPS LAYERS
 getPointGeoJson("http://" + window.ROOT_URL + "/data/locations.geojson");
 getShapeGeoJson('http://' + window.ROOT_URL + '/data/commareas.geojson');
+*/
 
+window.addEventListener('load', e => {
+  console.log('loaded');
+
+  const crimeSite = new CrimeSite({
+    ytd: document.querySelector('#year-to-date'),
+    monthly: document.querySelector('#monthly'),
+    ROOT_URL: window.ROOT_URL
+  })
+  
+})
 
