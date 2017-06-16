@@ -5,7 +5,8 @@ var 	orderBy = require('lodash.orderby'),
 		 d3 = require('d3'),
 		 queue = require("d3-queue").queue,
 		 dataQueue = queue(),
-		 fs = require('fs');
+		 fs = require('fs'),
+ 		minify = require('html-minifier').minify;
 
 function getMonthlyTableData(currentData, oldData, oldDataYear){
 	// console.log(currentData, oldData, oldDataYear);
@@ -68,6 +69,11 @@ fs.readFile('frisco_brisco/shootings_2017_onwards.csv', 'utf-8', (err, currentDa
 		})
 
 		tableString += "</table>";
+
+		tableString =  minify(tableString,{
+			collapseWhitespace:true,
+			collapseInlineTagWhitespace:true
+		});
 
 		console.log(tableString);
 	});
