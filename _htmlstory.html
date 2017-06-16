@@ -6,20 +6,10 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 -->
 {{intro|markdown}}
 
 <div class="category">
-<h2>{{ytd_headline}}</h2>
-</div>
-<div class="big-numbers">
-	
-	<div class="number">
-		<p class="num2016">{{'{:,}'.format(ytd_2016)}}</p>
-		<p class="keynum">{{key_2016}}</p>
-	</div>
 
-	<div class="number">
-		<p class="num2017">{{'{:,}'.format(ytd_2017)}}</p>
-		<p class="keynum">{{key_2017}}</p>
-	</div>
 
+
+{% include "subtemplates/_year-counter.html" %}
 </div>
 <div class="category">
 <h2>{{cumulative_headline}}</h2>
