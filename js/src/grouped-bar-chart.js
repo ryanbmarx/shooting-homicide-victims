@@ -79,8 +79,6 @@ class GroupedBarChart{
 				innerHeight = height - margin.top - margin.bottom,
 				innerWidth = width - margin.right - margin.left,
 				keys = data.columns.slice(1); // The first column is the Month indicator. Let's ditch it so we can find the max shootings without caring that the month also is a number.
-
-				console.log("Keys: ", keys);
 				
 		// ----------------------------------
 		// BUILD SCALES AND AXES
@@ -92,8 +90,6 @@ class GroupedBarChart{
 				return parseInt(d[key]);
 			})
 		})
-
-		console.log('yMax: ', yMax);
 
 		// The traditional yScale will govern bar height.
 		const yScale = d3.scaleLinear()
