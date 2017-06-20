@@ -229,108 +229,15 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    null, 
-                    null
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/14/17", 
-                "Day": "Sunday", 
-                "Time": "12:15", 
-                "UCR": "110", 
-                "Last Name": "Delton", 
-                "First Name": "Warren", 
-                "Sex": "M", 
-                "Age": "44", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "6100 S Eberhart Ave, Chicago, IL 60637", 
-                "Geocode Override": "None", 
-                "Shooting Specificity": "Block", 
-                "District": "3", 
-                "Hospital 1": "", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.74561, 
-                    41.88089
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/14/17", 
-                "Day": "Sunday", 
-                "Time": "2:35", 
-                "UCR": "110", 
-                "Last Name": "", 
-                "First Name": "", 
-                "Sex": "M", 
-                "Age": "24", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "4800 W Madison St, Chicago, IL 60644", 
-                "Geocode Override": "(41.88089, -87.74561)", 
-                "Shooting Specificity": "Block", 
-                "District": "15", 
-                "Hospital 1": "", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.74561, 
-                    41.88089
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/14/17", 
-                "Day": "Sunday", 
-                "Time": "2:35", 
-                "UCR": "110", 
-                "Last Name": "", 
-                "First Name": "", 
-                "Sex": "", 
-                "Age": "25", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "4800 W Madison St, Chicago, IL 60644", 
-                "Geocode Override": "(41.88089, -87.74561)", 
-                "Shooting Specificity": "Block", 
-                "District": "15", 
-                "Hospital 1": "", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.56371, 
                     41.72977
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266410", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
-                "Time": "16:45", 
+                "Time": "16:43", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -346,37 +253,6 @@
                 "Hospital 1": "Advocate Christ Medical Center", 
                 "Hospital 2": "", 
                 "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170516-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.723165, 
-                    41.87959
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/16/17", 
-                "Day": "Tuesday", 
-                "Time": "19:21", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "23", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "W Monroe St & S Springfield Ave, Chicago, IL 60624", 
-                "Geocode Override": "(41.87959, -87.723165)", 
-                "Shooting Specificity": "Block", 
-                "District": "11", 
-                "Hospital 1": "Mount Sinai Hospital", 
-                "Hospital 2": "", 
-                "Link": ""
             }
         }, 
         {
@@ -756,30 +632,154 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.6239, 
-                    41.77086
+                    -87.60031547, 
+                    41.74883239
                 ]
             }, 
             "properties": {
                 "RD Number": "", 
-                "Date": "6/12/17", 
-                "Day": "Monday", 
-                "Time": "9:15", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "12:55", 
                 "UCR": "110", 
                 "Last Name": "", 
                 "First Name": "", 
-                "Sex": "M", 
+                "Sex": "", 
                 "Age": "", 
                 "DOB": "", 
                 "Home Address": "", 
                 "Home Specificity": "", 
-                "Location": "6800 S Wabash Ave, Chicago, IL 60637", 
-                "Geocode Override": "(41.77086, -87.6239)", 
-                "Shooting Specificity": "Block", 
-                "District": "3", 
+                "Location": "8034 S Ellis Ave, Chicago, IL 60619", 
+                "Geocode Override": "(41.748832390803, -87.6003154670672)", 
+                "Shooting Specificity": "Exact", 
+                "District": "6", 
                 "Hospital 1": "", 
                 "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170612-story.html"
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shooting-violence-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62877, 
+                    41.67051
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "13:31", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "42", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "12300 S Yale Ave, Chicago, IL 60628", 
+                "Geocode Override": "(41.67051, -87.62877)", 
+                "Shooting Specificity": "Block", 
+                "District": "5", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": ""
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75348426, 
+                    41.90047497
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "13:42", 
+                "UCR": "041A", 
+                "Last Name": "Doe ", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "23", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5100 W Thomas St, Chicago, IL 60651", 
+                "Geocode Override": "(41.9004749668348, -87.7534842603452)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": ""
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.64259682, 
+                    41.78691203
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "23:51", 
+                "UCR": "110", 
+                "Last Name": "", 
+                "First Name": "", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5900 S Union Ave, Chicago, IL 60621", 
+                "Geocode Override": "(41.7869120273104, -87.6425968150881)", 
+                "Shooting Specificity": "Block", 
+                "District": "7", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62468645, 
+                    41.75264195
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA270410", 
+                "Date": "5/18/17", 
+                "Day": "Thursday", 
+                "Time": "23:45", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "", 
+                "Age": "", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "7800 S State St, Chicago, IL 60619", 
+                "Geocode Override": "(41.7526419513982, -87.6246864522705)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": ""
             }
         }, 
         {
@@ -35481,10 +35481,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA261631", 
                 "Date": "5/13/17", 
                 "Day": "Saturday", 
-                "Time": "16:40", 
+                "Time": "16:39", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -35512,10 +35512,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA262580", 
                 "Date": "5/13/17", 
                 "Day": "Saturday", 
-                "Time": "20:05", 
+                "Time": "20:09", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -35543,7 +35543,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA262620", 
                 "Date": "5/13/17", 
                 "Day": "Saturday", 
                 "Time": "20:35", 
@@ -35553,44 +35553,13 @@
                 "Sex": "M", 
                 "Age": "17", 
                 "DOB": "", 
-                "Home Address": "10500 S Wabash Ave, Chicago, IL 60628", 
-                "Home Specificity": "Block", 
-                "Location": "10500 S Lafayette Ave, Chicago, IL 60628", 
+                "Home Address": "10543 S Wabash Ave, Chicago, IL 60628", 
+                "Home Specificity": "Exact", 
+                "Location": "10501 S Lafayette Ave, Chicago, IL 60628", 
                 "Geocode Override": "(41.70335, -87.62492)", 
                 "Shooting Specificity": "Block", 
                 "District": "5", 
-                "Hospital 1": "", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.66612, 
-                    41.74643
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/13/17", 
-                "Day": "Saturday", 
-                "Time": "23:12", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "35", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "8100 S Paulina St, Chicago, IL 60620", 
-                "Geocode Override": "(41.74643, -87.66612)", 
-                "Shooting Specificity": "Block", 
-                "District": "6", 
-                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 1": "DOA", 
                 "Hospital 2": "", 
                 "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
             }
@@ -35605,7 +35574,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA262782", 
                 "Date": "5/13/17", 
                 "Day": "Saturday", 
                 "Time": "22:45", 
@@ -35636,11 +35605,11 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA262850", 
                 "Date": "5/14/17", 
                 "Day": "Sunday", 
-                "Time": "0:10", 
-                "UCR": "", 
+                "Time": "0:11", 
+                "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
                 "Sex": "M", 
@@ -35662,46 +35631,15 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.71788774, 
-                    41.86614222
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/14/17", 
-                "Day": "Sunday", 
-                "Time": "0:10", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "17", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "1200 S Lawndale Ave, Chicago, IL 60623", 
-                "Geocode Override": "(41.8661422237451, -87.7178877375447)", 
-                "Shooting Specificity": "Block", 
-                "District": "10", 
-                "Hospital 1": "Mount Sinai Hospital", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.62653, 
                     41.72198
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA262972", 
                 "Date": "5/14/17", 
                 "Day": "Sunday", 
-                "Time": "3:10", 
+                "Time": "3:08", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -35729,7 +35667,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA263554", 
                 "Date": "5/14/17", 
                 "Day": "Sunday", 
                 "Time": "13:35", 
@@ -35745,100 +35683,7 @@
                 "Geocode Override": "(41.7819117306811, -87.6157454985272)", 
                 "Shooting Specificity": "Block", 
                 "District": "3", 
-                "Hospital 1": "", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.59942467, 
-                    41.65719912
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/14/17", 
-                "Day": "Sunday", 
-                "Time": "11:54", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "28", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "13100 S Ingleside Ave, Chicago, IL 60827", 
-                "Geocode Override": "(41.6571991222034, -87.5994246682071)", 
-                "Shooting Specificity": "Block", 
-                "District": "5", 
-                "Hospital 1": "Advocate Christ Medical Center", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.64151, 
-                    41.76102
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/14/17", 
-                "Day": "Sunday", 
-                "Time": "14:45", 
-                "UCR": "110", 
-                "Last Name": "Richmond", 
-                "First Name": "Jamari", 
-                "Sex": "M", 
-                "Age": "18", 
-                "DOB": "", 
-                "Home Address": "7300 S Union Ave, Chicago, IL 60621", 
-                "Home Specificity": "Block", 
-                "Location": "7317 S Union Ave, Chicago, IL 60621", 
-                "Geocode Override": "(41.76102, -87.64151)", 
-                "Shooting Specificity": "Exact", 
-                "District": "7", 
-                "Hospital 1": "Advocate Christ Medical Center", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.63695, 
-                    41.70135
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/14/17", 
-                "Day": "Sunday", 
-                "Time": "14:00", 
-                "UCR": "110", 
-                "Last Name": "Brownlee", 
-                "First Name": "Devonta", 
-                "Sex": "M", 
-                "Age": "19", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "10600 S Parnell Ave, Chicago, IL 60628", 
-                "Geocode Override": "(41.70135, -87.63695)", 
-                "Shooting Specificity": "Block", 
-                "District": "22", 
-                "Hospital 1": "Advocate Christ Medical Center in Oak Lawn", 
+                "Hospital 1": "Refused medical treatment", 
                 "Hospital 2": "", 
                 "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
             }
@@ -35853,7 +35698,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA261543", 
                 "Date": "5/12/17", 
                 "Day": "Friday", 
                 "Time": "21:49", 
@@ -35884,7 +35729,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA261580", 
                 "Date": "5/12/17", 
                 "Day": "Friday", 
                 "Time": "23:11", 
@@ -35915,7 +35760,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA261643", 
                 "Date": "5/13/17", 
                 "Day": "Saturday", 
                 "Time": "0:45", 
@@ -35946,7 +35791,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA261651", 
                 "Date": "5/13/17", 
                 "Day": "Saturday", 
                 "Time": "0:45", 
@@ -35977,11 +35822,11 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA261631", 
                 "Date": "5/13/17", 
                 "Day": "Saturday", 
-                "Time": "0:45", 
-                "UCR": "", 
+                "Time": "0:40", 
+                "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
                 "Sex": "M", 
@@ -36070,7 +35915,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265498", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "1:30", 
@@ -36096,43 +35941,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.62551839, 
-                    41.85265238
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/16/17", 
-                "Day": "Tuesday", 
-                "Time": "1:39", 
-                "UCR": "033A", 
-                "Last Name": "Jackson", 
-                "First Name": "Leon", 
-                "Sex": "M", 
-                "Age": "27", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "2200 S Wabash Ave, Chicago, IL 60616", 
-                "Geocode Override": "(41.852652379564, -87.6255183914543)", 
-                "Shooting Specificity": "Block", 
-                "District": "1", 
-                "Hospital 1": "Northwestern Memorial Hospital ", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-shootings-violence-20170515-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.70861653, 
                     42.01742641
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265424", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
                 "Time": "23:34", 
@@ -36163,10 +35977,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265414", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
-                "Time": "23:10", 
+                "Time": "23:09", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -36189,43 +36003,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.75809343, 
-                    41.89505639
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/15/17", 
-                "Day": "Monday", 
-                "Time": "22:50", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "Jane", 
-                "Sex": "F", 
-                "Age": "21", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "800 N Lockwood Ave, Chicago, IL 60651", 
-                "Geocode Override": "(41.8950563882467, -87.7580934304384)", 
-                "Shooting Specificity": "Block", 
-                "District": "15", 
-                "Hospital 1": "West Suburban Medical Center", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-shootings-violence-20170515-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.70776411, 
                     41.84814497
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265305", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
                 "Time": "21:40", 
@@ -36256,7 +36039,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265308", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
                 "Time": "21:30", 
@@ -36287,10 +36070,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265301", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
-                "Time": "20:35", 
+                "Time": "20:37", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -36318,7 +36101,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265303", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
                 "Time": "21:27", 
@@ -36344,46 +36127,15 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.63420587, 
-                    41.79401181
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/15/17", 
-                "Day": "Monday", 
-                "Time": "21:27", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "Jane", 
-                "Sex": "F", 
-                "Age": "20", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "5500 S Shields Ave, Chicago, IL 60621", 
-                "Geocode Override": "(41.7940118121207, -87.6342058726686)", 
-                "Shooting Specificity": "Block", 
-                "District": "7", 
-                "Hospital 1": "University of Chicago Medical Center", 
-                "Hospital 2": "Mount SInai Hospital ", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-shootings-violence-20170515-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.71856, 
                     41.87017
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265174", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
-                "Time": "19:49", 
+                "Time": "19:45", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -36411,7 +36163,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA264927", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
                 "Time": "17:17", 
@@ -36442,10 +36194,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA264808", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
-                "Time": "16:28", 
+                "Time": "15:28", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -36473,7 +36225,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA264748", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
                 "Time": "15:20", 
@@ -36504,7 +36256,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA264621", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
                 "Time": "13:45", 
@@ -36535,7 +36287,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA264370", 
                 "Date": "5/15/17", 
                 "Day": "Monday", 
                 "Time": "10:50", 
@@ -36566,7 +36318,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265862", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "11:00", 
@@ -36576,8 +36328,8 @@
                 "Sex": "M", 
                 "Age": "34", 
                 "DOB": "3/21/83", 
-                "Home Address": "4200 W Grenshaw St, Chicago, IL 60624", 
-                "Home Specificity": "Block", 
+                "Home Address": "4247 W Grenshaw St, Chicago, IL 60624", 
+                "Home Specificity": "Exact", 
                 "Location": "1142 S Karlov Ave, Chicago, IL 60624", 
                 "Geocode Override": "(41.8667826447838, -87.7276816811243)", 
                 "Shooting Specificity": "Exact", 
@@ -36597,7 +36349,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266308", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "15:50", 
@@ -36628,12 +36380,12 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266459", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "17:28", 
-                "UCR": "1477", 
-                "Last Name": "Doe", 
+                "UCR": "41", 
+                "Last Name": "041A", 
                 "First Name": "John", 
                 "Sex": "M", 
                 "Age": "21", 
@@ -36659,7 +36411,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266713", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "20:06", 
@@ -36690,10 +36442,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266835", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
-                "Time": "21:55", 
+                "Time": "21:50", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -36721,7 +36473,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266839", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "22:13", 
@@ -36752,7 +36504,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266839", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "22:13", 
@@ -36783,7 +36535,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266839", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "22:13", 
@@ -36814,7 +36566,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266842", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "22:19", 
@@ -36845,7 +36597,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266873", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "22:42", 
@@ -36876,7 +36628,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266929", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "0:02", 
@@ -36902,12 +36654,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.65107, 
-                    41.77406
+                    -87.650471, 
+                    41.772643
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266961", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "0:35", 
@@ -36919,9 +36671,9 @@
                 "DOB": "", 
                 "Home Address": "2400 W Lexington St, Chicago, IL 60612", 
                 "Home Specificity": "Block", 
-                "Location": "6600 S Carpenter St, Chicago, IL 60621", 
-                "Geocode Override": "(41.77406, -87.65107)", 
-                "Shooting Specificity": "Block", 
+                "Location": "6649 S Carpenter St, Chicago, IL 60621", 
+                "Geocode Override": "(41.772643, -87.650471)", 
+                "Shooting Specificity": "Exact", 
                 "District": "7", 
                 "Hospital 1": "Advocate Christ Medical Center", 
                 "Hospital 2": "", 
@@ -36938,7 +36690,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA267001", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "1:58", 
@@ -36964,12 +36716,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.64831, 
-                    41.71741
+                    -87.64786683, 
+                    41.71738436
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA267031", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "2:44", 
@@ -36979,11 +36731,11 @@
                 "Sex": "F", 
                 "Age": "35", 
                 "DOB": "", 
-                "Home Address": "500 S Desplaines St, Chicago, IL 60607", 
-                "Home Specificity": "Block", 
-                "Location": "9700 S Morgan St, Chicago, IL 60643", 
-                "Geocode Override": "(41.71741, -87.64831)", 
-                "Shooting Specificity": "Block", 
+                "Home Address": "520 Des Plaines Ave, Forest Park, IL 60130", 
+                "Home Specificity": "Exact", 
+                "Location": "9703 S Morgan St, Chicago, IL 60643", 
+                "Geocode Override": "(41.7173843612222, -87.6478668307188)", 
+                "Shooting Specificity": "Exact", 
                 "District": "22", 
                 "Hospital 1": "Roseland Community Hospital", 
                 "Hospital 2": "", 
@@ -37000,7 +36752,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA267059", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "4:30", 
@@ -37026,43 +36778,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.58636689, 
-                    41.76581205
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/16/17", 
-                "Day": "Tuesday", 
-                "Time": "23:50", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "26", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "7100 S Stony Island Ave, Chicago, IL 60649", 
-                "Geocode Override": "(41.7658120488534, -87.5863668903836)", 
-                "Shooting Specificity": "Block", 
-                "District": "3", 
-                "Hospital 1": "Advocate Christ Medical Center", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170516-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.72657, 
                     41.90097
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266430", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "16:29", 
@@ -37088,43 +36809,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.59455, 
-                    41.74942
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/17/17", 
-                "Day": "Wednesday", 
-                "Time": "12:20", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "18", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "8000 S Avalon Ave, Chicago, IL 60619", 
-                "Geocode Override": "(41.74942, -87.59455)", 
-                "Shooting Specificity": "Block", 
-                "District": "4", 
-                "Hospital 1": "Jackson Park Hospital", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.74284, 
                     41.87621
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA267672", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "14:14", 
@@ -37150,43 +36840,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.6239, 
-                    41.70884
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/17/17", 
-                "Day": "Wednesday", 
-                "Time": "20:04", 
-                "UCR": "110", 
-                "Last Name": "McCray", 
-                "First Name": "Melvin", 
-                "Sex": "M", 
-                "Age": "26", 
-                "DOB": "", 
-                "Home Address": "14500 S Kedzie Ave, Posen, IL 60445", 
-                "Home Specificity": "Block", 
-                "Location": "10200 S State St, Chicago, IL 60628", 
-                "Geocode Override": "(41.70884, -87.6239)", 
-                "Shooting Specificity": "Block", 
-                "District": "5", 
-                "Hospital 1": "Advocate Christ Medical Center", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.72012, 
                     41.89386
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA268265", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "20:45", 
@@ -37217,7 +36876,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA268380", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "22:29", 
@@ -37248,7 +36907,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA268232", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
                 "Time": "20:02", 
@@ -37279,10 +36938,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA268411", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
-                "Time": "22:54", 
+                "Time": "22:50", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37310,10 +36969,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA268411", 
                 "Date": "5/17/17", 
                 "Day": "Wednesday", 
-                "Time": "22:54", 
+                "Time": "22:50", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37336,105 +36995,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.71272257, 
-                    41.81497109
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/18/17", 
-                "Day": "Thursday", 
-                "Time": "0:04", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "24", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "4300 S Drake Ave, Chicago, IL 60632", 
-                "Geocode Override": "(41.8149710904523, -87.712722571805)", 
-                "Shooting Specificity": "Block", 
-                "District": "8", 
-                "Hospital 1": "Mount Sinai Hospital ", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.72030613, 
-                    41.86629022
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/17/17", 
-                "Day": "Wednesday", 
-                "Time": "11:15", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "16", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "3800 W Roosevelt Rd, Chicago, IL 60624", 
-                "Geocode Override": "(41.8662902205727, -87.7203061306529)", 
-                "Shooting Specificity": "Block", 
-                "District": "11", 
-                "Hospital 1": "Mount Sinai Hospital ", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.72030613, 
-                    41.86629022
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/17/17", 
-                "Day": "Wednesday", 
-                "Time": "11:15", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "16", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "3800 W Roosevelt Rd, Chicago, IL 60624", 
-                "Geocode Override": "(41.8662902205727, -87.7203061306529)", 
-                "Shooting Specificity": "Block", 
-                "District": "11", 
-                "Hospital 1": "Mount Sinai Hospital", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.72657, 
                     41.90097
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA266430", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "16:29", 
@@ -37460,46 +37026,15 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.62899482, 
-                    41.76912844
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/17/17", 
-                "Day": "Wednesday", 
-                "Time": "13:39", 
-                "UCR": "150", 
-                "Last Name": "Wells Jr.", 
-                "First Name": "Rashad", 
-                "Sex": "M", 
-                "Age": "17", 
-                "DOB": "", 
-                "Home Address": "6900 S Harvard Ave, Chicago, IL 60621", 
-                "Home Specificity": "Block", 
-                "Location": "146 W 69th St, Chicago, IL 60621", 
-                "Geocode Override": "(41.7691284414451, -87.6289948245245)", 
-                "Shooting Specificity": "Exact", 
-                "District": "7", 
-                "Hospital 1": "DOA", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-off-duty-sheriff-s-deputy-shooting-englewood-armed-robbery-20170517-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.71821, 
                     41.86427
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA268843", 
                 "Date": "5/18/17", 
                 "Day": "Thursday", 
-                "Time": "10:45", 
+                "Time": "10:40", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37527,41 +37062,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA269480", 
                 "Date": "5/18/17", 
                 "Day": "Thursday", 
-                "Time": "17:11", 
-                "UCR": "041A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "16", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "1800 W Garfield Blvd, Chicago, IL 60609", 
-                "Geocode Override": "(41.7940018904768, -87.6696252559747)", 
-                "Shooting Specificity": "Block", 
-                "District": "9", 
-                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.66962526, 
-                    41.79400189
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/18/17", 
-                "Day": "Thursday", 
-                "Time": "17:11", 
+                "Time": "17:25", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37589,10 +37093,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA269606", 
                 "Date": "5/18/17", 
                 "Day": "Thursday", 
-                "Time": "18:21", 
+                "Time": "18:00", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37605,7 +37109,7 @@
                 "Geocode Override": "(41.85513, -87.62763)", 
                 "Shooting Specificity": "Block", 
                 "District": "1", 
-                "Hospital 1": "Mercy ", 
+                "Hospital 1": "Mercy Hospital & Medical Center", 
                 "Hospital 2": "", 
                 "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
             }
@@ -37620,7 +37124,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA269615", 
                 "Date": "5/18/17", 
                 "Day": "Thursday", 
                 "Time": "18:13", 
@@ -37646,43 +37150,12 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.62696804, 
-                    41.8439172
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/18/17", 
-                "Day": "Thursday", 
-                "Time": "20:26", 
-                "UCR": "110", 
-                "Last Name": "Price", 
-                "First Name": "Rayshon", 
-                "Sex": "M", 
-                "Age": "16", 
-                "DOB": "", 
-                "Home Address": "2730 S State St, Chicago, IL 60616", 
-                "Home Specificity": "Exact", 
-                "Location": "2730 S State St, Chicago, IL 60616", 
-                "Geocode Override": "(41.8439171971101, -87.6269680448158)", 
-                "Shooting Specificity": "Exact", 
-                "District": "1", 
-                "Hospital 1": "DOA", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.73786, 
                     41.87438
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA269820", 
                 "Date": "5/18/17", 
                 "Day": "Thursday", 
                 "Time": "19:53", 
@@ -37713,10 +37186,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA269816", 
                 "Date": "5/18/17", 
                 "Day": "Thursday", 
-                "Time": "20:24", 
+                "Time": "20:23", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37744,10 +37217,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA269989", 
                 "Date": "5/19/17", 
                 "Day": "Friday", 
-                "Time": "0:14", 
+                "Time": "0:18", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37775,10 +37248,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA269989", 
                 "Date": "5/19/17", 
                 "Day": "Friday", 
-                "Time": "0:14", 
+                "Time": "0:18", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37806,10 +37279,10 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA269989", 
                 "Date": "5/19/17", 
                 "Day": "Friday", 
-                "Time": "0:14", 
+                "Time": "0:18", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37832,77 +37305,15 @@
             "geometry": {
                 "type": "Point", 
                 "coordinates": [
-                    -87.63158, 
-                    41.89428
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/19/17", 
-                "Day": "Friday", 
-                "Time": "4:15", 
-                "UCR": "033A", 
-                "Last Name": "Doe", 
-                "First Name": "John", 
-                "Sex": "M", 
-                "Age": "26", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "100 W Erie St, Chicago, IL 60654", 
-                "Geocode Override": "(41.89428, -87.63158)", 
-                "Shooting Specificity": "Block", 
-                "District": "18", 
-                "Hospital 1": "Sts. Mary & Elizabeth Medical Center", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.62064, 
-                    41.76908
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "5/18/17", 
-                "Day": "Thursday", 
-                "Time": "18:37", 
-                "UCR": "110", 
-                "Last Name": "", 
-                "First Name": "", 
-                "Sex": "M", 
-                "Age": "29", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "6900 S Indiana Ave, Chicago, IL 60637", 
-                "Geocode Override": "(41.76908, -87.62064)", 
-                "Shooting Specificity": "Block", 
-                "District": "3", 
-                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
                     -87.60225, 
                     41.74597
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA270086", 
                 "Date": "5/19/17", 
                 "Day": "Friday", 
-                "Time": "5:03", 
+                "Time": "4:50", 
                 "UCR": "041A", 
                 "Last Name": "Doe", 
                 "First Name": "John", 
@@ -37930,7 +37341,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA270181", 
                 "Date": "5/19/17", 
                 "Day": "Friday", 
                 "Time": "8:09", 
@@ -38178,7 +37589,7 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA265489", 
                 "Date": "5/16/17", 
                 "Day": "Tuesday", 
                 "Time": "1:05", 
@@ -40937,16 +40348,16 @@
                 ]
             }, 
             "properties": {
-                "RD Number": "", 
+                "RD Number": "JA270280", 
                 "Date": "5/19/17", 
                 "Day": "Friday", 
                 "Time": "9:15", 
-                "UCR": "11", 
+                "UCR": "110", 
                 "Last Name": "Phipps ", 
                 "First Name": "Brandon", 
                 "Sex": "M", 
                 "Age": "30", 
-                "DOB": "", 
+                "DOB": "4/2/87", 
                 "Home Address": "1300 S Albany Ave, Chicago, IL 60623", 
                 "Home Specificity": "Block", 
                 "Location": "3100 W 13th St, Chicago, IL 60623", 
@@ -40955,7 +40366,7 @@
                 "District": "10", 
                 "Hospital 1": "Mount Sinai Hospital", 
                 "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170519-story.html"
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-man-shot-may19-dies-20170529-story.html"
             }
         }, 
         {
@@ -44273,37 +43684,6 @@
                 "Hospital 1": "Stroger Hospital ", 
                 "Hospital 2": "", 
                 "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170603-story.html"
-            }
-        }, 
-        {
-            "type": "Feature", 
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [
-                    -87.63398, 
-                    41.78845
-                ]
-            }, 
-            "properties": {
-                "RD Number": "", 
-                "Date": "6/6/17", 
-                "Day": "Tuesday", 
-                "Time": "15:10", 
-                "UCR": "110", 
-                "Last Name": "", 
-                "First Name": "", 
-                "Sex": "M", 
-                "Age": "27", 
-                "DOB": "", 
-                "Home Address": "", 
-                "Home Specificity": "", 
-                "Location": "5823 S Shields Ave, Chicago, IL 60621", 
-                "Geocode Override": "(41.78845, -87.63398)", 
-                "Shooting Specificity": "Exact", 
-                "District": "7", 
-                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
-                "Hospital 2": "", 
-                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-story.html"
             }
         }, 
         {
@@ -47869,6 +47249,3416 @@
                 "Hospital 1": "Loyola University Medical Center", 
                 "Hospital 2": "Stroger Hospital", 
                 "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170512-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.6578, 
+                    41.70297
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/14/17", 
+                "Day": "Wednesday", 
+                "Time": "6:00", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "33", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "10500 S Vincennes Ave, Chicago, IL 60643", 
+                "Geocode Override": "(41.70297, -87.6578)", 
+                "Shooting Specificity": "Block", 
+                "District": "22", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-man-shot-in-east-beverly-wednesday-morning-20170614-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.60968, 
+                    41.72363
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/14/17", 
+                "Day": "Wednesday", 
+                "Time": "12:57", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "23", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "9400 S St Lawrence Ave, Chicago, IL 60619", 
+                "Geocode Override": "(41.72363, -87.60968)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-man-shot-in-east-beverly-wednesday-morning-20170614-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.59625706, 
+                    41.73114209
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/14/17", 
+                "Day": "Wednesday", 
+                "Time": "20:25", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "41", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "9000 S University Ave, Chicago, IL 60619", 
+                "Geocode Override": "(41.7311420939583, -87.5962570557906)", 
+                "Shooting Specificity": "Block", 
+                "District": "4", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-man-shot-in-east-beverly-wednesday-morning-20170614-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.6239, 
+                    41.77086
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/12/17", 
+                "Day": "Monday", 
+                "Time": "9:15", 
+                "UCR": "110", 
+                "Last Name": "O'Neal", 
+                "First Name": "Emon", 
+                "Sex": "M", 
+                "Age": "21", 
+                "DOB": "", 
+                "Home Address": "3600 S Ellis Ave, Chicago, IL 60653", 
+                "Home Specificity": "Block", 
+                "Location": "6800 S Wabash Ave, Chicago, IL 60637", 
+                "Geocode Override": "(41.77086, -87.6239)", 
+                "Shooting Specificity": "Block", 
+                "District": "3", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170612-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.63398, 
+                    41.78845
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/6/17", 
+                "Day": "Tuesday", 
+                "Time": "15:10", 
+                "UCR": "110", 
+                "Last Name": "Gayles", 
+                "First Name": "Malcolm", 
+                "Sex": "M", 
+                "Age": "26", 
+                "DOB": "", 
+                "Home Address": "6000 S State St, Chicago, IL 60621", 
+                "Home Specificity": "Block", 
+                "Location": "5823 S Shields Ave, Chicago, IL 60621", 
+                "Geocode Override": "(41.78845, -87.63398)", 
+                "Shooting Specificity": "Exact", 
+                "District": "7", 
+                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.66612, 
+                    41.74643
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA262727", 
+                "Date": "5/13/17", 
+                "Day": "Saturday", 
+                "Time": "22:20", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "35", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8100 S Paulina St, Chicago, IL 60620", 
+                "Geocode Override": "(41.74643, -87.66612)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71788774, 
+                    41.86614222
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA262885", 
+                "Date": "5/14/17", 
+                "Day": "Sunday", 
+                "Time": "1:12", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "17", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1200 S Lawndale Ave, Chicago, IL 60623", 
+                "Geocode Override": "(41.8661422237451, -87.7178877375447)", 
+                "Shooting Specificity": "Block", 
+                "District": "10", 
+                "Hospital 1": "Mount Sinai Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.74594, 
+                    41.8809
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA262932", 
+                "Date": "5/14/17", 
+                "Day": "Sunday", 
+                "Time": "2:35", 
+                "UCR": "110", 
+                "Last Name": "Cowans", 
+                "First Name": "Breyon K.", 
+                "Sex": "M", 
+                "Age": "24", 
+                "DOB": "2/10/93", 
+                "Home Address": "4521 W Congress Pkwy, Chicago, IL 60624", 
+                "Home Specificity": "Exact", 
+                "Location": "4812 W Madison St, Chicago, IL 60644", 
+                "Geocode Override": "(41.8809, -87.74594)", 
+                "Shooting Specificity": "Exact", 
+                "District": "15", 
+                "Hospital 1": "Mount Sinai Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.74594, 
+                    41.8809
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA262932", 
+                "Date": "5/14/17", 
+                "Day": "Sunday", 
+                "Time": "2:35", 
+                "UCR": "110", 
+                "Last Name": "Johnson", 
+                "First Name": "Deshawn", 
+                "Sex": "M", 
+                "Age": "23", 
+                "DOB": "10/18/93", 
+                "Home Address": "2016 S 17th Ave, Broadview, IL 60155", 
+                "Home Specificity": "Exact", 
+                "Location": "4812 W Madison St, Chicago, IL 60644", 
+                "Geocode Override": "(41.8809, -87.74594)", 
+                "Shooting Specificity": "Exact", 
+                "District": "15", 
+                "Hospital 1": "Loyola University Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170513-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.60238237, 
+                    41.65567108
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA263298", 
+                "Date": "5/14/17", 
+                "Day": "Sunday", 
+                "Time": "11:54", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "28", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "13200 S Corliss Ave, Chicago, IL 60827", 
+                "Geocode Override": "(41.6556710760789, -87.602382373325)", 
+                "Shooting Specificity": "Block", 
+                "District": "5", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61291, 
+                    41.78233
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA263317", 
+                "Date": "5/14/17", 
+                "Day": "Sunday", 
+                "Time": "12:15", 
+                "UCR": "110", 
+                "Last Name": "Delton", 
+                "First Name": "Warren", 
+                "Sex": "M", 
+                "Age": "44", 
+                "DOB": "9/5/92", 
+                "Home Address": "419 E 62nd St, Chicago, IL 60637", 
+                "Home Specificity": "Exact", 
+                "Location": "6159 S Eberhart Ave, Chicago, IL 60637", 
+                "Geocode Override": "(41.78233, -87.61291)", 
+                "Shooting Specificity": "Exact", 
+                "District": "3", 
+                "Hospital 1": "DOA", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.63624, 
+                    41.70079
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA263411", 
+                "Date": "5/14/17", 
+                "Day": "Sunday", 
+                "Time": "14:00", 
+                "UCR": "110", 
+                "Last Name": "Brownlee", 
+                "First Name": "Devonta", 
+                "Sex": "M", 
+                "Age": "19", 
+                "DOB": "", 
+                "Home Address": "11500 S Normal Ave, Chicago, IL 60628", 
+                "Home Specificity": "Block", 
+                "Location": "10623 S Parnell Ave, Chicago, IL 60628", 
+                "Geocode Override": "(41.70079, -87.63624)", 
+                "Shooting Specificity": "Block", 
+                "District": "22", 
+                "Hospital 1": "Advocate Christ Medical Center in Oak Lawn", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.64151, 
+                    41.76102
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA263441", 
+                "Date": "5/14/17", 
+                "Day": "Sunday", 
+                "Time": "14:45", 
+                "UCR": "110", 
+                "Last Name": "Richmond", 
+                "First Name": "Jamari", 
+                "Sex": "M", 
+                "Age": "18", 
+                "DOB": "", 
+                "Home Address": "7300 S Union Ave, Chicago, IL 60621", 
+                "Home Specificity": "Block", 
+                "Location": "7317 S Union Ave, Chicago, IL 60621", 
+                "Geocode Override": "(41.76102, -87.64151)", 
+                "Shooting Specificity": "Exact", 
+                "District": "7", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170514-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.63420587, 
+                    41.79401181
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA265303", 
+                "Date": "5/15/17", 
+                "Day": "Monday", 
+                "Time": "21:27", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "20", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5500 S Shields Ave, Chicago, IL 60621", 
+                "Geocode Override": "(41.7940118121207, -87.6342058726686)", 
+                "Shooting Specificity": "Block", 
+                "District": "7", 
+                "Hospital 1": "University of Chicago medical center", 
+                "Hospital 2": "Mount SInai Hospital ", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-shootings-violence-20170515-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75809343, 
+                    41.89505639
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA265398", 
+                "Date": "5/15/17", 
+                "Day": "Monday", 
+                "Time": "22:50", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "21", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "800 N Lockwood Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.8950563882467, -87.7580934304384)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "West Suburban Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-shootings-violence-20170515-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62551839, 
+                    41.85265238
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA265500", 
+                "Date": "5/16/17", 
+                "Day": "Tuesday", 
+                "Time": "1:40", 
+                "UCR": "326", 
+                "Last Name": "Jackson", 
+                "First Name": "Leon", 
+                "Sex": "M", 
+                "Age": "27", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "2200 S Wabash Ave, Chicago, IL 60616", 
+                "Geocode Override": "(41.852652379564, -87.6255183914543)", 
+                "Shooting Specificity": "Block", 
+                "District": "1", 
+                "Hospital 1": "Northwestern Memorial Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-shootings-violence-20170515-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.723165, 
+                    41.87959
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA266669", 
+                "Date": "5/16/17", 
+                "Day": "Tuesday", 
+                "Time": "19:21", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "23", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "W Monroe St & S Springfield Ave, Chicago, IL 60624", 
+                "Geocode Override": "(41.87959, -87.723165)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Mount Sinai Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170516-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.58636689, 
+                    41.76581205
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA266925", 
+                "Date": "5/16/17", 
+                "Day": "Tuesday", 
+                "Time": "23:42", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "26", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "7100 S Stony Island Ave, Chicago, IL 60649", 
+                "Geocode Override": "(41.7658120488534, -87.5863668903836)", 
+                "Shooting Specificity": "Block", 
+                "District": "3", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170516-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.72030613, 
+                    41.86629022
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA267378", 
+                "Date": "5/17/17", 
+                "Day": "Wednesday", 
+                "Time": "11:15", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "16", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1200 S Avers Ave, Chicago, IL 60623", 
+                "Geocode Override": "(41.8662902205727, -87.7203061306529)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Mount Sinai Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.72030613, 
+                    41.86629022
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA267378", 
+                "Date": "5/17/17", 
+                "Day": "Wednesday", 
+                "Time": "11:15", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "16", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1200 S Avers Ave, Chicago, IL 60623", 
+                "Geocode Override": "(41.8662902205727, -87.7203061306529)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Mount Sinai Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.59579, 
+                    41.74941
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA267471", 
+                "Date": "5/17/17", 
+                "Day": "Wednesday", 
+                "Time": "12:15", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "18", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8000 S Woodlawn Ave, Chicago, IL 60619", 
+                "Geocode Override": "(41.74941, -87.59579)", 
+                "Shooting Specificity": "Block", 
+                "District": "4", 
+                "Hospital 1": "Jackson Park Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62899482, 
+                    41.76912844
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA267584", 
+                "Date": "5/17/17", 
+                "Day": "Wednesday", 
+                "Time": "13:39", 
+                "UCR": "031A", 
+                "Last Name": "Wells Jr.", 
+                "First Name": "Rashad", 
+                "Sex": "M", 
+                "Age": "17", 
+                "DOB": "", 
+                "Home Address": "6930 S Harvard Ave, Chicago, IL 60621", 
+                "Home Specificity": "Exact", 
+                "Location": "146 W 69th St, Chicago, IL 60621", 
+                "Geocode Override": "(41.7691284414451, -87.6289948245245)", 
+                "Shooting Specificity": "Exact", 
+                "District": "7", 
+                "Hospital 1": "DOA", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-off-duty-sheriff-s-deputy-shooting-englewood-armed-robbery-20170517-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62389, 
+                    41.70778
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA268203", 
+                "Date": "5/17/17", 
+                "Day": "Wednesday", 
+                "Time": "20:04", 
+                "UCR": "110", 
+                "Last Name": "McCray", 
+                "First Name": "Melvin", 
+                "Sex": "M", 
+                "Age": "26", 
+                "DOB": "6/22/90", 
+                "Home Address": "14500 S Kedzie Ave, Posen, IL 60445", 
+                "Home Specificity": "Block", 
+                "Location": "10240 S State St, Chicago, IL 60628", 
+                "Geocode Override": "(41.70778, -87.62389)", 
+                "Shooting Specificity": "Exact", 
+                "District": "5", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-fernwood-homicide-identified-20170519-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71272257, 
+                    41.81497109
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA268455", 
+                "Date": "5/18/17", 
+                "Day": "Thursday", 
+                "Time": "0:02", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "24", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "4300 S Drake Ave, Chicago, IL 60632", 
+                "Geocode Override": "(41.8149710904523, -87.712722571805)", 
+                "Shooting Specificity": "Block", 
+                "District": "8", 
+                "Hospital 1": "Mount Sinai Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170517-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.66962526, 
+                    41.79400189
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA269480", 
+                "Date": "5/18/17", 
+                "Day": "Thursday", 
+                "Time": "17:25", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "16", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1800 W Garfield Blvd, Chicago, IL 60609", 
+                "Geocode Override": "(41.7940018904768, -87.6696252559747)", 
+                "Shooting Specificity": "Block", 
+                "District": "9", 
+                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75788, 
+                    41.8787
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "23:06", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5300 W Adams St, Chicago, IL 60644", 
+                "Geocode Override": "(41.8787, -87.75788)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.58581801, 
+                    41.74223231
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "4:30", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "31", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8400 S Stony Island Ave, Chicago, IL 60617", 
+                "Geocode Override": "(41.7422323138659, -87.5858180115959)", 
+                "Shooting Specificity": "Block", 
+                "District": "4", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.72117, 
+                    41.88313
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "3:05", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "28", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "200 N Hamlin Ave, Chicago, IL 60624", 
+                "Geocode Override": "(41.88313, -87.72117)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "West Suburban Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.77300543, 
+                    41.90026221
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "23:14", 
+                "UCR": "110", 
+                "Last Name": "Smith", 
+                "First Name": "Ahmadd", 
+                "Sex": "M", 
+                "Age": "17", 
+                "DOB": "", 
+                "Home Address": "5800 W Walton St, Chicago, IL 60651", 
+                "Home Specificity": "Block", 
+                "Location": "5900 W Thomas St, Chicago, IL 60651", 
+                "Geocode Override": "(41.9002622077861, -87.7730054340946)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71183, 
+                    41.89744
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "22:30", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "27", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "900 N Homan Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.89744, -87.71183)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Mount Sinai Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71183, 
+                    41.89744
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "22:30", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "24", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "900 N Homan Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.89744, -87.71183)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71183, 
+                    41.89744
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "22:30", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "34", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "900 N Homan Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.89744, -87.71183)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.63904, 
+                    41.73421
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "22:20", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "32", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8800 S Wallace St, Chicago, IL 60620", 
+                "Geocode Override": "(41.73421, -87.63904)", 
+                "Shooting Specificity": "Block", 
+                "District": "22", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.72971, 
+                    41.93567
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "21:18", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "23", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "4100 W Wellington Ave, Chicago, IL 60641", 
+                "Geocode Override": "(41.93567, -87.72971)", 
+                "Shooting Specificity": "Block", 
+                "District": "25", 
+                "Hospital 1": "Illinois Masonic Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62452595, 
+                    41.88069181
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "20:25", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "21", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "100 S Michigan Ave, Chicago, IL 60603", 
+                "Geocode Override": "(41.8806918134759, -87.6245259544331)", 
+                "Shooting Specificity": "Block", 
+                "District": "1", 
+                "Hospital 1": "Northwestern Memorial Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.66796, 
+                    41.77021
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "16:45", 
+                "UCR": "110", 
+                "Last Name": "Gordon", 
+                "First Name": "Gene", 
+                "Sex": "M", 
+                "Age": "78", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "6800 S Hermitage Ave, Chicago, IL 60636", 
+                "Geocode Override": "(41.77021, -87.66796)", 
+                "Shooting Specificity": "Block", 
+                "District": "7", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62496624, 
+                    41.7652419
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "16:45", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "53", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "7100 S State St, Chicago, IL 60619", 
+                "Geocode Override": "(41.7652419003669, -87.6249662386)", 
+                "Shooting Specificity": "Block", 
+                "District": "3", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.72147, 
+                    41.9411
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "16:05", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "18", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3300 N Ridgeway Ave, Chicago, IL 60618", 
+                "Geocode Override": "(41.9411, -87.72147)", 
+                "Shooting Specificity": "Block", 
+                "District": "17", 
+                "Hospital 1": "Advocate Illinois Masonic Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61539727, 
+                    41.76920214
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/15/17", 
+                "Day": "Thursday", 
+                "Time": "15:15", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "23", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "6900 S King Dr, Chicago, IL 60637", 
+                "Geocode Override": "(41.7692021350125, -87.6153972676036)", 
+                "Shooting Specificity": "Block", 
+                "District": "3", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170615-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.60031547, 
+                    41.74883239
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "12:55", 
+                "UCR": "041A", 
+                "Last Name": "", 
+                "First Name": "", 
+                "Sex": "", 
+                "Age": "", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8034 S Ellis Ave, Chicago, IL 60619", 
+                "Geocode Override": "(41.748832390803, -87.6003154670672)", 
+                "Shooting Specificity": "Exact", 
+                "District": "6", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shooting-violence-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.57542076, 
+                    41.72721551
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "13:51", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "13", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "9239 S Jeffery Ave, Chicago, IL 60617", 
+                "Geocode Override": "(41.7272155140379, -87.5754207563765)", 
+                "Shooting Specificity": "Exact", 
+                "District": "4", 
+                "Hospital 1": "University of Chicago Comer Children's Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shooting-violence-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.57542076, 
+                    41.72721551
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "13:51", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "7", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "9239 S Jeffery Ave, Chicago, IL 60617", 
+                "Geocode Override": "(41.7272155140379, -87.5754207563765)", 
+                "Shooting Specificity": "Exact", 
+                "District": "4", 
+                "Hospital 1": "University of Chicago Comer Children's Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shooting-violence-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.72651429, 
+                    41.90991497
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "14:09", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "50", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "4000 W North Ave, Chicago, IL 60639", 
+                "Geocode Override": "(41.9099149663632, -87.7265142877991)", 
+                "Shooting Specificity": "Block", 
+                "District": "25", 
+                "Hospital 1": "Saints Mary and Elizabeth Medical Center ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62501257, 
+                    41.76719342
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "15:02", 
+                "UCR": "110", 
+                "Last Name": "Rhyme", 
+                "First Name": "Sherrod", 
+                "Sex": "M", 
+                "Age": "18", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "7000 S State St, Chicago, IL 60637", 
+                "Geocode Override": "(41.767193423116, -87.6250125686506)", 
+                "Shooting Specificity": "Block", 
+                "District": "3", 
+                "Hospital 1": "John H. Stroger Jr. Hospital of Cook County ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71796, 
+                    41.85699
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "15:51", 
+                "UCR": "041A", 
+                "Last Name": "Doe ", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "28", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1800 S Lawndale Ave, Chicago, IL 60623", 
+                "Geocode Override": "(41.85699, -87.71796)", 
+                "Shooting Specificity": "Block", 
+                "District": "10", 
+                "Hospital 1": "Mount Sinai Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.69295643, 
+                    41.84816193
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "17:15", 
+                "UCR": "041A", 
+                "Last Name": "", 
+                "First Name": "", 
+                "Sex": "M", 
+                "Age": "26", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "2400 S Washtenaw Ave, Chicago, IL 60608", 
+                "Geocode Override": "(41.8481619278319, -87.6929564326769)", 
+                "Shooting Specificity": "Block", 
+                "District": "10", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61742, 
+                    41.73032
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "1:21", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "30", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "300 E 90th Pl, Chicago, IL 60619", 
+                "Geocode Override": "(41.73032, -87.61742)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61742, 
+                    41.73032
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "1:21", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "27", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "300 E 90th Pl, Chicago, IL 60619", 
+                "Geocode Override": "(41.73032, -87.61742)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61742, 
+                    41.73032
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "1:21", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "300 E 90th Pl, Chicago, IL 60619", 
+                "Geocode Override": "(41.73032, -87.61742)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.64259682, 
+                    41.78691203
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "23:51", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "23", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5900 S Union Ave, Chicago, IL 60621", 
+                "Geocode Override": "(41.7869120273104, -87.6425968150881)", 
+                "Shooting Specificity": "Block", 
+                "District": "7", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.64259682, 
+                    41.78691203
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "23:51", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "29", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5900 S Union Ave, Chicago, IL 60621", 
+                "Geocode Override": "(41.7869120273104, -87.6425968150881)", 
+                "Shooting Specificity": "Block", 
+                "District": "7", 
+                "Hospital 1": "St. Bernard Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.65896037, 
+                    41.85967
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "22:45", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "33", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1600 S Throop St, Chicago, IL 60608", 
+                "Geocode Override": "(41.8596699999842, -87.6589603748003)", 
+                "Shooting Specificity": "Block", 
+                "District": "12", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71308513, 
+                    41.86414269
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "22:23", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "20", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3500 W 13th Pl, Chicago, IL 60623", 
+                "Geocode Override": "(41.8641426884394, -87.7130851307009)", 
+                "Shooting Specificity": "Block", 
+                "District": "10", 
+                "Hospital 1": "Mount Sinai Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.73026, 
+                    41.9009
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "21:20", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "21", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1100 N Kedvale Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.9009, -87.73026)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Mount Sinai Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.73134476, 
+                    41.86594155
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "20:09", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "20", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1200 S Tripp Ave, Chicago, IL 60623", 
+                "Geocode Override": "(41.8659415507309, -87.731344757589)", 
+                "Shooting Specificity": "Block", 
+                "District": "10", 
+                "Hospital 1": "Mount Sinai Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.6214842, 
+                    41.70540497
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/16/17", 
+                "Day": "Friday", 
+                "Time": "18:29", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "22", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "50 E 104th St, Chicago, IL 60628", 
+                "Geocode Override": "(41.7054049662933, -87.6214841996795)", 
+                "Shooting Specificity": "Block", 
+                "District": "5", 
+                "Hospital 1": "Roseland Community Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62407657, 
+                    41.79274197
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "5:00", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "35", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5600 S Wabash Ave, Chicago, IL 60637", 
+                "Geocode Override": "(41.7927419708914, -87.6240765732057)", 
+                "Shooting Specificity": "Block", 
+                "District": "2", 
+                "Hospital 1": "St. Bernard Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.63802104, 
+                    41.92672576
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "2:58", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "28", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "2500 N Stockton Dr, Chicago, IL 60614", 
+                "Geocode Override": "(41.9267257550724, -87.6380210358057)", 
+                "Shooting Specificity": "Block", 
+                "District": "19", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-violence-chicago-shootings-20170616-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.70245429, 
+                    41.91202497
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "19:21", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "18", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3000 W Wabansia Ave, Chicago, IL 60647", 
+                "Geocode Override": "(41.9120249668029, -87.7024542936971)", 
+                "Shooting Specificity": "Block", 
+                "District": "14", 
+                "Hospital 1": "Stroger Hospital ", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.70245429, 
+                    41.91202497
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "19:21", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "19", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3000 W Wabansia Ave, Chicago, IL 60647", 
+                "Geocode Override": "(41.9120249668029, -87.7024542936971)", 
+                "Shooting Specificity": "Block", 
+                "District": "14", 
+                "Hospital 1": "Stroger", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75585, 
+                    41.89522
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "17:52", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "16", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5200 W Chicago Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.89522, -87.75585)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "Stroger", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75585, 
+                    41.89522
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "17:52", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "19", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5200 W Chicago Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.89522, -87.75585)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "West Suburban Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.66527525, 
+                    41.81410204
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "19:27", 
+                "UCR": "041B", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "32", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1600 W 44th St, Chicago, IL 60609", 
+                "Geocode Override": "(41.8141020360318, -87.6652752547553)", 
+                "Shooting Specificity": "Block", 
+                "District": "9", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.66527525, 
+                    41.81410204
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "19:27", 
+                "UCR": "041B", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "36", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1600 W 44th St, Chicago, IL 60609", 
+                "Geocode Override": "(41.8141020360318, -87.6652752547553)", 
+                "Shooting Specificity": "Block", 
+                "District": "9", 
+                "Hospital 1": "Stroger", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.66527525, 
+                    41.81410204
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "19:27", 
+                "UCR": "041B", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "36", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1600 W 44th St, Chicago, IL 60609", 
+                "Geocode Override": "(41.8141020360318, -87.6652752547553)", 
+                "Shooting Specificity": "Block", 
+                "District": "9", 
+                "Hospital 1": "Rush University Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71897, 
+                    41.89572
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "10:55", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "29", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3700 W Chicago Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.89572, -87.71897)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.60322, 
+                    41.78021
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "14:36", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "31", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "6300 S Drexel Ave, Chicago, IL 60637", 
+                "Geocode Override": "(41.78021, -87.60322)", 
+                "Shooting Specificity": "Block", 
+                "District": "3", 
+                "Hospital 1": "Northwestern Memorial Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.63420587, 
+                    41.79401181
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "16:17", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "15", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5500 S Shields Ave, Chicago, IL 60621", 
+                "Geocode Override": "(41.7940118121207, -87.6342058726686)", 
+                "Shooting Specificity": "Block", 
+                "District": "7", 
+                "Hospital 1": "Stroger", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.63420587, 
+                    41.79401181
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "16:17", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "16", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "5500 S Shields Ave, Chicago, IL 60621", 
+                "Geocode Override": "(41.7940118121207, -87.6342058726686)", 
+                "Shooting Specificity": "Block", 
+                "District": "7", 
+                "Hospital 1": "Comer Children's Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.60995685, 
+                    41.75489651
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "23:45", 
+                "UCR": "031A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "600 E 77th St, Chicago, IL 60619", 
+                "Geocode Override": "(41.7548965087715, -87.6099568487975)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62874, 
+                    41.7106
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "2:00", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "58", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "10100 S Wentworth Ave, Chicago, IL 60628", 
+                "Geocode Override": "(41.7106, -87.62874)", 
+                "Shooting Specificity": "Block", 
+                "District": "5", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71398, 
+                    41.89394
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "4:48", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "30", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3500 W Huron St, Chicago, IL 60624", 
+                "Geocode Override": "(41.89394, -87.71398)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-two-shot-in-east-garfield-park-they-just-smoked-my-girl-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75621757, 
+                    41.88049895
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "16:36", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "20", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1 N Latrobe Ave, Chicago, IL 60644", 
+                "Geocode Override": "(41.8804989497242, -87.7562175661178)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75621757, 
+                    41.88049895
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "16:36", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "22", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1 N Latrobe Ave, Chicago, IL 60644", 
+                "Geocode Override": "(41.8804989497242, -87.7562175661178)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75621757, 
+                    41.88049895
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "16:36", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "24", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1 N Latrobe Ave, Chicago, IL 60644", 
+                "Geocode Override": "(41.8804989497242, -87.7562175661178)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.75621757, 
+                    41.88049895
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "16:36", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "21", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1 N Latrobe Ave, Chicago, IL 60644", 
+                "Geocode Override": "(41.8804989497242, -87.7562175661178)", 
+                "Shooting Specificity": "Block", 
+                "District": "15", 
+                "Hospital 1": "Loretto", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71093, 
+                    41.90345
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "2:05", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "27", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3343 W Crystal St, Chicago, IL 60651", 
+                "Geocode Override": "(41.90345, -87.71093)", 
+                "Shooting Specificity": "Exact", 
+                "District": "14", 
+                "Hospital 1": "Presence Sts. Mary and Elizabeth Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71093, 
+                    41.90345
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "2:05", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3343 W Crystal St, Chicago, IL 60651", 
+                "Geocode Override": "(41.90345, -87.71093)", 
+                "Shooting Specificity": "Exact", 
+                "District": "14", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71093, 
+                    41.90345
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "2:05", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "26", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3343 W Crystal St, Chicago, IL 60651", 
+                "Geocode Override": "(41.90345, -87.71093)", 
+                "Shooting Specificity": "Exact", 
+                "District": "14", 
+                "Hospital 1": "Sts. Mary and Elizabeth Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71093, 
+                    41.90345
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "2:05", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "26", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3343 W Crystal St, Chicago, IL 60651", 
+                "Geocode Override": "(41.90345, -87.71093)", 
+                "Shooting Specificity": "Exact", 
+                "District": "14", 
+                "Hospital 1": "Sts. Mary and Elizabeth Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.65552, 
+                    41.80645
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/17/17", 
+                "Day": "Saturday", 
+                "Time": "18:24", 
+                "UCR": "110", 
+                "Last Name": "Balderrama", 
+                "First Name": "Dario", 
+                "Sex": "M", 
+                "Age": "32", 
+                "DOB": "6/5/85", 
+                "Home Address": "4932 S Justine St, Chicago, IL 60609", 
+                "Home Specificity": "Exact", 
+                "Location": "4812 S Racine Ave, Chicago, IL 60609", 
+                "Geocode Override": "(41.80645, -87.65552)", 
+                "Shooting Specificity": "Exact", 
+                "District": "9", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61503696, 
+                    41.89270947
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "2:40", 
+                "UCR": "110", 
+                "Last Name": "", 
+                "First Name": "", 
+                "Sex": "F", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "500 E Ohio St, Chicago, IL 60611", 
+                "Geocode Override": "(41.8927094745968, -87.6150369579322)", 
+                "Shooting Specificity": "Block", 
+                "District": "18", 
+                "Hospital 1": "Northwestern Memorial Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170617-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.55549, 
+                    41.74264
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "11:36", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "34", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8400 S Muskegon Ave, Chicago, IL 60617", 
+                "Geocode Override": "(41.74264, -87.55549)", 
+                "Shooting Specificity": "Block", 
+                "District": "4", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.714155, 
+                    41.893478
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "4:48", 
+                "UCR": "110", 
+                "Last Name": "Viramontes", 
+                "First Name": "Tiara", 
+                "Sex": "F", 
+                "Age": "17", 
+                "DOB": "", 
+                "Home Address": "3503 W Huron St, Chicago, IL 60624", 
+                "Home Specificity": "Exact", 
+                "Location": "3511 W Huron St, Chicago, IL 60624", 
+                "Geocode Override": "(41.893478, -87.714155)", 
+                "Shooting Specificity": "Exact", 
+                "District": "11", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-two-shot-in-east-garfield-park-they-just-smoked-my-girl-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.60820832, 
+                    41.74569759
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "15:45", 
+                "UCR": "110", 
+                "Last Name": "Fulgham", 
+                "First Name": "Christian", 
+                "Sex": "M", 
+                "Age": "26", 
+                "DOB": "9/6/90", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "657 E 82nd St, Chicago, IL 60619", 
+                "Geocode Override": "(41.7456975934984, -87.6082083168981)", 
+                "Shooting Specificity": "Exact", 
+                "District": "6", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html "
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.72142962, 
+                    41.86602057
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "19:23", 
+                "UCR": "110", 
+                "Last Name": "Davis", 
+                "First Name": "Jaquarius", 
+                "Sex": "M", 
+                "Age": "16", 
+                "DOB": "", 
+                "Home Address": "1200 S Avers Ave, Chicago, IL 60623", 
+                "Home Specificity": "Block", 
+                "Location": "1205 S Avers Ave, Chicago, IL 60623", 
+                "Geocode Override": "(41.8660205707091, -87.721429619203)", 
+                "Shooting Specificity": "Exact", 
+                "District": "10", 
+                "Hospital 1": "Mount Sinai Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71560564, 
+                    41.87069174
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "20:42", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "800 S Central Park Ave, Chicago, IL 60624", 
+                "Geocode Override": "(41.8706917445374, -87.7156056376726)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.66212, 
+                    41.73384
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "22:20", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "26", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8800 S Justine St, Chicago, IL 60620", 
+                "Geocode Override": "(41.73384, -87.66212)", 
+                "Shooting Specificity": "Block", 
+                "District": "22", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.66212, 
+                    41.73384
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "22:20", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "21", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8800 S Justine St, Chicago, IL 60620", 
+                "Geocode Override": "(41.73384, -87.66212)", 
+                "Shooting Specificity": "Block", 
+                "District": "22", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.68894419, 
+                    41.87753497
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "23:10", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "32", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "2500 W Jackson Blvd, Chicago, IL 60612", 
+                "Geocode Override": "(41.8775349677532, -87.6889441937847)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.68894419, 
+                    41.87753497
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "23:10", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "2500 W Jackson Blvd, Chicago, IL 60612", 
+                "Geocode Override": "(41.8775349677532, -87.6889441937847)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Mount Sinai Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.68405, 
+                    41.87886
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "23:10", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "29", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "2300 W Adams St, Chicago, IL 60612", 
+                "Geocode Override": "(41.87886, -87.68405)", 
+                "Shooting Specificity": "Block", 
+                "District": "12", 
+                "Hospital 1": "Rush University Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.69003, 
+                    41.77714
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "0:20", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "32", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "6400 S Talman Ave, Chicago, IL 60629", 
+                "Geocode Override": "(41.77714, -87.69003)", 
+                "Shooting Specificity": "Block", 
+                "District": "8", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.69003, 
+                    41.77714
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "0:20", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "20", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "6400 S Talman Ave, Chicago, IL 60629", 
+                "Geocode Override": "(41.77714, -87.69003)", 
+                "Shooting Specificity": "Block", 
+                "District": "8", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61649571, 
+                    41.74727178
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "23:00", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "30", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8100 S Calumet Ave, Chicago, IL 60619", 
+                "Geocode Override": "(41.747271783721, -87.6164957055409)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "University of Chicago medical center", 
+                "Hospital 2": "Mount Sinai", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html#nt=oft13a-1gp1"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.64378354, 
+                    41.73956131
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "0:05", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "8500 S Halsted St, Chicago, IL 60620", 
+                "Geocode Override": "(41.739561308715, -87.6437835361976)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Advocate Trinity Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.73274, 
+                    41.85529
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "1:45", 
+                "UCR": "110", 
+                "Last Name": "Henderson", 
+                "First Name": "Joseph", 
+                "Sex": "M", 
+                "Age": "25", 
+                "DOB": "1/27/92", 
+                "Home Address": "8800 S Escanaba Ave, Chicago, IL 60617", 
+                "Home Specificity": "Block", 
+                "Location": "1862 S Kildare Ave, Chicago, IL 60623", 
+                "Geocode Override": "(41.85529, -87.73274)", 
+                "Shooting Specificity": "Exact", 
+                "District": "10", 
+                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.68630506, 
+                    41.87845401
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "23:50", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "17", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "201 S Western Ave, Chicago, IL 60612", 
+                "Geocode Override": "(41.8784540114675, -87.6863050558974)", 
+                "Shooting Specificity": "Block", 
+                "District": "12", 
+                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.68630506, 
+                    41.87845401
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "23:50", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "22", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "201 S Western Ave, Chicago, IL 60612", 
+                "Geocode Override": "(41.8784540114675, -87.6863050558974)", 
+                "Shooting Specificity": "Block", 
+                "District": "12", 
+                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.68630506, 
+                    41.87845401
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/18/17", 
+                "Day": "Sunday", 
+                "Time": "23:50", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "18", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "201 S Western Ave, Chicago, IL 60612", 
+                "Geocode Override": "(41.8784540114675, -87.6863050558974)", 
+                "Shooting Specificity": "Block", 
+                "District": "12", 
+                "Hospital 1": "", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71855, 
+                    41.90001
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "2:30", 
+                "UCR": "110", 
+                "Last Name": "Robinson", 
+                "First Name": "Deandre", 
+                "Sex": "M", 
+                "Age": "33", 
+                "DOB": "8/10/83", 
+                "Home Address": "300 N Latrobe Ave, Chicago, IL 60644", 
+                "Home Specificity": "Block", 
+                "Location": "1031 N Lawndale Ave, Chicago, IL 60651", 
+                "Geocode Override": "(41.90001, -87.71855)", 
+                "Shooting Specificity": "Exact", 
+                "District": "11", 
+                "Hospital 1": "Stroger Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170618-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62696804, 
+                    41.8439172
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA269803", 
+                "Date": "5/18/17", 
+                "Day": "Thursday", 
+                "Time": "20:26", 
+                "UCR": "110", 
+                "Last Name": "Price Jr.", 
+                "First Name": "Rayshon D.", 
+                "Sex": "M", 
+                "Age": "16", 
+                "DOB": "", 
+                "Home Address": "2730 S State St, Chicago, IL 60616", 
+                "Home Specificity": "Exact", 
+                "Location": "2730 S State St, Chicago, IL 60616", 
+                "Geocode Override": "(41.8439171971101, -87.6269680448158)", 
+                "Shooting Specificity": "Exact", 
+                "District": "1", 
+                "Hospital 1": "DOA", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.62064, 
+                    41.76908
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA269614", 
+                "Date": "5/18/17", 
+                "Day": "Thursday", 
+                "Time": "18:37", 
+                "UCR": "110", 
+                "Last Name": "Brown", 
+                "First Name": "Cortez", 
+                "Sex": "M", 
+                "Age": "29", 
+                "DOB": "10/5/87", 
+                "Home Address": "300 W Merchant St, Kankakee, IL 60901", 
+                "Home Specificity": "Block", 
+                "Location": "6930 S Indiana Ave, Chicago, IL 60637", 
+                "Geocode Override": "(41.76908, -87.62064)", 
+                "Shooting Specificity": "Block", 
+                "District": "3", 
+                "Hospital 1": "John H. Stroger, Jr. Hospital of Cook County", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.63158, 
+                    41.89428
+                ]
+            }, 
+            "properties": {
+                "RD Number": "JA270083", 
+                "Date": "5/19/17", 
+                "Day": "Friday", 
+                "Time": "4:00", 
+                "UCR": "033A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "26", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "100 W Erie St, Chicago, IL 60654", 
+                "Geocode Override": "(41.89428, -87.63158)", 
+                "Shooting Specificity": "Block", 
+                "District": "18", 
+                "Hospital 1": "Sts. Mary & Elizabeth Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170518-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61951, 
+                    41.72716
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "13:47", 
+                "UCR": "488", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "18", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "9200 S Indiana Ave, Chicago, IL 60619", 
+                "Geocode Override": "(41.72716, -87.61951)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170619-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61951, 
+                    41.72716
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "13:47", 
+                "UCR": "488", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "18", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "9200 S Indiana Ave, Chicago, IL 60619", 
+                "Geocode Override": "(41.72716, -87.61951)", 
+                "Shooting Specificity": "Block", 
+                "District": "6", 
+                "Hospital 1": "Advocate Christ Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170619-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.61468, 
+                    41.64822
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "12:51", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "19", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "300 E 136th St, Chicago, IL 60827", 
+                "Geocode Override": "(41.64822, -87.61468)", 
+                "Shooting Specificity": "Block", 
+                "District": "5", 
+                "Hospital 1": "Roseland Community Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170619-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.71353311, 
+                    41.91565648
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "15:05", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "22", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "1900 N St Louis Ave, Chicago, IL 60647", 
+                "Geocode Override": "(41.9156564757657, -87.7135331101458)", 
+                "Shooting Specificity": "Block", 
+                "District": "14", 
+                "Hospital 1": "Advocate Illinois Masonic Medical Center", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170619-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.72327, 
+                    41.87737
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "17:37", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "John", 
+                "Sex": "M", 
+                "Age": "20", 
+                "DOB": "", 
+                "Home Address": "", 
+                "Home Specificity": "", 
+                "Location": "3900 W Jackson Blvd, Chicago, IL 60624", 
+                "Geocode Override": "(41.87737, -87.72327)", 
+                "Shooting Specificity": "Block", 
+                "District": "11", 
+                "Hospital 1": "Mount Sinai Hospital", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170619-story.html"
+            }
+        }, 
+        {
+            "type": "Feature", 
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -87.73990456, 
+                    41.77834152
+                ]
+            }, 
+            "properties": {
+                "RD Number": "", 
+                "Date": "6/19/17", 
+                "Day": "Monday", 
+                "Time": "17:40", 
+                "UCR": "041A", 
+                "Last Name": "Doe", 
+                "First Name": "Jane", 
+                "Sex": "F", 
+                "Age": "68", 
+                "DOB": "", 
+                "Home Address": "6300 S Kilpatrick Ave, Chicago, IL 60629", 
+                "Home Specificity": "Block", 
+                "Location": "6300 S Kilpatrick Ave, Chicago, IL 60629", 
+                "Geocode Override": "(41.7783415232332, -87.7399045573798)", 
+                "Shooting Specificity": "Block", 
+                "District": "8", 
+                "Hospital 1": "none", 
+                "Hospital 2": "", 
+                "Link": "http://www.chicagotribune.com/news/local/breaking/ct-chicago-shootings-violence-20170619-story.html"
             }
         }
     ], 
