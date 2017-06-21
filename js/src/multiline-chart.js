@@ -215,7 +215,7 @@ class MultilineChart{
 			.call(xAxisFunc);
 
 		years.forEach(year => {
-			const 	lineColor = year == app.lastYear ? getTribColor('trib-blue2'):getTribColor('trib-gray4'),
+			const 	lineColor = year == app.lastYear ? app.options.currentColor : app.options.otherColor,
 					lineWeight = year == app.lastYear ? 4 : 2;
 
 			const line = d3.line()

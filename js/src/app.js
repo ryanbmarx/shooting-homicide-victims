@@ -1,6 +1,7 @@
 // import {csv} from 'd3';
 import * as L from 'leaflet';
-import CrimeSite from './crime-site.js'
+import getTribColor from './getTribColors.js';
+import CrimeSite from './crime-site.js';
 /*
 var myIcon = L.divIcon({className: 'shooting-icon'});
 
@@ -89,7 +90,9 @@ window.addEventListener('load', e => {
   const crimeSite = new CrimeSite({
     ytd: document.querySelector('#ytd'),
     monthly: document.querySelector('#monthly'),
-    ROOT_URL: window.ROOT_URL
+    ROOT_URL: window.ROOT_URL,
+    currentColor: getTribColor('trib-blue2'),
+    otherColor: getTribColor('trib-gray4')
   })
   
 })

@@ -89,7 +89,9 @@ class CrimeSite{
 				const monthly = new GroupedBarChart({
 					container: app.options.monthly,
 					data:barData,
-			        innerMargins:{top:10,right:0,bottom:20,left:50}
+			        innerMargins:{top:10,right:0,bottom:20,left:50},
+					currentColor: app.options.currentColor,
+					otherColor: app.options.otherColor
 				});
 
 			})
@@ -104,7 +106,10 @@ class CrimeSite{
 				const cumulativeChart = new MultilineChart({
 					container: app.options.ytd,
 					data: groupBy(dailyData, d=> d.Year),
-			        innerMargins:{top:10,right:0,bottom:20,left:50}
+			        innerMargins:{top:10,right:0,bottom:20,left:50},
+					currentColor: app.options.currentColor,
+					otherColor: app.options.otherColor
+
 				});
 
 			})

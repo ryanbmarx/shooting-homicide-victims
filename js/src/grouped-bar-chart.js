@@ -1,24 +1,7 @@
 import * as d3 from 'd3';
 import orderBy from 'lodash.orderby';
 import union from 'lodash.union';
-
-
-
-// const barsData = [
-// 	{2006: 297, 2007:312},
-// 	{2006: 192, 2007:213},
-// 	{2006: 329, 2007:210},
-// 	{2006: 311, 2007:319},
-// 	{2006: 408, 2007:325},
-// 	{2006: 444, 2007:92},
-// 	{2006: 441},
-// 	{2006: 475},
-// 	{2006: 355},
-// 	{2006: 427},
-// 	{2006: 394},
-// 	{2006: 295}
-// ]
-
+import getTribColor from './getTribColors.js';
 
 
 function monthFormatter(month){
@@ -115,7 +98,7 @@ class GroupedBarChart{
 
 		// This scale will color the bars by year
 		const barColorScale = d3.scaleOrdinal()
-			.range(['red', 'blue'])
+			.range([app.options.otherColor, app.options.currentColor])
 			.domain(keys);
 
 		// ----------------------------------
