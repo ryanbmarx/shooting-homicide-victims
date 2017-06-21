@@ -36,5 +36,27 @@ fs.readFile('data/monthly.json', 'utf-8', (err, rawData) => {
 	fs.writeFile('subtemplates/_monthly-table.html', tableString, err =>{
 		if (err) throw err;
 	})
-	// console.log(tableString);
+
+	const legendString = minify(`<dl class='legend'>
+	<dt>
+		<span class='legend__dot legend__dot--last-year'></span>
+	</dt>
+	<dd>${years[0]}</dd>
+	<dt>
+		<span class='legend__dot legend__dot--current-year'></span>
+	</dt>
+	<dd>${years[1]}</dd></dl>`,{
+		collapseWhitespace:true,
+		collapseInlineTagWhitespace:true
+	});
+
+	fs.writeFile('subtemplates/_monthly-legend.html', legendString, err =>{
+		if (err) throw err;
+	})
 });
+
+/*
+
+
+
+*/
