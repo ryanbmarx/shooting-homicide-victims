@@ -219,6 +219,7 @@ class MultilineChart{
 					lineWeight = year == app.lastYear ? 4 : 2;
 
 			const line = d3.line()
+				.curve(d3.curveBasisOpen)
 			    .x(d => xScale(new Date(useYear, d.Month - 1, d.Day,0,0,0,0)))
 			    .y(d => yScale(d.cum_sum));
 

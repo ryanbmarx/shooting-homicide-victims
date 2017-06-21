@@ -30,11 +30,19 @@
 		@include trib-table(compressed);
 		margin:0;
 		
-		tr:first-child td{
-			// Make the first (i.e. current) row bold;
-			font-weight: bold;
+		tr td{
+			padding: 5px 10px;
 		}
 
+		tr:first-child {
+			background: $trib-blue2;
+			td{
+				// Make the first (i.e. current) row bold;
+				font-weight: bold;
+				color:white;
+				padding: 4px 10px;
+			}
+		}
 		tr{
 			td:last-child{
 				// Numbers should be right aligned in tables. This selects that cell.

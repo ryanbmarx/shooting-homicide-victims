@@ -1,8 +1,6 @@
 #get pandas and numpy
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 import io
 import requests
 from datetime import datetime as dt
