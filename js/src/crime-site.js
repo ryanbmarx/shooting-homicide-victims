@@ -94,7 +94,11 @@ class CrimeSite{
 
 			})
 
-			csv(`http://${ app.options.ROOT_URL }/frisco_brisco/shootings_upUntil_2016.csv`, (err, dailyData) => {
+			csv(`http://${ app.options.ROOT_URL }/frisco_brisco/shootings_upUntil_2016.csv`,function(d, i, columns) {
+  				// This coerces the data into numbers
+  				for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+	  				return d;
+				}, (err, dailyData) => {
 				
 
 				const cumulativeChart = new MultilineChart({
