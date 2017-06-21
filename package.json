@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "mkdir -p subtemplates && mkdir -p css && grunt && npm run build:table && npm run build:year-counter",
-    "build:table": "node node_scripts/makeMonthlyTable.js > subtemplates/_monthly-table.html",
+    "build:table": "npm run data:monthly && node node_scripts/makeMonthlyTable.js",
     "build:year-counter": "node node_scripts/makeCumulativeCounter.js > subtemplates/_year-counter.html",
-    "watch": "grunt watch"
+    "watch": "grunt watch",
+    "data:monthly":"node node_scripts/makeMonthlyData.js"
   },
   "repository": {
     "type": "git",
