@@ -5,6 +5,7 @@
 
 @import 'monthly-table';
 @import 'big-numbers';
+@import 'year-to-date';
 
 .charts--monthly{
   height:300px;
@@ -16,9 +17,12 @@
   height:300px;
   background:#eee;
   margin: 0 0 10px 0;
+  position:relative;
 }
 
-
+.highlight-circle--2017{
+  fill: red !important;
+}
 
 //MAP STYLES GO HERE
 .shooting-icon{
