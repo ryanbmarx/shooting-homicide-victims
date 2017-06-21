@@ -1,14 +1,33 @@
 @import 'base-variables';
 @import 'base-mixins';
 
+@import 'leaflet';
+
+@import 'monthly-table';
+@import 'big-numbers';
+@import 'year-to-date';
+
+.charts--monthly{
+  height:300px;
+  // background:#eee;
+  margin: 0 0 10px 0;
+}
+
+.charts--ytd{
+  height:300px;
+  // background:#eee;
+  margin: 0 0 10px 0;
+  position:relative;
+}
+
 //MAP STYLES GO HERE
 .shooting-icon{
   height:10px;
   width:10px;
   background-color:$trib_blue2;
   border-radius: 50%;
-  border:1px solid black;
-  opacity:0.75;
+  // border:1px solid black;
+  opacity:0.3;
 }
 
 //REST OF PROJECT STYLES
@@ -23,30 +42,7 @@
 	}
 }
 
-.big-numbers {
-	display:flex;
 
-	.number{
-		padding-right: 20px;
-		text-align:center;
-		width:320px;	
-
-		p.num2016 {
-			@include sans-serif-text(55px, 1 em, bold);
-			margin-top:20px;
-			margin-bottom:0px;
-		}
-		p.num2017 {
-			@include sans-serif-text(55px, 1 em, bold);
-			margin-top:20px;
-			margin-bottom:0px;
-			color:$trib_blue2;
-		}
-		p.keynum{
-			@include sans-serif-text(16px, 1.4em);
-		}
-	}
-}
 
 .map{
 	@include responsive_embed(16,9,25px);

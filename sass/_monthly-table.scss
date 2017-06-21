@@ -1,0 +1,19 @@
+.charts--monthly-table{
+	// This is the table underneath the monthly chart
+	table{
+		@include trib-table(compressed);
+
+		tr td{
+			text-align: center;
+			border-right: 1px solid black;
+
+			&:first-child{
+				text-align:left;
+				width: 50px;
+			}
+			&:first-child, &:last-child{
+				border-right:none;
+			}
+		}
+	}
+}
