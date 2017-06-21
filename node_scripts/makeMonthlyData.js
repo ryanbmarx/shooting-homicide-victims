@@ -57,7 +57,4 @@ fs.readFile('data/raw-data.csv', 'utf-8', (err, rawData) => {
 	fs.writeFile('data/monthly.json', JSON.stringify(data), err =>{
 		if (err) throw err;
 	})
-	// console.log(data)
-
-	
 });
