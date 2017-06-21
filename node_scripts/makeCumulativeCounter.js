@@ -44,7 +44,6 @@ fs.readFile('frisco_brisco/shootings_upUntil_2016.csv', 'utf-8', (err, data) => 
 			collapseInlineTagWhitespace:true
 		});
 
-	
 
 	console.log(htmlString);
 })
