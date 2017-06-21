@@ -9,10 +9,20 @@ from datetime import datetime as dt
 import sys
 #######
 
-url="http://newsroomdb.tribapps.com/table/csv/shootings"
-urlRequest=requests.get(url).content
-shootings=pd.read_csv(io.StringIO(urlRequest.decode('utf-8')))
-shootings.head(3)
+outputPath = ""
+
+if(len(sys.argv)==4):
+	#e.g, python shootings_script.py -i newsroomdb.com/data.csv ./data/raw-data.csv
+	shootings=pd.read_csv(sys.argv[2]) #reading input file name
+	shootings.head(3)
+	outputPath=sys.argv[3] #output file is the 4th argument. python keyword doesn't count.
+else:
+	#e.g, python shootings_script.py ./data/raw-data.csv
+	url="http://newsroomdb.tribapps.com/table/csv/shootings"
+	urlRequest=requests.get(url).content
+	shootings=pd.read_csv(io.StringIO(urlRequest.decode('utf-8')))
+	shootings.head(3)
+	outputPath=sys.argv[1] #second parameter after the script name
 
 
 
@@ -88,6 +98,13 @@ output #tally number of shootings per day
 
 output.index.names=['ID']
 output.reset_index()
+
 #outputs a csv file with todays date in the file name. This will help in tracking the updates.
-output.to_csv(str(sys.argv[1])+'/number_of_shootings_up_to_'+str(dt.today().strftime("%m_%d_%Y"))+'.csv')
+#output.to_csv(str(sys.argv[1])+'/number_of_shootings_up_to_'+str(dt.today().strftime("%m_%d_%Y"))+'.csv')
+
+output.to_csv(outputPath)
+
+
+
+
 #This is now working properly! It wrties .csv file to a specific folder/directory
