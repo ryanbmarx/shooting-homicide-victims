@@ -12,15 +12,21 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 -->
 {% include "subtemplates/_year-counter.html" %}
 </div>
 <div class="category">
-<h2>{{cumulative_headline}}</h2>
-{{cumulative_blurb|markdown}}
+  <h2>{{cumulative_headline}}</h2>
+  {{cumulative_blurb|markdown}}
 </div>
 
-<div id='ytd' class='charts charts--ytd'></div>
+<div id='ytd' class='charts charts--ytd'>
+  <div class='ytd-highlight'>
+    <h3 class='ytd-highlight__label'>XXXXXXX</h3>
+    <table id='ytd-highlight-table' class='ytd-highlight__table'>
+    </table>
+  </div>
+</div>
 
 <div class="category">
-<h2>{{monthly_headline}}</h2>
-{{monthly_blurb|markdown}}
+  <h2>{{monthly_headline}}</h2>
+  {{monthly_blurb|markdown}}
 </div>
 
 <div class='charts'>
