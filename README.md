@@ -10,6 +10,9 @@ MH ... please describe, in broad terms, WHAT the data is and what format/state i
 FETCHING THE DATA
 -----------------
 
+
+!!! Install requirements -- one-time only. 
+
 The purpose of **shootings_script_Dynamic.py** is to provide a dynamic way of gathering, cleaning, and analyzing shootings data available on newsroomDB. Next, I'll describe how the script works.
 
 The python script crawls NewsroomDB and gets the most up-to-date version of the shootings data that is available on the website. Next, it cleans the Date column so that the formating becomes more python friendly. Next, it calculates the cumulative sum of the number of shootings for each day in each month of ever year. The calcuation will be output in a csv file format and it's called **number_of_shootings_up_to_DATE** (e.g., number_of_shootings_up_to_26/07/2017).
@@ -31,7 +34,14 @@ python shootings_script_Dynamic.py shootings/data (this is just an example of ho
 
 ```
 
+HOW TO UPDATE THIS STORY
+------------------------
 
+The data fetching, cleaning and processing are all automated using python and node. Several HTML partials (Jinja subtemplates) also are build dynamically with node so that they may use the most current data and/or dates. To do all this stuff, simply run `npm run build`. Each of the aforementioned steps has it's own npm script (in the package.json) and they are wired together in the proper order using the `build` script. 
+
+Test locally then `tarbell publish production`. For now, to safeguard against a NewsroomDB failure, we should commit and push the new `raw-data.csv` file. Technically it's generated content but we need that file for the rest of the machine to operate. 
+
+*NOTE: The data-fetching script is mostly about processing the NewsroomDB data. As such, it can pull the CSV automatically, or can ingest a local copy of the same CSV. See the section on data fetching for details.*
 
 
 Assumptions
