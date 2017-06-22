@@ -82,6 +82,10 @@ $current_year_color: $trib-blue2;
   }
 }
 
+.trb_mainContent .credits, .credits{
+  p {@include agate()}
+}
+
 @media (min-width:720px){
       // #g-cumulative-mobile{display:none}
       // #g-cumulative-phablet{display:none}
