@@ -86,7 +86,7 @@ encoding whetehr a shooting is fatal or not
 '''
 isFatalBin = []
 def isFatal(s):
-    if (s in ['110','130','141','142']):
+    if (s in ['110','0110','130','141','142']):
         isFatalBin.append(1)
     else:
         isFatalBin.append(0)
