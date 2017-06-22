@@ -47,7 +47,7 @@ shootings = shootings[shootings['Date'].dt.year>2011] #pulling all the data from
 
 
 
-geoDF = shootings[['Date','Shooting Location','Geocode Override','Link']]
+geoDF = shootings[['Date','Sex','UCR','Age','Time','Shooting Location','Geocode Override','Link']]
 '''
 Although this is weird, but empty cells need to be replaced and filled by another value. In this case it's "Foo" (without quotations)
 This step is necessary as some entries in the shootings file have no geo-code.
@@ -79,6 +79,35 @@ adding the cleaned latitude (lat) and longtitude (long) values to a new data fra
 '''
 geoDF['lat'] = lat
 geoDF['long'] = long
+
+
+'''
+encoding whetehr a shooting is fatal or not
+'''
+isFatalBin = []
+def isFatal(s):
+    if (s in ['110','130','141','142']):
+        isFatalBin.append(1)
+    else:
+        isFatalBin.append(0)
+    
+geoDF['UCR'].apply(isFatal)
+geoDF['isFatal']=isFatalBin
+
+'''
+adding the shooting hour and minutes to the hours and minutes columns.
+'''
+from datetime import datetime
+geoDF['Time']=geoDF['Time'].replace(np.nan,'') #replacing empty NaN values with empty strings
+def crap_to_t(t):
+    if(t==''):
+        return (t)
+    else:
+        return (datetime.strptime(str(t) ,'%H:%M').time()) #converting dates from type string to type date and time
+    
+geoDF['Hour']=geoDF['Time'].apply(crap_to_t)
+geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
+geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
 
 geoDF.to_csv(outputPath)
 
