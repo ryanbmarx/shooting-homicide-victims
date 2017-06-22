@@ -19,7 +19,7 @@ fs.readFile('data/raw-data.csv', 'utf-8', (err, data) => {
 			currentEntry = shootings[shootings.length - 1], // This is the last/most current entry
 			currentYear = currentEntry['Year'],
 			lastYear = parseInt(currentYear) - 1,
-			currentDate = new Date(currentEntry['Year'], currentEntry['Month'], currentEntry['Day']), // Current = last entry
+			currentDate = new Date(currentEntry['Year'], (currentEntry['Month'] - 1), currentEntry['Day']), // Current = last entry
 			currentTotalShootings = parseInt(currentEntry['cum_sum']),
 			lastYearEntry = find(shootings, s => {
 				return s.Year == lastYear && s['Month'] == currentEntry['Month'] && s['Day'] == currentEntry['Day'];
