@@ -35,11 +35,11 @@
 		}
 
 		tr:first-child {
-			background: $trib-blue2;
+			border: 2px solid $trib-blue2;
 			td{
 				// Make the first (i.e. current) row bold;
 				font-weight: bold;
-				color:white;
+				// color:white;
 				padding: 4px 10px;
 			}
 		}
@@ -54,8 +54,8 @@
 
 
 
-.highlight-circle--2017{
-	fill: $trib-blue2;
-	stroke: $trib-blue2;
-	stroke-width: 2;
-}
+// .highlight-circle--2017{
+// 	fill: $trib-blue2;
+// 	stroke: $trib-blue2;
+// 	stroke-width: 2;
+// }

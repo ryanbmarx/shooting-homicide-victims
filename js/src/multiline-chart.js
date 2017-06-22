@@ -13,7 +13,7 @@ function getLastDate(data, years){
 	const 	l = data[lastYear].length,
 			lastDate = data[lastYear][l-1];
 
-	return new Date(lastDate['Year'], lastDate['Month'], lastDate['Day'],0,0,0,0);
+	return new Date(lastDate['Year'], lastDate['Month'] - 1, lastDate['Day'],0,0,0,0);
 }
 
 class MultilineChart{
@@ -64,8 +64,8 @@ class MultilineChart{
 				// to where they need to be. If there isn't one, then make one.
 
 				d3.select(`.highlight-circle--${year}`)
-					.transition()
-					.duration(100)
+					// .transition()
+					// .duration(100)
 					.style('opacity', 1)
 					.attr('cx', xScale(date))	
 					.attr('cy', yScale(d.cum_sum));
@@ -80,14 +80,14 @@ class MultilineChart{
 
 
 		d3.select('.highlight-line')
-			.transition()
-			.duration(100)
+			// .transition()
+			// .duration(100)
 			.attr('x2',xScale(date))
 			.attr('x1',xScale(date))
 		
 		d3.select('.ytd-highlight')
-			.transition()
-			.duration(100)
+			// .transition()
+			// .duration(100)
 			.style('opacity', 1);
 	}
 
@@ -223,13 +223,27 @@ class MultilineChart{
 				.attr('fill', 'transparent');
 
 			// Append a highlight circle for each year
-			chartHighlights.append('circle')
+			if (year == app.lastYear){
+				// The circle for current year needs a little special style.
+				chartHighlights.append('circle')
+					.classed(`highlight-circle--${year}`, true)
+					.classed(`highlight-circle`, true)
+					.attr('cx', width + 10)	
+					.attr('cy', innerHeight)
+					.attr('r', 6)
+					.attr('fill', 'white')
+					.attr('stroke', 'black')
+					.attr('stroke-width', 3);
+
+			} else {
+				chartHighlights.append('circle')
 					.classed(`highlight-circle--${year}`, true)
 					.classed(`highlight-circle`, true)
 					.attr('cx', width + 10)	
 					.attr('cy', innerHeight)
 					.attr('r', 5)
 					.attr('fill', 'black');
+				}
 		});
 
 		chartInner.append('rect')
