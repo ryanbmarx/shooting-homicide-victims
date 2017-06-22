@@ -23,13 +23,13 @@ $current_year_color: $trib-blue2;
   }
 }
 
-.charts--monthly{
+.chart--monthly .chart__wrapper {
   height:300px;
   // background:#eee;
   margin: 0 0 10px 0;
 }
 
-.charts--ytd{
+.chart--ytd  .chart__wrapper {
   height:300px;
   // background:#eee;
   margin: 0 0 10px 0;
@@ -60,9 +60,9 @@ $current_year_color: $trib-blue2;
 
 
 
-.map{
-	@include responsive_embed(16,9,25px);
-}
+// .map{
+// 	@include responsive_embed(16,9,25px);
+// }
 
 
 

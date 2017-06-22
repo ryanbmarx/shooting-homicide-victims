@@ -3,47 +3,44 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 -->
 
 {% block content %}
 
-{{intro|markdown}}
+{{ intro|markdown }}
 
 <div class="category">
-
-
-
-{% include "subtemplates/_year-counter.html" %}
-</div>
-<div class="category">
-  
+  {% include "subtemplates/_year-counter.html" %}
 </div>
 
-<figure class='chart'>
+<figure class='chart chart--ytd'>
   <figcaption>
     <h2 class='chart__headline'>{{cumulative_headline}}</h2>
   </figcaption>
-  <div id='ytd' class='charts charts--ytd'>
+  <div id='ytd' class='chart__wrapper'>
     <div class='ytd-highlight'>
       <h3 class='ytd-highlight__label'>XXXXXXX</h3>
       <table id='ytd-highlight-table' class='ytd-highlight__table'></table>
     </div>
   </div>  
 </figure>
-
-
-<figure class='chart'>
+{# ------------------------- #}
+<figure class='chart chart--monthly'>
   <figcaption>
     <h2 class='chart__headline'>{{ monthly_headline }}</h2>
     {% include 'subtemplates/_monthly-legend.html' %}
   </figcaption>
-  <div id='monthly' class='charts--monthly'></div>
+  <div id='monthly' class='chart__wrapper'></div>
   <div id='monthly-table' class='charts--monthly-table'>
     {% include 'subtemplates/_monthly-table.html' %}
   </div>
 </figure>
+{# ------------------------- #}
+<figure class='chart chart--map'>
+  <figcaption>
+    <h2 class='chart__headline'>{{map_headline}}</h2>
+  </figcaption>
+    <div id="map" style="width:100%; height:600px;"></div>
+</figure>
 
-<div class="category">
-<h2>{{map_headline}}</h2>
-{{map_blurb|markdown}}
-</div>
-<div id="map" style="width:100%; height:600px;"></div>
+
+
 
 <section class='credits'>
   {{ source|markdown }}
