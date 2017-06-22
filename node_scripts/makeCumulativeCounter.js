@@ -13,7 +13,7 @@ const 	fs = require('fs'),
 		find = require('lodash.find'),
 		minify = require('html-minifier').minify;
 
-fs.readFile('frisco_brisco/shootings_upUntil_2016.csv', 'utf-8', (err, data) => {
+fs.readFile('data/raw-data.csv', 'utf-8', (err, data) => {
 	if (err) throw err;
 	const 	shootings = d3.csvParse(data),
 			currentEntry = shootings[shootings.length - 1], // This is the last/most current entry
@@ -44,6 +44,7 @@ fs.readFile('frisco_brisco/shootings_upUntil_2016.csv', 'utf-8', (err, data) => 
 			collapseInlineTagWhitespace:true
 		});
 
-
-	console.log(htmlString);
+	fs.writeFile('subtemplates/_year-counter.html', htmlString, err =>{
+		if (err) throw err;
+	})
 })

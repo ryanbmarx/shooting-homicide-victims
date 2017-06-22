@@ -1,4 +1,8 @@
 @import 'base-variables';
+
+$last_year_color: #e0e0e0;
+$current_year_color: $trib-blue2;
+
 @import 'base-mixins';
 
 @import 'leaflet';
@@ -7,13 +11,25 @@
 @import 'big-numbers';
 @import 'year-to-date';
 
-.charts--monthly{
+.chart {
+  @include trib-chart();
+  margin-bottom: 25px;
+  padding-bottom:25px;
+  border-bottom: 1px solid $trib-gray4;
+  
+  &__headline{
+    @include label5();
+    margin: 0 0 7px 0;
+  }
+}
+
+.chart--monthly .chart__wrapper {
   height:300px;
   // background:#eee;
   margin: 0 0 10px 0;
 }
 
-.charts--ytd{
+.chart--ytd  .chart__wrapper {
   height:300px;
   // background:#eee;
   margin: 0 0 10px 0;
@@ -44,9 +60,9 @@
 
 
 
-.map{
-	@include responsive_embed(16,9,25px);
-}
+// .map{
+// 	@include responsive_embed(16,9,25px);
+// }
 
 
 
@@ -55,51 +71,65 @@
 }
 
  
+.legend{
+  @include trib-legend('inline');
+
+  &__dot{
+    @include trib_legend__box(0);
+    margin-right: 6px;
+    &--last-year{ background: $last_year_color}
+    &--current-year{ background: $current_year_color}
+  }
+}
+
+.trb_mainContent .credits, .credits{
+  p {@include agate()}
+}
 
 @media (min-width:720px){
-      #g-cumulative-mobile{display:none}
-      #g-cumulative-phablet{display:none}
-      #g-cumulative-desktop{display:none} 
-      #g-cumulative-large{display:block}
-      #g-monthly-mobile{display:none}
-      #g-monthly-phablet{display:none}
-      #g-monthly-desktop{display:none} 
-      #g-monthly-large{display:block}    
+      // #g-cumulative-mobile{display:none}
+      // #g-cumulative-phablet{display:none}
+      // #g-cumulative-desktop{display:none} 
+      // #g-cumulative-large{display:block}
+      // #g-monthly-mobile{display:none}
+      // #g-monthly-phablet{display:none}
+      // #g-monthly-desktop{display:none} 
+      // #g-monthly-large{display:block}    
     }
 
 @media (max-width:719px){
-      #g-cumulative-mobile{display:none}
-      #g-cumulative-phablet{display:none}
-      #g-cumulative-desktop{display:block} 
-      #g-cumulative-large{display:none}
-      #g-monthly-mobile{display:none}
-      #g-monthly-phablet{display:none}
-      #g-monthly-desktop{display:block} 
-      #g-monthly-large{display:none}  
+      // #g-cumulative-mobile{display:none}
+      // #g-cumulative-phablet{display:none}
+      // #g-cumulative-desktop{display:block} 
+      // #g-cumulative-large{display:none}
+      // #g-monthly-mobile{display:none}
+      // #g-monthly-phablet{display:none}
+      // #g-monthly-desktop{display:block} 
+      // #g-monthly-large{display:none}  
     }
 @media (max-width:579px){
-      #g-cumulative-mobile{display:none}
-      #g-cumulative-phablet{display:block}
-      #g-cumulative-desktop{display:none} 
-      #g-cumulative-large{display:none}
-      #g-monthly-mobile{display:none}
-      #g-monthly-phablet{display:block}
-      #g-monthly-desktop{display:none} 
-      #g-monthly-large{display:none}  
+      // #g-cumulative-mobile{display:none}
+      // #g-cumulative-phablet{display:block}
+      // #g-cumulative-desktop{display:none} 
+      // #g-cumulative-large{display:none}
+      // #g-monthly-mobile{display:none}
+      // #g-monthly-phablet{display:block}
+      // #g-monthly-desktop{display:none} 
+      // #g-monthly-large{display:none}  
 
       .category{
         h2{@include serif-text(24px, 1.3em, bold);}
       }  
 }
 @media (max-width:429px){
-      #g-cumulative-mobile{display:block}
-      #g-cumulative-phablet{display:none}
-      #g-cumulative-desktop{display:none} 
-      #g-cumulative-large{display:none}
-      #g-monthly-mobile{display:block}
-      #g-monthly-phablet{display:none}
-      #g-monthly-desktop{display:none} 
-      #g-monthly-large{display:none}    
+      // #g-cumulative-mobile{display:block}
+      // #g-cumulative-phablet{display:none}
+      // #g-cumulative-desktop{display:none} 
+      // #g-cumulative-large{display:none}
+      // #g-monthly-mobile{display:block}
+      // #g-monthly-phablet{display:none}
+      // #g-monthly-desktop{display:none} 
+      // #g-monthly-large{display:none}    
     }           
   
 

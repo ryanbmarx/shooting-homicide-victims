@@ -18,7 +18,6 @@ function getLastDate(data, years){
 
 class MultilineChart{
 	constructor(options){
-		console.log(options)
 		const 	app = this;
 		app.options = options;
 		app.data = options.data;
@@ -34,7 +33,6 @@ class MultilineChart{
 					return new Date(d.Year, (d.Month - 1), d.Day,0,0,0,0);
 				}).right;
 
-		console.log('looking for', date);
 
 		// Update the date on the highlight
 		d3.select('#ytd .ytd-highlight__label').html(d3.timeFormat('%B %-d')(date));
@@ -52,7 +50,6 @@ class MultilineChart{
 			let i = bisectDate(tempData, searchDate) - 1,
 				d = tempData[i];
 
-			// console.log(tempData, app.lastDate, searchDate, i, d, searchDate <= app.lastDate);
 
 			// First cell gets the year
 			row.append('td')
@@ -81,7 +78,6 @@ class MultilineChart{
 			}
 		})
 
-		console.log(innerHeight);
 
 		d3.select('.highlight-line')
 			.transition()
@@ -89,10 +85,6 @@ class MultilineChart{
 			.attr('x2',xScale(date))
 			.attr('x1',xScale(date))
 		
-		// d3.select('.highlight-path')
-		// 	.transition()
-		// 	.duration(100)
-		// 	.attr('d',`M${xScale(new Date(2012, 2, 1))},${innerHeight/2} L${xScale(date)},${innerHeight/2}`)
 		d3.select('.ytd-highlight')
 			.transition()
 			.duration(100)
@@ -193,7 +185,6 @@ class MultilineChart{
 				return new Date(d.Year, d.Month - 1, d.Day,0,0,0,0);
 			}));
 
-		console.log(xScale(new Date(2012,3,1,0,0,0,0)))
 
 		const xAxisFunc = d3.axisBottom(xScale);
 
@@ -219,6 +210,7 @@ class MultilineChart{
 					lineWeight = year == app.lastYear ? 4 : 2;
 
 			const line = d3.line()
+				.curve(d3.curveBasisOpen)
 			    .x(d => xScale(new Date(useYear, d.Month - 1, d.Day,0,0,0,0)))
 			    .y(d => yScale(d.cum_sum));
 
@@ -228,14 +220,7 @@ class MultilineChart{
 				.attr("d", line)
 				.attr('stroke', lineColor)
 				.attr('stroke-width', lineWeight)
-				.attr('fill', 'transparent')
-				.on('mouseover click', function(d,i){
-				// console.log('line');
-
-				})
-
-			
-			console.log('drew', year);
+				.attr('fill', 'transparent');
 
 			// Append a highlight circle for each year
 			chartHighlights.append('circle')

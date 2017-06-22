@@ -2,58 +2,31 @@ import * as d3 from 'd3';
 import orderBy from 'lodash.orderby';
 import union from 'lodash.union';
 import getTribColor from './getTribColors.js';
+import monthFormatter from './month-formatter.js';
 
 
-function monthFormatter(month){
-
-	// takes a month as number and returns AP style abbreviation. If the window width is too small, then it returns an even shorter version.
-	
-	const months = {
-		1:{ap: "Jan.", short:"J"},
-		2:{ap: "Feb.", short:"F"},
-		3:{ap: "March", short:"M"},
-		4:{ap: "April", short:"A"},
-		5:{ap: "May", short:"M"},
-		6:{ap: "June", short:"J"},
-		7:{ap: "July", short:"J"},
-		8:{ap: "Aug.", short:"A"},
-		9:{ap: "Sept.", short:"S"},
-		10:{ap: "Oct.", short:"O"},
-		11:{ap: "Nov.", short:"N"},
-		12:{ap: "Dec.", short:"D"}
-	}
-
-	try{
-		return window.innerWidth > 850 ? months[month]['ap'] : months[month]['short'];
-	}
-
-	catch(TypeError){
-		console.log('no month 13')
-	}
-}
 
 class GroupedBarChart{
 	constructor(options){
-		// console.log(options);
-
 		const 	app = this;
 		app.options = options;
 		app.data = app.options.data
 		app._container = options.container;
+
 
 		GroupedBarChart.initChart(app)
 
 	}
 
 	static initChart(app){
-		console.log('Building chart', app.options)
+		console.log('Building chart', app.options, app.data)
 		
 
 		// ----------------------------------
 		// GET THE KNOW THE CONTAINER
 		// ----------------------------------
 
-		const 	data = app.data,
+		const 	data = app.data.data,
 				container = d3.select(app._container),
 				bbox = app._container.getBoundingClientRect(), 
 				height = bbox.height,
@@ -61,7 +34,7 @@ class GroupedBarChart{
 				margin = app.options.innerMargins,
 				innerHeight = height - margin.top - margin.bottom,
 				innerWidth = width - margin.right - margin.left,
-				keys = data.columns.slice(1); // The first column is the Month indicator. Let's ditch it so we can find the max shootings without caring that the month also is a number.
+				keys = Object.keys(data[0]).slice(1,3); // The first column is the Month indicator. Let's ditch it so we can find the max shootings without caring that the month also is a number.
 				
 		// ----------------------------------
 		// BUILD SCALES AND AXES
@@ -70,15 +43,16 @@ class GroupedBarChart{
 		// Find the most shootings from either year.
 		const yMax = d3.max(data, d => {
 			return d3.max(keys, key => {
+				console.log(d[key]);
 				return parseInt(d[key]);
 			})
 		})
 
 		// The traditional yScale will govern bar height.
 		const yScale = d3.scaleLinear()
-			.domain([yMax,0 ])
+			.domain([0, yMax ])
 			.nice()
-			.range([0,innerHeight]);
+			.range([innerHeight,0]);
 
 		// This will handle position of the bar groups, which is why it's domain is 0->innerWidth
 		// It's a pretty typical xScale for bar charts.

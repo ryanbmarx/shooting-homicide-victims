@@ -13,3 +13,5 @@ app.min.js
 .DS_Store
 subtemplates/_year-counter.html
 subtemplates/_monthly-table.html
+data/monthly.json
+subtemplates
