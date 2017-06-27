@@ -13,7 +13,7 @@ const 	fs = require('fs'),
 		find = require('lodash.find'),
 		minify = require('html-minifier').minify;
 
-fs.readFile('data/raw-data.csv', 'utf-8', (err, data) => {
+fs.readFile('data/raw-dates.csv', 'utf-8', (err, data) => {
 	if (err) throw err;
 	const 	shootings = d3.csvParse(data),
 			currentEntry = shootings[shootings.length - 1], // This is the last/most current entry

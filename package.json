@@ -9,8 +9,9 @@
     "build:table": "node node_scripts/makeMonthlyTable.js",
     "build:year-counter": "node node_scripts/makeCumulativeCounter.js",
     "watch": "grunt watch",
-    "data:download": "python dynamic/shootings_script_Dynamic.py data/raw-data.csv",
-    "data:monthly":"node node_scripts/makeMonthlyData.js"
+    "data:download": "python dynamic/shootings_script_Dynamic.py data/raw-dates.csv",
+    "data:geo": "python dynamic/Geocoding_Script.py data/raw-victims.csv",
+    "data:monthly": "node node_scripts/makeMonthlyData.js"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "d3": "^4.9.1",
     "d3-queue": "^3.0.7",
     "leaflet": "^1.0.3",
+    "lodash.countby": "^4.6.0",
     "lodash.filter": "^4.6.0",
     "lodash.find": "^4.6.0",
     "lodash.groupby": "^4.6.0",

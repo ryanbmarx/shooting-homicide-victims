@@ -49,7 +49,7 @@ function getMonthlyTableData(rawData){
 
 
 
-fs.readFile('data/raw-data.csv', 'utf-8', (err, rawData) => {
+fs.readFile('data/raw-dates.csv', 'utf-8', (err, rawData) => {
 	if (err) throw err;
 	
 	const data = getMonthlyTableData(d3.csvParse(rawData));
