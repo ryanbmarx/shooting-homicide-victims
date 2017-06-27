@@ -9,6 +9,7 @@
     "build": "npm run download && npm run process && mkdir -p subtemplates && mkdir -p css && grunt && npm run build:table && npm run build:year-counter",
     "build:table": "node node_scripts/makeMonthlyTable.js",
     "build:year-counter": "node node_scripts/makeCumulativeCounter.js",
+    "build:victims-list": "node node_scripts/makeMapVictimsList.js > temp.txt",
     "download": "npm run download:dates && npm run download:victims",
     "download:dates": "python dynamic/shootings_script_Dynamic.py data/raw-dates.csv",
     "download:victims": "python dynamic/Geocoding_Script.py data/raw-victims.csv",

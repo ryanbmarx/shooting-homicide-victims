@@ -10,6 +10,7 @@ $current_year_color: $trib-blue2;
 @import 'monthly-table';
 @import 'big-numbers';
 @import 'year-to-date';
+@import 'map';
 
 .chart {
   @include trib-chart();
