@@ -18,13 +18,18 @@ $list_padding:20px;
 		padding: 25px
 	}
 
-	&__locations-list{
+	&__victims{
 		width: 25%;
 		width: $list_width;
 		height:$map_height;
-		background:#ee0;
-		overflow:scroll;
+		background:$trib-gray4;
+		
+		overflow:scroll; // Fallback
+		overflow-y:scroll;
+		overflow-x:hidden;
+		
 		padding: $list_padding;
+		position:relative;
 
 		ul{
 			list-style-type:none;
@@ -33,6 +38,11 @@ $list_padding:20px;
 			padding:0;
 		}
 	}
+
+	&__victims-headline{
+		@include label7();
+		margin-top:0;
+	}
 }
 
 
@@ -40,7 +50,7 @@ $list_padding:20px;
 	@include sans-serif();
 	margin-bottom:15px;
 	padding-bottom:15px;
-	border-bottom:1px solid $trib-gray4;
+	border-bottom:1px solid $trib-gray2;
 	border-left: 3px solid transparent;
 
 	&:last-child{
@@ -63,7 +73,7 @@ $list_padding:20px;
 			margin-bottom:25px;
 		}
 
-		&__locations-list{
+		&__victims{
 			width: auto;
 			height:auto;	
 		}
