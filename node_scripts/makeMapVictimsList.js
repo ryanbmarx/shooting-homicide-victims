@@ -6,6 +6,7 @@
 
 const 	fs = require('fs'),
 		d3 = require('d3'),
+		orderBy = require('lodash.orderBy'),
 		minify = require('html-minifier').minify,
 		dateTimeParser = d3.timeParse('%Y-%m-%d %H:%M:%S'),
 		dateTimeFormatter = d3.timeFormat('%-I:%M %p, %b %e');
@@ -18,12 +19,14 @@ function formatGender(gender){
 
 fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 	if (err) throw err;
-	const 	victims = JSON.parse(data);
+	const 	victims = orderBy(JSON.parse(data), v => {
+		return dateTimeParser(`${v.Date} ${v.Hour}`)
+	}, 'desc');
 
 	console.log(victims[10]);
 
 	// This var will hold our growing string of victims
-	let victimsListString = `<h3>Fatal shootings</h3><ul class='victims'>`;
+	let victimsListString = `<h3 class='map__victims-headline'>Fatal shootings</h3><ul class='victims'>`;
 	
 	victims.forEach(v => {
 		if (v.isFatal == 1){
