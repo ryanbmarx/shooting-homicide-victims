@@ -220,7 +220,8 @@ class MultilineChart{
 				.attr("d", line)
 				.attr('stroke', lineColor)
 				.attr('stroke-width', lineWeight)
-				.attr('fill', 'transparent');
+				.attr('fill', 'transparent')
+				.attr('stroke-linecap', 'round');
 
 			// Append a highlight circle for each year
 			if (year == app.lastYear){
