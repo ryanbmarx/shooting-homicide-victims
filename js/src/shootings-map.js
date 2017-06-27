@@ -63,7 +63,8 @@ class ShootingsMap{
 			opacity: 0.5 
 		}).addTo(map);
 
-		const shootingMarkers = L.layerGroup();
+		const 	fatalShootingMarkers = L.layerGroup(), 
+				nonFatalShootingMarkers = L.layerGroup();
 
 		data.forEach(shooting => {
 			
@@ -82,15 +83,20 @@ class ShootingsMap{
 					stroke:false,
 					fill: true,
 					fillColor: isFatal ? options.fatalColor : options.currentColor,
-					fillOpacity: isFatal ? .7 : .2
+					fillOpacity: isFatal ? .5 : .2
 				})
 				// .bindPopup(customPopup(shooting));
 	
-	
-				shootingMarker.addTo(shootingMarkers)
+				if (isFatal){
+					shootingMarker.addTo(fatalShootingMarkers);
+				} else {
+					shootingMarker.addTo(nonFatalShootingMarkers);	
+				}
+				
 			}
 		})
-		shootingMarkers.addTo(map);
+		nonFatalShootingMarkers.addTo(map);
+		fatalShootingMarkers.addTo(map);
 	}
 }
 
