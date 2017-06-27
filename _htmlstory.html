@@ -1,14 +1,14 @@
-<!-- To update the numbers on this page you should follow the directions here:
-https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 -->
+{# To update the numbers on this page you should follow the directions here:
+https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
 
 {% block content %}
 
+
+
+<section class='title'>
+{% include "subtemplates/_year-counter.html" %}
+</section>
 {{ intro|markdown }}
-
-<div class="category">
-  {% include "subtemplates/_year-counter.html" %}
-</div>
-
 <figure class='chart chart--ytd'>
   <figcaption>
     <h2 class='chart__headline'>{{cumulative_headline}}</h2>
@@ -36,7 +36,7 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 -->
   <figcaption>
     <h2 class='chart__headline'>{{map_headline}}</h2>
   </figcaption>
-    <div id="map" style="width:100%; height:600px;"></div>
+    <div id="map" style="width:100%; height:600px;background:#eee"></div>
 </figure>
 
 
