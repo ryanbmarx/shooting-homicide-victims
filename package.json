@@ -12,8 +12,9 @@
     "download": "npm run download:dates && npm run download:victims",
     "download:dates": "python dynamic/shootings_script_Dynamic.py data/raw-dates.csv",
     "download:victims": "python dynamic/Geocoding_Script.py data/raw-victims.csv",
-    "process": "npm run process:monthly",
-    "process:monthly": "node node_scripts/makeMonthlyData.js"
+    "process": "npm run process:monthly && npm run process:map",
+    "process:monthly": "node node_scripts/makeMonthlyData.js",
+    "process:map": "node node_scripts/makeCurrentYearVictims.js"
   },
   "repository": {
     "type": "git",
