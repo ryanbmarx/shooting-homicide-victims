@@ -36,7 +36,12 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
   <figcaption>
     <h2 class='chart__headline'>{{map_headline}}</h2>
   </figcaption>
-    <div id="map" style="width:100%; height:600px;background:#eee"></div>
+    <div class='map'>
+      <div class='map__map' id="map"></div>
+      <div class='map__locations-list'>
+        {% include 'subtemplates/_victims-list.html' %}
+      </div>
+    </div>
 </figure>
 
 
