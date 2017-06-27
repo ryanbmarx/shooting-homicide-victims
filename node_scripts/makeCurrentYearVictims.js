@@ -1,6 +1,7 @@
 /*
 	This script takes the victims data and slices off only the victims from the current year.
 
+	TODO: Make this output a CSV
 */
 
 const 	fs = require('fs'),
