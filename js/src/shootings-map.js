@@ -66,7 +66,12 @@ class ShootingsMap{
 		const shootingMarkers = L.layerGroup();
 
 		data.forEach(shooting => {
-						
+			
+			const 	isFatal = parseInt(shooting['isFatal']) == 1 ? true : false,
+					// victimFill = isFatal ? options.fatalColor : options.currentColor,
+					victimFill = "yellow",
+					victimOpacity = isFatal ? .7 : .2;
+
 			// console.log(shooting, parseFloat(shooting.lat), parseFloat(shooting.long));
 			if(shooting.lat && shooting.long){
 				const shootingMarker = L.circleMarker({
@@ -75,8 +80,9 @@ class ShootingsMap{
 				},{
 					radius: 5,
 					stroke:false,
-					fill: options.currentColor,
-					fillOpacity: .3
+					fill: true,
+					fillColor: isFatal ? options.fatalColor : options.currentColor,
+					fillOpacity: isFatal ? .7 : .2
 				})
 				// .bindPopup(customPopup(shooting));
 	
