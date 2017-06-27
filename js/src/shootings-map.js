@@ -1,14 +1,34 @@
 import * as L from 'leaflet';
 import "leaflet-providers";
+import {timeParse, timeFormat} from 'd3';
 
 
-function getShootingMarkerIcon(shooting){
+// function getShootingMarkerIcon(shooting){
 
-		return L.divIcon({
-			className:'shooting-icon',
-			iconSize:10
-		})	
-}
+// 		return L.divIcon({
+// 			className:'shooting-icon',
+// 			iconSize:10
+// 		})	
+// }
+
+// function customPopup(shooting){
+// 	console.log(shooting);
+// 	const 	location = shooting['Shooting Location'],
+// 			gender = shooting['Sex'],
+// 			time = d3.parseTime(),
+// 			date = "",
+// 			link = shootings['Link'];
+// 	let popupContent = `
+// 		<div class='victim'>
+// 		TIME, DATE
+// 		Age, gender
+// 		location
+// 		<a href='' ></a>
+// 		</div>
+// 	`;
+
+// 	return popupContent;
+// }
 
 class ShootingsMap{
 	constructor(options){
@@ -46,9 +66,7 @@ class ShootingsMap{
 		const shootingMarkers = L.layerGroup();
 
 		data.forEach(shooting => {
-			
-			const customPopup = "XXX";
-			
+						
 			// console.log(shooting, parseFloat(shooting.lat), parseFloat(shooting.long));
 			if(shooting.lat && shooting.long){
 				const shootingMarker = L.circleMarker({
@@ -59,7 +77,8 @@ class ShootingsMap{
 					stroke:false,
 					fill: options.currentColor,
 					fillOpacity: .3
-				}).bindPopup(customPopup);
+				})
+				// .bindPopup(customPopup(shooting));
 	
 	
 				shootingMarker.addTo(shootingMarkers)
