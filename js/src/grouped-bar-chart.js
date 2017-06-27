@@ -19,7 +19,7 @@ class GroupedBarChart{
 	}
 
 	static initChart(app){
-		console.log('Building chart', app.options, app.data)
+		// console.log('Building chart', app.options, app.data)
 		
 
 		// ----------------------------------
@@ -43,7 +43,7 @@ class GroupedBarChart{
 		// Find the most shootings from either year.
 		const yMax = d3.max(data, d => {
 			return d3.max(keys, key => {
-				console.log(d[key]);
+				// console.log(d[key]);
 				return parseInt(d[key]);
 			})
 		})
