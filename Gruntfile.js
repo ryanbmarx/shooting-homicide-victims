@@ -10,7 +10,9 @@ module.exports = function(grunt) {
     'lodash.merge',
     'lodash.union',
     'lodash.groupby',
-    'd3-queue'
+    'lodash.countby',
+    'd3-queue',
+    'leaflet-providers'
   ];
 
   config.browserify = {
