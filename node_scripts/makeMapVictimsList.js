@@ -39,7 +39,8 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 						age = typeof(parseInt(v.Age)) == "number" ? parseInt(v.Age) : false,
 						gender = v.Sex.length > 0 ? v.Sex : false,
 						link = v.Link,
-						address = v['Shooting Location'];
+						address = v['Shooting Location'],
+						id = v['uniqueID'];
 
 
 				// Make an empty string. If we have data, then we'll fill it up.
@@ -54,7 +55,7 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 				// If a gender is known
 				if (gender) personString += `${formatGender(gender)} `;
 
-				victimsListString += `<li class='victim'>
+				victimsListString += `<li class='victim' data-shooting-id=${id}>
 					<a href='${link}' target='_blank'>
 						<p><strong>${ personString }</strong></p>
 						<p>When: <time datetime="${ shootingDate }">${dateTimeFormatter(shootingDate)}</time></p>
@@ -72,9 +73,7 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 
 	victimsListString += `</ul>`;
 
-	console.log(victimsListString)
-
-		victimsListString = minify(victimsListString, {
+	victimsListString = minify(victimsListString, {
 		collapseWhitespace:true,
 		collapseInlineTagWhitespace:true
 	});

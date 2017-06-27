@@ -83,10 +83,12 @@ class ShootingsMap{
 					stroke:false,
 					fill: true,
 					fillColor: isFatal ? options.fatalColor : options.currentColor,
-					fillOpacity: isFatal ? .5 : .2
+					fillOpacity: isFatal ? .4 : .2
 				})
 				// .bindPopup(customPopup(shooting));
 	
+				shootingMarker.ID = shooting.uniqueID;
+				
 				if (isFatal){
 					shootingMarker.addTo(fatalShootingMarkers);
 				} else {
@@ -101,46 +103,3 @@ class ShootingsMap{
 }
 
 module.exports = ShootingsMap;
-
-
-/*
-var myIcon = L.divIcon({className: 'shooting-icon'});
-
-//COMMUNITY AREA STYLING
-var commStyle = {
-    "fillColor": "#FFF",
-    "color": "#222222",
-    "weight": 3,
-    "opacity": 0.5
-};
-
-//SETS UP MAP
-var map = L.map('map', {scrollWheelZoom: false}).setView([41.838299, -87.706953],11);
-
-
-
-//FUNCTION FETCHES COMMUNITY AREAS. CAN ALSO USE TO FETCH OTHER POLYGON DATA
-function getShapeGeoJson(url){
-  var request = new XMLHttpRequest();
-  request.open('GET', url, true);
-
-  request.onload = function() {
-    if (request.status >= 200 && request.status < 400) {
-      var data = JSON.parse(request.responseText);
-      L.geoJson( data, {
-        style: commStyle
-      }).addTo(map);
-    } else {
-    }
-  };
-
-  request.onerror = function() {
-  };
-
-  request.send();
-};
-
-//MAPS LAYERS
-getPointGeoJson("http://" + window.ROOT_URL + "/data/locations.geojson");
-getShapeGeoJson('http://' + window.ROOT_URL + '/data/commareas.geojson');
-*/
