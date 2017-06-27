@@ -18,7 +18,7 @@ class ShootingsMap{
 				iconColor = options.currentColor,
 				width = 10;
 
-		console.log(data)
+		console.log(options)
 
 		//SETS UP MAP
 
@@ -26,7 +26,9 @@ class ShootingsMap{
 			center: [41.838299, -87.706953],
 			zoom: 11,
 			scrollWheelZoom:false,
-			maxZoom:16
+			maxZoom:16,
+		    renderer: L.canvas({padding:.05})
+
 		});
 
 		// This is using an npm plugin. Can be adjusted for many map types.
@@ -47,13 +49,16 @@ class ShootingsMap{
 			
 			const customPopup = "XXX";
 			
-			console.log(shooting, parseFloat(shooting.lat), parseFloat(shooting.long));
+			// console.log(shooting, parseFloat(shooting.lat), parseFloat(shooting.long));
 			if(shooting.lat && shooting.long){
-				const shootingMarker = L.marker({
+				const shootingMarker = L.circleMarker({
 					lat:parseFloat(shooting.lat),
 					lng:parseFloat(shooting.long)
 				},{
-					icon: getShootingMarkerIcon(shooting)
+					radius: 5,
+					stroke:false,
+					fill: options.currentColor,
+					fillOpacity: .3
 				}).bindPopup(customPopup);
 	
 	
