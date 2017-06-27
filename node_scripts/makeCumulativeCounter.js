@@ -26,22 +26,21 @@ fs.readFile('data/raw-data.csv', 'utf-8', (err, data) => {
 			}),
 			lastYearTotalShootings = lastYearEntry['cum_sum'],
 			shootingsFormatter = d3.format(',');
+	
 
+	let lessMore;
+	if (currentTotalShootings - lastYearTotalShootings > 0){
+		lessMore = "more than";
+	} else if (currentTotalShootings - lastYearTotalShootings < 0){
+		lessMore = "fewer than";
+	} else {
+		lessMore = "the same as";
+	}
 
-	const htmlString = minify(`
-		<h2>Shooting victims through ${ d3.timeFormat('%A, %B %-d')(currentDate) }</h2>
-		<div class="big-numbers">
-			<dl class="number number--last-year">
-				<dt>${ shootingsFormatter(lastYearTotalShootings) }</dt>
-				<dd>${ lastYear }</dd>
-			</dl>
-			<dl class="number number--this-year">
-				<dt>${ shootingsFormatter(currentTotalShootings) }</dt>
-				<dd>${ currentYear }</dd>
-			</dl>
-		</div>`, {
+	const htmlString = minify(`<h2 class='title__headline'>In Chicago, <strong class='title__current-year'>${shootingsFormatter(currentTotalShootings)} people</strong> have been shot this year. That is <strong class='title__last-year'>${shootingsFormatter(Math.abs(currentTotalShootings - lastYearTotalShootings))} ${lessMore}</strong> ${ lastYear }.</h2>
+		<p class='title__subtitle'>Data through ${ d3.timeFormat('%A, %B %-d')(currentDate) }</p>`, {
 			collapseWhitespace:true,
-			collapseInlineTagWhitespace:true
+			collapseInlineTagWhitespace:false
 		});
 
 	fs.writeFile('subtemplates/_year-counter.html', htmlString, err =>{
