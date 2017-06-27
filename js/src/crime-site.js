@@ -52,7 +52,7 @@ class CrimeSite{
 			});
 		});
 
-		csv(`http://${ app.options.ROOT_URL }/data/geocodes-test.csv`,(err, mapData) => {
+		json(`http://${ app.options.ROOT_URL }/data/current-year-victims.json`,(err, mapData) => {
 			// Build a map
 			const map = new ShootingsMap({
 				container: app.options.map,
