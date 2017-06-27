@@ -37,7 +37,7 @@ class CrimeSite{
 		});
 
 		// Activate the YTD line chart
-		csv(`http://${ app.options.ROOT_URL }/data/raw-data.csv`,function(d, i, columns) {
+		csv(`http://${ app.options.ROOT_URL }/data/raw-dates.csv`,function(d, i, columns) {
 				// This coerces the data into numbers
 				for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
   				return d;
@@ -45,7 +45,7 @@ class CrimeSite{
 
 			const cumulativeChart = new MultilineChart({
 				container: app.options.ytd,
-				data: groupBy(dailyData, d=> d.Year),
+				data: groupBy(dailyData, d=> d.Year), // seperate the rows into year groups
 		        innerMargins:{ top:10,right:0,bottom:20,left:50 },
 				currentColor: app.options.currentColor,
 				otherColor: app.options.otherColor
