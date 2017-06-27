@@ -63,15 +63,12 @@ class ShootingsMap{
 			opacity: 0.5 
 		}).addTo(map);
 
-		const 	fatalShootingMarkers = L.layerGroup(), 
-				nonFatalShootingMarkers = L.layerGroup();
-
+		app.fatalShootingMarkers = L.layerGroup();
+		app.nonFatalShootingMarkers = L.layerGroup();
+		app.highlightedShootings = L.layerGroup(); // Using a layer group, we easily can locate/remove highlighted shootings 
 		data.forEach(shooting => {
 			
-			const 	isFatal = parseInt(shooting['isFatal']) == 1 ? true : false,
-					// victimFill = isFatal ? options.fatalColor : options.currentColor,
-					victimFill = "yellow",
-					victimOpacity = isFatal ? .7 : .2;
+			const 	isFatal = parseInt(shooting['isFatal']) == 1 ? true : false;
 
 			// console.log(shooting, parseFloat(shooting.lat), parseFloat(shooting.long));
 			if(shooting.lat && shooting.long){
@@ -87,18 +84,50 @@ class ShootingsMap{
 				})
 				// .bindPopup(customPopup(shooting));
 	
-				shootingMarker.ID = shooting.uniqueID;
-				
+				shootingMarker.shootingID = shooting.uniqueID;
+
 				if (isFatal){
-					shootingMarker.addTo(fatalShootingMarkers);
+					shootingMarker.addTo(app.fatalShootingMarkers);
 				} else {
-					shootingMarker.addTo(nonFatalShootingMarkers);	
+					shootingMarker.addTo(app.nonFatalShootingMarkers);	
 				}
 				
 			}
 		})
-		nonFatalShootingMarkers.addTo(map);
-		fatalShootingMarkers.addTo(map);
+		app.nonFatalShootingMarkers.addTo(map);
+		app.fatalShootingMarkers.addTo(map);
+		app.highlightedShootings.addTo(map)
+
+		app.highlightShooting(16856);
+	}
+
+	highlightShooting(shootingID){
+		// 16856
+		console.log('highlighting ', shootingID);
+		const 	app = this; 
+
+		// console.log(app.fatalShootingMarkers.getLayer())
+
+		app.fatalShootingMarkers.eachLayer( l => {
+			if (parseInt(l.shootingID) == shootingID) {
+				// First, remove all highlighted shootings
+				app.highlightedShootings.clearLayers();
+				
+				// Then clone the desired layer.
+				const newIcon = l;
+				
+				// Give it the highlighted style and add it to the highlighted LayerGroup()
+				newIcon.setStyle({
+					radius: 10,
+					stroke:true,
+					strokeWidth:1,
+					color:'black',
+					fill: true,
+					fillOpacity: .8
+				}).addTo(app.highlightedShootings);
+				
+			};
+		})
 	}
 }
 
