@@ -15,20 +15,20 @@ const colors = {
 	trib_blue4:"#85b4d3",
 	trib_blue5:"#cbdded",
 
-	trib_red1:" #8C001A",
-	trib_red2:" #C11B17",
-	trib_red3:" #DE5454",
-	trib_red4:" #eda398",
-	trib_red5:" #f7d9d1",
+	trib_red1:"#8C001A",
+	trib_red2:"#C11B17",
+	trib_red3:"#DE5454",
+	trib_red4:"#eda398",
+	trib_red5:"#f7d9d1",
 
-	trib_orange:" #EB964F",
+	trib_orange:"#EB964F",
 
-	trib_yellow1:" #f5f50a",
-	trib_yellow2:" #ffff62",
-	trib_yellow3:" #ffffc4",
+	trib_yellow1:"#f5f50a",
+	trib_yellow2:"#ffff62",
+	trib_yellow3:"#ffffc4",
 
-	trib_yellow_green:" #D5D94D",
-	trib_tan:" #EFE7DB",
+	trib_yellow_green:"#D5D94D",
+	trib_tan:"#EFE7DB",
 
 	trib_green2:"#3a7f3b",
 	trib_green3:"#4da84e",
@@ -36,17 +36,17 @@ const colors = {
 	trib_green4:"#71be72",
 	trib_green5:"#b4ddb5",
 
-	trib_violet:" #7E587E",
-	trib_blue_gray:" #97ADBA",
+	trib_violet:"#7E587E",
+	trib_blue_gray:"#97ADBA",
 
-	bears_blue:" #0B162A",
-	bears_orange:" #C83803",
+	bears_blue:"#0B162A",
+	bears_orange:"#C83803",
 
-	cubs_blue:" #0E3386",
-	cubs_red:" #CC3433",
+	cubs_blue:"#0E3386",
+	cubs_red:"#CC3433",
 
-	packers_green:" #2C5E4F",
-	packers_gold:" #FFB612"
+	packers_green:"#2C5E4F",
+	packers_gold:"#FFB612"
 }
 
 
