@@ -2,6 +2,7 @@ import {csv, json} from 'd3';
 import groupBy from 'lodash.groupby';
 import GroupedBarChart from './grouped-bar-chart.js';
 import MultilineChart from './multiline-chart.js';
+import ShootingsMap from './shootings-map.js';
 
 class CrimeSite{
 
@@ -28,7 +29,7 @@ class CrimeSite{
 			const monthly = new GroupedBarChart({
 				container: app.options.monthly,
 				data:barData,
-		        innerMargins:{top:10,right:0,bottom:20,left:50},
+		        innerMargins:{ top:10,right:0,bottom:20,left:50 },
 				currentColor: app.options.currentColor,
 				otherColor: app.options.otherColor
 			});
@@ -45,12 +46,20 @@ class CrimeSite{
 			const cumulativeChart = new MultilineChart({
 				container: app.options.ytd,
 				data: groupBy(dailyData, d=> d.Year),
-		        innerMargins:{top:10,right:0,bottom:20,left:50},
+		        innerMargins:{ top:10,right:0,bottom:20,left:50 },
 				currentColor: app.options.currentColor,
 				otherColor: app.options.otherColor
 			});
-
 		});
+
+		csv(`http://${ app.options.ROOT_URL }/data/geocodes-test.csv`,(err, mapData) => {
+			// Build a map
+			const map = new ShootingsMap({
+				container: app.options.map,
+				data:mapData,
+				currentColor: app.options.currentColor
+			});
+		})
 	}
 }
 
