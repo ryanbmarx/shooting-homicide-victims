@@ -57,7 +57,8 @@ class CrimeSite{
 			const map = new ShootingsMap({
 				container: app.options.map,
 				data:mapData,
-				currentColor: app.options.currentColor
+				currentColor: app.options.currentColor,
+				fatalColor: app.options.fatalColor
 			});
 		})
 	}

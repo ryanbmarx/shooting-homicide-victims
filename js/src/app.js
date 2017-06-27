@@ -14,7 +14,8 @@ window.addEventListener('load', e => {
     map:document.querySelector('#map'),
     ROOT_URL: window.ROOT_URL,
     currentColor: getTribColor('trib-blue2'),
-    otherColor: getTribColor('trib-gray4')
+    otherColor: getTribColor('trib-gray4'),
+    fatalColor: getTribColor('trib-red2')
   })
 })
 
