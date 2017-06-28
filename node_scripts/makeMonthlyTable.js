@@ -1,13 +1,6 @@
-const 	orderBy = require('lodash.orderby'),
-		filter = require('lodash.filter'),
-		sumBy = require('lodash.sumby'),
-		groupBy = require('lodash.groupby'),
-		d3 = require('d3'),
-		queue = require("d3-queue").queue,
-		dataQueue = queue(),
+const 	d3 = require('d3'),
 		fs = require('fs'),
 		minify = require('html-minifier').minify;
-
 
 
 fs.readFile('data/monthly.json', 'utf-8', (err, rawData) => {
