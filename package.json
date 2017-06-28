@@ -53,6 +53,7 @@
     "lodash.orderby": "^4.6.0",
     "lodash.sortby": "^4.7.0",
     "lodash.sumby": "^4.6.0",
-    "lodash.union": "^4.6.0"
+    "lodash.union": "^4.6.0",
+    "waypoints": "^4.0.1"
   }
 }
