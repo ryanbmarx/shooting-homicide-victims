@@ -56,6 +56,7 @@ class CrimeSite{
 			// Build a map
 			const map = new ShootingsMap({
 				container: app.options.map,
+			    victimList: app.options.victimList,
 				data:mapData,
 				currentColor: app.options.currentColor,
 				fatalColor: app.options.fatalColor

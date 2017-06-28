@@ -12,6 +12,7 @@ window.addEventListener('load', e => {
     ytd: document.querySelector('#ytd'),
     monthly: document.querySelector('#monthly'),
     map:document.querySelector('#map'),
+    victimList: document.querySelector('#map-victims'),
     ROOT_URL: window.ROOT_URL,
     currentColor: getTribColor('trib-blue2'),
     otherColor: getTribColor('trib-gray4'),
