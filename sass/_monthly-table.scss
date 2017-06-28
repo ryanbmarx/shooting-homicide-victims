@@ -1,26 +1,94 @@
-$chart_margin_left: 50px;
 
-.charts--monthly-table{
-	// This is the table underneath the monthly chart
-	table{
-		@include trib-table(compressed);
 
-		tr td{
+// This is the table underneath the monthly chart
+.month-table{
+	@include trib-table(compressed);
+
+	tr {
+		td{
 			text-align: center;
 			padding:0;
 			// border:1px dashed #aaa;
-			border-right: 1px solid black;
-			
-			width:calc((100% - #{$chart_margin_left}) / 12);
-
+			border-right: 1px solid #aaa;
+			width: calc(100% / 13);
 			&:first-child{
 				text-align:left;
-				width: $chart_margin_left; // this will align the table cells with the chart bars.
 				padding:10px 0;
 			}
 			&:first-child, &:last-child{
 				border-right:none;
 			}
+		}
+		
+		&.month-table__difference td{
+			background: $trib-gray4;
+			padding: 10px 0;
+		}
+	}
+
+
+}
+
+.month-table__month{
+	// the date row in the month table
+	.date{		
+		@include sans-serif-text(12px, 1em, bold);
+		text-transform: uppercase;
+		&--short{
+			// hide mobile version of date
+			display:none;
+		}
+	}
+}
+
+.diff{
+	// The arrows in the difference row
+	font-weight:bold;
+	display: block;
+	
+	&--negative{
+		
+		margin-bottom: 7px;
+		
+		&:before {
+			content:'';
+			display: block;
+			width: 0; 
+			height: 0; 
+			border-left: 11px solid transparent;
+			border-right: 11px solid transparent;
+			border-bottom: 11px solid $fatal_color;
+			margin: 0 auto 2px auto;
+		}
+	}
+
+	&--positive{
+			margin-top: 20px;
+		&:after {
+			display: block;
+			content:'';
+						width: 0; 
+			height: 0; 
+
+			border-left: 11px solid transparent;
+			border-right: 11px solid transparent;
+			border-top: 11px solid $trib-green3;
+			margin: 2px auto 0 auto;
+		}
+	}
+
+}
+
+@media all and (max-width: 849px){
+	.month-table__month .date{
+		&--short{
+			// show mobile version of date
+			display:inline;
+		}
+
+		&--ap{
+			// hide desktop version of date
+			display:none;
 		}
 	}
 }

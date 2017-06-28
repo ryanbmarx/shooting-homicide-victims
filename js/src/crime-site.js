@@ -20,21 +20,21 @@ class CrimeSite{
 		app.options = options; // The options object as app attribute
 
 
-		// Build that YOY by month chart
-		json(`http://${ app.options.ROOT_URL }/data/monthly.json`, (err, barData) =>{
+		// // Build that YOY by month chart
+		// json(`http://${ app.options.ROOT_URL }/data/monthly.json`, (err, barData) =>{
 			
-			// This marginLeft variable will sync the chart position with the table while 
-			// letting me control both with a single css
+		// 	// This marginLeft variable will sync the chart position with the table while 
+		// 	// letting me control both with a single css
 
-			const monthly = new GroupedBarChart({
-				container: app.options.monthly,
-				data:barData,
-		        innerMargins:{ top:10,right:0,bottom:20,left:50 },
-				currentColor: app.options.currentColor,
-				otherColor: app.options.otherColor
-			});
+		// 	const monthly = new GroupedBarChart({
+		// 		container: app.options.monthly,
+		// 		data:barData,
+		//         innerMargins:{ top:10,right:0,bottom:20,left:50 },
+		// 		currentColor: app.options.currentColor,
+		// 		otherColor: app.options.otherColor
+		// 	});
 
-		});
+		// });
 
 		// Activate the YTD line chart
 		csv(`http://${ app.options.ROOT_URL }/data/raw-dates.csv`,function(d, i, columns) {
