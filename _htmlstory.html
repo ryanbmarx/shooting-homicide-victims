@@ -34,11 +34,12 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
 {# ------------------------- #}
 <figure class='chart chart--map'>
   <figcaption>
-    <h2 class='chart__headline'>{{map_headline}}</h2>
+    <h2 class='chart__headline'>{{ new_map_headline }}</h2>
   </figcaption>
     <div class='map'>
+    {# TODO MAKE A LEGEND #}
       <div class='map__map' id="map"></div>
-      <div class='map__victims'>
+      <div class='map__victims' id='map-victims'>
         {% include 'subtemplates/_victims-list.html' %}
       </div>
     </div>
