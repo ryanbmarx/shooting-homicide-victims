@@ -3,8 +3,6 @@ const 	orderBy = require('lodash.orderby'),
 		sumBy = require('lodash.sumby'),
 		groupBy = require('lodash.groupby'),
 		d3 = require('d3'),
-		queue = require("d3-queue").queue,
-		dataQueue = queue(),
 		fs = require('fs'),
 		minify = require('html-minifier').minify;
 
@@ -17,33 +15,49 @@ function getMonthlyTableData(rawData){
 	})
 
 	const 	currentYear = parseInt(tempData[tempData.length - 1]['Year']),
+			currentMonth = new Date().getMonth() + 1, // In our data, january = 1, so we need to add one from the JS.
 			lastYear = currentYear - 1;
 
 	// Pluck only the last year and year prior from the dataset, discarding the rest.
-
 	tempData = filter(rawData, o => {
 		return parseInt(o.Year) == currentYear || parseInt(o.Year) == lastYear;
 	})
 
+	// Transform the data into an object of arrays, grouped by month
 	tempData = groupBy(tempData, o => o.Month);
 
+	// Grab the data object's keys. This will be our iterable item.
 	const months = Object.keys(tempData);
+	
+	// Stub out the final data object. This is the format we will want, which mimicks the result of d3.csvParse();
 	let monthlyJson = {
 		data:[],
 		columns:[]
 	};
 
+	// While iterating over the keys, sum the shootings by month and push them into our data )
 	months.forEach(month => {
 		const tempMonth = groupBy(tempData[month], d => d.Year);
-		// console.log(tempMonth);
-		monthlyJson.data.push({
+	
+		const tempObj = {
 			"month": parseInt(month) - 1,
 			"totalLastYear": sumBy(tempMonth[lastYear], d => parseInt(d.num_of_shootings)),
 			"totalCurrentYear": sumBy(tempMonth[currentYear], d => parseInt(d.num_of_shootings))
-		})
-	})
+		}
 
-	monthlyJson.columns = ['months', lastYear, currentYear];
+		// If the month is current or passed, add the difference. If we didn't check for 
+		// the current month, then we'd get a bunch of 100% drops in shooting for months 
+		// that had yet to pass.
+		if(month <= currentMonth) tempObj["difference"] = tempObj["totalCurrentYear"] - tempObj["totalLastYear"];
+
+		// Insert the month's information into the data object.
+		monthlyJson.data.push(tempObj)
+	})
+	
+	// Lastly, just fill out the columns list, which should adapt when the date changes over.
+	monthlyJson.columns = ['months', lastYear, currentYear, 'difference'];
+	
+	// We're done.
 	return monthlyJson;
 }
 
