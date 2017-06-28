@@ -2,6 +2,7 @@ import getTribColor from './getTribColors.js';
 import * as d3 from 'd3';
 import filter from 'lodash.filter';
 import orderBy from 'lodash.orderby';
+import monthFormatter from './month-formatter.js';
 
 function getLastDate(data, years){
 	let lastYear = [];
@@ -14,6 +15,11 @@ function getLastDate(data, years){
 			lastDate = data[lastYear][l-1];
 
 	return new Date(lastDate['Year'], lastDate['Month'] - 1, lastDate['Day'],0,0,0,0);
+}
+
+function monthAxis(month){
+	console.log(month);
+	return monthFormatter(month.getMonth());
 }
 
 class MultilineChart{
@@ -186,7 +192,8 @@ class MultilineChart{
 			}));
 
 
-		const xAxisFunc = d3.axisBottom(xScale);
+		const xAxisFunc = d3.axisBottom(xScale)
+			.tickFormat(monthAxis);
 
 		// ----------------------------------
 		// APPEND AXES
