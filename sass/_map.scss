@@ -9,13 +9,30 @@ $list_padding:20px;
 	align-items:stretch;
 	flex-wrap:nowrap;
 
+	&__link{
+		display:block;
+		padding: $list_padding 0;
+	}
+
 	&__map{
 		// the actual map holder, filled by Leaflet
 		width:72%; 
 		width: calc(100% - #{$list_gutter} - #{$list_width} - #{$list_padding * 2});
 		height:$map_height;
 		background:#eee;
-		padding: 25px
+		padding: 25px;
+
+		&:after{
+			content:'\25C0';
+			position:absolute;
+			top: 150px;
+			right: 0;
+			font-size:20px;
+			color:$trib-gray4;
+			z-index: 1000;
+			margin-right: -4px;
+		}
+
 	}
 
 	&__victims{
@@ -41,21 +58,25 @@ $list_padding:20px;
 
 	&__victims-headline{
 		@include label7();
-		margin-top:0;
+		margin:0;
 	}
 }
 
 
 .trb_mainContent .map ul li.victim{
 	@include sans-serif();
-	margin-bottom:15px;
-	padding-bottom:15px;
 	border-bottom:1px solid $trib-gray2;
 	border-left: 3px solid transparent;
 
 	&:last-child{
 		padding-bottom:none;
 		border-bottom:none;
+	}
+
+	&--highlight{
+		border-left-color: $trib-red2;
+		padding-left: ($list_padding - 3px) / 2;
+		margin-left: ($list_padding - 3px) / -2;
 	}
 
 	p{
