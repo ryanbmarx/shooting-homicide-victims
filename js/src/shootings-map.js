@@ -4,33 +4,6 @@ import {timeParse, timeFormat} from 'd3';
 require('waypoints/lib/noframework.waypoints.min');
 
 
-// function getShootingMarkerIcon(shooting){
-
-// 		return L.divIcon({
-// 			className:'shooting-icon',
-// 			iconSize:10
-// 		})	
-// }
-
-// function customPopup(shooting){
-// 	console.log(shooting);
-// 	const 	location = shooting['Shooting Location'],
-// 			gender = shooting['Sex'],
-// 			time = d3.parseTime(),
-// 			date = "",
-// 			link = shootings['Link'];
-// 	let popupContent = `
-// 		<div class='victim'>
-// 		TIME, DATE
-// 		Age, gender
-// 		location
-// 		<a href='' ></a>
-// 		</div>
-// 	`;
-
-// 	return popupContent;
-// }
-
 class ShootingsMap{
 	constructor(options){
 		const 	app = this, 
@@ -38,8 +11,6 @@ class ShootingsMap{
 				data = options.data,
 				iconColor = options.currentColor,
 				width = 10;
-
-		console.log(options)
 
 		//SETS UP MAP
 
@@ -71,7 +42,6 @@ class ShootingsMap{
 			
 			const 	isFatal = parseInt(shooting['isFatal']) == 1 ? true : false;
 
-			// console.log(shooting, parseFloat(shooting.lat), parseFloat(shooting.long));
 			if(shooting.lat && shooting.long){
 				const shootingMarker = L.circleMarker({
 					lat:parseFloat(shooting.lat),
@@ -111,7 +81,6 @@ class ShootingsMap{
 				handler: function(direction){
 					const shootingID = this.element.dataset.shootingId;
 					app.highlightShooting(shootingID);
-					console.log(direction, this, this.element);
 
 					// Toggle highlight classes on the list, so the current one is shown.
 					const highlightedVictim = document.querySelector('li.victim.victim--highlight');
@@ -127,11 +96,8 @@ class ShootingsMap{
 	}
 
 	highlightShooting(shootingID){
-		// 16856
-		console.log('highlighting ', shootingID);
-		const 	app = this; 
 
-		// console.log(app.fatalShootingMarkers.getLayer())
+		const 	app = this; 
 
 		app.fatalShootingMarkers.eachLayer( l => {
 			if (parseInt(l.shootingID) == shootingID) {
