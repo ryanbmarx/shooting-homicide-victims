@@ -56,7 +56,7 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 				if (gender) personString += `${formatGender(gender)} `;
 
 				victimsListString += `<li class='victim' data-shooting-id=${id}>
-					<a href='${link}' target='_blank'>
+					<a class='map__link' href='${link}' target='_blank'>
 						<p><strong>${ personString }</strong></p>
 						<p>When: <time datetime="${ shootingDate }">${dateTimeFormatter(shootingDate)}</time></p>
 						<p>Where: ${ address }</p>
