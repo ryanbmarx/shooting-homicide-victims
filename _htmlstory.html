@@ -35,9 +35,19 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
 <figure class='chart chart--map'>
   <figcaption>
     <h2 class='chart__headline'>{{ new_map_headline }}</h2>
+    <div class='map-legend'>
+      <span class='map-legend__label'>Toggle:</span>
+      <button class='map-legend__button map-legend__button--checked' data-toggle="fatalShootingMarkers">  
+        <span class='map-legend__dot map-legend__dot--fatal'></span>
+        Fatal
+      </button>
+      <button class='map-legend__button map-legend__button--checked' data-toggle="nonFatalShootingMarkers">
+        <span class='map-legend__dot map-legend__dot--non-fatal'></span>
+        Non-fatal
+      </button>
+    </div>
   </figcaption>
     <div class='map'>
-    {# TODO MAKE A LEGEND #}
       <div class='map__map' id="map"></div>
       <div class='map__victims' id='map-victims'>
         {% include 'subtemplates/_victims-list.html' %}
