@@ -4,6 +4,8 @@ import numpy as np
 import io
 import requests
 from datetime import datetime as dt
+import warnings
+warnings.filterwarnings("ignore")
 #######
 #Getting system arguments:
 import sys
