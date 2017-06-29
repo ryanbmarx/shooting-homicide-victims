@@ -18,7 +18,6 @@ function getLastDate(data, years){
 }
 
 function monthAxis(month){
-	console.log(month);
 	return monthFormatter(month.getMonth());
 }
 
