@@ -48,6 +48,9 @@ shootings = shootings[shootings['Date'].dt.year>2011] #pulling all the data from
 
 
 geoDF = shootings[['Date','Sex','UCR','Age','Time','Shooting Location','Geocode Override','Link']]
+geoDF['ID']=np.arange(0,len(geoDF),1) #adding ID column
+
+
 '''
 Although this is weird, but empty cells need to be replaced and filled by another value. In this case it's "Foo" (without quotations)
 This step is necessary as some entries in the shootings file have no geo-code.
@@ -109,7 +112,7 @@ geoDF['Hour']=geoDF['Time'].apply(crap_to_t)
 geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
 geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
 
-geoDF.to_csv(outputPath)
+geoDF.to_csv(outputPath,index=False)
 
 
 

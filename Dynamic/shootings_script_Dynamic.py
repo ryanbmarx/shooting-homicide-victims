@@ -95,14 +95,14 @@ output['cum_sum'] = [cs for l in cum_sum for cs in l]
 output #tally number of shootings per day
 #output this file so that Kyle can use it for plotting
 
-
-output.index.names=['ID']
-output.reset_index()
+output['ID'] = np.arange(0,len(output),1) #adding ID column
+#output.index.names=['ID']
+#output.reset_index()
 
 #outputs a csv file with todays date in the file name. This will help in tracking the updates.
 #output.to_csv(str(sys.argv[1])+'/number_of_shootings_up_to_'+str(dt.today().strftime("%m_%d_%Y"))+'.csv')
 
-output.to_csv(outputPath)
+output.to_csv(outputPath,index=False)
 
 
 
