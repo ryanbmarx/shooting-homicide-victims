@@ -71,28 +71,48 @@ class ShootingsMap{
 
 		// app.highlightShooting(16856);
 
-		// init the highlight event listener
-		const victims = options.victimList.querySelectorAll('ul li');
-		
-		for (let i = 0; i < victims.length; i++) {
-			const victim = victims[i];
-			new Waypoint({
-				element: victim,
-				handler: function(direction){
-					const shootingID = this.element.dataset.shootingId;
-					app.highlightShooting(shootingID);
+		// init the highlight event listener if the window is not mobile or tablet.
 
-					// Toggle highlight classes on the list, so the current one is shown.
-					const highlightedVictim = document.querySelector('li.victim.victim--highlight');
-					if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
-					this.element.classList.add('victim--highlight');
-
-				},
-				context: options.victimList,
-				offset: "200px"
-
-			});
+		if (window.innerWidth >= 850){
+			const victims = options.victimList.querySelectorAll('ul li');
+			
+			for (let i = 0; i < victims.length; i++) {
+				const victim = victims[i];
+				new Waypoint({
+					element: victim,
+					handler: function(direction){
+						const shootingID = this.element.dataset.shootingId;
+						app.highlightShooting(shootingID);
+	
+						// Toggle highlight classes on the list, so the current one is shown.
+						const highlightedVictim = document.querySelector('li.victim.victim--highlight');
+						if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
+						this.element.classList.add('victim--highlight');
+	
+					},
+					context: options.victimList,
+					offset: "200px"
+	
+				});
+			}
 		}
+
+		// Init the legend/buttons
+
+		const legendButtons = options.legendButtons;
+		legendButtons.forEach(button => {
+			button.addEventListener('click', function(e) {
+				this.classList.toggle('map-legend__button--checked');
+
+				const showMe = this.dataset.toggle;
+				
+				if (app.map.hasLayer(app[showMe])){
+					app[showMe].removeFrom(app.map);
+				} else {
+					app[showMe].addTo(app.map);
+				}
+			})
+		})
 	}
 
 	highlightShooting(shootingID){
