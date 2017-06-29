@@ -104,6 +104,7 @@ output['ID'] = np.arange(0,len(output),1) #adding ID column
 #outputs a csv file with todays date in the file name. This will help in tracking the updates.
 #output.to_csv(str(sys.argv[1])+'/number_of_shootings_up_to_'+str(dt.today().strftime("%m_%d_%Y"))+'.csv')
 
+output.columns = ['YEAR','MONTH','DAY','NUM_OF_SHOOTINGS','CUMULATIVE_SUM','ID']
 output.to_csv(outputPath,index=False)
 
 

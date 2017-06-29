@@ -114,8 +114,7 @@ geoDF['Hour']=geoDF['Time'].apply(crap_to_t)
 geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
 geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
 
+geoDF.columns = ['DATE','SEX','UCR','AGE','TIME', 'LOCATION','GEOCODE_OVERRIDE','LINK','ID','LAT','LNG','IS_FATAL','HOUR','HOUR_HH','MINUTES_MM']
 geoDF.to_csv(outputPath,index=False)
-
-
 
 
