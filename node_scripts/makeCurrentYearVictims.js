@@ -21,11 +21,11 @@ function getCurrentYear(lastDate){
 
 fs.readFile('data/raw-victims.csv', 'utf-8', (err, data) => {
 	if (err) throw err;
-	const 	victims = sortBy(d3.csvParse(data), o => dateParser(o.Date)),
-			currentYear = getCurrentYear(victims[victims.length-1]['Date']),
+	const 	victims = sortBy(d3.csvParse(data), o => dateParser(o.DATE)),
+			currentYear = getCurrentYear(victims[victims.length-1]['DATE']),
 			currentYearVictims = filter(victims, o => {
 				// Do the actual slicing of the current year's data
-				return o['Date'].indexOf(currentYear) > -1 ? true : false;
+				return o['DATE'].indexOf(currentYear) > -1 ? true : false;
 			});
 
 	// Write the json to a seperate file

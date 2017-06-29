@@ -35,12 +35,12 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 				// If there is some error parsing the data, we will want to catch that, but move on and
 				// and generate the others in the list.
 
-				const 	shootingDate = dateTimeParser(`${v.Date} ${v.Hour}`),
-						age = typeof(parseInt(v.Age)) == "number" ? parseInt(v.Age) : false,
-						gender = v.Sex.length > 0 ? v.Sex : false,
-						link = v.Link,
-						address = v['Shooting Location'],
-						id = v['uniqueID'];
+				const 	shootingDate = dateTimeParser(`${v.DATE} ${v.HOUR}`),
+						age = typeof(parseInt(v.AGE)) == "number" ? parseInt(v.AGE) : false,
+						gender = v.SEX.length > 0 ? v.SEX : false,
+						link = v.LINK,
+						address = v['LOCATION'],
+						id = v['ID'];
 
 
 				// Make an empty string. If we have data, then we'll fill it up.
@@ -65,7 +65,7 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 			}
 	
 			catch (e){
-				console.log(`Error parsing data from ${v.Time} ${v.Date} at ${v['Shooting Location']}`);
+				console.log(`Error parsing data from ${v.TIME} ${v.DATE} at ${v['LOCATION']}`);
 				console.log(e)
 			}
 	}

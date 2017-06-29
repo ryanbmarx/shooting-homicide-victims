@@ -17,14 +17,14 @@ fs.readFile('data/raw-dates.csv', 'utf-8', (err, data) => {
 	if (err) throw err;
 	const 	shootings = d3.csvParse(data),
 			currentEntry = shootings[shootings.length - 1], // This is the last/most current entry
-			currentYear = currentEntry['Year'],
+			currentYear = currentEntry['YEAR'],
 			lastYear = parseInt(currentYear) - 1,
-			currentDate = new Date(currentEntry['Year'], (currentEntry['Month'] - 1), currentEntry['Day']), // Current = last entry
-			currentTotalShootings = parseInt(currentEntry['cum_sum']),
+			currentDate = new Date(currentEntry['YEAR'], (currentEntry['MONTH'] - 1), currentEntry['DAY']), // Current = last entry
+			currentTotalShootings = parseInt(currentEntry['CUMULATIVE_SUM']),
 			lastYearEntry = find(shootings, s => {
-				return s.Year == lastYear && s['Month'] == currentEntry['Month'] && s['Day'] == currentEntry['Day'];
+				return s['YEAR'] == lastYear && s['MONTH'] == currentEntry['MONTH'] && s['DAY'] == currentEntry['DAY'];
 			}),
-			lastYearTotalShootings = lastYearEntry['cum_sum'],
+			lastYearTotalShootings = lastYearEntry['CUMULATIVE_SUM'],
 			shootingsFormatter = d3.format(',');
 	
 

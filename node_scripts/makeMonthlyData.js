@@ -11,20 +11,20 @@ function getMonthlyTableData(rawData){
 	// Retrieve the year of the last date in the dataset. First, sort it by date.
 
 	let tempData = orderBy(rawData, o => {
-		return new Date(parseInt(o.Year), parseInt(o.Month), parseInt(o.Day), 0,0,0,0);
+		return new Date(parseInt(o.YEAR), parseInt(o.MONTH), parseInt(o.MONTH), 0,0,0,0);
 	})
 
-	const 	currentYear = parseInt(tempData[tempData.length - 1]['Year']),
+	const 	currentYear = parseInt(tempData[tempData.length - 1]['YEAR']),
 			currentMonth = new Date().getMonth() + 1, // In our data, january = 1, so we need to add one from the JS.
 			lastYear = currentYear - 1;
 
 	// Pluck only the last year and year prior from the dataset, discarding the rest.
 	tempData = filter(rawData, o => {
-		return parseInt(o.Year) == currentYear || parseInt(o.Year) == lastYear;
+		return parseInt(o.YEAR) == currentYear || parseInt(o.YEAR) == lastYear;
 	})
 
 	// Transform the data into an object of arrays, grouped by month
-	tempData = groupBy(tempData, o => o.Month);
+	tempData = groupBy(tempData, o => o.MONTH);
 
 	// Grab the data object's keys. This will be our iterable item.
 	const months = Object.keys(tempData);
@@ -37,12 +37,12 @@ function getMonthlyTableData(rawData){
 
 	// While iterating over the keys, sum the shootings by month and push them into our data )
 	months.forEach(month => {
-		const tempMonth = groupBy(tempData[month], d => d.Year);
+		const tempMonth = groupBy(tempData[month], d => d.YEAR);
 	
 		const tempObj = {
 			"month": parseInt(month) - 1,
-			"totalLastYear": sumBy(tempMonth[lastYear], d => parseInt(d.num_of_shootings)),
-			"totalCurrentYear": sumBy(tempMonth[currentYear], d => parseInt(d.num_of_shootings))
+			"totalLastYear": sumBy(tempMonth[lastYear], d => parseInt(d.NUM_OF_SHOOTINGS)),
+			"totalCurrentYear": sumBy(tempMonth[currentYear], d => parseInt(d.NUM_OF_SHOOTINGS))
 		}
 
 		// If the month is current or passed, add the difference. If we didn't check for 
