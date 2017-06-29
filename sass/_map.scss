@@ -3,6 +3,14 @@ $list_width: 270px;
 $list_gutter: 0;
 $list_padding:20px;
 
+.chart--map figcaption{
+	@include clearfix();
+
+	.chart__headline{
+		float: left;
+	}
+}
+
 .trb_mainContent .map{
 	display:flex;
 	justify-content: space-between;
@@ -85,13 +93,75 @@ $list_padding:20px;
 	}
 }
 
+.trb_mainContent .map-legend{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 0 10px 0;
+	float:right;
+	&__label{
+		@include agate();
+		margin: 0 10px 0 0;
+	}
+
+	&__button{
+		@include sans-serif();
+		width: 150px;
+		display:inline-block;
+		border:none;
+		padding: 10px;
+		background: white;
+		border:1px solid $trib-blue2;
+		color:black;
+		transition: all 150ms ease;
+		margin-right:10px;
+		cursor: pointer;
+		
+		&:last-child{
+			margin-right:0;
+		}
+
+		&--checked{
+			background:$trib-blue2;
+			color:white;
+			transition: all 150ms ease;
+		}
+
+		.map-legend__dot{
+			@include trib-legend__box(50%);
+			border: 2px solid white;
+
+			&--fatal{
+				background: $fatal_color;
+			}
+
+			&--non-fatal{
+				background: $trib-blue2;
+			}
+		}
+	}
+}
+
 @media all and (max-width: 849px){
-	.map{
+
+	.chart--map figcaption{
+
+		.chart__headline{
+			float: none;
+		}
+	}
+	.trb_mainContent .map-legend{ float:none; }
+
+	.trb_mainContent .map{
 		display:block;	
 
 		&__map{
 			width:auto;
 			margin-bottom:25px;
+			
+			&:after{
+				content:'';
+			}
 		}
 
 		&__victims{
