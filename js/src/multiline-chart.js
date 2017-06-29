@@ -10,11 +10,11 @@ function getLastDate(data, years){
 		lastYear.push(parseInt(y));
 	})
 	lastYear = lastYear.sort().reverse()[0];
-
+	
 	const 	l = data[lastYear].length,
 			lastDate = data[lastYear][l-1];
 
-	return new Date(lastDate['Year'], lastDate['Month'] - 1, lastDate['Day'],0,0,0,0);
+	return new Date(lastDate['YEAR'], lastDate['MONTH'] - 1, lastDate['DAY'],0,0,0,0);
 }
 
 function monthAxis(month){
@@ -35,7 +35,7 @@ class MultilineChart{
 		const 	app = this, 
 				table = d3.select("#ytd-highlight-table"),
 				bisectDate = d3.bisector(d => {
-					return new Date(d.Year, (d.Month - 1), d.Day,0,0,0,0);
+					return new Date(d['YEAR'], (d['MONTH'] - 1), d['DAY'],0,0,0,0);
 				}).right;
 
 
@@ -63,7 +63,7 @@ class MultilineChart{
 			if (searchDate <= app.lastDate){
 				// Other cell gets the cumulative shootings
 				row.append('td')
-					.html(`${d3.format(',')(d.cum_sum)}`);
+					.html(`${d3.format(',')(d['CUMULATIVE_SUM'])}`);
 
 				// Only if we have a valid data point, move the highlight circles 
 				// to where they need to be. If there isn't one, then make one.
@@ -73,7 +73,7 @@ class MultilineChart{
 					// .duration(100)
 					.style('opacity', 1)
 					.attr('cx', xScale(date))	
-					.attr('cy', yScale(d.cum_sum));
+					.attr('cy', yScale(d['CUMULATIVE_SUM']));
 
 			} else {
 				// This cumulative date is 
@@ -170,7 +170,7 @@ class MultilineChart{
 		const yMax = d3.max(years, year => {
 			// For each year in the data object, pluck the last entry and find the largest such entry.
 			const 	lastIndex = data[year].length - 1,
-					lastIndexValue = data[year][lastIndex]["cum_sum"];
+					lastIndexValue = data[year][lastIndex]["CUMULATIVE_SUM"];
 			return parseInt(lastIndexValue);
 		})
 
@@ -187,7 +187,7 @@ class MultilineChart{
 			.range([0,innerWidth])
 			.domain(d3.extent(data[useYear], d=> {
 				// create a domain extent out of the first year's dates
-				return new Date(d.Year, d.Month - 1, d.Day,0,0,0,0);
+				return new Date(d['YEAR'], d['MONTH'] - 1, d['DAY'],0,0,0,0);
 			}));
 
 
@@ -217,8 +217,8 @@ class MultilineChart{
 
 			const line = d3.line()
 				.curve(d3.curveBasisOpen)
-			    .x(d => xScale(new Date(useYear, d.Month - 1, d.Day,0,0,0,0)))
-			    .y(d => yScale(d.cum_sum));
+			    .x(d => xScale(new Date(useYear, d['MONTH'] - 1, d['DAY'],0,0,0,0)))
+			    .y(d => yScale(d['CUMULATIVE_SUM']));
 
 			chartInner.append("path")
 				.datum(data[year])

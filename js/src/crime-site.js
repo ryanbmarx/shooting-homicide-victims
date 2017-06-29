@@ -45,7 +45,7 @@ class CrimeSite{
 
 			const cumulativeChart = new MultilineChart({
 				container: app.options.ytd,
-				data: groupBy(dailyData, d=> d.Year), // seperate the rows into year groups
+				data: groupBy(dailyData, d=> d['YEAR']), // seperate the rows into year groups
 		        innerMargins:{ top:10,right:0,bottom:20,left:50 },
 				currentColor: app.options.currentColor,
 				otherColor: app.options.otherColor
