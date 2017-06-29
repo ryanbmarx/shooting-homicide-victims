@@ -59,7 +59,8 @@ class CrimeSite{
 			    victimList: app.options.victimList,
 				data:mapData,
 				currentColor: app.options.currentColor,
-				fatalColor: app.options.fatalColor
+				fatalColor: app.options.fatalColor,
+				legendButtons: app.options.mapLegendButtons
 			});
 		})
 	}

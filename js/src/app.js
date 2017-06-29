@@ -13,6 +13,7 @@ window.addEventListener('load', e => {
     monthly: document.querySelector('#monthly'),
     map:document.querySelector('#map'),
     victimList: document.querySelector('#map-victims'),
+    mapLegendButtons:document.querySelectorAll('.map-legend__button'),
     ROOT_URL: window.ROOT_URL,
     currentColor: getTribColor('trib-blue2'),
     otherColor: getTribColor('trib-gray4'),
