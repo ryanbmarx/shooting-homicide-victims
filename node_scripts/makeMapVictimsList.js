@@ -19,26 +19,24 @@ function formatGender(gender){
 
 fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 	if (err) throw err;
-	const 	victims = orderBy(JSON.parse(data), v => {
-		return dateTimeParser(`${v.Date} ${v.Hour}`)
+	const victims = orderBy(JSON.parse(data), v => {
+		return dateTimeParser(`${v.DATE} ${v.HOUR}`)
 	}, 'desc');
-
-	console.log(victims[10]);
 
 	// This var will hold our growing string of victims
 	let victimsListString = `<h3 class='map__victims-headline'>Fatal shootings</h3><ul class='victims'>`;
 	
 	victims.forEach(v => {
-		if (v.isFatal == 1){
+		if (v['IS_FATAL'] == 1){
 			// Only generate a list of fatal shootings
 			try{
 				// If there is some error parsing the data, we will want to catch that, but move on and
 				// and generate the others in the list.
 
-				const 	shootingDate = dateTimeParser(`${v.DATE} ${v.HOUR}`),
-						age = typeof(parseInt(v.AGE)) == "number" ? parseInt(v.AGE) : false,
-						gender = v.SEX.length > 0 ? v.SEX : false,
-						link = v.LINK,
+				const 	shootingDate = dateTimeParser(`${v['DATE']} ${v['HOUR']}`),
+						age = typeof(parseInt(v['AGE'])) == "number" ? parseInt(v['AGE']) : false,
+						gender = v['SEX'].length > 0 ? v['SEX'] : false,
+						link = v['LINK'],
 						address = v['LOCATION'],
 						id = v['ID'];
 
