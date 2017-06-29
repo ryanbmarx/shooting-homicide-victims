@@ -13,7 +13,7 @@ class ShootingsMap{
 				width = 10;
 
 		//SETS UP MAP
-
+		console.log(data);
 		app.map =  L.map(container,{
 			center: [41.838299, -87.706953],
 			zoom: 11,
@@ -40,12 +40,12 @@ class ShootingsMap{
 		app.highlightedShootings = L.layerGroup(); // Using a layer group, we easily can locate/remove highlighted shootings 
 		data.forEach(shooting => {
 			
-			const 	isFatal = parseInt(shooting['isFatal']) == 1 ? true : false;
+			const 	isFatal = parseInt(shooting['IS_FATAL']) == 1 ? true : false;
 
-			if(shooting.lat && shooting.long){
+			if(shooting['LAT'] && shooting['LNG']){
 				const shootingMarker = L.circleMarker({
-					lat:parseFloat(shooting.lat),
-					lng:parseFloat(shooting.long)
+					lat:parseFloat(shooting['LAT']),
+					lng:parseFloat(shooting['LNG'])
 				},{
 					radius: 5,
 					stroke:false,
@@ -55,9 +55,9 @@ class ShootingsMap{
 				})
 				// .bindPopup(customPopup(shooting));
 	
-				shootingMarker.shootingID = shooting.uniqueID;
+				shootingMarker.shootingID = parseInt(shooting['ID']);
 
-				if (isFatal){
+				if (isFatal){ 
 					shootingMarker.addTo(app.fatalShootingMarkers);
 				} else {
 					shootingMarker.addTo(app.nonFatalShootingMarkers);	
@@ -72,8 +72,9 @@ class ShootingsMap{
 		// app.highlightShooting(16856);
 
 		// init the highlight event listener if the window is not mobile or tablet.
-
+		console.log(window.innerWidth);
 		if (window.innerWidth >= 850){
+			console.log('we will have highlighting!')
 			const victims = options.victimList.querySelectorAll('ul li');
 			
 			for (let i = 0; i < victims.length; i++) {
@@ -81,7 +82,8 @@ class ShootingsMap{
 				new Waypoint({
 					element: victim,
 					handler: function(direction){
-						const shootingID = this.element.dataset.shootingId;
+						const shootingID = parseInt(this.element.dataset.shootingId);
+						
 						app.highlightShooting(shootingID);
 	
 						// Toggle highlight classes on the list, so the current one is shown.
@@ -91,7 +93,7 @@ class ShootingsMap{
 	
 					},
 					context: options.victimList,
-					offset: "200px"
+					offset: 200
 	
 				});
 			}
@@ -116,11 +118,12 @@ class ShootingsMap{
 	}
 
 	highlightShooting(shootingID){
-
+		console.log('>>>>>>>>>', shootingID);
 		const 	app = this; 
 
 		app.fatalShootingMarkers.eachLayer( l => {
-			if (parseInt(l.shootingID) == shootingID) {
+			console.log(l.shootingID);
+			if (l['shootingID'] == shootingID) {
 				// First, remove all highlighted shootings
 				app.highlightedShootings.clearLayers();
 				
@@ -136,6 +139,8 @@ class ShootingsMap{
 					fill: true,
 					fillOpacity: .8
 				}).addTo(app.highlightedShootings);
+
+				// Make sure the map is showing the marker
 				app.map.panTo(l.getLatLng());
 			};
 		})
