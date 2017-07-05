@@ -13,8 +13,10 @@ const 	fs = require('fs'),
 
 
 function formatGender(gender){
+	// We have room in here to accomadate others. If not specified, will return blank.
 	if (gender.toUpperCase() == "M") return "male";
 	if (gender.toUpperCase() == "F") return "female";
+	return gender;
 }
 
 function isFatal(victim){
