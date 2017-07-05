@@ -4,9 +4,7 @@ import {timeParse, timeFormat} from 'd3';
 require('waypoints/lib/noframework.waypoints.min');
 
 
-function setShootingMarkerOpacity(markerOpacity, app){
-	console.log(markerOpacity);
-	
+function setShootingMarkerOpacity(markerOpacity, app){	
 	const markerGroups = [app.fatalShootingMarkers, app.nonFatalShootingMarkers];
 	markerGroups.forEach(group =>{
 		group.eachLayer( l => {
@@ -27,7 +25,6 @@ class ShootingsMap{
 		app.options = options;
 
 		//SETS UP MAP
-		console.log(data);
 		app.map =  L.map(container,{
 			center: [41.838299, -87.706953],
 			zoom: 11,
@@ -88,7 +85,6 @@ class ShootingsMap{
 
 		app.map.on('zoomend', e => {
 			const currentZoom = app.map.getZoom();
-			console.log(currentZoom);
 			if (currentZoom > 12){
 				setShootingMarkerOpacity(.55, app)
 			} else {
@@ -98,7 +94,6 @@ class ShootingsMap{
 
 		// init the highlight event listener if the window is not mobile or tablet.
 		if (window.innerWidth >= 850){
-			console.log('we will have highlighting!')
 			const victims = options.victimList.querySelectorAll('ul li');
 			
 			for (let i = 0; i < victims.length; i++) {
