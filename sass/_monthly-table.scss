@@ -109,10 +109,40 @@ $mobile_table_toggle: 650px;
 		&--mobile{
 			@include trib-table--responsive($mobile_table_toggle);
 			display:block;
+			
+			tbody{
+				display:grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-gap: 0;
+				grid-row-gap: 0;
 
-			tr td{
-				border:none;
+				tr.row{
+					padding:10px;
+
+					&--positive{
+						background:rgba($trib-green3, .4);
+					}
+
+					&--negative{
+						background:rgba($fatal_color, .4);
+					}
+				}
 			}
+
+			tr td, tr td:first-child, tr td:last-child{
+				border:none;
+				padding:0;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 450px){
+	.month-table{
+
+		&--mobile tbody{
+			grid-template-columns: 1fr 1fr;
+		
 		}
 	}
 }

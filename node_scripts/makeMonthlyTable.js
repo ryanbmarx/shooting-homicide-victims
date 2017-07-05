@@ -88,8 +88,15 @@ fs.readFile('data/monthly.json', 'utf-8', (err, rawData) => {
 		const 	difference = month.difference != undefined ? month.difference : "",
 				currentYearCell = month.difference != undefined ? month.totalCurrentYear : "n/a";
 
+				let rowClass = "row";
+
+				if (month.difference != undefined){
+					// Only color the month if real data exists for it. Color it red for increase and green for decrease
+					rowClass =  month.difference < 0 ? 'row row--negative' : 'row row--positive';
+				}
+
 		tableStringMobile += `
-		<tr>
+		<tr class='${rowClass}'>
 			<td data-title="month">${ monthFormatter(parseInt(month.month), true) }</td>
 			<td data-title="${years[0]}">${month.totalLastYear}</td>
 			<td data-title="${years[1]}">${currentYearCell}</td>
