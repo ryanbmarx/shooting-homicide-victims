@@ -4,6 +4,18 @@ import {timeParse, timeFormat} from 'd3';
 require('waypoints/lib/noframework.waypoints.min');
 
 
+function setShootingMarkerOpacity(markerOpacity, app){
+	console.log(markerOpacity);
+	
+	const markerGroups = [app.fatalShootingMarkers, app.nonFatalShootingMarkers];
+	markerGroups.forEach(group =>{
+		group.eachLayer( l => {
+			l.setStyle({fillOpacity:markerOpacity});
+		});	
+	})
+	
+}
+
 class ShootingsMap{
 	constructor(options){
 		const 	app = this, 
@@ -69,12 +81,22 @@ class ShootingsMap{
 		})
 		app.nonFatalShootingMarkers.addTo(app.map);
 		app.fatalShootingMarkers.addTo(app.map);
-		// app.highlightedShootings.addTo(app.map)
+		
+		// We want to tweak the opacity of the markers. By default they are 20% opaque, making
+		// them easier to read in larger bunches, but when we zoom in, and there is more space 
+		// between them, we can make them darker, which is easier to read in smaller groups.
 
-		// app.highlightShooting(16856);
+		app.map.on('zoomend', e => {
+			const currentZoom = app.map.getZoom();
+			console.log(currentZoom);
+			if (currentZoom > 12){
+				setShootingMarkerOpacity(.55, app)
+			} else {
+				setShootingMarkerOpacity(.2, app)
+			}
+		})
 
 		// init the highlight event listener if the window is not mobile or tablet.
-		console.log(window.innerWidth);
 		if (window.innerWidth >= 850){
 			console.log('we will have highlighting!')
 			const victims = options.victimList.querySelectorAll('ul li');
