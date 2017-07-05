@@ -3,25 +3,27 @@ const 	d3 = require('d3'),
 		minify = require('html-minifier').minify;
 
 
-function monthFormatter(month){
+function monthFormatter(month, dataAttribute){
 
 	// takes a month as number and returns AP style abbreviation. If the window width is too small, then it returns an even shorter version.
 	
 	const months = {
-		0:{ap: "Jan.", short:"J"},
-		1:{ap: "Feb.", short:"F"},
-		2:{ap: "March", short:"M"},
-		3:{ap: "April", short:"A"},
-		4:{ap: "May", short:"M"},
-		5:{ap: "June", short:"J"},
-		6:{ap: "July", short:"J"},
-		7:{ap: "Aug.", short:"A"},
-		8:{ap: "Sept.", short:"S"},
-		9:{ap: "Oct.", short:"O"},
-		10:{ap: "Nov.", short:"N"},
-		11:{ap: "Dec.", short:"D"}
+		0:{ap: "Jan.", short:"J", full:"January"},
+		1:{ap: "Feb.", short:"F", full:"February"},
+		2:{ap: "March", short:"M", full:"March"},
+		3:{ap: "April", short:"A", full:"April"},
+		4:{ap: "May", short:"M", full:"May"},
+		5:{ap: "June", short:"J", full:"June"},
+		6:{ap: "July", short:"J", full:"July"},
+		7:{ap: "Aug.", short:"A", full:"August"},
+		8:{ap: "Sept.", short:"S", full:"September"},
+		9:{ap: "Oct.", short:"O", full:"October"},
+		10:{ap: "Nov.", short:"N", full:"November"},
+		11:{ap: "Dec.", short:"D", full:"December"}
 	}
-
+	if (dataAttribute){
+		return months[month]['full'];
+	}
 	return `<span class='date date--ap'>${months[month]['ap']}</span><span class='date date--short'>${months[month]['short']}</span>`;
 	
 
@@ -50,27 +52,55 @@ fs.readFile('data/monthly.json', 'utf-8', (err, rawData) => {
 
 	shootings.forEach(month => {
 		// Add the totals for each year's month into their respective variable homes
-		rowLast += `<td>${month.totalLastYear}</td>`;
-		rowCurrent += month.totalCurrentYear > 0 ? `<td>${month.totalCurrentYear}</td>` : '<td></td>';
-		rowMonth += `<td>${ monthFormatter(parseInt(month.month)) }</td>`
+		rowLast += `<td data-title="${years[1]}">${month.totalLastYear}</td>`;
+		rowCurrent += month.totalCurrentYear > 0 ? `<td data-title="${years[0]}">${month.totalCurrentYear}</td>` : '<td  data-title="${years[0]}"></td>';
+		rowMonth += `<td>${ monthFormatter(parseInt(month.month), false) }</td>`
 		if (month.difference != undefined){
 			// if there is a difference, add a cell with a bar and label;
 			const 	difference = month.difference,
 					diffClass = difference > 0 ? 'diff diff--negative' : 'diff diff--positive';
 			
-			rowDifference += `<td class='bar-wrapper'>
+			rowDifference += `<td class='bar-wrapper'  data-title='Difference'>
 				<span class='${diffClass}'>${ formatDifference(difference) }</span>
 			</td>`;
 
 		} else {
 
 			// if there is no difference, just skip it by adding an empty cell
-			rowDifference += `<td></td>`;
+			rowDifference += `<td data-title='Difference'></td>`;
 		}
 	
 	})
 
-	const tableString =  minify(`<table class='month-table'>${rowMonth}</tr>${rowCurrent}</tr>${rowLast}</tr>${rowDifference}</tr></table>`,{
+	const tableStringDesktop = `<table class='month-table month-table--desktop'>
+		<thead>${rowMonth}</tr></thead>
+		<tbody>
+			${rowCurrent}</tr>
+			${rowLast}</tr>
+			${rowDifference}</tr>
+		</tbody>
+	</table>`;
+
+	let tableStringMobile = `<table class='month-table month-table--mobile'><thead></thead><tbody>`;
+
+
+	shootings.forEach(month => {
+		const 	difference = month.difference != undefined ? month.difference : "",
+				currentYearCell = month.difference != undefined ? month.totalCurrentYear : "n/a";
+
+		tableStringMobile += `
+		<tr>
+			<td data-title="month">${ monthFormatter(parseInt(month.month), true) }</td>
+			<td data-title="${years[0]}">${month.totalLastYear}</td>
+			<td data-title="${years[1]}">${currentYearCell}</td>
+			<td data-title="Difference">${formatDifference(difference)}</td>
+		</tr>`;
+	});
+
+	tableStringMobile += "</tbody></table>";
+
+
+	const tableString =  minify(`${tableStringDesktop}${tableStringMobile}`,{
 		collapseWhitespace:true,
 		collapseInlineTagWhitespace:true
 	});

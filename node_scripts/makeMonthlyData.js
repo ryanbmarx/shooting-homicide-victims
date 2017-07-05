@@ -8,8 +8,9 @@ const 	orderBy = require('lodash.orderby'),
 
 function getMonthlyTableData(rawData){
 
-	// Retrieve the year of the last date in the dataset. First, sort it by date.
+	// Retrieve the year of the last date in the dataset. 
 
+	// First, sort it by date.
 	let tempData = orderBy(rawData, o => {
 		return new Date(parseInt(o.YEAR), parseInt(o.MONTH), parseInt(o.MONTH), 0,0,0,0);
 	})
@@ -39,16 +40,20 @@ function getMonthlyTableData(rawData){
 	months.forEach(month => {
 		const tempMonth = groupBy(tempData[month], d => d.YEAR);
 	
-		const tempObj = {
+		let tempObj = {
 			"month": parseInt(month) - 1,
-			"totalLastYear": sumBy(tempMonth[lastYear], d => parseInt(d.NUM_OF_SHOOTINGS)),
-			"totalCurrentYear": sumBy(tempMonth[currentYear], d => parseInt(d.NUM_OF_SHOOTINGS))
+			"totalLastYear": sumBy(tempMonth[lastYear], d => parseInt(d.NUM_OF_SHOOTINGS))
+			// "totalCurrentYear": sumBy(tempMonth[currentYear], d => parseInt(d.NUM_OF_SHOOTINGS))
 		}
+
 
 		// If the month is current or passed, add the difference. If we didn't check for 
 		// the current month, then we'd get a bunch of 100% drops in shooting for months 
 		// that had yet to pass.
-		if(month <= currentMonth) tempObj["difference"] = tempObj["totalCurrentYear"] - tempObj["totalLastYear"];
+		if(month <= currentMonth) {
+			tempObj["totalCurrentYear"] = sumBy(tempMonth[currentYear], d => parseInt(d.NUM_OF_SHOOTINGS));
+			tempObj["difference"] = tempObj["totalCurrentYear"] - tempObj["totalLastYear"];
+		}
 
 		// Insert the month's information into the data object.
 		monthlyJson.data.push(tempObj)
