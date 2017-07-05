@@ -115,6 +115,9 @@ class ShootingsMap{
 				} else {
 					app[showMe].addTo(app.map);
 				}
+				
+				// Make sure the highlighted shooting, if there is one, sits atop all the map layers.
+				if (app.shootingHighlightIcon != undefined) app.shootingHighlightIcon.bringToFront();
 			})
 		})
 	}
@@ -125,9 +128,7 @@ class ShootingsMap{
 		app.fatalShootingMarkers.eachLayer( l => {
 			if (l['shootingID'] == shootingID) {
 				// First, remove the highlighted shooting, if it exists
-				if (app.shootingHighlightIcon != undefined){
-					app.shootingHighlightIcon.removeFrom(app.map);
-				}
+				if (app.shootingHighlightIcon != undefined) app.shootingHighlightIcon.removeFrom(app.map);
 
 				// Give it the highlighted style and add it to the highlighted LayerGroup()
 				app.shootingHighlightIcon = L.circleMarker(l.getLatLng(),{
