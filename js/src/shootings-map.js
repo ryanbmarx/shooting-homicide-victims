@@ -11,6 +11,8 @@ class ShootingsMap{
 				data = options.data,
 				iconColor = options.currentColor,
 				width = 10;
+		
+		app.options = options;
 
 		//SETS UP MAP
 		console.log(data);
@@ -37,7 +39,7 @@ class ShootingsMap{
 
 		app.fatalShootingMarkers = L.layerGroup();
 		app.nonFatalShootingMarkers = L.layerGroup();
-		app.highlightedShootings = L.layerGroup(); // Using a layer group, we easily can locate/remove highlighted shootings 
+		// app.highlightedShootings = L.layerGroup(); // Using a layer group, we easily can locate/remove highlighted shootings 
 		data.forEach(shooting => {
 			
 			const 	isFatal = parseInt(shooting['IS_FATAL']) == 1 ? true : false;
@@ -67,7 +69,7 @@ class ShootingsMap{
 		})
 		app.nonFatalShootingMarkers.addTo(app.map);
 		app.fatalShootingMarkers.addTo(app.map);
-		app.highlightedShootings.addTo(app.map)
+		// app.highlightedShootings.addTo(app.map)
 
 		// app.highlightShooting(16856);
 
@@ -118,32 +120,30 @@ class ShootingsMap{
 	}
 
 	highlightShooting(shootingID){
-		console.log('>>>>>>>>>', shootingID);
 		const 	app = this; 
 
 		app.fatalShootingMarkers.eachLayer( l => {
-			console.log(l.shootingID);
 			if (l['shootingID'] == shootingID) {
-				// First, remove all highlighted shootings
-				app.highlightedShootings.clearLayers();
-				
-				// Then clone the desired layer.
-				const newIcon = l;
-				
+				// First, remove the highlighted shooting, if it exists
+				if (app.shootingHighlightIcon != undefined){
+					app.shootingHighlightIcon.removeFrom(app.map);
+				}
+
 				// Give it the highlighted style and add it to the highlighted LayerGroup()
-				newIcon.setStyle({
+				app.shootingHighlightIcon = L.circleMarker(l.getLatLng(),{
 					radius: 10,
 					stroke:true,
 					strokeWidth:1,
 					color:'black',
 					fill: true,
+					fillColor: app.options.fatalColor,
 					fillOpacity: .8
-				}).addTo(app.highlightedShootings);
+				}).addTo(app.map);
 
 				// Make sure the map is showing the marker
 				app.map.panTo(l.getLatLng());
-			};
-		})
+			}
+		});
 	}
 }
 
