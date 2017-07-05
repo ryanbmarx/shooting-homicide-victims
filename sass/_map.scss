@@ -75,6 +75,7 @@ $list_padding:20px;
 	@include sans-serif();
 	border-bottom:1px solid $trib-gray2;
 	border-left: 3px solid transparent;
+	padding-bottom: 0;
 
 	&:last-child{
 		padding-bottom:none;
@@ -90,6 +91,11 @@ $list_padding:20px;
 	p{
 		@include sans-serif();
 		margin:0;
+	}
+
+	.victim__link-text{
+	    margin-top: 7px;
+		font-size:13px;
 	}
 }
 

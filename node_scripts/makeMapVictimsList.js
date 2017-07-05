@@ -13,7 +13,7 @@ const 	fs = require('fs'),
 
 
 function formatGender(gender){
-	// We have room in here to accomadate others. If not specified, will return blank.
+	// We have room in here to accomadate others. If not specified, will return supplied value.
 	if (gender.toUpperCase() == "M") return "male";
 	if (gender.toUpperCase() == "F") return "female";
 	return gender;
@@ -46,7 +46,7 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 				const 	shootingDate = dateTimeParser(`${v['DATE']} ${v['HOUR']}`),
 						age = typeof(parseInt(v['AGE'])) == "number" ? parseInt(v['AGE']) : false,
 						gender = v['SEX'].length > 0 ? v['SEX'] : false,
-						link = v['LINK'],
+						link = v['LINK'].length > 0 ? v['LINK'] : false,
 						address = v['LOCATION'],
 						id = v['ID'];
 
@@ -63,12 +63,22 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 				// If a gender is known
 				if (gender) personString += `${formatGender(gender)} `;
 
-				victimsListString += `<li class='victim' data-shooting-id=${id}>
-					<a class='map__link' href='${link}' target='_blank'>
+				// Start the list item
+				victimsListString += `<li class='victim' data-shooting-id=${id}>`;
+				
+				// If there is a link, part 1
+				if (link) victimsListString += `<a class='map__link' href='${link}' target='_blank'>`;
+				
+				// Add the stuff about the victim	
+				victimsListString += `
 						<p><strong>${ personString }</strong></p>
-						<p>Where: ${ address }</p>
-					</a>
-				</li>`
+						<p>Where: ${ address }</p>`;
+
+				// If there is a link, close what we opened
+				if (link) victimsListString += `<p class='victim__link-text'> &raquo; Click for news story</p></a>`;		
+
+				// Close the list item.
+				victimsListString += `</li>`
 			}
 	
 			catch (e){
