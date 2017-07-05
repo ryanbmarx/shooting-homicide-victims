@@ -17,6 +17,14 @@ function formatGender(gender){
 	if (gender.toUpperCase() == "F") return "female";
 }
 
+function isFatal(victim){
+	// Tests if shooting victim is coded as dead, based on a column in the data.
+	if (victim['IS_FATAL'] == 1 || victim['IS_FATAL'] == "1" || victim['IS_FATAL'] == true || victim['IS_FATAL'].toUpperCase() == "TRUE"){
+		return true;
+	}
+	return false;
+}
+
 fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 	if (err) throw err;
 	const victims = orderBy(JSON.parse(data), v => {
@@ -27,7 +35,7 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 	let victimsListString = `<h3 class='map__victims-headline'>Fatal shootings</h3><ul class='victims'>`;
 	
 	victims.forEach(v => {
-		if (v['IS_FATAL'] == 1){
+		if (isFatal(v)){
 			// Only generate a list of fatal shootings
 			try{
 				// If there is some error parsing the data, we will want to catch that, but move on and
@@ -56,7 +64,6 @@ fs.readFile('data/current-year-victims.json', 'utf-8', (err, data) => {
 				victimsListString += `<li class='victim' data-shooting-id=${id}>
 					<a class='map__link' href='${link}' target='_blank'>
 						<p><strong>${ personString }</strong></p>
-						<p>When: <time datetime="${ shootingDate }">${dateTimeFormatter(shootingDate)}</time></p>
 						<p>Where: ${ address }</p>
 					</a>
 				</li>`
