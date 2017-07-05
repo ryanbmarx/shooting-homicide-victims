@@ -113,17 +113,17 @@ $mobile_table_toggle: 650px;
 			tbody{
 				display:grid;
 				grid-template-columns: 1fr 1fr 1fr;
-				grid-gap: 0;
-				grid-row-gap: 0;
+				grid-gap: 1px;
+				grid-row-gap: 1px;
 
 				tr.row{
 					padding:10px;
 
-					&--positive{
+					&--negative{
 						background:rgba($trib-green3, .4);
 					}
 
-					&--negative{
+					&--positive{
 						background:rgba($fatal_color, .4);
 					}
 				}
