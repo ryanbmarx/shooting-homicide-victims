@@ -1,6 +1,6 @@
 $map_height: 600px;
 $list_width: 270px;
-$list_gutter: 0;
+$list_gutter: 0px;
 $list_padding:20px;
 
 .chart--map figcaption{
@@ -33,12 +33,12 @@ $list_padding:20px;
 		&:after{
 			content:'\25C0';
 			position:absolute;
-			top: 150px;
+			top: 80px;
 			right: 0;
 			font-size:20px;
 			color:$trib-gray4;
 			z-index: 1000;
-			margin-right: -4px;
+			margin-right: -5px;
 		}
 
 	}
