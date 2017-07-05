@@ -81,23 +81,45 @@ class ShootingsMap{
 			
 			for (let i = 0; i < victims.length; i++) {
 				const victim = victims[i];
+
+				// Set the waypoint for scrolling down
 				new Waypoint({
 					element: victim,
 					handler: function(direction){
-						const shootingID = parseInt(this.element.dataset.shootingId);
-						
-						app.highlightShooting(shootingID);
-	
-						// Toggle highlight classes on the list, so the current one is shown.
-						const highlightedVictim = document.querySelector('li.victim.victim--highlight');
-						if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
-						this.element.classList.add('victim--highlight');
-	
+						if (direction == "down"){
+							const shootingID = parseInt(this.element.dataset.shootingId);
+							
+							app.highlightShooting(shootingID);
+		
+							// Toggle highlight classes on the list, so the current one is shown.
+							const highlightedVictim = document.querySelector('li.victim.victim--highlight');
+							if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
+							this.element.classList.add('victim--highlight');
+						}	
 					},
 					context: options.victimList,
-					offset: 200
-	
+					offset: 80
 				});
+
+				// Need a new offset, thus a new waypoint, for scrolling back up the list.
+				new Waypoint({
+					element: victim,
+					handler: function(direction){
+						if (direction == "up"){
+							const shootingID = parseInt(this.element.dataset.shootingId);
+							
+							app.highlightShooting(shootingID);
+		
+							// Toggle highlight classes on the list, so the current one is shown.
+							const highlightedVictim = document.querySelector('li.victim.victim--highlight');
+							if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
+							this.element.classList.add('victim--highlight');
+						}	
+					},
+					context: options.victimList,
+					offset: 20
+				});
+
 			}
 		}
 
@@ -115,7 +137,7 @@ class ShootingsMap{
 				} else {
 					app[showMe].addTo(app.map);
 				}
-				
+
 				// Make sure the highlighted shooting, if there is one, sits atop all the map layers.
 				if (app.shootingHighlightIcon != undefined) app.shootingHighlightIcon.bringToFront();
 			})
