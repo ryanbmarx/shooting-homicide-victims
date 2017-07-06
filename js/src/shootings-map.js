@@ -143,7 +143,9 @@ class ShootingsMap{
 		// Init the legend/buttons
 
 		const legendButtons = options.legendButtons;
-		legendButtons.forEach(button => {
+		for (let i=0; i < legendButtons.length; i++){
+			// using for() loop here sted .forEach() because of stupid IE11
+			const button = legendButtons[i];
 			button.addEventListener('click', function(e) {
 				this.classList.toggle('map-legend__button--checked');
 
@@ -157,8 +159,8 @@ class ShootingsMap{
 
 				// Make sure the highlighted shooting, if there is one, sits atop all the map layers.
 				if (app.shootingHighlightIcon != undefined) app.shootingHighlightIcon.bringToFront();
-			})
-		})
+			});
+		}
 	}
 
 	highlightShooting(shootingID){
