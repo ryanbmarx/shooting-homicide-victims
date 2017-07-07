@@ -4,6 +4,11 @@ import filter from 'lodash.filter';
 import orderBy from 'lodash.orderby';
 import monthFormatter from './month-formatter.js';
 
+function leapYear(year) {
+	// returns true if supplied year is a leap year
+  return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+}
+
 function getLastDate(data, years){
 	let lastYear = [];
 	years.forEach(y => {
@@ -48,8 +53,16 @@ class MultilineChart{
 		
 		// For each year, in descending order, append a row with two cells to the table.
 		years.sort().reverse().forEach(year => {
-			const 	row = table.append('tr'),
-					searchDate = new Date(year, date.getMonth(), date.getDate(),0,0,0,0);
+			const 	row = table.append('tr');
+
+			let searchDate = new Date(year, date.getMonth(), date.getDate(),0,0,0,0);
+
+			if (date.getMonth() == 1 && date.getDate() == 29 && !leapYear(year)) {
+				// If Feb. 29 is the selected date and the current year is NOT a leap year, 
+				// then switch to Feb. 28 so everything makes sense.
+
+				searchDate = new Date(year, date.getMonth(), 28,0,0,0,0);
+			}
 
 			const tempData = orderBy(data[year], d => parseInt(d.ID));
 			let i = bisectDate(tempData, searchDate) - 1,
