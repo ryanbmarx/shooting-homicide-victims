@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "grunt watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run download && npm run process && mkdir -p subtemplates && mkdir -p css && grunt && npm run build:table && npm run build:year-counter",
+    "build": "npm run download && npm run process && mkdir -p subtemplates && mkdir -p css && grunt && npm run build:table && npm run build:year-counter && npm run build:victims-list",
     "build:table": "node node_scripts/makeMonthlyTable.js",
     "build:year-counter": "node node_scripts/makeCumulativeCounter.js",
     "build:victims-list": "node node_scripts/makeMapVictimsList.js",
