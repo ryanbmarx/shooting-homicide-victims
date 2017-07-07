@@ -28,6 +28,17 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
   </figcaption>
   {# <div id='monthly' class='chart__wrapper'></div> #}
   <div id='monthly-table' class='charts--monthly-table'>
+    <dl class='monthly-table__legend'>
+      <dt>
+        <span class='box box--increase'></span>
+      </dt>
+      <dd>Increase from previous year</dd>
+      <dt>
+        <span class='box box--decrease'></span>
+      </dt>
+      <dd>Decrease from previous year</dd>
+      
+    </dl>
     {% include 'subtemplates/_monthly-table.html' %}
   </div>
 </figure>

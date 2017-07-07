@@ -1,5 +1,25 @@
 $mobile_table_toggle: 650px;
 
+.monthly-table{
+	// This is the overall wrapper for the monthly table
+	&__legend{
+		@include trib-legend();
+
+		.box{
+			@include trib-legend__box(0);
+
+			&--increase{
+				background-color: $fatal_color;
+			}
+			&--decrease{
+				background-color: $trib-green3;	
+			}
+
+		}
+	}
+}
+
+
 // This is the table underneath the monthly chart
 .month-table{
 	@include trib-table(compressed);
@@ -84,6 +104,8 @@ $mobile_table_toggle: 650px;
 .month-table--mobile{
 	display:none;
 }
+
+
 
 @media all and (max-width: 849px){
 	.month-table__month .date{
