@@ -9,6 +9,24 @@
    stroke-dashoffset: 2000;
    animation: strokeDraw 5s linear forwards;
 }
+
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+   /* 
+	HACK ALERT:
+	https://paper-leaf.com/blog/2014/09/targeting-ie-10-11-browsers-css/
+   	IE10+ specific styles go here 
+
+
+   */  
+   .line{
+		stroke-dasharray: 0 !important;
+		stroke-dashoffset: 0 !important;
+		animation: none !important;
+   }
+}
+
+
 .ytd-highlight{
 	background: rgba(white, .7);
 	border: 1px solid black;
