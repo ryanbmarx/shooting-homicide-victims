@@ -27,7 +27,7 @@ class ShootingsMap{
 		//SETS UP MAP
 		app.map =  L.map(container,{
 			center: [41.838299, -87.706953],
-			zoom: 11,
+			zoom: 10,
 			scrollWheelZoom:false,
 			maxZoom:16,
 		    renderer: L.canvas({padding:.05})
