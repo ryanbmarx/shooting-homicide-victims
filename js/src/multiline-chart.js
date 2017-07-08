@@ -32,6 +32,7 @@ class MultilineChart{
 		app.options = options;
 		app.data = options.data;
 		app._container = options.container;
+		app.mobileLayoutBreakpoint = 600
 
 		MultilineChart.initChart(app);
 	}
@@ -45,7 +46,8 @@ class MultilineChart{
 
 
 		// Update the date on the highlight
-		d3.select('#ytd .ytd-highlight__label').html(d3.timeFormat('%B %-d')(date));
+		const dateString = `${monthFormatter(date.getMonth(), 'ap')} ${date.getDate()}`;
+		d3.select('#ytd .ytd-highlight__label').html(dateString);
 		
 
 		// Clear the existing rows, so they can be updated.
@@ -69,9 +71,16 @@ class MultilineChart{
 				d = tempData[i];
 
 
-			// First cell gets the year
-			row.append('td')
-				.html(year);
+			// First cell gets the year, which should be two-digit format if on mobile
+
+			if (window.innerWidth < app.mobileLayoutBreakpoint){
+				row.append('td')
+					.html(`&rsquo;${year.slice(2)}`);
+
+			} else {
+				row.append('td')
+					.html(year);				
+			}
 
 			if (searchDate <= app.lastDate){
 				// Other cell gets the cumulative shootings
@@ -117,9 +126,16 @@ class MultilineChart{
 
 		const 	data = app.data,
 				container = d3.select(app._container),
-				bbox = app._container.getBoundingClientRect(), 
-				height = bbox.height,
-				width = bbox.width,
+				bbox = app._container.getBoundingClientRect();
+
+				let width= bbox.width;
+				if (window.innerWidth < app.mobileLayoutBreakpoint){
+					// We're floating the highlight box on mobile. This accounts for that.
+					const highlightWidth = d3.select('.ytd-highlight').node().getBoundingClientRect().width;
+					width = width - highlightWidth - 15;
+				}
+
+		const	height = bbox.height,
 				margin = app.options.innerMargins,
 				innerHeight = height - margin.top - margin.bottom,
 				innerWidth = width - margin.right - margin.left,
@@ -136,7 +152,7 @@ class MultilineChart{
 				app.lastDate = getLastDate(app.data, years);
 				app.lastYear = app.lastDate.getFullYear();
 		
-
+	
 		// ----------------------------------
 		// start working with the SVG
 		// ----------------------------------

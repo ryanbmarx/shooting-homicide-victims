@@ -70,10 +70,18 @@
 	}
 }
 
+@media all and (max-width: 600px){
 
+	.chart--ytd{
+		@include clearfix();
+	}
 
-// .highlight-circle--2017{
-// 	fill: $trib-blue2;
-// 	stroke: $trib-blue2;
-// 	stroke-width: 2;
-// }
+	.ytd-highlight{
+		border:none;
+		background: $trib-gray4;
+	    padding: 7px;
+		position:static;
+		width:80px;
+		float:left;
+	}
+}
