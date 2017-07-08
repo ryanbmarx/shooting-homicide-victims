@@ -117,7 +117,7 @@ $list_padding:20px;
 		border:none;
 		padding: 10px;
 		background: white;
-		border:1px solid $trib-blue2;
+		border:1px solid black;
 		color:black;
 		transition: all 150ms ease;
 		margin-right:10px;
@@ -166,7 +166,6 @@ $list_padding:20px;
 			height: 380px;
 			margin-bottom:25px;
 
-			
 			&:after{
 				content:'';
 			}
@@ -178,3 +177,27 @@ $list_padding:20px;
 		}
 	}
 }
+
+@media all and (max-width:450px){
+	
+	.trb_mainContent .map-legend{
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap:wrap;
+
+		&__label{
+			// Slide the label above the two buttons, which should stretch to cover full width.
+			// Also, thus will keep button text from wrapping.
+			width:100%;
+			margin: 0 0 10px 0;
+		}
+
+		&__button{
+			width: 45%; // fallback
+			width: calc(50% - 8px); // Should put a 16px gutter between the two buttons
+			padding: 10px 0;
+			margin-right:0;
+		}
+	}	
+
+};
