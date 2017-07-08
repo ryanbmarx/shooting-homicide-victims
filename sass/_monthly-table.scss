@@ -23,7 +23,8 @@ $mobile_table_toggle: 650px;
 // This is the table underneath the monthly chart
 .month-table{
 	@include trib-table(compressed);
-
+	margin-bottom: 0;
+	
 	tr {
 		td{
 			text-align: center;
