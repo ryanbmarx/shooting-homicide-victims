@@ -11,14 +11,14 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
 {{ intro|markdown }}
 <figure class='chart chart--ytd'>
   <figcaption>
-    <h2 class='chart__headline'>{{cumulative_headline}}</h2>
+    <h2 class='chart__headline'>{{ cumulative_headline }}</h2>
   </figcaption>
-  <div id='ytd' class='chart__wrapper'>
-    <div class='ytd-highlight'>
-      <h3 class='ytd-highlight__label'>XXXXXXX</h3>
-      <table id='ytd-highlight-table' class='ytd-highlight__table'></table>
-    </div>
-  </div>  
+  
+  <div class='ytd-highlight'>
+    <table id='ytd-highlight-table' class='ytd-highlight__table'></table>
+    <h3 class='ytd-highlight__label'>XXXXXXX</h3>
+  </div>
+  <div id='ytd' class='chart__wrapper'></div>  
 </figure>
 {# ------------------------- #}
 <figure class='chart chart--monthly'>

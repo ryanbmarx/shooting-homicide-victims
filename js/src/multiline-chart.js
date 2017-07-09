@@ -47,44 +47,60 @@ class MultilineChart{
 
 		// Update the date on the highlight
 		const dateString = `${monthFormatter(date.getMonth(), 'ap')} ${date.getDate()}`;
-		d3.select('#ytd .ytd-highlight__label').html(dateString);
+		d3.select('.ytd-highlight__label').html(dateString);
 		
+		console.log(dateString);
 
 		// Clear the existing rows, so they can be updated.
 		table.selectAll('*').remove();
+
+		// Prime the table to accept new data points
+		const 	yearsRow = table.append('thead').append('tr'),
+				shootingsRow = table.append('tbody').append('tr');
+
 		
 		// For each year, in descending order, append a row with two cells to the table.
-		years.sort().reverse().forEach(year => {
-			const 	row = table.append('tr');
+		years.sort().forEach(year => {
+			
+			console.log('>>>>> ', year);
 
+			// To avoid discrepancies in time, create a search date 
+			// that is set to midnight for the desired date
 			let searchDate = new Date(year, date.getMonth(), date.getDate(),0,0,0,0);
 
+			// Account for the leap year;
 			if (date.getMonth() == 1 && date.getDate() == 29 && !leapYear(year)) {
 				// If Feb. 29 is the selected date and the current year is NOT a leap year, 
 				// then switch to Feb. 28 so everything makes sense.
-
 				searchDate = new Date(year, date.getMonth(), 28,0,0,0,0);
 			}
 
+			// We're going to cycle through the years, one by one, starting with the oldest.
 			const tempData = orderBy(data[year], d => parseInt(d.ID));
+
 			let i = bisectDate(tempData, searchDate) - 1,
 				d = tempData[i];
 
-
-			// First cell gets the year, which should be two-digit format if on mobile
-
+			console.log(tempData, d,i);
+			// First, add the year to the thead row, which should be two-digit format if on mobile
 			if (window.innerWidth < app.mobileLayoutBreakpoint){
-				row.append('td')
+				// If on mobile, we want a two-digit year.
+				yearsRow.append('th')
 					.html(`&rsquo;${year.slice(2)}`);
 
 			} else {
-				row.append('td')
+				// If not on mobile, we want a four-digit year.
+				yearsRow.append('th')
 					.html(year);				
 			}
 
+
+			// Then, add the shootings cumulative total to the tbody 
+			// Test if the search date has occurred
 			if (searchDate <= app.lastDate){
+
 				// Other cell gets the cumulative shootings
-				row.append('td')
+				shootingsRow.append('td')
 					.html(`${d3.format(',')(d['CUMULATIVE_SUM'])}`);
 
 				// Only if we have a valid data point, move the highlight circles 
@@ -98,9 +114,9 @@ class MultilineChart{
 					.attr('cy', yScale(d['CUMULATIVE_SUM']));
 
 			} else {
-				// This cumulative date is 
+				// If the search date has not occurred in the current year then skip with a "n/a"
 				d3.select(`.highlight-circle--${app.lastYear}`).style('opacity', 0);
-				row.append('td')
+				shootingsRow.append('td')
 					.html(`n/a`);
 			}
 		})
@@ -129,11 +145,11 @@ class MultilineChart{
 				bbox = app._container.getBoundingClientRect();
 
 				let width= bbox.width;
-				if (window.innerWidth < app.mobileLayoutBreakpoint){
-					// We're floating the highlight box on mobile. This accounts for that.
-					const highlightWidth = d3.select('.ytd-highlight').node().getBoundingClientRect().width;
-					width = width - highlightWidth - 15;
-				}
+				// if (window.innerWidth < app.mobileLayoutBreakpoint){
+				// 	// We're floating the highlight box on mobile. This accounts for that.
+				// 	const highlightWidth = d3.select('.ytd-highlight').node().getBoundingClientRect().width;
+				// 	width = width - highlightWidth - 15;
+				// }
 
 		const	height = bbox.height,
 				margin = app.options.innerMargins,

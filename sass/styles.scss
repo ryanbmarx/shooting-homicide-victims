@@ -19,6 +19,7 @@ $fatal_color: $trib-red2;
   margin-bottom: 25px;
   padding-bottom:25px;
   border-bottom: 1px solid $trib-gray4;
+  position: relative;
   
   &__headline{
     @include label5();

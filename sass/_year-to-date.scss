@@ -1,3 +1,7 @@
+$ytd-table-width: 300px;
+$ytd-border-width: 10px;
+$ytd-highlight-total-years: 6;
+
 @keyframes strokeDraw{
 	to{
 		stroke-dashoffset:0;
@@ -28,60 +32,71 @@
 
 
 .ytd-highlight{
-	background: rgba(white, .7);
-	border: 1px solid black;
-	padding: 15px;
-	width: 105px;
+    z-index: 100000;
+	// padding: 15px;
+	// width: 105px;
 	opacity:0;
 	position: absolute;
-	top:0;
+	top:45px;
 	left:70px;
+	width: $ytd-table-width;
 
 	&__label{
 		@include sans-serif()
+		display: inline-block;
 		font-weight: bold;
-		margin: 0 0 10px 0;
-		padding:0;
+		margin: 0;
+		padding:7px;
+		color: #fff;
+		background:black;
 	}
 
 	&__table{
 		@include trib-table(compressed);
+		background: #fff;
+		// border: 1px solid black;
 		margin:0;
-		
-		tr td{
-			padding: 5px !important;
+		// width:100%;
+		table-layout: fixed;
+		thead { border-bottom: none; }
+
+		tr th{
+			border-bottom: 2px solid $trib-grey2;
 		}
 
-		tr:first-child {
-			border: 2px solid $trib-blue2;
-			td{
-				// Make the first (i.e. current) row bold;
-				font-weight: bold;
-				// color:white;
-				padding: 4px 10px;
-			}
-		}
-		tr{
-			td:last-child{
-				// Numbers should be right aligned in tables. This selects that cell.
-				text-align:right;
-			}
+		tr td, tr th{
+			text-align: center;
+			width: $ytd-table-width / 6; // fallback
+			width: calc((100% - #{$ytd-border-width * ($ytd-highlight-total-years - 1)}) / 6);
+			padding-left:0;
+			padding-right:0;
+		    border-right: 10px solid white;
+
+		    &:last-child{
+		    	 border-right:none;
+		    	 font-weight: bold;
+		    }
 		}
 	}
 }
 
-@media all and (max-width: 600px){
+@media all and (max-width: 650px){
 
 	.chart--ytd{
 		@include clearfix();
 	}
 
 	.ytd-highlight{
-		border:none;
-		background: $trib-gray4;
-	    padding: 7px;
+		width:100%;
 		position:static;
-		width:80px;
-		float:left;
+		margin: 10px 0;
+
+		&__label{
+			text-align: center;
+			display: block;
+			padding: 0;
+			color:black;
+			background:white;
+		}
 	}
 }
