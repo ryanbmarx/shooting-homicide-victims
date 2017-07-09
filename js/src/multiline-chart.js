@@ -49,7 +49,6 @@ class MultilineChart{
 		const dateString = `${monthFormatter(date.getMonth(), 'ap')} ${date.getDate()}`;
 		d3.select('.ytd-highlight__label').html(dateString);
 		
-		console.log(dateString);
 
 		// Clear the existing rows, so they can be updated.
 		table.selectAll('*').remove();
@@ -62,8 +61,6 @@ class MultilineChart{
 		// For each year, in descending order, append a row with two cells to the table.
 		years.sort().forEach(year => {
 			
-			console.log('>>>>> ', year);
-
 			// To avoid discrepancies in time, create a search date 
 			// that is set to midnight for the desired date
 			let searchDate = new Date(year, date.getMonth(), date.getDate(),0,0,0,0);
@@ -81,7 +78,6 @@ class MultilineChart{
 			let i = bisectDate(tempData, searchDate) - 1,
 				d = tempData[i];
 
-			console.log(tempData, d,i);
 			// First, add the year to the thead row, which should be two-digit format if on mobile
 			if (window.innerWidth < app.mobileLayoutBreakpoint){
 				// If on mobile, we want a two-digit year.
