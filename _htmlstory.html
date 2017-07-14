@@ -1,57 +1,87 @@
-<!-- To update the numbers on this page you should follow the directions here:
-https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 -->
+{# To update the numbers on this page you should follow the directions here:
+https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
 
 {% block content %}
 
-{{intro|markdown}}
 
-<div class="category">
-<h2>{{ytd_headline}}</h2>
-</div>
-<div class="big-numbers">
-	
-	<div class="number">
-		<p class="num2016">{{'{:,}'.format(ytd_2016)}}</p>
-		<p class="keynum">{{key_2016}}</p>
-	</div>
 
-	<div class="number">
-		<p class="num2017">{{'{:,}'.format(ytd_2017)}}</p>
-		<p class="keynum">{{key_2017}}</p>
-	</div>
+<section class='title'>
+{% include "subtemplates/_year-counter.html" %}
+</section>
+{{ intro|markdown }}
+<figure class='chart chart--ytd'>
+  <figcaption>
+    <h2 class='chart__headline'>{{ cumulative_headline }}</h2>
+  </figcaption>
+  
+  <div class='ytd-highlight'>
+    <table id='ytd-highlight-table' class='ytd-highlight__table'></table>
+    <h3 class='ytd-highlight__label'>XXXXXXX</h3>
+  </div>
+  <div id='ytd' class='chart__wrapper'></div>  
+</figure>
+{# ------------------------- #}
+<figure class='chart chart--monthly'>
+  <figcaption>
+    <h2 class='chart__headline'>{{ monthly_headline }}</h2>
+    {# {% include 'subtemplates/_monthly-legend.html' %} #}
+  </figcaption>
+  {# <div id='monthly' class='chart__wrapper'></div> #}
+  <div id='monthly-table' class='charts--monthly-table'>
+    <dl class='monthly-table__legend'>
+      <dt>
+        <span class='box box--increase'></span>
+      </dt>
+      <dd>Increase from previous year</dd>
+      <dt>
+        <span class='box box--decrease'></span>
+      </dt>
+      <dd>Decrease from previous year</dd>
+      
+    </dl>
+    {% include 'subtemplates/_monthly-table.html' %}
+  </div>
+</figure>
+{# ------------------------- #}
+<figure class='chart chart--map'>
+  <figcaption>
+    <h2 class='chart__headline'>{{ new_map_headline }}</h2>
+    <div class='map-legend'>
+      <span class='map-legend__label'>Toggle:</span>
+      <button class='map-legend__button map-legend__button--checked' data-toggle="fatalShootingMarkers">  
+        <span class='map-legend__dot map-legend__dot--fatal'></span>
+        Fatal
+      </button>
+      <button class='map-legend__button map-legend__button--checked' data-toggle="nonFatalShootingMarkers">
+        <span class='map-legend__dot map-legend__dot--non-fatal'></span>
+        Non-fatal
+      </button>
+    </div>
+  </figcaption>
+    <div class='map'>
+      <div class='map__map' id="map"></div>
+      <div class='map__victims' id='map-victims'>
+        {% include 'subtemplates/_victims-list.html' %}
+      </div>
+    </div>
+</figure>
 
-</div>
-<div class="category">
-<h2>{{cumulative_headline}}</h2>
-{{cumulative_blurb|markdown}}
-</div>
-<div class='charts'>
-{% include 'ai/ai2html-output/cumulative.html' %}
-</div>
 
-<div class="category">
-<h2>{{monthly_headline}}</h2>
-{{monthly_blurb|markdown}}
-</div>
 
-<div class='charts'>
-{% include 'ai/ai2html-output/monthly.html' %}
-</div>
 
-<div class="category">
-<h2>{{map_headline}}</h2>
-{{map_blurb|markdown}}
-</div>
-<div id="map" style="width:100%; height:600px;"></div>
-
-{{source|markdown}}
-{{tag|markdown}}
+<section class='credits'>
+  {{ source|markdown }}
+  {{ tag|markdown }}
+</section>
 
 {% endblock content %}
 
 {% block library_scripts %}
 {# Uncomment this if you are using libraries such as jQuery #}
 <script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
+<script>
+  window.ROOT_URL = "{{ ROOT_URL }}";
+</script>
 {% endblock %}
 
 {% block scripts %}
@@ -61,7 +91,6 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 -->
   window.ROOT_URL = "{{ ROOT_URL }}";
 
   var CSS = [
-    "//{{ ROOT_URL }}/css/leaflet.css",
     "//{{ ROOT_URL }}/css/styles.css"
   ];
   CSS.forEach(function(url) {
@@ -72,6 +101,5 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 -->
   });
 })(document);
 </script>
-<script src="//{{ ROOT_URL }}/js/leaflet.js"></script>
 <script src="//{{ ROOT_URL }}/js/app.min.js"></script>
 {% endblock scripts %}

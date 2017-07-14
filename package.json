@@ -4,9 +4,18 @@
   "description": "",
   "main": "js/src/app.js",
   "scripts": {
+    "watch": "grunt watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "grunt",
-    "watch": "grunt watch"
+    "build": "npm run download && npm run process && mkdir -p subtemplates && mkdir -p css && grunt && npm run build:table && npm run build:year-counter && npm run build:victims-list",
+    "build:table": "node node_scripts/makeMonthlyTable.js",
+    "build:year-counter": "node node_scripts/makeCumulativeCounter.js",
+    "build:victims-list": "node node_scripts/makeMapVictimsList.js",
+    "download": "npm run download:dates && npm run download:victims",
+    "download:dates": "python dynamic/shootings_script_Dynamic.py data/raw-dates.csv",
+    "download:victims": "python dynamic/Geocoding_Script.py data/raw-victims.csv",
+    "process": "npm run process:monthly && npm run process:map",
+    "process:monthly": "node node_scripts/makeMonthlyData.js",
+    "process:map": "node node_scripts/makeCurrentYearVictims.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +25,7 @@
   "author": "Chicago Tribune News Applications",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.9.0",
     "babelify": "^7.3.0",
     "browserify": "^10.2.4",
@@ -23,11 +33,27 @@
     "grunt-browserify": "^3.8.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-sass": "^1.2.0",
+    "html-minifier": "^3.5.2",
     "minifyify": "^7.3.3",
     "trib-styles": "git+https://tribune.unfuddle.com/git/tribune_trib-styles/"
   },
   "browserify": {
     "debug": true
   },
-  "tribune": {}
+  "tribune": {},
+  "dependencies": {
+    "d3": "^4.9.1",
+    "d3-queue": "^3.0.7",
+    "leaflet": "^1.0.3",
+    "lodash.countby": "^4.6.0",
+    "lodash.filter": "^4.6.0",
+    "lodash.find": "^4.6.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.merge": "^4.6.0",
+    "lodash.orderby": "^4.6.0",
+    "lodash.sortby": "^4.7.0",
+    "lodash.sumby": "^4.6.0",
+    "lodash.union": "^4.6.0",
+    "waypoints": "^4.0.1"
+  }
 }

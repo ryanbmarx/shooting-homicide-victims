@@ -1,13 +1,18 @@
 module.exports = function(grunt) {
   var config = {};
 
-  // Put your JavaScript library dependencies here. e.g. jQuery, underscore,
-  // etc.
-  // You'll also have to install them using a command similar to:
-  //     npm install --save jquery
   var VENDOR_LIBRARIES = [
-    'jquery',
-    //'underscore'
+    'leaflet',
+    'd3',
+    'lodash.filter',
+    'lodash.sumby',
+    'lodash.orderby',
+    'lodash.merge',
+    'lodash.union',
+    'lodash.groupby',
+    'lodash.countby',
+    'd3-queue',
+    'leaflet-providers'
   ];
 
   config.browserify = {
@@ -65,7 +70,7 @@ module.exports = function(grunt) {
     options: {
       outputStyle: 'compressed',
       sourceMap: true,
-      includePaths: [ 'sass/', 'node_modules/trib-styles/sass/' ]
+      includePaths: [ 'sass/', 'node_modules/trib-styles/sass/', 'node_modules/leaflet/dist/' ]
     },
     app: {
       files: {
