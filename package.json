@@ -45,6 +45,7 @@
     "d3": "^4.9.1",
     "d3-queue": "^3.0.7",
     "leaflet": "^1.0.3",
+    "leaflet-providers": "^1.1.17",
     "lodash.countby": "^4.6.0",
     "lodash.filter": "^4.6.0",
     "lodash.find": "^4.6.0",
