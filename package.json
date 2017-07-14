@@ -15,7 +15,8 @@
     "download:victims": "python dynamic/Geocoding_Script.py data/raw-victims.csv",
     "process": "npm run process:monthly && npm run process:map",
     "process:monthly": "node node_scripts/makeMonthlyData.js",
-    "process:map": "node node_scripts/makeCurrentYearVictims.js"
+    "process:map": "node node_scripts/makeCurrentYearVictims.js",
+    "postinstall":"pip install -r dynamic/requirements.txt"
   },
   "repository": {
     "type": "git",

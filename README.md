@@ -10,8 +10,13 @@ MH ... please describe, in broad terms, WHAT the data is and what format/state i
 FETCHING THE DATA
 -----------------
 
+This app uses two python scripts, in the `dynamic` folder to grab, clean and process data from NewsroomDB automatically. 
 
-!!! Install requirements -- one-time only. 
+Requirements
+============
+There are a couple of python dependencies for the data-fetching scripts. They should be installed when you run `npm install` on the whole project, but if they aren't, then run `pip install -r dynamic/requirements.txt` which should take care of that.
+
+
 
 The purpose of **shootings_script_Dynamic.py** is to provide a dynamic way of gathering, cleaning, and analyzing shootings data available on newsroomDB. Next, I'll describe how the script works.
 
@@ -19,7 +24,7 @@ The python script crawls NewsroomDB and gets the most up-to-date version of the 
  
 
 How to run the script
-
+====================
 Ryan Marx will be implementing a node js code that uses command line to call and access the python script.
 
 I have written the script in a way so that anyone who is running it will have the freedom to choose the path where the CSV file mentioned above needs to be saved to.
