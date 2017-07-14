@@ -39,7 +39,7 @@ class ShootingsMap{
 
 		L.tileLayer.provider('Stamen.TonerBackground').addTo(app.map);
 
-		//ADDS CITY MASK
+		// ADDS CITY MASK
 		L.tileLayer( "http://media.apps.chicagotribune.com/maptiles/chicago-mask/{z}/{x}/{y}.png", { 
 			maxZoom: 16, 
 			minZoom: 10, 
@@ -63,8 +63,25 @@ class ShootingsMap{
 					fill: true,
 					fillColor: isFatal ? options.fatalColor : options.currentColor,
 					fillOpacity: isFatal ? .4 : .2
-				})
-				// .bindPopup(customPopup(shooting));
+				}).on('click', function(e, shooting){
+					console.log(e.target.shootingID, document.querySelector(`[data-shooting-id="${e.target.shootingID}"]`));
+					
+					const 	selectedVictim = document.querySelector(`[data-shooting-id="${e.target.shootingID}"]`);
+
+					// The list of victims only is fatal shootings. Similarly, the querySelector will return null 
+					// if a nonfatal shooting is picked. We don't want to error out in that case, so check first 
+					// before highlighting a shooting.
+					
+					if (selectedVictim != null){
+
+						// Select the victim list <li> with the intended victim ID. Also get that offsetTop
+						 const selectedVictimTop = selectedVictim.offsetTop - 30; // This offset centers the <li> on the triangle.
+
+						// Scroll the list/s parent div to the desired victim, which should trigger the map
+						// to highlight the victim using the waypoints code.
+						document.querySelector('#map-victims').scrollTop = selectedVictimTop;
+					}
+				});
 	
 				shootingMarker.shootingID = parseInt(shooting['ID']);
 
@@ -95,11 +112,10 @@ class ShootingsMap{
 		// init the highlight event listener if the window is not mobile or tablet.
 		if (window.innerWidth >= 850){
 			const victims = options.victimList.querySelectorAll('ul li');
-			
 			for (let i = 0; i < victims.length; i++) {
 				const victim = victims[i];
 
-				// Set the waypoint for scrolling down
+				// Set the waypoint for scrolling down	
 				new Waypoint({
 					element: victim,
 					handler: function(direction){
