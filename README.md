@@ -23,8 +23,13 @@ Test locally then `tarbell publish production`. For now, to safeguard against a 
 
 
 ## ABOUT THE DATA
+All shootings and crimes are entered by the break news center to an online form on News room DB that includes details about each shooting/crime incident. The fields for each category (crime vs shootings) are filled differently. The current section describes information only about shootings data.
+For each shooting incident the break news team reports the following information:
+RD Number	Date	Day	Time	UCR	Last Name	First Name	Sex	Age	DOB	Home Address	Home Specificity	Shooting Location	Geocode Override	Shooting Specificity	District	Hospital 1	Hospital 2	Link	Link 2	Link 3	Notes	Computed time
 
-MH ... please describe, in broad terms, WHAT the data is and what format/state is grabbed... i.e. victims of shootings compiled by breaking news center. It's very messy and presents XYZ problems.
+The main issue with this data is that there is no documentation on what some columns represent (e.g., computed time ). In addition, the data entry for Age, DOB (date of birth), and First Name/Last Name is very messy. To be more specific, Age is sometimes entered as a string of characters (e.g.,twenty five) than numbers (e.g.,25). Some instances involve a combination of both (e.g., 20s or 20S to refer to twenties). This field should only be including numbers from now on to make future analyses much easier.
+Although we have the victim's age, but in most instances we don't have his/her date of birth. Regarding the victim's name, the process of filling missing data (in this case victims with no names) is inconsistent. Breaking News data entery team have sometimes used 'John Doe' as a fake name to report an incidient in which a victim's name is not known. This also need to be documented and reportes should come up with a unique name to fill the missing values.
+
 
 ### FETCHING THE DATA
 
