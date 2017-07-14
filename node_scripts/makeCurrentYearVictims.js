@@ -1,3 +1,5 @@
+'use strict'
+
 /*
 	This script takes the victims data and slices off only the victims from the current year.
 
@@ -6,7 +8,7 @@
 
 const 	fs = require('fs'),
 		d3 = require('d3'),
-		dateParser = d3.timeParse('%Y-%m-%d')
+		dateParser = d3.timeParse('%Y-%m-%d'),
 		sortBy = require('lodash.sortby'),
 		filter = require('lodash.filter');
 

@@ -1,3 +1,5 @@
+'use strict'
+
 const 	orderBy = require('lodash.orderby'),
 		filter = require('lodash.filter'),
 		sumBy = require('lodash.sumby'),
@@ -11,7 +13,7 @@ function getMonthlyTableData(rawData){
 	// Retrieve the year of the last date in the dataset. 
 
 	// First, sort it by date.
-	let tempData = orderBy(rawData, o => {
+	var tempData = orderBy(rawData, o => {
 		return new Date(parseInt(o.YEAR), parseInt(o.MONTH), parseInt(o.MONTH), 0,0,0,0);
 	})
 

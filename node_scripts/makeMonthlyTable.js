@@ -1,3 +1,5 @@
+'use strict'
+
 const 	d3 = require('d3'),
 		fs = require('fs'),
 		minify = require('html-minifier').minify;

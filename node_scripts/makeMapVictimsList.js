@@ -1,3 +1,5 @@
+'use strict'
+
 /*
 	This script takes the victims data and slices off only the victims from the current year.
 

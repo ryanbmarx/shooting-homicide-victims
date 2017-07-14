@@ -1,3 +1,5 @@
+'use strict'
+
 /*
 	This script outputs a small HTML partial for the shootins template. It pulls the current cumulative
 	total and last year's total for the same date. It's all dependent on the dates in the data, so it should
