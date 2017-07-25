@@ -2,7 +2,6 @@
 import getTribColor from './getTribColors.js';
 import CrimeSite from './crime-site.js';
 // import {csv} from 'd3';
-// import RadialChart from './radial-chart.js';
 // import countBy from 'lodash.countby';
 
 

@@ -3,6 +3,8 @@ import groupBy from 'lodash.groupby';
 import GroupedBarChart from './grouped-bar-chart.js';
 import MultilineChart from './multiline-chart.js';
 import ShootingsMap from './shootings-map.js';
+import RadialChart from './radial-chart.js';
+
 
 class CrimeSite{
 
