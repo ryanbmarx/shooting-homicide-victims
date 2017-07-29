@@ -1,8 +1,12 @@
 import {csv, json} from 'd3';
 import groupBy from 'lodash.groupby';
+import sortBy from 'lodash.sortby';
+
 import GroupedBarChart from './grouped-bar-chart.js';
 import MultilineChart from './multiline-chart.js';
 import ShootingsMap from './shootings-map.js';
+
+import countBy from 'lodash.countby';
 import RadialChart from './radial-chart.js';
 
 
@@ -22,21 +26,37 @@ class CrimeSite{
 		app.options = options; // The options object as app attribute
 
 
-		// // Build that YOY by month chart
-		// json(`http://${ app.options.ROOT_URL }/data/monthly.json`, (err, barData) =>{
-			
-		// 	// This marginLeft variable will sync the chart position with the table while 
-		// 	// letting me control both with a single css
 
-		// 	const monthly = new GroupedBarChart({
-		// 		container: app.options.monthly,
-		// 		data:barData,
-		//         innerMargins:{ top:10,right:0,bottom:20,left:50 },
-		// 		currentColor: app.options.currentColor,
-		// 		otherColor: app.options.otherColor
-		// 	});
+  // console.log('loaded');
 
-		// });
+	csv('data/raw-victims.csv', (err, data) => {
+		if (err) throw err;
+
+		const minutesData = countBy(data, d => d.HOUR_HH);
+
+		// We want the data to be an array of objects, so let's transform a little more.
+		let newMinutesData = [];
+		Object.keys(minutesData).forEach(key => {
+			// Some shootings don't have a time, so we'll omit them. They are under the "-1"key.
+			if (key > -1){
+				newMinutesData.push({
+					time: new Date(1, 1, 1, key, 0, 0, 0),
+					num_shootings: minutesData[key]
+				});
+			}
+		});
+
+		console.log(newMinutesData);
+
+		const radial = new RadialChart({
+			container: document.querySelector('#radial'),
+			data: sortBy(newMinutesData, d => d.time),
+			innerMargins:{top:10,right:10,bottom:10,left:10},
+		});
+
+	});
+
+
 
 		// Activate the YTD line chart
 		csv(`http://${ app.options.ROOT_URL }/data/raw-dates.csv`,function(d, i, columns) {

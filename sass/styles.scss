@@ -13,6 +13,7 @@ $fatal_color: $trib-red2;
 @import 'big-numbers';
 @import 'year-to-date';
 @import 'map';
+@import 'time';
 
 .chart {
   @include trib-chart();

@@ -2,36 +2,6 @@ import * as d3 from 'd3';
 import getTribColor from './getTribColors.js';
 import {areaRadial, lineRadial} from 'd3-shape';
 
-/*
-
-  // console.log('loaded');
-
-  // csv('data/geocodes-test.csv', (err, data) => {
-  //   if (err) throw err;
-
-  //     const minutesData = countBy(data, d => {
-  //       const shootDate = new Date(1, 1, 1, d.Hour, 0, 0, 0);
-  //       return shootDate;
-  //     });
-
-  //     // We want the data to be an array of objects, so let's transform a little more.
-  //     let newMinutesData = [];
-
-  //     Object.keys(minutesData).forEach(key => {
-  //       newMinutesData.push({
-  //         time: key,
-  //         num_shootings: minutesData[key]
-  //       })
-  //     })
-
-  //     const radial = new RadialChart({
-  //       container: document.querySelector('#radial'),
-  //       data: newMinutesData,
-  //       innerMargins:{top:10,right:10,bottom:10,left:10},
-  //     });
-
-  // });
-*/
 
 
 //http://vizuly.io/product/corona/?demo=d3js
@@ -50,7 +20,8 @@ class RadialChart{
 				innerHeight = height - margin.top - margin.bottom,
 				innerWidth = width - margin.right - margin.left,
 				data = options.data,
-				shootingsMax = d3.max(data, d => d.num_shootings);
+				shootingsMax = d3.max(data, d => d.num_shootings),
+				guideColor = getTribColor('trib-grey4');
 
 		app.options = options;	
 
@@ -59,7 +30,8 @@ class RadialChart{
 
 		// some housekeeping variable declarations
 		const 	overallRadius = Math.min(innerWidth/2, innerHeight/2), // find the radius that fits in the box, in case it is not square
-				angleSlice = Math.PI * 2 / (24 * 60); // this is the angle width (in radians) of each slice ... one for each minute
+				minRadius = overallRadius / 3 > 150 ? overallRadius / 3 : 150,
+				angleSlice = Math.PI * 2 / data.length; // this is the angle width (in radians) of each slice ... one for each minute
 
 		// ###
 		// SET SCALE
@@ -70,15 +42,16 @@ class RadialChart{
 		// shootings in this usage.
 
 		const rScale = d3.scaleLinear()
-			.range([50, overallRadius]) // TODO: adjust the min here to give space in center?
+			.range([minRadius, overallRadius]) // TODO: adjust the min here to give space in center?
 			.domain([0, shootingsMax]);
 
 		
 		const dateScale = d3.scaleTime()
-			.range([0, 24*60]) 
+			.range([0, data.length]) 
 			.domain([new Date(1,1,1,0,0,0,0), new Date(1,1,1,23,59,0,0)]);
 
-
+		const shootingsAxis = d3.axisLeft(rScale)
+			.ticks(4);
 
 		// Define a scale to choose color. This will let us have a dynamic number of blobs.
 		const colorPicker = d3.scaleOrdinal().range(getTribColor('trib-blue2'));
@@ -96,10 +69,16 @@ class RadialChart{
 		
 		const chartInner = svg.append('g')
 			.classed('chart-inner', true)
-			// .attr('width', innerWidth)
-			// .attr('height', innerHeight)
 			.attr('transform', `translate(${margin.left + (innerWidth / 2)}, ${margin.top + (innerHeight / 2)})`);
 
+		const guides = svg.append('g')
+			.classed('guides', true)
+			.attr('transform', `translate(${margin.left + (innerWidth / 2)}, ${margin.top + (innerHeight / 2)})`);
+
+		chartInner.append('g')
+			.attr('class', 'axis')
+			.attr('transform', `translate(0,${innerHeight / -2})`)
+			.call(shootingsAxis);
 
 		// ###
 		// DRAW THE GRID
@@ -121,19 +100,72 @@ class RadialChart{
 		const radarLine = areaRadial()
 			.radius(d => rScale(d.num_shootings))
 			.angle((d,i) => {
-			//         const shootDate = new Date(1, 1, 1, d.Hour, d.Minute, 0, 0);
 				const 	dDate = new Date(d.time);
 				return dateScale(dDate) * angleSlice;
 			})
 			.curve(d3.curveCardinalClosed); // this smooths out the angles
 
-		// append the blob
 
+		
+
+		guides.append('line')
+			.attr('x1', 0).attr('y1', innerHeight / -2)
+			.attr('x2', 0).attr('y2', innerHeight / 2)
+			.style('stroke', guideColor)
+			.style('stroke-dasharray', '5px')
+			.style('fill', 'transparent');
+
+		guides.append('line')
+			.attr('x1', innerWidth / -2).attr('y1', 0)
+			.attr('x2', innerWidth / 2).attr('y2', 0)
+			.style('stroke', guideColor)
+			.style('stroke-dasharray', '5px')
+			.style('fill', 'transparent');
+
+		const guideCircles = [0, shootingsMax / 2, shootingsMax];
+
+		guides.selectAll('.guides .guide-circle')
+			.data(guideCircles)
+			.enter()
+			.append('circle')
+			.classed('guide-circle', true)
+			.style('stroke', (d,i) => i == 0 ? 'black' : guideColor)
+			.style('stroke-width', (d,i) => i == 0 ? 2 : 1)
+			.style('stroke-dasharray', (d,i) => i == 0 ? '0' : '5px')
+			.attr('cx', 0)
+			.attr('cy', 0)
+			.attr('r', (d,i) => {
+				console.log(d,i);
+				return rScale(d)
+			})
+			.style('fill', (d,i) => i == 0 ? 'white' : 'transparent');
+
+
+		// The innermost guide
+		// chartInner.append('circle')
+		// 	.attr('cx', 0)
+		// 	.attr('cy', 0)
+		// 	.attr('r', minRadius)
+		// 	.style('stroke', 'black')
+		// 	.style('stroke-dasharray', '5px')
+		// 	.style('fill', 'white');
+
+		// The outermost guide
+		// chartInner.append('circle')
+		// 	.attr('cx', 0)
+		// 	.attr('cy', 0)
+		// 	.attr('r', overallRadius)
+		// 	.style('stroke', 'black')
+		// 	.style('stroke-dasharray', '5px')
+		// 	.style('fill', 'transparent');
+
+		// append the blob
 		chartInner.append('path')
 			.datum(data)
-			.attr('d', d => radarLine(d))
-			.style("fill", "blue")
-			.style('stroke', 'red');
+			.style('fill', 'blue')
+			.style('stroke', 'red')
+			.style('stroke-width', 3)
+			.attr('d', d => radarLine(d));
 	}
 }
 
