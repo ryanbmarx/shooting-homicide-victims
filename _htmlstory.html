@@ -3,8 +3,27 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
 
 {% block content %}
 
+<style type="text/css">
+  .radials{
+    display:flex;
+    justify-content: space-between;
+  }
 
-<div id='radial'></div>
+  .radial{
+    width: 32%;
+    height: 300px;
+    /*padding-top: 32%;*/
+    background: #eee;
+  }
+
+</style>
+
+<div class='radials'>
+  <div class='radial radial--time'></div>
+  <div class='radial radial--day'></div>
+  <div class='radial radial--month'></div>
+</div>
+
 <section class='title'>
 {% include "subtemplates/_year-counter.html" %}
 </section>
