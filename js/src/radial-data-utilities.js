@@ -1,6 +1,26 @@
 import countBy from "lodash.countby";
 import sortBy from "lodash.sortby";
 
+
+function objectToArray(obj){
+
+	// Takes  data object of objects created by lodash/countby and transforms it into an array of objects.
+
+	let arr = [];
+
+	Object.keys(obj).forEach(key => {
+		// Some shootings don't have a time, so we'll omit them. They are under the "-1"key.
+		if (key > -1){
+			arr.push({
+				x: key,
+				y: obj[key]
+			});
+		}
+	});
+
+	return sortBy(arr, d => d.x);
+}
+
 function GetTimeData(data, summarizeBy){
 
 	// Takes the victims data and aggregates into a data format for the radial charts.
@@ -10,23 +30,30 @@ function GetTimeData(data, summarizeBy){
 	// This provides the data grouped and counted by the desired key, but as an object of objects.
 	const countedData = countBy(data, d => d[summarizeBy]);
 
-	// We want the data to be an array of objects, so let's transform a little more.
-	let countedData_arr = [];
+	// We want the final data to be in the correct order.
+	return objectToArray(countedData);
+}
 
-	Object.keys(countedData).forEach(key => {
-		// Some shootings don't have a time, so we'll omit them. They are under the "-1"key.
-		if (key > -1){
-			countedData_arr.push({
-				x: new Date(1, 1, 1, key, 0, 0, 0),
-				y: countedData[key]
-			});
-		}
+function GetDayData(data){
+
+	const countedData = countBy(data, d => {
+		return new Date(d['DATE']).getDay();
 	});
 
-	// We want the final data to be in the correct order.
-	return sortBy(countedData_arr, d => d.x)
+	return objectToArray(countedData);
+}
+
+function GetMonthData(data){
+
+	const countedData = countBy(data, d => {
+		return new Date(d['DATE']).getMonth();
+	});
+
+	return objectToArray(countedData);
 }
 
 module.exports = {
-	GetTimeData: GetTimeData
+	GetTimeData: GetTimeData,
+	GetDayData:GetDayData, 
+	GetMonthData:GetMonthData
 };
