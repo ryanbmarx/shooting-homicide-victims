@@ -11,17 +11,33 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
 
   .radial{
     width: 32%;
-    height: 300px;
-    /*padding-top: 32%;*/
+    
     background: #eee;
+  }
+
+  .radial .container{
+    height: 250px;
+  }
+
+  .radial h2{
+    text-align:center;
   }
 
 </style>
 
 <div class='radials'>
-  <div class='radial radial--time'></div>
-  <div class='radial radial--day'></div>
-  <div class='radial radial--month'></div>
+  <div class='radial radial--time'>
+    <h2>By hour</h2>
+    <div class='container'></div>
+  </div>
+  <div class='radial radial--day'>
+    <h2>By day</h2>
+    <div class='container'></div>
+  </div>
+  <div class='radial radial--month'>
+    <h2>By month</h2>
+    <div class='container'></div>
+  </div>
 </div>
 
 <section class='title'>
