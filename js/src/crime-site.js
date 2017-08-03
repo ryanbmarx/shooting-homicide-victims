@@ -8,6 +8,7 @@ import ShootingsMap from './shootings-map.js';
 
 import countBy from 'lodash.countby';
 import RadialChart from './radial-chart.js';
+import * as radialDataUtilities from './radial-data-utilities.js'
 
 
 class CrimeSite{
@@ -32,25 +33,11 @@ class CrimeSite{
 	csv('data/raw-victims.csv', (err, data) => {
 		if (err) throw err;
 
-		const minutesData = countBy(data, d => d.HOUR_HH);
-
-		// We want the data to be an array of objects, so let's transform a little more.
-		let newMinutesData = [];
-		Object.keys(minutesData).forEach(key => {
-			// Some shootings don't have a time, so we'll omit them. They are under the "-1"key.
-			if (key > -1){
-				newMinutesData.push({
-					x: new Date(1, 1, 1, key, 0, 0, 0),
-					y: minutesData[key]
-				});
-			}
-		});
-
-		console.log(newMinutesData);
+		
 
 		const radial = new RadialChart({
-			container: document.querySelector('#radial'),
-			data: sortBy(newMinutesData, d => d.x),
+			container: document.querySelector('.radial--time'),
+			data: radialDataUtilities.GetTimeData(data, "HOUR_HH"),
 			innerMargins:{top:10,right:10,bottom:10,left:10},
 		});
 
