@@ -96,8 +96,23 @@ class RadialBarChart{
 			.attr('r', (d,i) => y(d))
 			.style('fill', (d,i) => i == 0 ? 'white' : 'transparent');
 
+
+		// the white strokes
 		yTicks.append('text')
-			.attr('class', 'labels__label')
+			.attr('class', 'labels__label labels__label--outline')
+			.attr('transform', d => `translate(-5, ${0 - y (d)})`)
+			.attr('text-anchor', 'end')
+			.style('font-size', '12px')
+			// .style('font-weight', 'bold')
+			.style('font-family', 'Arial, sans-serif')
+			.style('stroke', chartBackgroundColor)
+			.style('stroke-width', 3)
+			.attr('dy', '.4em')
+			.text((d,i) => i > 0 ? d : "") // Skip labeling 0, the first item
+
+		// These are the black text
+		yTicks.append('text')
+			.attr('class', 'labels__label labels__label--black')
 			.attr('transform', d => `translate(-5, ${0 - y (d)})`)
 			.attr('text-anchor', 'end')
 			.style('font-size', '12px')
