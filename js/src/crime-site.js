@@ -8,6 +8,8 @@ import ShootingsMap from './shootings-map.js';
 
 import countBy from 'lodash.countby';
 import RadialChart from './radial-chart.js';
+import RadialBarChart from './radial-bar-chart.js';
+
 import * as radialDataUtilities from './radial-data-utilities.js'
 
 
@@ -33,13 +35,29 @@ class CrimeSite{
 	csv('data/raw-victims.csv', (err, data) => {
 		if (err) throw err;
 
-		
+		const radialMargins = {top:10,right:0,bottom:0,left:0};
 
-		const radial = new RadialChart({
-			container: document.querySelector('.radial--time'),
+		const timeRadial = new RadialBarChart({
+			container: document.querySelector('.radial--time .container'),
 			data: radialDataUtilities.GetTimeData(data, "HOUR_HH"),
-			innerMargins:{top:10,right:10,bottom:10,left:10},
+			innerMargins:radialMargins,
 		});
+
+		const dayRadial = new RadialBarChart({
+			container: document.querySelector('.radial--day .container'),
+			data: radialDataUtilities.GetDayData(data),
+			innerMargins:radialMargins,
+		});
+
+		const monthRadial = new RadialBarChart({
+			container: document.querySelector('.radial--month  .container'),
+			data: radialDataUtilities.GetMonthData(data),
+			innerMargins:radialMargins,
+		});
+
+		// console.log('time', radialDataUtilities.GetTimeData(data, "HOUR_HH"));
+		// console.log('day', radialDataUtilities.GetDayData(data));
+		// console.log('month', radialDataUtilities.GetMonthData(data));
 
 	});
 

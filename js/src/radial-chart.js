@@ -22,6 +22,7 @@ class RadialChart{
 				data = options.data,
 				shootingsMax = d3.max(data, d => d.y),
 				guideColor = getTribColor('trib-grey4'),
+				chartBackgroundColor = getTribColor('trib-gray2'),
 				pi = Math.PI;
 
 		app.options = options;	
@@ -46,9 +47,10 @@ class RadialChart{
 			.range([minRadius, overallRadius]) // TODO: adjust the min here to give space in center?
 			.domain([0, shootingsMax]);
 
+		const xExtent = d3.extent(data, d => parseInt(d.x))
 		const x = d3.scaleTime()
 			.range([0, data.length]) 
-			.domain([new Date(1,1,1,0,0,0,0), new Date(1,1,1,23,59,0,0)]);
+			.domain(xExtent);
 
 		const shootingsAxis = d3.axisLeft(y)
 			.ticks(4);
@@ -100,29 +102,28 @@ class RadialChart{
 		const radarLine = areaRadial()
 			.radius(d => y(d.y))
 			.angle(d => {
-				const 	dDate = new Date(d.x);
-				return x(dDate) * angleSlice;
+				return x(d.x) * angleSlice;
 			})
 			.curve(d3.curveCardinalClosed); // this smooths out the angles
 
 
 		
 
-		guides.append('line')
-			.attr('x1', 0).attr('y1', innerHeight / -2)
-			.attr('x2', 0).attr('y2', innerHeight / 2)
-			.style('stroke', guideColor)
-			.style('stroke-dasharray', '5px')
-			.style('fill', 'transparent');
+		// guides.append('line')
+		// 	.attr('x1', 0).attr('y1', innerHeight / -2)
+		// 	.attr('x2', 0).attr('y2', innerHeight / 2)
+		// 	.style('stroke', guideColor)
+		// 	.style('stroke-dasharray', '5px')
+		// 	.style('fill', 'transparent');
 
-		guides.append('line')
-			.attr('x1', innerWidth / -2).attr('y1', 0)
-			.attr('x2', innerWidth / 2).attr('y2', 0)
-			.style('stroke', guideColor)
-			.style('stroke-dasharray', '5px')
-			.style('fill', 'transparent');
+		// guides.append('line')
+		// 	.attr('x1', innerWidth / -2).attr('y1', 0)
+		// 	.attr('x2', innerWidth / 2).attr('y2', 0)
+		// 	.style('stroke', guideColor)
+		// 	.style('stroke-dasharray', '5px')
+		// 	.style('fill', 'transparent');
 
-		const guideCircles = y.ticks(5);
+		const guideCircles = y.ticks(4);
 
 		guides.selectAll('.guide-circle')
 			.data(guideCircles)
@@ -146,11 +147,11 @@ class RadialChart{
 				.append('text')
 				.attr('class', 'guide-label guide-label--white')
 				.attr('transform', d => `translate(5, ${0 - y (d)})`)
-				.style('font-size', '13px')
-				.style('font-weight', 'bold')
+				.style('font-size', '12px')
+				// .style('font-weight', 'bold')
 				.style('font-family', 'Arial, sans-serif')
-				.style('stroke', 'white')
-				.style('stroke-width', 6)
+				.style('stroke', chartBackgroundColor)
+				.style('stroke-width', 3)
 				.attr('dy', '.4em')
 				.text((d,i) => i > 0 ? d : "") // Skip labeling 0, the first item
 				.each(function(d,i){
@@ -159,8 +160,8 @@ class RadialChart{
 					guides.append('text')
 						.attr('class', 'guide-label guide-label--black')
 						.attr('transform', `translate(5, ${0 - y(d)})`)
-						.style('font-size', '13px')
-						.style('font-weight', 'bold')
+						.style('font-size', '12px')
+						// .style('font-weight', 'bold')
 						.style('font-family', 'Arial, sans-serif')
 						.attr('dy', '.3em')
 						.text(text);
@@ -190,34 +191,34 @@ class RadialChart{
 
 		*/
 
-		const divisions = 4;
+		// const divisions = 4;
 
-		const labels = svg.append('g')
-			.classed('x-labels', true)
-			.attr('transform', `translate(${margin.left + (innerWidth / 2)}, ${margin.top + (innerHeight / 2)})rotate(-90)`)
-			.selectAll('g')
-			.data(data)
-			.enter()
-			.append('g')
-			.attr('text-anchor', 'middle')
-			.attr('transform', (d,i) => {
-				console.log(angleSlice, d.x, x(d.x), x(d.x) * angleSlice);
-				return `rotate(${ (360 / 24 * i) }) translate(${minRadius - 25},0)`;
-				// return `rotate(${ x(d.x) * angleSlice })translate(${minRadius},0)`;
-			});
+		// const labels = svg.append('g')
+		// 	.classed('x-labels', true)
+		// 	.attr('transform', `translate(${margin.left + (innerWidth / 2)}, ${margin.top + (innerHeight / 2)})rotate(-90)`)
+		// 	.selectAll('g')
+		// 	.data(data)
+		// 	.enter()
+		// 	.append('g')
+		// 	.attr('text-anchor', 'middle')
+		// 	.attr('transform', (d,i) => {
+		// 		// console.log(angleSlice, d.x, x(d.x), x(d.x) * angleSlice);
+		// 		return `rotate(${ (360 / 24 * i) }) translate(${minRadius - 25},0)`;
+		// 		// return `rotate(${ x(d.x) * angleSlice })translate(${minRadius},0)`;
+		// 	});
 
-		labels.append('text')
-			.attr("transform", (d,i) => { 
-				return `rotate(${ (360 / -24 * i) + 90 })`;
-			})
-			.attr('dy', '0.25em')
-			.style('font-size', '13px')
-			.style('font-weight', 'bold')
-			.style('font-family', 'Arial, sans-serif')
-			.text(d => {
-				const timeLabel = new Date(d.x).getHours();
-				return timeLabel == 0 || timeLabel % 6 == 0 ? d3.timeFormat('%-I %p')(d.x) : "" ;
-			})
+		// labels.append('text')
+		// 	.attr("transform", (d,i) => { 
+		// 		return `rotate(${ (360 / -24 * i) + 90 })`;
+		// 	})
+		// 	.attr('dy', '0.25em')
+		// 	.style('font-size', '13px')
+		// 	.style('font-weight', 'bold')
+		// 	.style('font-family', 'Arial, sans-serif')
+		// 	.text(d => {
+		// 		const timeLabel = new Date(d.x).getHours();
+		// 		return timeLabel == 0 || timeLabel % 6 == 0 ? d3.timeFormat('%-I %p')(d.x) : "" ;
+		// 	})
 		
 
 

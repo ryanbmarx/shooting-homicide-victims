@@ -18,7 +18,7 @@ function objectToArray(obj){
 		}
 	});
 
-	return sortBy(arr, d => d.x);
+	return sortBy(arr, d => parseInt(d.x));
 }
 
 function GetTimeData(data, summarizeBy){
