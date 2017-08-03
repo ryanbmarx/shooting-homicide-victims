@@ -40,8 +40,8 @@ class CrimeSite{
 			// Some shootings don't have a time, so we'll omit them. They are under the "-1"key.
 			if (key > -1){
 				newMinutesData.push({
-					time: new Date(1, 1, 1, key, 0, 0, 0),
-					num_shootings: minutesData[key]
+					x: new Date(1, 1, 1, key, 0, 0, 0),
+					y: minutesData[key]
 				});
 			}
 		});
@@ -50,7 +50,7 @@ class CrimeSite{
 
 		const radial = new RadialChart({
 			container: document.querySelector('#radial'),
-			data: sortBy(newMinutesData, d => d.time),
+			data: sortBy(newMinutesData, d => d.x),
 			innerMargins:{top:10,right:10,bottom:10,left:10},
 		});
 
