@@ -1,0 +1,105 @@
+{# To update the numbers on this page you should follow the directions here:
+https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
+
+{% block content %}
+<div class='trb_mainContent'>
+
+  <div class='graphic-wrapper'>
+
+    <section class='intro'>
+      {% include "subtemplates/homicides/_year-counter.html" %}
+      {{ homicides_intro|markdown }}
+    </section>
+
+
+    <section class='topic topic--cumulative'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>Cumulative homicides</h2>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <div id='cumulative' class='chart'></div>
+      </div>
+    </section>
+
+    <section class='topic topic--time'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>When homicides occur</h2>
+      </div>
+      <div id='time' class='topic__chart-wrapper'>
+        <h3>By Month</h3>
+        <div id='month' class='chart'></div>
+      </div>
+      <div id='day' class='topic__chart-wrapper'>
+        <h3>By Day</h3>
+        <div id='time' class='chart'></div>
+      </div>
+      <div id='time' class='topic__chart-wrapper'>
+        <h3>By time</h3>
+        <div id='time' class='chart'></div>
+      </div>
+    </section>
+
+    <section class='topic topic--causes'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>Causes of death</h2>
+        <p  class='topic__intro'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis vero suscipit iusto ut quia, esse! Veritatis ducimus laudantium asperiores, saepe, facilis tempora, unde et porro numquam eligendi architecto labore inventore.</p>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <div id='causes' class='chart'></div>
+      </div>
+    </section>
+
+    <section class='topic topic--demographics'>
+      
+      <div class ='topic__topper'>
+      <h2 class='topic__header'>Who is killed?</h2>
+          </div>
+
+    </section>
+
+    <section class='topic topic--victims'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>The victims</h2>
+      </div>
+      {% for number in range(0,700) %}
+        <div class='victim'>
+          <p>date date</p>
+          <p>Name name name name</p>
+          <a>link link</a>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class='credits'>
+      {{ source|markdown }}
+      {{ tag|markdown }}
+    </section>
+  </div>
+</div>
+{% endblock content %}
+
+{% block library_scripts %}
+{# Uncomment this if you are using libraries such as jQuery #}
+<script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
+<script>
+  window.ROOT_URL = "{{ ROOT_URL }}";
+</script>
+{% endblock %}
+
+{% block scripts %}
+{# Uncomment this if you are using custom JavaScript #}
+<script>
+(function(document) {
+  var CSS = [
+    "//{{ ROOT_URL }}/css/homicides.css"
+  ];
+  CSS.forEach(function(url) {
+    var link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', url);
+    document.head.appendChild(link);
+  });
+})(document);
+</script>
+<script src="//{{ ROOT_URL }}/js/app.min.js"></script>
+{% endblock scripts %}
