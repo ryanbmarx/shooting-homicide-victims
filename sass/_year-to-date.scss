@@ -9,9 +9,10 @@ $ytd-highlight-total-years: 6;
 }
 
 .line{
-   stroke-dasharray: 2000;
-   stroke-dashoffset: 2000;
-   animation: strokeDraw 5s linear forwards;
+	// This will animate each line of the multiline chart at load
+	stroke-dasharray: 2000;
+	stroke-dashoffset: 2000;
+	animation: strokeDraw 5s linear forwards;
 }
 
 
@@ -20,10 +21,9 @@ $ytd-highlight-total-years: 6;
 	HACK ALERT:
 	https://paper-leaf.com/blog/2014/09/targeting-ie-10-11-browsers-css/
    	IE10+ specific styles go here 
-
-
    */  
    .line{
+   		// This animation won't work on IE, so we will avoid it.
 		stroke-dasharray: 0 !important;
 		stroke-dashoffset: 0 !important;
 		animation: none !important;
@@ -31,7 +31,7 @@ $ytd-highlight-total-years: 6;
 }
 
 
-.ytd-highlight{
+.highlight {
     z-index: 100000;
 	// padding: 15px;
 	// width: 105px;
@@ -78,25 +78,24 @@ $ytd-highlight-total-years: 6;
 		    }
 		}
 	}
-}
 
+}
 @media all and (max-width: 650px){
 
 	.chart--ytd{
 		@include clearfix();
 	}
 
-	.ytd-highlight{
+	.highlight{
 		width:100%;
 		position:static;
 		margin: 10px 0;
-
-		&__label{
-			text-align: center;
-			display: block;
-			padding: 0;
-			color:black;
-			background:white;
-		}
+	}
+	.highlight__label{
+		text-align: center;
+		display: block;
+		padding: 0;
+		color:black;
+		background:white;
 	}
 }
