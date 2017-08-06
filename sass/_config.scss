@@ -1,0 +1,15 @@
+// Basic structure variables
+$number_of_columns: 3;
+$gutter_width: 25px;
+
+// For unity of colors
+$last_year_color: #e0e0e0;
+$current_year_color: $trib-blue2;
+$fatal_color: $trib-red2;
+
+// Breakpoints
+$tablet_min_width: 450px;
+$desktop_min_width: 850px;
+
+$mobile_max_width: $tablet_min_width - 1;
+$tablet_max_width: $desktop_min_width - 1;

@@ -11,7 +11,7 @@ $fatal_color: $trib-red2;
 @import 'leaflet';
 
 @import 'monthly-table';
-@import 'big-numbers';
+@import 'page-topper';
 @import 'year-to-date';
 @import 'map';
 @import 'time';
@@ -57,7 +57,26 @@ $fatal_color: $trib-red2;
 		margin-top:3px;
 	}
 }
+  .radials{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom:25px;
+    border-bottom: 1px solid #eee;
+  }
 
+  .radial{
+    width: 32%;
+    
+    background: $trib-gray4;
+
+    .container{
+      height: 250px;
+    }
+    h2{
+      text-align:center;
+    }
+}
 
 .trb_mainContent p{
 	width:100%;

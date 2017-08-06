@@ -3,42 +3,6 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
 
 {% block content %}
 
-<style type="text/css">
-  .radials{
-    display:flex;
-    justify-content: space-between;
-  }
-
-  .radial{
-    width: 32%;
-    
-    background: #eee;
-  }
-
-  .radial .container{
-    height: 250px;
-  }
-
-  .radial h2{
-    text-align:center;
-  }
-
-</style>
-
-<div class='radials'>
-  <div class='radial radial--time'>
-    <h2>By hour</h2>
-    <div class='container'></div>
-  </div>
-  <div class='radial radial--day'>
-    <h2>By day</h2>
-    <div class='container'></div>
-  </div>
-  <div class='radial radial--month'>
-    <h2>By month</h2>
-    <div class='container'></div>
-  </div>
-</div>
 
 <section class='title'>
 {% include "subtemplates/_year-counter.html" %}
@@ -77,6 +41,20 @@ https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
     {% include 'subtemplates/_monthly-table.html' %}
   </div>
 </figure>
+<section class='radials'>
+  <div class='radial radial--time'>
+    <h2>By hour</h2>
+    <div class='container'></div>
+  </div>
+  <div class='radial radial--day'>
+    <h2>By day</h2>
+    <div class='container'></div>
+  </div>
+  <div class='radial radial--month'>
+    <h2>By month</h2>
+    <div class='container'></div>
+  </div>
+</section>
 {# ------------------------- #}
 <figure class='chart chart--map'>
   <figcaption>

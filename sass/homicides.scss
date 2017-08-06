@@ -12,12 +12,16 @@ $gutter_width: 25px;
 
 // PARTIALS
 @import 'leaflet';
-@import 'big-numbers';
+@import 'page-topper'; // For the headline/topper
+@import 'year-to-date'; // The cumulative line chart
 
 .graphic-wrapper{
   max-width: 800px;
   margin: auto;
 }
+
+// MAIN STRUCTURE OF PAGE + TOP-LEVEL TYPOGRAPHY
+
 
 .trb_mainContent .topic{
   // These are the basic divisions of the content
@@ -45,6 +49,10 @@ $gutter_width: 25px;
     @include label5();
     margin-top:0;
   }
+
+  &__chart-wrapper{
+    position: relative;
+  }
   
 }
 
@@ -62,17 +70,8 @@ $gutter_width: 25px;
   }
 }
 
-.topic.topic--victims{
-  // display:flex;
-  // justify-content: flex-start;
-  // align-items: stretch;
-  // flex-wrap:wrap;
 
-  .topic__topper{
-    // width: 100%;
-    // margin-bottom: $gutter_width;
-  }
-}
+
 
 .victim{
   background: #eee;
