@@ -14,7 +14,8 @@
 	} @else {
 	  
 		width: #{95% / $num}; // fallback
-		width: calc((100% - #{$gutter_width}) / #{$num});
+		width: calc((100% - #{$gutter_width * ($num - 1)}) / #{$num});
+		
 		&:nth-child(#{$number_of_columns}n+1):nth-last-child(-n+#{$number_of_columns}),
 		&:nth-child(#{$number_of_columns}n+1):nth-last-child(-n+#{$number_of_columns}) ~ & {
 			// This targets the last row of the grid.
