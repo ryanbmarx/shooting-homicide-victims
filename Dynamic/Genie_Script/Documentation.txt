@@ -1,0 +1,42 @@
+Documentation:
+--------------
+I have updated the analysis script so that output the cummalitive sum for both shootings and homicides to
+accept a letter, either h or s, that indicates whether the data to be analyzed is shootings vs. homicides.
+
+To analyze shootings data:
+--------------------------
+--> From website
+type: python genie_script.py PATH_TO_OUTPUT_CSV_FILE s
+
+--> From a .csv file
+type: python genie_script.py -i PATH_TO_INPUT_CSV_FILE PATH_TO_OUTPUT_CSV_FILE s
+
+Both ways should ouput a .csv file with the cummalitive sum of shootings per year. The output
+data is used to plot the line chart in http://www.chicagotribune.com/news/data/ct-shooting-victims-map-charts-htmlstory.html
+
+To analyze homicide data:
+------------------------
+--> From website
+type: python genie_script.py PATH_TO_OUTPUT_CSV_FILE h
+
+--> From a .csv file
+type: python genie_script.py -i PATH_TO_INPUT_CSV_FILE PATH_TO_OUTPUT_CSV_FILE h
+
+Both ways should ouput the following:
+===> .csv file with the cummalitive sum of homicides per year (for plotting)
+===> .csv file with the number of homicides grouped by community name
+===> .csv file with the number of homicides grouped by neighborhood name
+
+In addition, the python shell outputs the following:
+===> overall number of homicides' victims grouped by sex
+===> averge number of homicides' victims per year grouped by sex 
+===> overall number of homicides' victims per year groupbed by sex
+===> most common causes of death in homicides over the years (answers JB question: How victims died?)
+
+
+To-do list:
+1- For the homicides data analysis:
+-----> Demographics of victims: add age and race
+-----> when homicides occur? (Month, Day, and Time)
+
+2- Add geo-coding scripts
