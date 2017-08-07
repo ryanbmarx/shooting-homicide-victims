@@ -49,6 +49,7 @@ class ShootingsMap{
 		app.fatalShootingMarkers = L.layerGroup();
 		app.nonFatalShootingMarkers = L.layerGroup();
 		// app.highlightedShootings = L.layerGroup(); // Using a layer group, we easily can locate/remove highlighted shootings 
+		
 		data.forEach(shooting => {
 			
 			const 	isFatal = parseInt(shooting['IS_FATAL']) == 1 ? true : false;
@@ -110,51 +111,51 @@ class ShootingsMap{
 		})
 
 		// init the highlight event listener if the window is not mobile or tablet.
-		if (window.innerWidth >= 850){
-			const victims = options.victimList.querySelectorAll('ul li');
-			for (let i = 0; i < victims.length; i++) {
-				const victim = victims[i];
+		// if (window.innerWidth >= 850){
+		// 	const victims = options.victimList.querySelectorAll('ul li');
+		// 	for (let i = 0; i < victims.length; i++) {
+		// 		const victim = victims[i];
 
-				// Set the waypoint for scrolling down	
-				new Waypoint({
-					element: victim,
-					handler: function(direction){
-						if (direction == "down"){
-							const shootingID = parseInt(this.element.dataset.shootingId);
+		// 		// Set the waypoint for scrolling down	
+		// 		new Waypoint({
+		// 			element: victim,
+		// 			handler: function(direction){
+		// 				if (direction == "down"){
+		// 					const shootingID = parseInt(this.element.dataset.shootingId);
 							
-							app.highlightShooting(shootingID);
+		// 					app.highlightShooting(shootingID);
 		
-							// Toggle highlight classes on the list, so the current one is shown.
-							const highlightedVictim = document.querySelector('li.victim.victim--highlight');
-							if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
-							this.element.classList.add('victim--highlight');
-						}	
-					},
-					context: options.victimList,
-					offset: 80
-				});
+		// 					// Toggle highlight classes on the list, so the current one is shown.
+		// 					const highlightedVictim = document.querySelector('li.victim.victim--highlight');
+		// 					if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
+		// 					this.element.classList.add('victim--highlight');
+		// 				}	
+		// 			},
+		// 			context: options.victimList,
+		// 			offset: 80
+		// 		});
 
-				// Need a new offset, thus a new waypoint, for scrolling back up the list.
-				new Waypoint({
-					element: victim,
-					handler: function(direction){
-						if (direction == "up"){
-							const shootingID = parseInt(this.element.dataset.shootingId);
+		// 		// Need a new offset, thus a new waypoint, for scrolling back up the list.
+		// 		new Waypoint({
+		// 			element: victim,
+		// 			handler: function(direction){
+		// 				if (direction == "up"){
+		// 					const shootingID = parseInt(this.element.dataset.shootingId);
 							
-							app.highlightShooting(shootingID);
+		// 					app.highlightShooting(shootingID);
 		
-							// Toggle highlight classes on the list, so the current one is shown.
-							const highlightedVictim = document.querySelector('li.victim.victim--highlight');
-							if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
-							this.element.classList.add('victim--highlight');
-						}	
-					},
-					context: options.victimList,
-					offset: 20
-				});
+		// 					// Toggle highlight classes on the list, so the current one is shown.
+		// 					const highlightedVictim = document.querySelector('li.victim.victim--highlight');
+		// 					if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
+		// 					this.element.classList.add('victim--highlight');
+		// 				}	
+		// 			},
+		// 			context: options.victimList,
+		// 			offset: 20
+		// 		});
 
-			}
-		}
+		// 	}
+		// }
 
 		// Init the legend/buttons
 
@@ -179,30 +180,30 @@ class ShootingsMap{
 		}
 	}
 
-	highlightShooting(shootingID){
-		const 	app = this; 
+	// highlightShooting(shootingID){
+	// 	const 	app = this; 
 
-		app.fatalShootingMarkers.eachLayer( l => {
-			if (l['shootingID'] == shootingID) {
-				// First, remove the highlighted shooting, if it exists
-				if (app.shootingHighlightIcon != undefined) app.shootingHighlightIcon.removeFrom(app.map);
+	// 	app.fatalShootingMarkers.eachLayer( l => {
+	// 		if (l['shootingID'] == shootingID) {
+	// 			// First, remove the highlighted shooting, if it exists
+	// 			if (app.shootingHighlightIcon != undefined) app.shootingHighlightIcon.removeFrom(app.map);
 
-				// Give it the highlighted style and add it to the highlighted LayerGroup()
-				app.shootingHighlightIcon = L.circleMarker(l.getLatLng(),{
-					radius: 10,
-					stroke:true,
-					strokeWidth:1,
-					color:'black',
-					fill: true,
-					fillColor: app.options.fatalColor,
-					fillOpacity: .8
-				}).addTo(app.map);
+	// 			// Give it the highlighted style and add it to the highlighted LayerGroup()
+	// 			app.shootingHighlightIcon = L.circleMarker(l.getLatLng(),{
+	// 				radius: 10,
+	// 				stroke:true,
+	// 				strokeWidth:1,
+	// 				color:'black',
+	// 				fill: true,
+	// 				fillColor: app.options.fatalColor,
+	// 				fillOpacity: .8
+	// 			}).addTo(app.map);
 
-				// Make sure the map is showing the marker
-				app.map.panTo(l.getLatLng());
-			}
-		});
-	}
+	// 			// Make sure the map is showing the marker
+	// 			app.map.panTo(l.getLatLng());
+	// 		}
+	// 	});
+	// }
 }
 
 module.exports = ShootingsMap;

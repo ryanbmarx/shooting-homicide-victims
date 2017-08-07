@@ -1,0 +1,85 @@
+@import 'base-variables';
+
+// Some colors to be shared between the two projects
+@import 'config';
+
+// MIXINS
+@import 'base-mixins';
+@import 'responsive-font';
+
+
+// PARTIALS
+@import 'leaflet';
+@import 'page-topper'; // For the headline/topper
+@import 'year-to-date'; // The cumulative line chart
+@import 'victim-list'; // For the victims at the bottom
+
+.graphic-wrapper{
+  max-width: 800px;
+  margin: auto;
+}
+
+// MAIN STRUCTURE OF PAGE + TOP-LEVEL TYPOGRAPHY
+
+
+.trb_mainContent .topic{
+  // These are the basic divisions of the content
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid $trib-gray4;
+
+  display:grid;
+  grid-template-columns: repeat(#{$number_of_columns}, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-gap: 0 $gutter_width; //  row gutter / column gutter
+
+  // grid-template-rows
+
+  &:last-child{
+    padding-bottom:0;
+    border-bottom: none;
+  }
+
+  &__topper{
+    grid-column: 1 / -1; // The end-column value of -1 means "span all columns" -- no, when we adjust the # of columns in media queries, we don't need to constantly adjust this, too.
+  }
+
+  &__header{
+    @include label5();
+    margin-top:0;
+  }
+
+  &__chart-wrapper{
+    position: relative;
+  }
+  
+}
+
+
+.chart{
+    height: 300px;
+    background: rgba($trib-gray4, .5);
+
+}
+
+// These charts are fullwidth
+.topic--cumulative, .topic--causes{
+  .topic__chart-wrapper{
+    grid-column: 1 / -1;
+  }
+}
+
+
+// ------------
+// CREDITS
+// ------------
+
+.trb_mainContent .credits, .credits{
+  p {@include agate()}
+}
+
+@media (max-width:579px){
+
+}
+
+

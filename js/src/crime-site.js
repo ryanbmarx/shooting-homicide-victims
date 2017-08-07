@@ -1,8 +1,17 @@
 import {csv, json} from 'd3';
 import groupBy from 'lodash.groupby';
+import sortBy from 'lodash.sortby';
+
 import GroupedBarChart from './grouped-bar-chart.js';
 import MultilineChart from './multiline-chart.js';
 import ShootingsMap from './shootings-map.js';
+
+import countBy from 'lodash.countby';
+import RadialChart from './radial-chart.js';
+import RadialBarChart from './radial-bar-chart.js';
+
+import * as radialDataUtilities from './radial-data-utilities.js'
+
 
 class CrimeSite{
 
@@ -20,21 +29,39 @@ class CrimeSite{
 		app.options = options; // The options object as app attribute
 
 
-		// // Build that YOY by month chart
-		// json(`http://${ app.options.ROOT_URL }/data/monthly.json`, (err, barData) =>{
-			
-		// 	// This marginLeft variable will sync the chart position with the table while 
-		// 	// letting me control both with a single css
 
-		// 	const monthly = new GroupedBarChart({
-		// 		container: app.options.monthly,
-		// 		data:barData,
-		//         innerMargins:{ top:10,right:0,bottom:20,left:50 },
-		// 		currentColor: app.options.currentColor,
-		// 		otherColor: app.options.otherColor
-		// 	});
+  // console.log('loaded');
 
-		// });
+	csv('data/raw-victims.csv', (err, data) => {
+		if (err) throw err;
+
+		const radialMargins = {top:10,right:0,bottom:0,left:0};
+
+		const timeRadial = new RadialBarChart({
+			container: document.querySelector('.radial--time .container'),
+			data: radialDataUtilities.GetTimeData(data, "HOUR_HH"),
+			innerMargins:radialMargins,
+		});
+
+		const dayRadial = new RadialBarChart({
+			container: document.querySelector('.radial--day .container'),
+			data: radialDataUtilities.GetDayData(data),
+			innerMargins:radialMargins,
+		});
+
+		const monthRadial = new RadialBarChart({
+			container: document.querySelector('.radial--month  .container'),
+			data: radialDataUtilities.GetMonthData(data),
+			innerMargins:radialMargins,
+		});
+
+		// console.log('time', radialDataUtilities.GetTimeData(data, "HOUR_HH"));
+		// console.log('day', radialDataUtilities.GetDayData(data));
+		// console.log('month', radialDataUtilities.GetMonthData(data));
+
+	});
+
+
 
 		// Activate the YTD line chart
 		csv(`http://${ app.options.ROOT_URL }/data/raw-dates.csv`,function(d, i, columns) {

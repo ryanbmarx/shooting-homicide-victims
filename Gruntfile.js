@@ -74,7 +74,8 @@ module.exports = function(grunt) {
     },
     app: {
       files: {
-        'css/styles.css': 'sass/styles.scss'
+        'css/styles.css': 'sass/styles.scss',
+        'css/homicides.css': 'sass/homicides.scss'
       }
     }
   };

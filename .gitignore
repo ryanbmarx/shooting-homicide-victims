@@ -9,6 +9,7 @@ node_modules
 css
 vendor.min.js
 app.min.js
+homicides.min.js
 *.map
 .DS_Store
 data/monthly.json

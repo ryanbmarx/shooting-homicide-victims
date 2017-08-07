@@ -33,13 +33,15 @@ class MultilineChart{
 		app.data = options.data;
 		app._container = options.container;
 		app.mobileLayoutBreakpoint = 600
-
+		console.log(options);
 		MultilineChart.initChart(app);
+
+
 	}
 	
 	highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth){
 		const 	app = this, 
-				table = d3.select("#ytd-highlight-table"),
+				table = d3.select("#cumulative-table"),
 				bisectDate = d3.bisector(d => {
 					return new Date(d['YEAR'], (d['MONTH'] - 1), d['DAY'],0,0,0,0);
 				}).right;
@@ -47,7 +49,7 @@ class MultilineChart{
 
 		// Update the date on the highlight
 		const dateString = `${monthFormatter(date.getMonth(), 'ap')} ${date.getDate()}`;
-		d3.select('.ytd-highlight__label').html(dateString);
+		d3.select('#cumulative-label').html(dateString);
 		
 
 		// Clear the existing rows, so they can be updated.
@@ -117,16 +119,13 @@ class MultilineChart{
 			}
 		})
 
-
+		// Migrate the vertical highlight line to the mouse position
 		d3.select('.highlight-line')
-			// .transition()
-			// .duration(100)
 			.attr('x2',xScale(date))
 			.attr('x1',xScale(date))
 		
-		d3.select('.ytd-highlight')
-			// .transition()
-			// .duration(100)
+		// Make the table/data label visible
+		d3.select('.highlight')
 			.style('opacity', 1);
 	}
 
@@ -141,11 +140,6 @@ class MultilineChart{
 				bbox = app._container.getBoundingClientRect();
 
 				let width= bbox.width;
-				// if (window.innerWidth < app.mobileLayoutBreakpoint){
-				// 	// We're floating the highlight box on mobile. This accounts for that.
-				// 	const highlightWidth = d3.select('.ytd-highlight').node().getBoundingClientRect().width;
-				// 	width = width - highlightWidth - 15;
-				// }
 
 		const	height = bbox.height,
 				margin = app.options.innerMargins,
