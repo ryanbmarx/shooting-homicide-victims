@@ -16,7 +16,7 @@
     "process": "npm run process:monthly && npm run process:map",
     "process:monthly": "node node_scripts/makeMonthlyData.js",
     "process:map": "node node_scripts/makeCurrentYearVictims.js",
-    "postinstall":"pip install -r dynamic/requirements.txt"
+    "postinstall": "pip install -r dynamic/requirements.txt"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   "author": "Chicago Tribune News Applications",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^7.1.2",
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.9.0",
     "babelify": "^7.3.0",
@@ -33,6 +34,7 @@
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.8.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-postcss": "^0.8.0",
     "grunt-sass": "^1.2.0",
     "html-minifier": "^3.5.2",
     "minifyify": "^7.3.3",

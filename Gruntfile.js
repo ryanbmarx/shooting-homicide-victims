@@ -80,6 +80,33 @@ module.exports = function(grunt) {
     }
   };
 
+config.postcss = {
+    options:{
+      map:{
+        inline:false,
+        annotation:'css'
+      },
+      processors:[
+        require('autoprefixer')({
+          browsers: [
+            "Android 2.3",
+            "Android >= 4",
+            "Chrome >= 20",
+            "Firefox >= 24",
+            "Explorer >= 11",
+            "iOS >= 6",
+            "Opera >= 12",
+            "Safari >= 6"
+          ],
+          grid:true
+        })
+      ]
+    },
+    dist: {
+      src: 'css/**/*.css'
+    }
+  }
+
   config.watch = {
     sass: {
       files: ['sass/**/*.scss'],
@@ -96,11 +123,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-postcss');
 
   var defaultTasks = [];
 
   defaultTasks.push('sass');
   defaultTasks.push('browserify');
+  defaultTasks.push('postcss');
 
   grunt.registerTask('default', defaultTasks);
 };
