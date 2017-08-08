@@ -34,8 +34,8 @@ In addition, the python shell outputs the following:
 ===> overall number of homicides' victims per year groupbed by sex
 ===> most common causes of death in homicides over the years (answers JB question: How victims died?)
 
-To get shootings data geocodes:
--------------------------------
+To get shootings data geocodes (for shootings only):
+——————————————————————————————————————————————————
 ---> From a website type: python shootings_geocoding_script.py PATH_TO_OUTPUT_CSV_FILE 
 
 --> From a .csv file
