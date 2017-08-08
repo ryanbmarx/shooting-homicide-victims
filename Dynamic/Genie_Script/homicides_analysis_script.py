@@ -149,3 +149,12 @@ def get_homicides(homicides,outputPath):
 	print('Most common causes of death in homicides over the years: \n')
 	print(homicides['Pub Cause'].value_counts())
 
+	#creating two columns month and day that include the month and day when a homicide have occured.
+	homicides['Month'] = homicides['Occ Date'].dt.month
+	homicides['Day'] = homicides['Occ Date'].dt.strftime('%A')
+	homicides['Occ Time'] = homicides['Occ Time'].replace(np.nan,'')
+	homicides['Homicide_Time'] = homicides['Occ Time'].apply(lambda x: datetime.strptime(str(x),'%H:%M').strftime('%I:%M %p') if x!='' else '') 
+	#adding strftime will convert the hours from 24 to 12 format. %p will indicate whether the time is AM or PM.
+	homicides['ID'] = np.arange(0,homicides.shape[0],1)
+	homicides[['Month','Day','Homicide_Time','ID']].to_csv('when_homicide_occur.csv')
+

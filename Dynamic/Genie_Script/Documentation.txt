@@ -26,6 +26,7 @@ Both ways should ouput the following:
 ===> .csv file with the cummalitive sum of homicides per year (for plotting)
 ===> .csv file with the number of homicides grouped by community name
 ===> .csv file with the number of homicides grouped by neighborhood name
+===> .csv file with day, month, and time of when homicide occur
 
 In addition, the python shell outputs the following:
 ===> overall number of homicides' victims grouped by sex
@@ -33,10 +34,14 @@ In addition, the python shell outputs the following:
 ===> overall number of homicides' victims per year groupbed by sex
 ===> most common causes of death in homicides over the years (answers JB question: How victims died?)
 
+To get shootings data geocodes:
+-------------------------------
+---> From a website type: python shootings_geocoding_script.py PATH_TO_OUTPUT_CSV_FILE 
+
+--> From a .csv file
+type: python shootings_geocoding_script.py -i PATH_TO_INPUT_CSV_FILE PATH_TO_OUTPUT_CSV_FILE
+
 
 To-do list:
 1- For the homicides data analysis:
 -----> Demographics of victims: add age and race
------> when homicides occur? (Month, Day, and Time)
-
-2- Add geo-coding scripts
