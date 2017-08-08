@@ -156,5 +156,5 @@ def get_homicides(homicides,outputPath):
 	homicides['Homicide_Time'] = homicides['Occ Time'].apply(lambda x: datetime.strptime(str(x),'%H:%M').strftime('%I:%M %p') if x!='' else '') 
 	#adding strftime will convert the hours from 24 to 12 format. %p will indicate whether the time is AM or PM.
 	homicides['ID'] = np.arange(0,homicides.shape[0],1)
-	homicides[['Month','Day','Homicide_Time','ID']].to_csv('when_homicide_occur.csv')
+	homicides[['ID','Month','Day','Homicide_Time','Story']].to_csv('when_homicide_occur.csv')
 
