@@ -13,11 +13,25 @@ import sys
 
 from datetime import datetime
 
+def isFatal(s):
+    if (s in ['110','0110','130','141','142']):
+        return (1)
+    else:
+        return(0)
+
+
 def crap_to_dt(x):
     if(x==''):
         return (x)
     else:
         return (datetime.strptime(str(x) ,'%Y-%m-%d').date()) #converting dates from type string to type date and time
+
+
+def crap_to_t(t):
+    if(t==''):
+        return (t)
+    else:
+        return (datetime.strptime(str(t) ,'%H:%M').time()) #converting dates from type string to type date and time
 
 
 def get_shootings(shootings,outputPath):
@@ -86,10 +100,27 @@ def get_shootings(shootings,outputPath):
 	#outputs a csv file with todays date in the file name. This will help in tracking the updates.
 	#output.to_csv(str(sys.argv[1])+'/number_of_shootings_up_to_'+str(dt.today().strftime("%m_%d_%Y"))+'.csv')
 
-	output.columns = ['YEAR','MONTH','DAY','NUM_OF_SHOOTINGS','CUMULATIVE_SUM','ID']
+	output.columns = ['YEAR','MONTH','DAY','NUM_OF_INCIDENTS','CUMULATIVE_SUM','ID']
+	#geo_coding_script.get_geo(shootings,outputpath)
+	#output.to_csv(outputPath,index=False)
+
+	#####geo-coding######
+	shootings['Geocode Override']=shootings['Geocode Override'].replace(np.nan,'')
+	geoDF = shootings[['Date','Sex','UCR','Age','Time','Shooting Location','Geocode Override','Link']]
+	geoDF['lat'],geoDF['long'],_ = shootings['Geocode Override'].str.replace('(','').str.replace(')','').str.split(',').str
+	geoDF['isFatal']=geoDF['UCR'].apply(isFatal)
+
+	#time
+	geoDF['Time']=geoDF['Time'].replace(np.nan,'') #replacing empty NaN values with empty strings
+	geoDF['Hour']=geoDF['Time'].apply(crap_to_t)
+	geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
+	geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
+	geoDF['ID'] = np.arange(0,len(geoDF),1)
+	geoDF.columns = ['DATE','SEX','UCR','AGE','TIME', 'LOCATION','GEOCODE_OVERRIDE','LINK','LAT','LNG','IS_FATAL','HOUR','HOUR_HH','MINUTES_MM','ID']
+
+	#geocode data to csv
+	geoDF.to_csv(outputPath+'_geocode.csv',index=False)
+
+	#cum sum to csv
 	output.to_csv(outputPath,index=False)
 
-
-
-
-	#This is now working properly! It wrties .csv file to a specific folder/directory

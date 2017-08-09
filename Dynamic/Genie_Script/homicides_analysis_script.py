@@ -14,6 +14,19 @@ import io
 from datetime import datetime
 
 
+def isFatal(s):
+    if (s.strip() =='Yes'):
+        return (1)
+    else:
+        return(0)
+
+def crap_to_t(t):
+    if(t==''):
+        return (t)
+    else:
+        return (datetime.strptime(str(t) ,'%H:%M').time()) #converting dates from type string to type date and time
+
+
 def crap_to_dt(x):
     if(x==''):
         return (x)
@@ -49,9 +62,6 @@ def get_homicides(homicides,outputPath):
 	# # Cumalitive number of homicides per year 
 	# (used to generate line charts on the crime website)
 
-	# In[7]:
-
-	np.cumsum([1,1,1])
 
 
 	# In[8]:
@@ -81,9 +91,30 @@ def get_homicides(homicides,outputPath):
 	# In[9]:
 
 	output['ID'] = np.arange(0,len(output),1) #adding ID column
-	output.columns = ['YEAR','MONTH','DAY','NUM_OF_SHOOTINGS','CUMULATIVE_SUM','ID']
+	output.columns = ['YEAR','MONTH','DAY','NUM_OF_INCIDENTS','CUMULATIVE_SUM','ID']
 	output.to_csv(outputPath,index=False)
 
+	#####geo-coding######
+	homicides['Geocode Override']=homicides['Geocode Override'].replace(np.nan,'')
+	geoDF = homicides[['Occ Date','Occ Time','Age','Sex','Race','Geocode Override','District Number','District Name',
+	'Neighborhood Name','Community Name','Story','Murder','Pub Cause']]
+	
+	geoDF['lat'],geoDF['long'] = homicides['Geocode Override'].str.replace('(','').str.replace(')','').str.split(',').str
+	geoDF['Murder'] = geoDF['Murder'].replace(np.nan,'')
+	geoDF['isFatal']=geoDF['Murder'].apply(isFatal)
+
+	#time
+	geoDF['Occ Time']=geoDF['Occ Time'].replace(np.nan,'') #replacing empty NaN values with empty strings
+	geoDF['Hour']=geoDF['Occ Time'].apply(crap_to_t)
+	geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
+	geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
+	geoDF['ID'] = np.arange(0,len(geoDF),1)
+	geoDF.columns = ['DATE','TIME','AGE','SEX','RACE','GEOCODE_OVERRIDE','DISTRICT_NUM',
+	'DISTRICT_NAME','NEIGHBORHOOD_NAME','COMMUNITY_NAME','LINK','MURDER','PUB_CAUSE','LAT','LNG','IS_FATAL','HOUR','HOUR_HH','MINUTES_MM','ID']
+
+	geoDF.to_csv(outputPath+'_geocode.csv',index=False)
+	
+	
 
 	# # Number of homicides by neighborhood
 
@@ -148,6 +179,7 @@ def get_homicides(homicides,outputPath):
 	print('Most common causes of death in homicides over the years: \n')
 	print(homicides['Pub Cause'].value_counts())
 
+	'''
 	#creating two columns month and day that include the month and day when a homicide have occured.
 	homicides['Month'] = homicides['Occ Date'].dt.month
 	homicides['Day'] = homicides['Occ Date'].dt.strftime('%A')
@@ -155,5 +187,5 @@ def get_homicides(homicides,outputPath):
 	homicides['Homicide_Time'] = homicides['Occ Time'].apply(lambda x: datetime.strptime(str(x),'%H:%M').strftime('%I:%M %p') if x!='' else '') 
 	#adding strftime will convert the hours from 24 to 12 format. %p will indicate whether the time is AM or PM.
 	homicides['ID'] = np.arange(0,homicides.shape[0],1)
-	homicides[['ID','Month','Day','Homicide_Time','Story']].to_csv('when_homicide_occur.csv')
-
+	#homicides[['ID','Month','Day','Homicide_Time','Story']].to_csv('when_homicide_occur.csv')
+	'''

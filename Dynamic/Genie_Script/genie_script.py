@@ -31,9 +31,9 @@ if(len(sys.argv)==5):
 	input_file=pd.read_csv(sys.argv[2]) #reading input file name
 	output_file=sys.argv[3] #setting the output file name
 	data_type = sys.argv[4] #notifying the script if the input_file is shootings vs. homicide data
-	if(data_type.lower()=='s'):
+	if(data_type.lower()=='-s'):
 		shootings_analysis_script.get_shootings(input_file,output_file)
-	if(data_type.lower()=='h'):
+	if(data_type.lower()=='-h'):
 		homicides_analysis_script.get_homicides(input_file,output_file)
 else:
 	#e.g, python shootings_script.py ./data/raw-data.csv s
@@ -41,12 +41,12 @@ else:
 	output_file=sys.argv[1] #second parameter after the script name
 	data_type = sys.argv[2] #notifying the script if the input_file is shootings vs. homicide data
 	#print (data_type)
-	if(data_type.lower()=='s'):
+	if(data_type.lower()=='-s'):
 		url="http://newsroomdb.tribapps.com/table/csv/shootings"
 		urlRequest=requests.get(url).content
 		input_file=pd.read_csv(io.StringIO(urlRequest.decode('utf-8')))
 		shootings_analysis_script.get_shootings(input_file,output_file)
-	if(data_type.lower()=='h'):
+	if(data_type.lower()=='-h'):
 		url = "http://newsroomdb.tribapps.com/table/csv/homicides"
 		urlRequest=requests.get(url).content
 		input_file=pd.read_csv(io.StringIO(urlRequest.decode('utf-8')))
