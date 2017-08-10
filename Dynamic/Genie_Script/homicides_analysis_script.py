@@ -112,8 +112,11 @@ def get_homicides(homicides,outputPath):
 	geoDF.columns = ['DATE','TIME','AGE','SEX','RACE','GEOCODE_OVERRIDE','DISTRICT_NUM',
 	'DISTRICT_NAME','NEIGHBORHOOD_NAME','COMMUNITY_NAME','LINK','MURDER','PUB_CAUSE','LAT','LNG','IS_FATAL','HOUR','HOUR_HH','MINUTES_MM','ID']
 
-	geoDF.to_csv(outputPath+'_geocode.csv',index=False)
-	
+	#The output path already has ".csv" in it, so let's remove it before appending the geocode extentsion
+	geocode_output_path = outputPath.replace('.csv', '')
+
+	#geocode data to csv
+	geoDF.to_csv(geocode_output_path + '_geocode.csv',index=False)
 	
 
 	# # Number of homicides by neighborhood

@@ -118,8 +118,11 @@ def get_shootings(shootings,outputPath):
 	geoDF['ID'] = np.arange(0,len(geoDF),1)
 	geoDF.columns = ['DATE','SEX','UCR','AGE','TIME', 'LOCATION','GEOCODE_OVERRIDE','LINK','LAT','LNG','IS_FATAL','HOUR','HOUR_HH','MINUTES_MM','ID']
 
+	#The output path already has ".csv" in it, so let's remove it before appending the geocode extentsion
+	geocode_output_path = outputPath.replace('.csv', '')
+
 	#geocode data to csv
-	geoDF.to_csv(outputPath+'_geocode.csv',index=False)
+	geoDF.to_csv(geocode_output_path + '_geocode.csv',index=False)
 
 	#cum sum to csv
 	output.to_csv(outputPath,index=False)
