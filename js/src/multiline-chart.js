@@ -218,12 +218,22 @@ class MultilineChart{
 		const yAxisFunc = d3.axisLeft(yScale);
 
 
+		// const xScale = d3.scaleTime()
+		// 	.range([0,innerWidth])
+		// 	.domain(d3.extent(data[useYear], d=> {
+		// 		// create a domain extent out of the first year's dates
+		// 		return new Date(d['YEAR'], d['MONTH'] - 1, d['DAY'],0,0,0,0);
+		// 	}));
+
+
+
+		const yearExtent = [
+			new Date(useYear, 0, 1,0,0,0,0),
+			new Date(useYear, 11, 31,0,0,0,0)
+		]
 		const xScale = d3.scaleTime()
 			.range([0,innerWidth])
-			.domain(d3.extent(data[useYear], d=> {
-				// create a domain extent out of the first year's dates
-				return new Date(d['YEAR'], d['MONTH'] - 1, d['DAY'],0,0,0,0);
-			}));
+			.domain(yearExtent);
 
 
 		const xAxisFunc = d3.axisBottom(xScale)
