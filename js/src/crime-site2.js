@@ -4,13 +4,13 @@ import sortBy from 'lodash.sortby';
 
 import GroupedBarChart from './grouped-bar-chart.js';
 import MultilineChart from './multiline-chart.js';
-import ShootingsMap from './shootings-map.js';
+import ViolenceMap from './map.js';
 
 import countBy from 'lodash.countby';
-import RadialChart from './radial-chart.js';
+// import RadialChart from './radial-chart.js';
 import RadialBarChart from './radial-bar-chart.js';
 
-import * as radialDataUtilities from './radial-data-utilities.js'
+import * as dataUtilities from './data-utilities.js'
 
 
 class CrimeSite{
@@ -28,10 +28,11 @@ class CrimeSite{
 		
 		app.options = options; // The options object as app attribute
 
+	console.log(options)
 
 	const base_data_url = `http://${options.ROOT_URL}/data/${options.version}`;
-
-	csv(`${base_data_url}/victims.csv`, (err, data) => {
+	
+	csv(`${base_data_url}/${options.version}_geocode.csv`, (err, data) => {
 		if (err) throw err;
 
 
@@ -43,19 +44,19 @@ class CrimeSite{
 
 		const timeRadial = new RadialBarChart({
 			container: document.querySelector('#time'),
-			data: radialDataUtilities.GetTimeData(data, "HOUR_HH"),
+			data: dataUtilities.GetTimeData(data, "HOUR_HH"),
 			innerMargins:radialMargins,
 		});
 
 		const dayRadial = new RadialBarChart({
 			container: document.querySelector('#day'),
-			data: radialDataUtilities.GetDayData(data),
+			data: dataUtilities.GetDayData(data),
 			innerMargins:radialMargins,
 		});
 
 		const monthRadial = new RadialBarChart({
 			container: document.querySelector('#month'),
-			data: radialDataUtilities.GetMonthData(data),
+			data: dataUtilities.GetMonthData(data),
 			innerMargins:radialMargins,
 		});
 
@@ -63,17 +64,16 @@ class CrimeSite{
 		// -------------------
 		// Make a map
 		// -------------------
-
-		const map = new ShootingsMap({
+		const map = new ViolenceMap({
 			container: document.querySelector('#map'),
-			data:data,
+			data:dataUtilities.GetMapData(data),
 			currentColor: app.options.currentColor,
 			fatalColor: app.options.fatalColor,
-			legendButtons: document.querySelectorAll('.map-legend__button')
+			legendButtons: document.querySelectorAll('.map__legend-button')
 		});
 	});
 
-	csv(`${base_data_url}/days.csv`, (d,i,columns) => {
+	csv(`${base_data_url}/${options.version}.csv`, (d,i,columns) => {
 		// This coerces the data into numbers
 		for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
 		return d;
@@ -85,7 +85,7 @@ class CrimeSite{
 		// Load the cumulative chart
 		// -------------------------
 		
-		console.log(groupBy(data, d=> d['YEAR']));
+		// console.log(groupBy(data, d=> d['YEAR']));
 
 		const cumulativeChart = new MultilineChart({
 			container: document.querySelector('#cumulative'),

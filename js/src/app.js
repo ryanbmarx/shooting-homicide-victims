@@ -8,10 +8,6 @@ import CrimeSite from './crime-site2.js';
 window.addEventListener('load', e => {
 
   const crimeSite = new CrimeSite({
-    // ytd: document.querySelector('#ytd'),
-    // monthly: document.querySelector('#monthly'),
-    // map:document.querySelector('#map'),
-    // mapLegendButtons:document.querySelectorAll('.map-legend__button'),
     ROOT_URL: window.ROOT_URL,
     currentColor: getTribColor('trib-blue2'),
     otherColor: getTribColor('trib-gray4'),
