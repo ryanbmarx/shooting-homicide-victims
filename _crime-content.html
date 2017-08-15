@@ -1,0 +1,102 @@
+{% if v == "homicides" %}
+  {% set homicides = True %}
+{% endif %}
+
+<div class='trb_mainContent'>
+
+  <div class='graphic-wrapper'>
+
+    <section class='intro'>
+      {% include "subtemplates/homicides/_year-counter.html" %}
+      {{ homicides_intro|markdown }}
+    </section>
+
+
+    <section class='topic topic--cumulative'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>Cumulative homicides</h2>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <div class='highlight'>
+          <table id='cumulative-table' class='highlight__table'></table>
+          <h3 id='cumulative-label' class='highlight__label'></h3>
+        </div>
+        <div id='cumulative' class='chart chart--cumulative'></div>
+
+      </div>
+    </section>
+
+    <section class='topic topic--when'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>When {{ v }} occur</h2>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <h3>By Month</h3>
+        <div id='month' class='chart'></div>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <h3>By Day</h3>
+        <div id='day' class='chart'></div>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <h3>By time</h3>
+        <div id='time' class='chart'></div>
+      </div>
+    </section>
+  {% if homicides %}
+    <section class='topic topic--causes'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>Causes of death</h2>
+        <p  class='topic__intro'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis vero suscipit iusto ut quia, esse! Veritatis ducimus laudantium asperiores, saepe, facilis tempora, unde et porro numquam eligendi architecto labore inventore.</p>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <div id='causes' class='chart'></div>
+      </div>
+    </section>
+  {% endif %}
+    <section class='topic topic--demographics'>    
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>Who is killed?</h2>
+      </div>
+      <div>
+        <div class='topic__chart-wrapper'>
+          <div id='' class='chart'></div>
+        </div>
+        <div class='topic__chart-wrapper'>
+          <div id='' class='chart'></div>
+        </div>
+        <div class='topic__chart-wrapper'>
+          <div id='' class='chart'></div>
+        </div>
+      </div>
+      <div class='map'>
+      {% if not homicides %}
+        <div class='map__legend'>
+          <span class='map__legend-label'>Toggle:</span>
+          <button class='map__legend-button'  data-checked="true" data-toggle="fatalShootingMarkers">  
+            <span class='map__legend-dot map__legend-dot--fatal'></span>
+            Fatal
+          </button>
+          <button class='map__legend-button' data-checked="true" data-toggle="nonFatalShootingMarkers">
+            <span class='map__legend-dot map__legend-dot--non-fatal'></span>
+            Non-fatal
+          </button>
+        </div>
+        {% endif %}
+        <div class='map__map' id="map"></div>
+      </div>
+    </section>
+    {% if homicides %}
+    <section class='topic topic--victims'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>The victims</h2>
+        {% include "subtemplates/" + v + "/_victims-list.html" %}
+      </div>     
+    </section>
+    {% endif %}
+    <section class='credits'>
+      {{ source|markdown }}
+      {{ tag|markdown }}
+    </section>
+  </div>
+</div>

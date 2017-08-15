@@ -1,0 +1,37 @@
+{# To update the numbers on this page you should follow the directions here:
+https://tribune.unfuddle.com/a#/projects/46/tickets/by_number/1262 #}
+
+{% set version = "homicides" %}
+
+
+{% block content %}
+  {% set v = version %}
+  {% include '_crime-content.html' %}
+{% endblock content %}
+
+{% block library_scripts %}
+{# Uncomment this if you are using libraries such as jQuery #}
+<script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
+<script>
+  window.ROOT_URL = "{{ ROOT_URL }}";
+  window.version = "{{ version }}";
+</script>
+{% endblock %}
+
+{% block scripts %}
+{# Uncomment this if you are using custom JavaScript #}
+<script>
+(function(document) {
+  var CSS = [
+    "//{{ ROOT_URL }}/css/homicides.css"
+  ];
+  CSS.forEach(function(url) {
+    var link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', url);
+    document.head.appendChild(link);
+  });
+})(document);
+</script>
+<script src="//{{ ROOT_URL }}/js/app.min.js"></script>
+{% endblock scripts %}
