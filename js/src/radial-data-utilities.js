@@ -25,7 +25,7 @@ function GetTimeData(data, summarizeBy){
 
 	// Takes the victims data and aggregates into a data format for the radial charts.
 	// @param data <iterable object> => The raw data object
-	// @param summarizBy <strong> => The key by which the data should be summarized. 
+	// @param summarizeBy <strong> => The key by which the data should be summarized. 
 
 	// This provides the data grouped and counted by the desired key, but as an object of objects.
 	const countedData = countBy(data, d => d[summarizeBy]);
