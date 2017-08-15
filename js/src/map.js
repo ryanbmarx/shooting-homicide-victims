@@ -4,8 +4,8 @@ import {timeParse, timeFormat} from 'd3';
 require('waypoints/lib/noframework.waypoints.min');
 
 
-function setShootingMarkerOpacity(markerOpacity, app){	
-	const markerGroups = [app.fatalShootingMarkers, app.nonFatalShootingMarkers];
+function setIncidentMarkerOpacity(markerOpacity, app){	
+	const markerGroups = [app.fatalIncidentMarkers, app.nonFatalIncidentMarkers];
 	markerGroups.forEach(group =>{
 		group.eachLayer( l => {
 			l.setStyle({fillOpacity:markerOpacity});
@@ -21,7 +21,8 @@ class ViolenceMap{
 				data = options.data,
 				iconColor = options.currentColor,
 				width = 10;
-		
+		console.log(data);
+
 		app.options = options;
 
 		//SETS UP MAP
@@ -46,32 +47,33 @@ class ViolenceMap{
 			opacity: 0.5 
 		}).addTo(app.map);
 
-		app.fatalShootingMarkers = L.layerGroup();
-		app.nonFatalShootingMarkers = L.layerGroup();
-		// app.highlightedShootings = L.layerGroup(); // Using a layer group, we easily can locate/remove highlighted shootings 
+		app.fatalIncidentMarkers = L.layerGroup();
+		app.nonFatalIncidentMarkers = L.layerGroup();
+		// app.highlightedIncidents = L.layerGroup(); // Using a layer group, we easily can locate/remove highlighted incidents 
 		
-		data.forEach(shooting => {
+		data.forEach(incident => {
+			// console.log(incident);
 			
-			const 	isFatal = parseInt(shooting['IS_FATAL']) == 1 ? true : false;
+			const isFatal = parseInt(incident['IS_FATAL']) == 1 ? true : false;
 
-			if(shooting['LAT'] && shooting['LNG']){
-				const shootingMarker = L.circleMarker({
-					lat:parseFloat(shooting['LAT']),
-					lng:parseFloat(shooting['LNG'])
+			if(incident['LAT'] && incident['LNG']){
+				const incidentMarker = L.circleMarker({
+					lat:parseFloat(incident['LAT']),
+					lng:parseFloat(incident['LNG'])
 				},{
 					radius: 5,
 					stroke:false,
 					fill: true,
 					fillColor: isFatal ? options.fatalColor : options.currentColor,
 					fillOpacity: isFatal ? .4 : .2
-				}).on('click', function(e, shooting){
-					console.log(e.target.shootingID, document.querySelector(`[data-shooting-id="${e.target.shootingID}"]`));
+				}).on('click', function(e, incident){
+					console.log(e.target.incidentID, document.querySelector(`[data-incident-id="${e.target.incidentID}"]`));
 					
-					const 	selectedVictim = document.querySelector(`[data-shooting-id="${e.target.shootingID}"]`);
+					const 	selectedVictim = document.querySelector(`[data-incident-id="${e.target.incidentID}"]`);
 
-					// The list of victims only is fatal shootings. Similarly, the querySelector will return null 
-					// if a nonfatal shooting is picked. We don't want to error out in that case, so check first 
-					// before highlighting a shooting.
+					// The list of victims only is fatal incidents. Similarly, the querySelector will return null 
+					// if a nonfatal incident is picked. We don't want to error out in that case, so check first 
+					// before highlighting a incident.
 					
 					if (selectedVictim != null){
 
@@ -84,18 +86,18 @@ class ViolenceMap{
 					}
 				});
 	
-				shootingMarker.shootingID = parseInt(shooting['ID']);
+				incidentMarker.incidentID = parseInt(incident['ID']);
 
 				if (isFatal){ 
-					shootingMarker.addTo(app.fatalShootingMarkers);
+					incidentMarker.addTo(app.fatalIncidentMarkers);
 				} else {
-					shootingMarker.addTo(app.nonFatalShootingMarkers);	
+					incidentMarker.addTo(app.nonFatalIncidentMarkers);	
 				}
 				
 			}
 		})
-		app.nonFatalShootingMarkers.addTo(app.map);
-		app.fatalShootingMarkers.addTo(app.map);
+		app.nonFatalIncidentMarkers.addTo(app.map);
+		app.fatalIncidentMarkers.addTo(app.map);
 		
 		// We want to tweak the opacity of the markers. By default they are 20% opaque, making
 		// them easier to read in larger bunches, but when we zoom in, and there is more space 
@@ -104,9 +106,9 @@ class ViolenceMap{
 		app.map.on('zoomend', e => {
 			const currentZoom = app.map.getZoom();
 			if (currentZoom > 12){
-				setShootingMarkerOpacity(.55, app)
+				setIncidentMarkerOpacity(.55, app)
 			} else {
-				setShootingMarkerOpacity(.2, app)
+				setIncidentMarkerOpacity(.2, app)
 			}
 		})
 
@@ -121,9 +123,9 @@ class ViolenceMap{
 		// 			element: victim,
 		// 			handler: function(direction){
 		// 				if (direction == "down"){
-		// 					const shootingID = parseInt(this.element.dataset.shootingId);
+		// 					const incidentID = parseInt(this.element.dataset.incidentId);
 							
-		// 					app.highlightShooting(shootingID);
+		// 					app.highlightIncident(incidentID);
 		
 		// 					// Toggle highlight classes on the list, so the current one is shown.
 		// 					const highlightedVictim = document.querySelector('li.victim.victim--highlight');
@@ -140,9 +142,9 @@ class ViolenceMap{
 		// 			element: victim,
 		// 			handler: function(direction){
 		// 				if (direction == "up"){
-		// 					const shootingID = parseInt(this.element.dataset.shootingId);
+		// 					const incidentID = parseInt(this.element.dataset.incidentId);
 							
-		// 					app.highlightShooting(shootingID);
+		// 					app.highlightIncident(incidentID);
 		
 		// 					// Toggle highlight classes on the list, so the current one is shown.
 		// 					const highlightedVictim = document.querySelector('li.victim.victim--highlight');
@@ -176,23 +178,23 @@ class ViolenceMap{
 						app[showMe].addTo(app.map);
 					}
 
-					// Make sure the highlighted shooting, if there is one, sits atop all the map layers.
-					if (app.shootingHighlightIcon != undefined) app.shootingHighlightIcon.bringToFront();
+					// Make sure the highlighted incident, if there is one, sits atop all the map layers.
+					if (app.incidentHighlightIcon != undefined) app.incidentHighlightIcon.bringToFront();
 				});
 			}
 		}
 	}
 
-	// highlightShooting(shootingID){
+	// highlightIncident(incidentID){
 	// 	const 	app = this; 
 
-	// 	app.fatalShootingMarkers.eachLayer( l => {
-	// 		if (l['shootingID'] == shootingID) {
-	// 			// First, remove the highlighted shooting, if it exists
-	// 			if (app.shootingHighlightIcon != undefined) app.shootingHighlightIcon.removeFrom(app.map);
+	// 	app.fatalIncidentMarkers.eachLayer( l => {
+	// 		if (l['incidentID'] == incidentID) {
+	// 			// First, remove the highlighted incident, if it exists
+	// 			if (app.incidentHighlightIcon != undefined) app.incidentHighlightIcon.removeFrom(app.map);
 
 	// 			// Give it the highlighted style and add it to the highlighted LayerGroup()
-	// 			app.shootingHighlightIcon = L.circleMarker(l.getLatLng(),{
+	// 			app.incidentHighlightIcon = L.circleMarker(l.getLatLng(),{
 	// 				radius: 10,
 	// 				stroke:true,
 	// 				strokeWidth:1,
@@ -209,4 +211,4 @@ class ViolenceMap{
 	// }
 }
 
-module.exports = ShootingsMap;
+module.exports = ViolenceMap;

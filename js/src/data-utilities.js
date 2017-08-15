@@ -1,6 +1,6 @@
 import countBy from "lodash.countby";
 import sortBy from "lodash.sortby";
-
+import filter from "lodash.filter";
 
 function objectToArray(obj){
 
@@ -52,8 +52,21 @@ function GetMonthData(data){
 	return objectToArray(countedData);
 }
 
+function GetMapData(data){
+	// Takes a data array of incident objects and returns an array of objects from the current year.
+	const 	currentYear = new Date().getFullYear(),
+			currentYearIncidents = filter(data, d => {
+				const 	dateString = d['DATE'].split('-'),
+						incidentYear = new Date(dateString[0], dateString[1], dateString[2]).getFullYear();
+				return incidentYear == currentYear;
+			});
+	return currentYearIncidents;
+	
+}
+
 module.exports = {
 	GetTimeData: GetTimeData,
 	GetDayData:GetDayData, 
-	GetMonthData:GetMonthData
+	GetMonthData:GetMonthData,
+	GetMapData:GetMapData
 };
