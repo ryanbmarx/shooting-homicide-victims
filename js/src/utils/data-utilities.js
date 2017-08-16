@@ -98,7 +98,6 @@ function getTreeMapData(data){
 		causes:otherTypes
 	})
 
-	console.log(childNodes)
 	return {
 			name: "violence",
 			children: childNodes
