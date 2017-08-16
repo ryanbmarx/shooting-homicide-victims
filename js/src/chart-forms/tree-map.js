@@ -1,6 +1,6 @@
 import * as d3 from 'd3'
-import getTribColor from './utils/getTribColors.js';
-import getTextColor from './utils/get-text-color.js';
+import getTribColor from '../utils/getTribColors.js';
+import getTextColor from '../utils/get-text-color.js';
 
 
 class TreeMap{
@@ -112,9 +112,9 @@ class TreeMap{
 				// This is for aesthetic cleanup, but if the node/box is either
 				// too skinny or too short to fit the label, then remove the label.
 				// The raw #s are in the legend, anyhow.
-				
+
 				console.log(d, this.getBBox());
-				const 	textWidth = this.getBBox().width, 
+				const 	textWidth = this.getBBox().widthz, 
 						textHeight = this.getBBox().height,
 						nodeWidth = d.x1 - d.x0,
 						nodeHeight= d.y1 - d.y0;

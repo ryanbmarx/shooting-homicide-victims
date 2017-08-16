@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import getTribColor from './util/getTribColors.js';
+import getTribColor from '../utils/getTribColors.js';
 import {areaRadial} from 'd3-shape';
 
 
