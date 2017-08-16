@@ -21,7 +21,6 @@ class ViolenceMap{
 				data = options.data,
 				iconColor = options.currentColor,
 				width = 10;
-		console.log(data);
 
 		app.options = options;
 
@@ -49,14 +48,14 @@ class ViolenceMap{
 
 		app.fatalIncidentMarkers = L.layerGroup();
 		app.nonFatalIncidentMarkers = L.layerGroup();
-		// app.highlightedIncidents = L.layerGroup(); // Using a layer group, we easily can locate/remove highlighted incidents 
 		
 		data.forEach(incident => {
 			// console.log(incident);
-			
+
 			const isFatal = parseInt(incident['IS_FATAL']) == 1 ? true : false;
 
 			if(incident['LAT'] && incident['LNG']){
+
 				const incidentMarker = L.circleMarker({
 					lat:parseFloat(incident['LAT']),
 					lng:parseFloat(incident['LNG'])
@@ -66,24 +65,6 @@ class ViolenceMap{
 					fill: true,
 					fillColor: isFatal ? options.fatalColor : options.currentColor,
 					fillOpacity: isFatal ? .4 : .2
-				}).on('click', function(e, incident){
-					console.log(e.target.incidentID, document.querySelector(`[data-incident-id="${e.target.incidentID}"]`));
-					
-					const 	selectedVictim = document.querySelector(`[data-incident-id="${e.target.incidentID}"]`);
-
-					// The list of victims only is fatal incidents. Similarly, the querySelector will return null 
-					// if a nonfatal incident is picked. We don't want to error out in that case, so check first 
-					// before highlighting a incident.
-					
-					if (selectedVictim != null){
-
-						// Select the victim list <li> with the intended victim ID. Also get that offsetTop
-						 const selectedVictimTop = selectedVictim.offsetTop - 30; // This offset centers the <li> on the triangle.
-
-						// Scroll the list/s parent div to the desired victim, which should trigger the map
-						// to highlight the victim using the waypoints code.
-						document.querySelector('#map-victims').scrollTop = selectedVictimTop;
-					}
 				});
 	
 				incidentMarker.incidentID = parseInt(incident['ID']);
@@ -112,52 +93,7 @@ class ViolenceMap{
 			}
 		})
 
-		// init the highlight event listener if the window is not mobile or tablet.
-		// if (window.innerWidth >= 850){
-		// 	const victims = options.victimList.querySelectorAll('ul li');
-		// 	for (let i = 0; i < victims.length; i++) {
-		// 		const victim = victims[i];
-
-		// 		// Set the waypoint for scrolling down	
-		// 		new Waypoint({
-		// 			element: victim,
-		// 			handler: function(direction){
-		// 				if (direction == "down"){
-		// 					const incidentID = parseInt(this.element.dataset.incidentId);
-							
-		// 					app.highlightIncident(incidentID);
-		
-		// 					// Toggle highlight classes on the list, so the current one is shown.
-		// 					const highlightedVictim = document.querySelector('li.victim.victim--highlight');
-		// 					if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
-		// 					this.element.classList.add('victim--highlight');
-		// 				}	
-		// 			},
-		// 			context: options.victimList,
-		// 			offset: 80
-		// 		});
-
-		// 		// Need a new offset, thus a new waypoint, for scrolling back up the list.
-		// 		new Waypoint({
-		// 			element: victim,
-		// 			handler: function(direction){
-		// 				if (direction == "up"){
-		// 					const incidentID = parseInt(this.element.dataset.incidentId);
-							
-		// 					app.highlightIncident(incidentID);
-		
-		// 					// Toggle highlight classes on the list, so the current one is shown.
-		// 					const highlightedVictim = document.querySelector('li.victim.victim--highlight');
-		// 					if (highlightedVictim != null) highlightedVictim.classList.remove('victim--highlight');
-		// 					this.element.classList.add('victim--highlight');
-		// 				}	
-		// 			},
-		// 			context: options.victimList,
-		// 			offset: 20
-		// 		});
-
-		// 	}
-		// }
+	
 
 		// Init the legend/buttons, if there are any declared. If not, skip it.
 		if (options.legendButtons){
@@ -177,38 +113,10 @@ class ViolenceMap{
 					} else {
 						app[showMe].addTo(app.map);
 					}
-
-					// Make sure the highlighted incident, if there is one, sits atop all the map layers.
-					if (app.incidentHighlightIcon != undefined) app.incidentHighlightIcon.bringToFront();
 				});
 			}
 		}
 	}
-
-	// highlightIncident(incidentID){
-	// 	const 	app = this; 
-
-	// 	app.fatalIncidentMarkers.eachLayer( l => {
-	// 		if (l['incidentID'] == incidentID) {
-	// 			// First, remove the highlighted incident, if it exists
-	// 			if (app.incidentHighlightIcon != undefined) app.incidentHighlightIcon.removeFrom(app.map);
-
-	// 			// Give it the highlighted style and add it to the highlighted LayerGroup()
-	// 			app.incidentHighlightIcon = L.circleMarker(l.getLatLng(),{
-	// 				radius: 10,
-	// 				stroke:true,
-	// 				strokeWidth:1,
-	// 				color:'black',
-	// 				fill: true,
-	// 				fillColor: app.options.fatalColor,
-	// 				fillOpacity: .8
-	// 			}).addTo(app.map);
-
-	// 			// Make sure the map is showing the marker
-	// 			app.map.panTo(l.getLatLng());
-	// 		}
-	// 	});
-	// }
 }
 
 module.exports = ViolenceMap;
