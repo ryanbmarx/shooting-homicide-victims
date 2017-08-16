@@ -113,7 +113,7 @@ class RadialBarChart{
 
 		// some housekeeping variable declarations
 		const 	outerRadius = Math.min(innerWidth, innerHeight) * 0.5, // find the radius that fits in the box, in case it is not square
-				innerRadius = outerRadius / 4 > 75 ? outerRadius / 4 : 75;
+				innerRadius = outerRadius / 4 > 60 ? outerRadius / 4 : 60;
 
 		
 
