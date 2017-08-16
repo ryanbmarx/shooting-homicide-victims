@@ -11,7 +11,7 @@ import countBy from 'lodash.countby';
 import RadialBarChart from './radial-bar-chart.js';
 import TreeMap from './tree-map.js';
 
-import * as dataUtilities from './data-utilities.js'
+import * as dataUtilities from './utils/data-utilities.js'
 
 
 class CrimeSite{

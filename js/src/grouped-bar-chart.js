@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 import orderBy from 'lodash.orderby';
 import union from 'lodash.union';
-import getTribColor from './getTribColors.js';
-import monthFormatter from './month-formatter.js';
+import getTribColor from './utils/getTribColors.js';
+import monthFormatter from './utils/month-formatter.js';
 
 
 

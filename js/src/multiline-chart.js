@@ -1,8 +1,8 @@
-import getTribColor from './getTribColors.js';
+import getTribColor from './utils/getTribColors.js';
 import * as d3 from 'd3';
 import filter from 'lodash.filter';
 import orderBy from 'lodash.orderby';
-import monthFormatter from './month-formatter.js';
+import monthFormatter from './utils/month-formatter.js';
 
 function leapYear(year) {
 	// returns true if supplied year is a leap year

@@ -1,5 +1,5 @@
 // import * as L from 'leaflet';
-import getTribColor from './getTribColors.js';
+import getTribColor from './utils/getTribColors.js';
 import CrimeSite from './crime-site2.js';
 // import {csv} from 'd3';
 // import countBy from 'lodash.countby';
