@@ -39,7 +39,17 @@ class TreeMap{
 			.paddingInner(2)
 
 		const rt = d3.hierarchy(data, d => d.children)
-			.sum(d => d.y);
+			.sum(d => d.y)
+			.sort((a,b) => {
+				/*
+					From the d3 docs:
+ 					The specified function is passed two nodes a and b to compare. If a should be 
+ 					before b, the function must return a value less than zero; if b should be before 
+ 					a, the function must return a value greater than zero; otherwise, the relative 
+ 					order of a and b are not specified
+				*/
+				return a.data.y - b.data.y;
+			});
 
 		const violenceTree = treemap(rt);
 		
@@ -58,8 +68,14 @@ class TreeMap{
 		const legend = container.insert('dl')
 			.classed('causes-legend', true);
 
+
+		// We're going to cheat the order a little bit. Our root node has ordered the 
+		// nodes and given them coordinates already, but because we are building the 
+		// legend, too, we want that to have a different (inverted) order. So we'll flip it
+		// and do the data join on that array.
+
 		const cell = chartInner.selectAll('g')
-			.data(violenceTree.leaves())
+			.data(violenceTree.leaves().reverse())
 			.enter()
 			.append('g')
 	      	.attr("transform", function(d) { 
