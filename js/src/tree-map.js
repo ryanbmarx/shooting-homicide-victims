@@ -108,6 +108,18 @@ class TreeMap{
 			.attr('text-anchor', 'middle')
 			.style('fill', d => getTextColor(colorScale(d['data']['x']), true))
 			.text(d => d.data.y)
+			.each( function(d, i) {
+				// This is for aesthetic cleanup, but if the node/box is either
+				// too skinny or too short to fit the label, then remove the label.
+				// The raw #s are in the legend, anyhow.
+				
+				console.log(d, this.getBBox());
+				const 	textWidth = this.getBBox().width, 
+						textHeight = this.getBBox().height,
+						nodeWidth = d.x1 - d.x0,
+						nodeHeight= d.y1 - d.y0;
+				if (nodeWidth < textWidth || nodeHeight < textHeight) this.remove();
+			})
 
 
 
