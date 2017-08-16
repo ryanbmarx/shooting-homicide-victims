@@ -90,7 +90,12 @@
 }
 
 @media (max-width:579px){
-
+  .topic--causes {
+    .chart{
+      // nudge the treemap taller so things fit.
+      height: 450px;
+    }
+  }
 }
 
 

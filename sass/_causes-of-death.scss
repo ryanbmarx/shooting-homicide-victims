@@ -14,3 +14,9 @@
 .tree-label{
 	@include sans-serif();
 }
+
+@media all and (max-width: 579px){
+	// .causes-legend{
+	// 	float:none;
+	// }
+}
