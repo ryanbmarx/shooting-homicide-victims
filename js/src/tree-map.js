@@ -1,5 +1,5 @@
 import * as d3 from 'd3'
-
+import getTribColor from './getTribColors.js';
 
 class TreeMap{
 	constructor(options){
@@ -8,15 +8,29 @@ class TreeMap{
 
 		const 	data = options.data,
 				container = d3.select(app.options.container),
+				legendWidth = 150,
 				bbox = app.options.container.getBoundingClientRect(),
-				width = bbox.width,
+				width = bbox.width - legendWidth,
 				height = bbox.height,
 				margin = app.options.innerMargins,
 				innerHeight = height - margin.top - margin.bottom,
-				innerWidth = width - margin.right - margin.left;
+				innerWidth = width - margin.right - margin.left,
+				colors = [
+					getTribColor('trib_red2'),
+					getTribColor('trib_orange'),
+					getTribColor('trib_yellow1'),
+					getTribColor('trib_blue2'),
+					getTribColor('trib_blue3'),
+					getTribColor('trib_blue5'),
+					getTribColor('trib_green2'),
+					getTribColor('trib_green4'),
+					getTribColor('trib_blue_gray')
+				];
 
 		console.log(data);
 
+		const colorScale = d3.scaleOrdinal()
+			.range(colors)
 
 		const treemap = d3.treemap()
 			// .tile(d3.treemapResquarify)
@@ -29,8 +43,6 @@ class TreeMap{
 
 		const violenceTree = treemap(rt);
 		
-		console.log(violenceTree.leaves());
-
 		const svg = container
 			.append('svg')
 			.attr('width', width)
@@ -43,21 +55,42 @@ class TreeMap{
 			.attr('height', innerHeight)
 			.attr('transform', `translate(${margin.left}, ${margin.top})`);
 
+		const legend = container.insert('dl')
+			.classed('causes-legend', true);
+
 		const cell = chartInner.selectAll('g')
 			.data(violenceTree.leaves())
 			.enter()
 			.append('g')
 	      	.attr("transform", function(d) { 
-	      		console.log(d);
 	      		return "translate(" + d.x0 + "," + d.y0 + ")"; 
 	      	});
 
 		cell.append('rect')
 			.attr("width", function(d) { return d.x1 - d.x0; })
 			.attr("height", function(d) { return d.y1 - d.y0; })
-			.attr("fill", 'rgba(255,0,0,.5)');
+			.attr("fill", d => colorScale(d['data']['x']))
+			.each(d => {
+				legend.append('dt')
+					.append('span')
+					.classed('causes-legend__box', true)
+					.style('background-color', colorScale(d['data']['x']));
+				legend.append('dd')
+					.text(`${d['data']['x']} (${d['data']['y']})`);
+
+			});
+
+		// cell.append('text')
+			// .attr("width", function(d) { return d.x1 - d.x0; })
+			// .attr("height", function(d) { return d.y1 - d.y0; })
+			// .attr("fill", 'rgba(255,0,0,.5)');
+			// .text(d)
+
+
 
 	}
+
+
 }
 
 module.exports = TreeMap;

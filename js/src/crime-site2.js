@@ -86,7 +86,7 @@ class CrimeSite{
 			const causesOfDeath = new TreeMap({
 				container: document.querySelector('#causes'),
 				data: dataUtilities.getTreeMapData(currentYearData),
-		        innerMargins:{ top:0,right:0,bottom:0,left:0 }
+		        innerMargins:{ top:0,right:0,bottom:0,left:20 }
 			})
 
 		}
