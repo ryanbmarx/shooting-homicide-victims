@@ -29,8 +29,6 @@ class TreeMap{
 					getTribColor('trib_blue_gray')
 				];
 
-		console.log(data);
-
 		const colorScale = d3.scaleOrdinal()
 			.range(colors)
 
@@ -73,6 +71,10 @@ class TreeMap{
 			.attr("height", function(d) { return d.y1 - d.y0; })
 			.attr("fill", d => colorScale(d['data']['x']))
 			.each(d => {
+				// We're building the legend here, versus using a seperate function,
+				// because the scale has more colors than we need, and we only want to
+				// output the colors we are using.
+
 				legend.append('dt')
 					.append('span')
 					.classed('causes-legend__box', true)
@@ -93,9 +95,43 @@ class TreeMap{
 
 
 
+
+		// Update the note, explaining what others includes.
+		d3.select(container.node().parentNode)
+			.append('p')
+			.classed('note', true)
+			.text(getOtherNoteText(data));
+
+
 	}
 
+}
 
+function getOtherNoteText(data) {
+	
+	const other = data.children.find(function(el){
+		// Pull the "other" violence type from our chart data. 
+		// We've stashed a list of the "other" crimes in there.
+		return el.x == "Other";
+	})
+
+	let noteString = "Note: Other includes ";
+
+	other.causes.forEach((cause, index) => {
+		// Iterate over the "other"	causes of death and concat a note to readers.
+		noteString += cause.toLowerCase();
+		if (index <= other.causes.length - 3) {
+			// add a comma after each item, unless it is the second-to-last or final item
+			noteString += ", ";
+		} else if (index == other.causes.length - 2) {
+			// add an and if it is the second-to-last item in the list. 
+			// This makes our serial list grammatically correct. And
+			// we'll use an Oxford comma because nobody is watching us here.
+			noteString += ", and ";
+		};
+	})
+
+	return noteString + ".";
 }
 
 module.exports = TreeMap;
