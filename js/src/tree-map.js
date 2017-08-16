@@ -17,14 +17,45 @@ class TreeMap{
 
 		console.log(data);
 
-		
 
 		const treemap = d3.treemap()
-			.tile(d3.treemapResquarify)
+			// .tile(d3.treemapResquarify)
 			.size([innerWidth, innerHeight])
 			.round(true)
-			.paddingInner(1);
+			.paddingInner(2)
 
+		const rt = d3.hierarchy(data, d => d.children)
+			.sum(d => d.y);
+
+		const violenceTree = treemap(rt);
+		
+		console.log(violenceTree.leaves());
+
+		const svg = container
+			.append('svg')
+			.attr('width', width)
+			.attr('height', height);
+
+		const chartInner = svg
+			.append('g')
+			.classed('chart-inner', true)
+			.attr('width', innerWidth)
+			.attr('height', innerHeight)
+			.attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+		const cell = chartInner.selectAll('g')
+			.data(violenceTree.leaves())
+			.enter()
+			.append('g')
+	      	.attr("transform", function(d) { 
+	      		console.log(d);
+	      		return "translate(" + d.x0 + "," + d.y0 + ")"; 
+	      	});
+
+		cell.append('rect')
+			.attr("width", function(d) { return d.x1 - d.x0; })
+			.attr("height", function(d) { return d.y1 - d.y0; })
+			.attr("fill", 'rgba(255,0,0,.5)');
 
 	}
 }
