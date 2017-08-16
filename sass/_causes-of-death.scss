@@ -10,3 +10,7 @@
 .topic--causes .topic__chart-wrapper{
 	@include clearfix();
 }
+
+.tree-label{
+	@include sans-serif();
+}
