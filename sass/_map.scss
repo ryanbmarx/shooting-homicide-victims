@@ -1,116 +1,38 @@
-$map_height: 600px;
-$list_width: 270px;
-$list_gutter: 0px;
-$list_padding:20px;
 
-.chart--map figcaption{
-	@include clearfix();
+// $list_width: 270px;
+// $list_gutter: 0px;
+// $list_padding:20px;
 
-	.chart__headline{
-		float: left;
-	}
-}
+// .chart--map figcaption{
+// 	@include clearfix();
+
+// 	.chart__headline{
+// 		float: left;
+// 	}
+// }
 
 .trb_mainContent .map{
-	display:flex;
-	justify-content: space-between;
-	align-items:stretch;
-	flex-wrap:nowrap;
-
-	&__link{
-		display:block;
-		padding: $list_padding 0;
-	}
 
 	&__map{
 		// the actual map holder, filled by Leaflet
-		width:72%; 
-		width: calc(100% - #{$list_gutter} - #{$list_width} - #{$list_padding * 2});
+		width:100%; 
 		height:$map_height;
 		background:#eee;
-		padding: 25px;
-
-		&:after{
-			content:'\25C0';
-			position:absolute;
-			top: 80px;
-			right: 0;
-			font-size:20px;
-			color:$trib-gray4;
-			z-index: 1000;
-			margin-right: -5px;
-		}
-
-	}
-
-	&__victims{
-		width: 25%;
-		width: $list_width;
-		height:$map_height;
-		background:$trib-gray4;
-		
-		overflow:scroll; // Fallback
-		overflow-y:scroll;
-		overflow-x:hidden;
-		
-		padding: $list_padding;
-		position:relative;
-
-		ul{
-			list-style-type:none;
-			width: auto;
-			margin:0;
-			padding:0;
-		}
-	}
-
-	&__victims-headline{
-		@include label7();
-		margin:0;
 	}
 }
 
-
-.trb_mainContent .map ul li.victim{
-	@include sans-serif();
-	border-bottom:1px solid $trib-gray2;
-	border-left: 3px solid transparent;
-	padding-bottom: 0;
-
-	&:last-child{
-		padding-bottom:none;
-		border-bottom:none;
-	}
-
-	&--highlight{
-		border-left-color: $trib-red2;
-		padding-left: ($list_padding - 3px) / 2;
-		margin-left: ($list_padding - 3px) / -2;
-	}
-
-	p{
-		@include sans-serif();
-		margin:0;
-	}
-
-	.victim__link-text{
-	    margin-top: 7px;
-		font-size:13px;
-	}
-}
-
-.trb_mainContent .map-legend{
+.trb_mainContent .map__legend{
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	margin: 0 0 10px 0;
-	float:right;
-	&__label{
+	// float:right;
+	&-label{
 		@include agate();
 		margin: 0 10px 0 0;
 	}
 
-	&__button{
+	&-button{
 		@include sans-serif();
 		width: 150px;
 		display:inline-block;
@@ -127,13 +49,13 @@ $list_padding:20px;
 			margin-right:0;
 		}
 
-		&--checked{
+		&[data-checked="true"]{
 			background:black;
 			color:white;
 			transition: all 150ms ease;
 		}
 
-		.map-legend__dot{
+		.map__legend-dot{
 			@include trib-legend__box(50%);
 			border: 2px solid white;
 
@@ -156,43 +78,34 @@ $list_padding:20px;
 			float: none;
 		}
 	}
-	.trb_mainContent .map-legend{ float:none; }
+	// .trb_mainContent .map__legend{ float:none; }
 
 	.trb_mainContent .map{
 		display:block;	
 
 		&__map{
-			width:auto;
-			height: 380px;
-			margin-bottom:25px;
-
-			&:after{
-				content:'';
-			}
-		}
-
-		&__victims{
-			width: auto;
-			height:auto;	
+			// width:auto;
+			// height: 380px;
+			// margin-bottom:25px;
 		}
 	}
 }
 
 @media all and (max-width:450px){
 	
-	.trb_mainContent .map-legend{
+	.trb_mainContent .map__legend{
 		justify-content: space-between;
 		align-items: center;
 		flex-wrap:wrap;
 
-		&__label{
+		&-label{
 			// Slide the label above the two buttons, which should stretch to cover full width.
 			// Also, thus will keep button text from wrapping.
 			width:100%;
 			margin: 0 0 10px 0;
 		}
 
-		&__button{
+		&-button{
 			width: 45%; // fallback
 			width: calc(50% - 8px); // Should put a 16px gutter between the two buttons
 			padding: 10px 0;
