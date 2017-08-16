@@ -13,6 +13,8 @@
 @import 'page-topper'; // For the headline/topper
 @import 'year-to-date'; // The cumulative line chart
 @import 'victim-list'; // For the victims at the bottom
+@import 'map'; // For the map, duh!
+@import 'causes-of-death'; // The treemap
 
 .graphic-wrapper{
   max-width: 800px;
@@ -22,7 +24,8 @@
 // MAIN STRUCTURE OF PAGE + TOP-LEVEL TYPOGRAPHY
 
 
-.trb_mainContent .topic{
+.trb_mainContent {
+  .topic{
   // These are the basic divisions of the content
   margin-bottom: 35px;
   padding-bottom: 35px;
@@ -52,23 +55,31 @@
   &__chart-wrapper{
     position: relative;
   }
-  
-}
 
+  }
 
-.chart{
+  .chart{
+    // This is the container for each chart or graphic
     height: 300px;
     background: rgba($trib-gray4, .5);
+  }
 
-}
+  // The demographics section has a map and other charts. Put them in a two-column layout.
+  .topic--demographics{
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-// These charts are fullwidth
-.topic--cumulative, .topic--causes{
-  .topic__chart-wrapper{
-    grid-column: 1 / -1;
+  // These charts are fullwidth
+  .topic--cumulative, .topic--causes{
+    .topic__chart-wrapper{
+      grid-column: 1 / -1;
+    }
   }
 }
 
+.trb_mainContent .note{
+  @include agate()
+}
 
 // ------------
 // CREDITS
