@@ -9,6 +9,7 @@ import ViolenceMap from './map.js';
 import countBy from 'lodash.countby';
 // import RadialChart from './radial-chart.js';
 import RadialBarChart from './radial-bar-chart.js';
+import TreeMap from './tree-map.js';
 
 import * as dataUtilities from './data-utilities.js'
 
@@ -64,13 +65,32 @@ class CrimeSite{
 		// -------------------
 		// Make a map
 		// -------------------
+
+		// This dataset will get used in a few different ways.
+		const currentYearData = dataUtilities.GetCurrentYearData(data);
+
 		const map = new ViolenceMap({
 			container: document.querySelector('#map'),
-			data:dataUtilities.GetMapData(data),
+			data:currentYearData,
 			currentColor: app.options.currentColor,
 			fatalColor: app.options.fatalColor,
 			legendButtons: document.querySelectorAll('.map__legend-button')
 		});
+
+		// ---------------------------------
+		// Make a treemap of causes of death
+		// ---------------------------------
+
+		if (window.version == "homicides"){
+
+			const causesOfDeath = new TreeMap({
+				container: document.querySelector('#causes'),
+				data: dataUtilities.getTreeMapData(currentYearData),
+		        innerMargins:{ top:0,right:0,bottom:0,left:0 }
+			})
+
+		}
+
 	});
 
 	csv(`${base_data_url}/${options.version}.csv`, (d,i,columns) => {

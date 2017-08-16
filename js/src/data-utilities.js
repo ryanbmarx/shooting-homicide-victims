@@ -2,15 +2,14 @@ import countBy from "lodash.countby";
 import sortBy from "lodash.sortby";
 import filter from "lodash.filter";
 
-function objectToArray(obj){
+function objectToArray(obj, sortByX = true){
 
 	// Takes  data object of objects created by lodash/countby and transforms it into an array of objects.
 
 	let arr = [];
-
 	Object.keys(obj).forEach(key => {
 		// Some shootings don't have a time, so we'll omit them. They are under the "-1"key.
-		if (key > -1){
+		if (key > -1 || isNaN(key)){
 			arr.push({
 				x: key,
 				y: obj[key]
@@ -18,7 +17,8 @@ function objectToArray(obj){
 		}
 	});
 
-	return sortBy(arr, d => parseInt(d.x));
+	if (sortByX) return sortBy(arr, d => parseInt(d.x));
+	return sortBy(arr, d => parseInt(d.y))
 }
 
 function GetTimeData(data, summarizeBy){
@@ -52,7 +52,7 @@ function GetMonthData(data){
 	return objectToArray(countedData);
 }
 
-function GetMapData(data){
+function GetCurrentYearData(data){
 	// Takes a data array of incident objects and returns an array of objects from the current year.
 	const 	currentYear = new Date().getFullYear(),
 			currentYearIncidents = filter(data, d => {
@@ -64,9 +64,17 @@ function GetMapData(data){
 	
 }
 
+function getTreeMapData(data){
+	const countedData = countBy(data, d => {
+		return d['PUB_CAUSE'] == "" ? "Unknown" : d['PUB_CAUSE'];
+	});
+	return objectToArray(countedData, false);
+}
+
 module.exports = {
 	GetTimeData: GetTimeData,
 	GetDayData:GetDayData, 
 	GetMonthData:GetMonthData,
-	GetMapData:GetMapData
+	GetCurrentYearData:GetCurrentYearData,
+	getTreeMapData:getTreeMapData
 };
