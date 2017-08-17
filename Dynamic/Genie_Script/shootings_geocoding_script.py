@@ -33,13 +33,13 @@ to days, month, and year of a date and time object. That's the main reason why I
 '''
 from datetime import datetime
 shootings['Date']=shootings['Date'].replace(np.nan,'') #replacing empty NaN values with empty strings
-def crap_to_dt(d):
+def date_to_dt(d):
     if(d==''):
         return (d)
     else:
         return (datetime.strptime(str(d) ,'%Y-%m-%d').date()) #converting dates from type string to type date and time
     
-shootings['Date']=shootings['Date'].apply(crap_to_dt)
+shootings['Date']=shootings['Date'].apply(date_to_dt)
 shootings['Date']= pd.to_datetime(shootings['Date'],errors='coerce') #apply pandas date and time function for future indexing
 
 
@@ -104,13 +104,13 @@ adding the shooting hour and minutes to the hours and minutes columns.
 '''
 from datetime import datetime
 geoDF['Time']=geoDF['Time'].replace(np.nan,'') #replacing empty NaN values with empty strings
-def crap_to_t(t):
+def date_to_t(t):
     if(t==''):
         return (t)
     else:
         return (datetime.strptime(str(t) ,'%H:%M').time()) #converting dates from type string to type date and time
     
-geoDF['Hour']=geoDF['Time'].apply(crap_to_t)
+geoDF['Hour']=geoDF['Time'].apply(date_to_t)
 geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
 geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
 
