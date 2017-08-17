@@ -147,6 +147,11 @@ function GetSexData(data){
 	return objectToArray(countedData, false, 'desc');
 }
 
+function GetRaceEthnicityData(data){
+	const countedData = countBy(data, d => d.RACE == "" ? "Not known" : d.RACE);
+	return objectToArray(countedData, false, 'desc');
+}
+
 module.exports = {
 	GetTimeData: GetTimeData,
 	GetDayData:GetDayData, 
@@ -154,5 +159,6 @@ module.exports = {
 	GetCurrentYearData:GetCurrentYearData,
 	getTreeMapData:getTreeMapData,
 	GetAgeData: GetAgeData,
-	GetSexData:GetSexData
+	GetSexData:GetSexData,
+	GetRaceEthnicityData:GetRaceEthnicityData
 };

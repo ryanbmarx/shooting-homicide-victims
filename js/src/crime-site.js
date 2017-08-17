@@ -1,4 +1,4 @@
-import {csv, json} from 'd3';
+import {csv} from 'd3';
 import groupBy from 'lodash.groupby';
 import sortBy from 'lodash.sortby';
 import countBy from 'lodash.countby';
@@ -9,11 +9,15 @@ import ViolenceMap from './chart-forms/map.js';
 import RadialBarChart from './chart-forms/radial-bar-chart.js';
 import TreeMap from './chart-forms/tree-map.js';
 import LineChart from './chart-forms/line-chart.js';
-// import DonutChart from './chart-forms/donut-chart.js';
+import ListBarChart from './chart-forms/list-bar-chart.js';
 
 import * as dataUtilities from './utils/data-utilities.js'
+import getTribColor from './utils/getTribColors.js';
 
 // TODO: ONLY DOWNLOAD THE CURRENT YEAR DATA
+// TODO: FILTERS TO VICTIMS
+// TODO: ADD INSIGHTS TO THE HEADER
+// TODO: ADD DATA DOWNLOAD LINKS
 
 class CrimeSite{
 
@@ -144,6 +148,14 @@ class CrimeSite{
 				data: dataUtilities.GetSexData(currentYearData),
 				innerMargins:radialMargins,
 				labelKey: 'sex'
+			});
+
+			const raceEthnicityChart = new ListBarChart({
+				container: document.querySelector('#race-ethnicity'),
+				data: dataUtilities.GetRaceEthnicityData(currentYearData),
+		        innerMargins:{ top:20,right:0,bottom:20,left:0 },
+		        barColor: getTribColor('trib-blue3'),
+		        xTicks: 5
 			});
 		}
 	});
