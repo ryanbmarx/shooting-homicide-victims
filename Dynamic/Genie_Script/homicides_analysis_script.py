@@ -26,14 +26,14 @@ def isMurder(s):
     else:
         return(0)
 
-def crap_to_t(t):
+def date_to_t(t): #date to time
     if(t==''):
         return (t)
     else:
         return (datetime.strptime(str(t) ,'%H:%M').time()) #converting dates from type string to type date and time
 
 
-def crap_to_dt(x):
+def date_to_dt(x): #date to datetime format
     if(x==''):
         return (x)
     else:
@@ -43,7 +43,7 @@ def get_homicides(homicides,outputPath):
 
 	homicides['Occ Date']=homicides['Occ Date'].replace(np.nan,'') #replacing empty NaN values with empty strings
 	    
-	homicides['Occ Date']=homicides['Occ Date'].apply(crap_to_dt)
+	homicides['Occ Date']=homicides['Occ Date'].apply(date_to_dt)
 
 
 	# In[4]:
@@ -54,7 +54,7 @@ def get_homicides(homicides,outputPath):
 	# In[5]:
 
 	#focusing on homicides from 2012 onwards
-	homicides = homicides[homicides['Occ Date'].dt.year>2011]
+	homicides = homicides[homicides['Occ Date'].dt.year>2012]
 
 
 	# In[6]:
@@ -114,7 +114,7 @@ def get_homicides(homicides,outputPath):
 
 	#time
 	geoDF['Occ Time']=geoDF['Occ Time'].replace(np.nan,'') #replacing empty NaN values with empty strings
-	geoDF['Hour']=geoDF['Occ Time'].apply(crap_to_t)
+	geoDF['Hour']=geoDF['Occ Time'].apply(date_to_t)
 	geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
 	geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
 	geoDF['ID'] = np.arange(0,len(geoDF),1)
