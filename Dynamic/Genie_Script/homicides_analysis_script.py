@@ -14,6 +14,12 @@ import io
 from datetime import datetime
 
 
+def clean_age(age):
+    try:
+        return int(str(age).strip())
+    except:
+        return (0)
+
 def isFatal(s):
     if (s.strip() =='Yes'):
         return (1)
@@ -102,6 +108,8 @@ def get_homicides(homicides,outputPath):
 	geoDF['lat'],geoDF['long'] = homicides['Geocode Override'].str.replace('(','').str.replace(')','').str.split(',').str
 	geoDF['Murder'] = geoDF['Murder'].replace(np.nan,'')
 	geoDF['isFatal']=geoDF['Murder'].apply(isFatal)
+	geoDF['Age'] = geoDF['Age'].apply(clean_age) #recoding the Age column. Any reported age in alphabetical strings (e.g, 1 week, day, 3 months.) will be assigned a value of zero.
+
 
 	#time
 	geoDF['Occ Time']=geoDF['Occ Time'].replace(np.nan,'') #replacing empty NaN values with empty strings
