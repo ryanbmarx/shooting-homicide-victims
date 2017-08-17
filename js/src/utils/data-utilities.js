@@ -65,6 +65,25 @@ function GetCurrentYearData(data){
 	
 }
 
+function GetAgeData(data){
+
+	let ageData = countBy(data, d =>{
+		if (parseInt(d.AGE) > 1) return d.AGE;
+		if (typeof(d.AGE) == 'string' && d.AGE.toUpperCase() != "NONE" && d.AGE.toUpperCase() != "M") return 0;
+		return "bogus";
+	});
+
+	ageData = objectToArray(ageData, false);
+	
+	// The ages, though numbers, are string variables. We need to fix that.
+	ageData.forEach(age => {
+		age.x = parseInt(age.x);
+	});
+
+	// Now sort by age and return.
+	return sortBy( ageData, d => parseInt(d.x));
+}
+
 function getTreeMapData(data){
 	// Takes the allVictims data object and summarizes by cause of death. 
 	// Obviously, this will not work with shootings data since there are no
@@ -109,5 +128,6 @@ module.exports = {
 	GetDayData:GetDayData, 
 	GetMonthData:GetMonthData,
 	GetCurrentYearData:GetCurrentYearData,
-	getTreeMapData:getTreeMapData
+	getTreeMapData:getTreeMapData,
+	GetAgeData: GetAgeData
 };

@@ -112,8 +112,6 @@ class TreeMap{
 				// This is for aesthetic cleanup, but if the node/box is either
 				// too skinny or too short to fit the label, then remove the label.
 				// The raw #s are in the legend, anyhow.
-
-				console.log(d, this.getBBox());
 				const 	textWidth = this.getBBox().widthz, 
 						textHeight = this.getBBox().height,
 						nodeWidth = d.x1 - d.x0,
