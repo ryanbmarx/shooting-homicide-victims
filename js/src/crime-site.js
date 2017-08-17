@@ -9,9 +9,11 @@ import ViolenceMap from './chart-forms/map.js';
 import RadialBarChart from './chart-forms/radial-bar-chart.js';
 import TreeMap from './chart-forms/tree-map.js';
 import LineChart from './chart-forms/line-chart.js';
+// import DonutChart from './chart-forms/donut-chart.js';
 
 import * as dataUtilities from './utils/data-utilities.js'
 
+// TODO: ONLY DOWNLOAD THE CURRENT YEAR DATA
 
 class CrimeSite{
 
@@ -35,6 +37,8 @@ class CrimeSite{
 	csv(`${base_data_url}/${options.version}_geocode.csv`, (err, data) => {
 		if (err) throw err;
 
+		// This dataset will get used in a few different ways.
+		const currentYearData = dataUtilities.GetCurrentYearData(data);
 
 		// -------------------
 		// Load the radials
@@ -44,20 +48,22 @@ class CrimeSite{
 
 		const timeRadial = new RadialBarChart({
 			container: document.querySelector('#time'),
-			data: dataUtilities.GetTimeData(data, "HOUR_HH"),
-			innerMargins:radialMargins,
+			data: dataUtilities.GetTimeData(currentYearData, "HOUR_HH"),
+			innerMargins:radialMargins
+
 		});
 
 		const dayRadial = new RadialBarChart({
 			container: document.querySelector('#day'),
-			data: dataUtilities.GetDayData(data),
-			innerMargins:radialMargins,
+			data: dataUtilities.GetDayData(currentYearData),
+			innerMargins:radialMargins
+
 		});
 
 		const monthRadial = new RadialBarChart({
 			container: document.querySelector('#month'),
-			data: dataUtilities.GetMonthData(data),
-			innerMargins:radialMargins,
+			data: dataUtilities.GetMonthData(currentYearData),
+			innerMargins:radialMargins
 		});
 
 
@@ -65,8 +71,6 @@ class CrimeSite{
 		// Make a map
 		// -------------------
 
-		// This dataset will get used in a few different ways.
-		const currentYearData = dataUtilities.GetCurrentYearData(data);
 
 		const map = new ViolenceMap({
 			container: document.querySelector('#map'),
@@ -130,9 +134,14 @@ class CrimeSite{
 		        }
 		    });
 
+
+
+			const sexChart = new RadialBarChart({
+				container: document.querySelector('#sex'),
+				data: dataUtilities.GetSexData(currentYearData),
+				innerMargins:radialMargins
+			});
 		}
-
-
 	});
 
 	csv(`${base_data_url}/${options.version}.csv`, (d,i,columns) => {
@@ -147,8 +156,6 @@ class CrimeSite{
 		// Load the cumulative chart
 		// -------------------------
 		
-		// console.log(groupBy(data, d=> d['YEAR']));
-
 		const cumulativeChart = new MultilineChart({
 			container: document.querySelector('#cumulative'),
 			data: groupBy(data, d=> d['YEAR']), // seperate the rows into year groups
