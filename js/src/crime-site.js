@@ -1,16 +1,13 @@
 import {csv, json} from 'd3';
 import groupBy from 'lodash.groupby';
 import sortBy from 'lodash.sortby';
+import countBy from 'lodash.countby';
 
 import GroupedBarChart from './chart-forms/grouped-bar-chart.js';
 import MultilineChart from './chart-forms/multiline-chart.js';
 import ViolenceMap from './chart-forms/map.js';
-
-import countBy from 'lodash.countby';
-// import RadialChart from './radial-chart.js';
 import RadialBarChart from './chart-forms/radial-bar-chart.js';
 import TreeMap from './chart-forms/tree-map.js';
-// import LineHistogram from './chart-forms/line-histogram.js';
 import LineChart from './chart-forms/line-chart.js';
 
 import * as dataUtilities from './utils/data-utilities.js'
@@ -161,34 +158,6 @@ class CrimeSite{
 		});
 	});
 
-
-		// // Activate the YTD line chart
-		// csv(`http://${ app.options.ROOT_URL }/data/raw-dates.csv`,function(d, i, columns) {
-		// 		// This coerces the data into numbers
-		// 		for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
-  // 				return d;
-		// 	}, (err, dailyData) => {
-
-		// 	const cumulativeChart = new MultilineChart({
-		// 		container: app.options.ytd,
-		// 		data: groupBy(dailyData, d=> d['YEAR']), // seperate the rows into year groups
-		//         innerMargins:{ top:7,right:0,bottom:20,left:50 },
-		// 		currentColor: app.options.currentColor,
-		// 		otherColor: app.options.otherColor
-		// 	});
-		// });
-
-		// json(`http://${ app.options.ROOT_URL }/data/current-year-victims.json`,(err, mapData) => {
-		// 	// Build a map
-		// 	const map = new ShootingsMap({
-		// 		container: app.options.map,
-		// 	    victimList: app.options.victimList,
-		// 		data:mapData,
-		// 		currentColor: app.options.currentColor,
-		// 		fatalColor: app.options.fatalColor,
-		// 		legendButtons: app.options.mapLegendButtons
-		// 	});
-		// })
 	}
 }
 
