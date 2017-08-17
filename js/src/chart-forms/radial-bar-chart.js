@@ -6,8 +6,9 @@ import scaleRadial from '../utils/scale-radial.js';
 
 // Cribbed from https://bl.ocks.org/mbostock/5479367295dfe8f21002fc71d6500392
 
-function formatXTicks(dataLength, num){	
-	if (dataLength == 7){
+function formatXTicks(category, num){	
+	if (category == 'day'){
+		// This must be the days
 		switch (num){
 			case "0":
 				return "Sun.";
@@ -31,8 +32,8 @@ function formatXTicks(dataLength, num){
 				return "Sat.";
 				break;
 		}
-		// This must be the days
-	} else if (dataLength == 12){
+
+	} else if (category == 'month'){
 		// This must be the months
 		switch (num){
 			case "0":
@@ -72,7 +73,8 @@ function formatXTicks(dataLength, num){
 				return "D";
 				break;
 		}
-	} else if (dataLength == 24){
+	} else if (category == 'time'){
+		console.log('time')
 		// This must be the hours. We're only going to label every 6 hours
 		switch(num){
 			case "0":
@@ -88,7 +90,12 @@ function formatXTicks(dataLength, num){
 				return "6 p.m.";
 				break;
 		}
+	} else {
+		// If there is no format described above, then just kick it back
+		return num;	
 	}
+
+	
 }
 
 class RadialBarChart{
@@ -111,6 +118,8 @@ class RadialBarChart{
 				chartBackgroundColor = getTribColor('trib-gray4'),
 				tickLength = 7;
 
+		console.log(data);
+
 		// some housekeeping variable declarations
 		const 	outerRadius = Math.min(innerWidth, innerHeight) * 0.5, // find the radius that fits in the box, in case it is not square
 				innerRadius = outerRadius / 4 > 60 ? outerRadius / 4 : 60;
@@ -125,7 +134,7 @@ class RadialBarChart{
 		const x = d3.scaleBand()
 		    .range([0, (2 * Math.PI) - angleSlice]) // starting angle = 0, ending angle = full circle less one unit, in radians
 		    .align(0)
-		    .domain(data.map(d => d.x));
+		    .domain(data.map(d => d['x']));
 
 		// Scale radial is a custom function by Bostock. See file for link to gist.
 		const y = scaleRadial()
@@ -161,8 +170,8 @@ class RadialBarChart{
 				.attr('d', d3.arc()
 					.innerRadius(d => y(0))
 					.outerRadius(d => y(d.y))
-					.startAngle(d => x(d.x))
-					.endAngle(d => x(d.x) + x.bandwidth())
+					.startAngle(d => x(d['x']))
+					.endAngle(d => x(d['x']) + x.bandwidth())
 					.padAngle(0.01)
 					.padRadius(innerRadius))
 				.style('fill', getTribColor('trib-blue2', .5));
@@ -217,7 +226,7 @@ class RadialBarChart{
 			.attr('class', "labels__label labels__label--time-interval")
 			.attr('text-anchor', 'middle')
 			.attr('transform', d => {				
-				let rotation = (x(d.x) + (x.bandwidth() / 2)) * (180 / Math.PI) - 90;
+				let rotation = (x(d['x']) + (x.bandwidth() / 2)) * (180 / Math.PI) - 90;
 				return `rotate(${rotation})translate(${innerRadius},0)`;
 			});
 
@@ -226,21 +235,21 @@ class RadialBarChart{
 				.style("stroke", "#000")
 				.style('stroke-width', d => {
 					// If it is the time chart, then let's add 6-hour bold ticks.
-					if (data.length == 24) return parseInt(d.x) % 6 == 0 ? 3 : 1;
+					if (data.length == 24) return parseInt(d['x']) % 6 == 0 ? 3 : 1;
 
 					// If it is any other chart, just do thin ticks.
 					return 1;
 				});
 
 			xTicks.append('text')
-				.text(d => formatXTicks(data.length, d.x))
+				.text(d => formatXTicks(options.labelKey, d['x']))
 				.style('font-size', '12px')
 				.style('font-family', 'Arial, sans-serif')
 				.attr('transform', d => {
-					// let rotation = (x(d.x) + (x.bandwidth() / 2)) * (180 / Math.PI) - 90;
+					// let rotation = (x(d['x']) + (x.bandwidth() / 2)) * (180 / Math.PI) - 90;
 					// return `rotate(${ -1 * rotation})`;
 					// If the label is in the top half of the circle, then rotate it for readability purposes.
-					return (x(d.x) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,20)" : "rotate(-90)translate(0,-13)"; 
+					return (x(d['x']) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,20)" : "rotate(-90)translate(0,-13)"; 
 				})
 
 	}

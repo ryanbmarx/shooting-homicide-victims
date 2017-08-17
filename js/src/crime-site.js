@@ -49,21 +49,24 @@ class CrimeSite{
 		const timeRadial = new RadialBarChart({
 			container: document.querySelector('#time'),
 			data: dataUtilities.GetTimeData(currentYearData, "HOUR_HH"),
-			innerMargins:radialMargins
+			innerMargins:radialMargins,
+			labelKey: 'time'
 
 		});
 
 		const dayRadial = new RadialBarChart({
 			container: document.querySelector('#day'),
 			data: dataUtilities.GetDayData(currentYearData),
-			innerMargins:radialMargins
+			innerMargins:radialMargins,
+			labelKey: 'day'
 
 		});
 
 		const monthRadial = new RadialBarChart({
 			container: document.querySelector('#month'),
 			data: dataUtilities.GetMonthData(currentYearData),
-			innerMargins:radialMargins
+			innerMargins:radialMargins,
+			labelKey: 'month'
 		});
 
 
@@ -139,7 +142,8 @@ class CrimeSite{
 			const sexChart = new RadialBarChart({
 				container: document.querySelector('#sex'),
 				data: dataUtilities.GetSexData(currentYearData),
-				innerMargins:radialMargins
+				innerMargins:radialMargins,
+				labelKey: 'sex'
 			});
 		}
 	});
