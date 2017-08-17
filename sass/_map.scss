@@ -12,12 +12,13 @@
 // }
 
 .trb_mainContent .map{
-
+	align-self:stretch;
 	&__map{
 		// the actual map holder, filled by Leaflet
 		width:100%; 
 		height:$map_height;
 		background:#eee;
+
 	}
 }
 
