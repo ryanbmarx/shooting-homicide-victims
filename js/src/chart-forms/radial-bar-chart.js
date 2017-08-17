@@ -74,7 +74,6 @@ function formatXTicks(category, num){
 				break;
 		}
 	} else if (category == 'time'){
-		console.log('time')
 		// This must be the hours. We're only going to label every 6 hours
 		switch(num){
 			case "0":
@@ -100,7 +99,6 @@ function formatXTicks(category, num){
 
 class RadialBarChart{
 	constructor(options){
-		// console.log(options);
 
 		// options.data.unshift({ x: "-1", y:0 }); // We need space for labels. Add a blank data element to beginning
 
@@ -118,7 +116,6 @@ class RadialBarChart{
 				chartBackgroundColor = getTribColor('trib-gray4'),
 				tickLength = 7;
 
-		console.log(data);
 
 		// some housekeeping variable declarations
 		const 	outerRadius = Math.min(innerWidth, innerHeight) * 0.5, // find the radius that fits in the box, in case it is not square
