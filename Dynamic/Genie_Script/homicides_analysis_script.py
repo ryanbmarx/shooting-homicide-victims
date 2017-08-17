@@ -54,7 +54,7 @@ def get_homicides(homicides,outputPath):
 	# In[5]:
 
 	#focusing on homicides from 2012 onwards
-	homicides = homicides[homicides['Occ Date'].dt.year>2011]
+	homicides = homicides[homicides['Occ Date'].dt.year>2012]
 
 
 	# In[6]:
