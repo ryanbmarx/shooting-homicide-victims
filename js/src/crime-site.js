@@ -38,7 +38,7 @@ class CrimeSite{
 
 	const base_data_url = `http://${options.ROOT_URL}/data/${options.version}`;
 	
-	csv(`${base_data_url}/${options.version}_geocode.csv`, (err, data) => {
+	csv(`${base_data_url}/${options.version}_geocode_current.csv`, (err, data) => {
 		if (err) throw err;
 
 		// This dataset will get used in a few different ways.
