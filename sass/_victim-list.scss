@@ -14,7 +14,7 @@
 	} @else {
 	  
 		width: #{95% / $num}; // fallback
-		width: calc((100% - #{$gutter_width * ($num - 1)}) / #{$num});
+		width: calc(((100% - #{$gutter_width * ($num - 1)}) / #{$num}) - #{$victim_inner_padding * 2});
 		
 		&:nth-child(#{$number_of_columns}n+1):nth-last-child(-n+#{$number_of_columns}),
 		&:nth-child(#{$number_of_columns}n+1):nth-last-child(-n+#{$number_of_columns}) ~ & {
@@ -35,20 +35,51 @@
 	flex-wrap:wrap;
 }
 
-.victim{
+.trb_mainContent .victim{
 	@include distribute_victims_across_columns(1, $gutter_width);
   	background: $trib-gray4;
   	text-align:center;
+  	padding: $victim_inner_padding;
+  	cursor:pointer;
+
+  	display:flex;
+	align-items:center;
+	flex-wrap:wrap;
+	justify-content:center;
+	
+	p,a{
+		// reset stupid NGUX styles
+		@include sans-serif-text(16px, 1.3em, bold);
+		margin:0;
+		width: 100%;
+	}
+
+  	.victim__date{
+  		color:$trib-blue2;
+  		font-weight: normal;
+  	}
+
+  	.victim__desc{
+		font-size: 19px;
+		
+  	}
+
+  	.victim__link{
+  		display:block;
+  		font-size: 13px;
+		text-transform:uppercase;
+		margin-top:5px;
+  	}
 }
 
 @media all and (min-width:$tablet_min_width){
-	.victim{
+	.trb_mainContent  .victim{
 	  @include distribute_victims_across_columns(2, $gutter_width);
 	}
 }
 
 @media all and (min-width:$desktop_min_width){
-	.victim{
+	.trb_mainContent  .victim{
 		@include distribute_victims_across_columns(3, $gutter_width);
 	}
 }

@@ -17,7 +17,8 @@
     "process:monthly": "node node_scripts/makeMonthlyData.js",
     "process:map": "node node_scripts/makeCurrentYearVictims.js",
     "postinstall": "pip install -r dynamic/requirements.txt",
-    "getTestData":"mkdir -p ./data/shootings && python dynamic/Genie_Script/genie_script.py data/shootings/shootings.csv -s && mkdir -p ./data/homicides && python dynamic/Genie_Script/genie_script.py data/homicides/homicides.csv -h"
+    "getTestData":"mkdir -p ./data/shootings && python dynamic/Genie_Script/genie_script.py data/shootings/shootings.csv -s && mkdir -p ./data/homicides && python dynamic/Genie_Script/genie_script.py data/homicides/homicides.csv -h",
+    "build:victims-homicide": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/homicides/homicides_geocode.csv ./subtemplates/homicides/_victims-list.html"
   },
   "repository": {
     "type": "git",
