@@ -17,7 +17,10 @@
     "process:monthly": "node node_scripts/makeMonthlyData.js",
     "process:map": "node node_scripts/makeCurrentYearVictims.js",
     "postinstall": "pip install -r dynamic/requirements.txt",
-    "getTestData":"mkdir -p ./data/shootings && python dynamic/Genie_Script/genie_script.py data/shootings/shootings.csv -s && mkdir -p ./data/homicides && python dynamic/Genie_Script/genie_script.py data/homicides/homicides.csv -h",
+    "FPO": "--------------------------------------------",
+    "getTestData": "mkdir -p ./data/shootings && python dynamic/Genie_Script/genie_script.py data/shootings/shootings.csv -s && mkdir -p ./data/homicides && python dynamic/Genie_Script/genie_script.py data/homicides/homicides.csv -h",
+    "process:current-shootings": "",
+    "process:current-homicides": "node node_scripts/getCurrentYear.js ./data/homicides/homicides_geocode.csv ./data/homicides/homicides_geocode_current.csv",
     "build:victims-homicide": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/homicides/homicides_geocode.csv ./subtemplates/homicides/_victims-list.html"
   },
   "repository": {
@@ -39,6 +42,7 @@
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^1.2.0",
     "html-minifier": "^3.5.2",
+    "json2csv": "^3.11.1",
     "minifyify": "^7.3.3",
     "trib-styles": "git+https://tribune.unfuddle.com/git/tribune_trib-styles/"
   },
