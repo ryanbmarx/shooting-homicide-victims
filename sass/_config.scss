@@ -14,7 +14,10 @@ $desktop_min_width: 850px;
 $mobile_max_width: $tablet_min_width - 1;
 $tablet_max_width: $desktop_min_width - 1;
 
-
 // MAP
-$map_height: 600px;
 $map_height: 100%;
+$map_min_height: 600px;
+
+// Victim list
+
+$victim_inner_padding: 10px;
