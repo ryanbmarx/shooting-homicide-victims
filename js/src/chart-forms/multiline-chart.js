@@ -211,9 +211,7 @@ class MultilineChart{
 				} else {
 					xDate = innerWidth * xx;
 				}
-	        			// xDate = innerWidth * xx > innerWidth ? innerWidth : innerWidth * xx;
 
-	        	console.log(d3.event.x, xDate);
 				const 	date = xScale.invert(xDate);
 	        	
 				app.highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth);

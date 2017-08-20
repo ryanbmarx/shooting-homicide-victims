@@ -129,7 +129,6 @@ class LineChart{
 
 			// If the user has defined the desired # ticks ...
 			if (app.options.ticks.xAxis){
-				console.log('choosing tic', app.options.ticks.xAxis);
 				xAxis.ticks(app.options.ticks.xAxis);	
 			}
 			// Now, append the axis elements to the SVG

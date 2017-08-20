@@ -14,7 +14,6 @@ import ListBarChart from './chart-forms/list-bar-chart.js';
 import * as dataUtilities from './utils/data-utilities.js'
 import getTribColor from './utils/getTribColors.js';
 
-// TODO: ONLY DOWNLOAD THE CURRENT YEAR DATA
 // TODO: FILTERS TO VICTIMS
 // TODO: ADD INSIGHTS TO THE HEADER
 // TODO: ADD DATA DOWNLOAD LINKS
@@ -30,7 +29,6 @@ class CrimeSite{
 
 	constructor(options){
 		const 	app = this; // bind this
-				// dataQueue = queue(); // create our d3-queue queue for downloading the data
 		
 		app.options = options; // The options object as app attribute
 

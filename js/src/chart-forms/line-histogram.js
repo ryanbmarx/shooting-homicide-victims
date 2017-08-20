@@ -12,11 +12,8 @@ class LineHistogram{
 				innerWidth = width - margin.right - margin.left,
 				data = options.data;
 
-		console.log(options, bbox);
-
 		app.options = options;
 
-		console.log(data);
 
 		// ###
 		// SET SCALES, AXES, ETC.
