@@ -3,6 +3,9 @@ import * as d3 from 'd3';
 import filter from 'lodash.filter';
 import orderBy from 'lodash.orderby';
 import monthFormatter from '../utils/month-formatter.js';
+// import {TweenMax, Power2, TimelineLite} from "gsap";
+// import Draggable from "gsap/Draggable";
+
 
 function leapYear(year) {
 	// returns true if supplied year is a leap year
@@ -32,11 +35,9 @@ class MultilineChart{
 		app.options = options;
 		app.data = options.data;
 		app._container = options.container;
-		app.mobileLayoutBreakpoint = 600
-		console.log(options);
+		app.mobileLayoutBreakpoint = 600;
+		app.isMobile = window.innerWidth < 850 ? true : false;
 		MultilineChart.initChart(app);
-
-
 	}
 	
 	highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth){
@@ -137,13 +138,14 @@ class MultilineChart{
 
 		const 	data = app.data,
 				container = d3.select(app._container),
-				bbox = app._container.getBoundingClientRect();
+				bbox = app._container.getBoundingClientRect(),
+				scrubberHeight = 30;
 
 				let width= bbox.width;
 
 		const	height = bbox.height,
 				margin = app.options.innerMargins,
-				innerHeight = height - margin.top - margin.bottom,
+				innerHeight = app.isMobile ? height - margin.top - margin.bottom - (1.5 * scrubberHeight): height - margin.top - margin.bottom,
 				innerWidth = width - margin.right - margin.left,
 				years = Object.keys(data),
 				useYear = years[0]; // The arbitrary year used to feed the xScale a full Date()
@@ -167,6 +169,57 @@ class MultilineChart{
 			.append('svg')
 			.attr('width', width)
 			.attr('height', height);
+
+		if (app.isMobile){
+			const scrubber = svg.append('g')
+				.classed('scrubber', true)
+				.attr('transform', `translate(${margin.left},${margin.top + margin.bottom + innerHeight + (.5 * scrubberHeight)})`);
+	
+			scrubber.append('rect')
+				.classed('scrubber__container', true) 
+				.attr('width', innerWidth)
+				.attr('height', scrubberHeight)
+				.style('fill', '#eee');
+
+			scrubber.append('rect')
+				.classed('scrubber__box', true) 
+				.attr('width', scrubberHeight)
+				.attr('height', scrubberHeight)
+				.style('fill', 'black')
+				.call(d3.drag()
+			        .on("drag", dragged));
+
+
+			function dragged(d) {
+				let newX;
+
+				if (d3.event.x < 0){
+					newX = 0;
+				} else if(d3.event.x > (innerWidth - scrubberHeight)){
+					newX = innerWidth - scrubberHeight;
+				} else {
+					newX = d3.event.x;
+				}
+				d3.select(this).attr('x', newX);
+
+				const 	xx = d3.event.x / (innerWidth - scrubberHeight);
+				let xDate;
+				if(innerWidth * xx > innerWidth){
+				xDate = innerWidth;
+				} else if(innerWidth * xx < 0){
+					xDate = 0;
+				} else {
+					xDate = innerWidth * xx;
+				}
+	        			// xDate = innerWidth * xx > innerWidth ? innerWidth : innerWidth * xx;
+
+	        	console.log(d3.event.x, xDate);
+				const 	date = xScale.invert(xDate);
+	        	
+				app.highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth);
+			}
+	
+		}
 
 		const chartInner = svg
 			.append('g')
@@ -216,14 +269,6 @@ class MultilineChart{
 			.range([innerHeight, 0]);
 
 		const yAxisFunc = d3.axisLeft(yScale);
-
-
-		// const xScale = d3.scaleTime()
-		// 	.range([0,innerWidth])
-		// 	.domain(d3.extent(data[useYear], d=> {
-		// 		// create a domain extent out of the first year's dates
-		// 		return new Date(d['YEAR'], d['MONTH'] - 1, d['DAY'],0,0,0,0);
-		// 	}));
 
 
 
@@ -297,15 +342,16 @@ class MultilineChart{
 					.attr('fill', 'black');
 				}
 		});
-
-		chartInner.append('rect')
-			.attr('height', innerHeight)
-			.attr('width', innerWidth)
-			.attr('fill', 'transparent')
-			.on('mousemove', function(){
-				const 	date = xScale.invert(d3.mouse(this)[0]);
-				app.highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth);
-	    	});
+		if (!app.isMobile){
+			chartInner.append('rect')
+				.attr('height', innerHeight)
+				.attr('width', innerWidth)
+				.attr('fill', 'transparent')
+				.on('mousemove', function(){
+					const 	date = xScale.invert(d3.mouse(this)[0]);
+					app.highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth);
+		    	});
+		}
 
 		app.highlightDay(app.lastDate, years, data, xScale, yScale, innerHeight, innerWidth);
 			
