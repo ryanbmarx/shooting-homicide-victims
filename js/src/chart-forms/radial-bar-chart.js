@@ -112,8 +112,8 @@ class RadialBarChart{
 				innerWidth = width - margin.right - margin.left,
 				data = options.data,
 				yMax = d3.max(data, d => d.y),
-				guideColor = getTribColor('trib-grey2'),
-				chartBackgroundColor = getTribColor('trib-gray4'),
+				guideColor = getTribColor('trib-grey4'),
+				chartBackgroundColor = "white",
 				tickLength = 7;
 
 

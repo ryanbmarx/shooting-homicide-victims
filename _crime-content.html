@@ -31,15 +31,15 @@
         <h2 class='topic__header'>When {{ v }} occur</h2>
       </div>
       <div class='topic__chart-wrapper'>
-        <h3>By Month</h3>
+        <h3 class='topic__sub-header'>By Month</h3>
         <div id='month' class='chart'></div>
       </div>
       <div class='topic__chart-wrapper'>
-        <h3>By Day</h3>
+        <h3 class='topic__sub-header'>By Day</h3>
         <div id='day' class='chart'></div>
       </div>
       <div class='topic__chart-wrapper'>
-        <h3>By time</h3>
+        <h3 class='topic__sub-header'>By time</h3>
         <div id='time' class='chart'></div>
       </div>
     </section>
@@ -61,19 +61,19 @@
       <div>
         {% if homicides %}
         <div class='topic__chart-wrapper'>
-          <h3>By Age</h3>
+          <h3 class='topic__sub-header'>By Age</h3>
           <div id='age' class='chart'></div>
         </div>
         {% endif %}
         {% if homicides %}
         <div class='topic__chart-wrapper'>
-          <h3>By sex</h3>
+          <h3 class='topic__sub-header'>By sex</h3>
           <div id='sex' class='chart'></div>
         </div>
         {% endif %}
         {% if homicides %}
         <div class='topic__chart-wrapper'>
-          <h3>By Race/Ethnicity</h3>
+          <h3 class='topic__sub-header'>By Race/Ethnicity</h3>
           <div id='race-ethnicity' class='chart'></div>
         </div>
         {% endif %}

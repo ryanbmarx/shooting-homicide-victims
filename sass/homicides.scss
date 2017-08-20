@@ -51,6 +51,10 @@
     @include label5();
     margin-top:0;
   }
+  &__sub-header{
+    @include label7();
+    margin-top:0;
+  }
 
   &__chart-wrapper{
     position: relative;
@@ -60,13 +64,13 @@
 
   .chart{
     // This is the container for each chart or graphic
-    height: 300px;
-    background: rgba($trib-gray4, .5);
+    height: $chart_height_default;
   }
 
   // The demographics section has a map and other charts. Put them in a two-column layout.
   .topic--demographics{
     grid-template-columns: repeat(2, 1fr);
+
   }
 
   // These charts are fullwidth
@@ -74,6 +78,14 @@
     .topic__chart-wrapper{
       grid-column: 1 / -1;
     }
+  }
+
+  .topic--cumulative .chart{
+    height: $ytd_chart_height;
+  }
+  .topic--causes .chart{
+    // nudge the treemap taller so things fit.
+    height: $cause_of_death_chart_height;
   }
 }
 
@@ -93,7 +105,7 @@
   .topic--causes {
     .chart{
       // nudge the treemap taller so things fit.
-      height: 450px;
+      height: $cause_of_death_chart__mobile_height;
     }
   }
 }

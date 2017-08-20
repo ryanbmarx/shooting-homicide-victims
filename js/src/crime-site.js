@@ -153,7 +153,7 @@ class CrimeSite{
 			const raceEthnicityChart = new ListBarChart({
 				container: document.querySelector('#race-ethnicity'),
 				data: dataUtilities.GetRaceEthnicityData(currentYearData),
-		        innerMargins:{ top:20,right:0,bottom:20,left:0 },
+		        innerMargins:{ top:20,right:10,bottom:20,left:0 },
 		        barColor: getTribColor('trib-blue3'),
 		        xTicks: 5
 			});
