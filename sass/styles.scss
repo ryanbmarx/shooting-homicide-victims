@@ -1,107 +1,129 @@
 @import 'base-variables';
+
+// Some colors to be shared between the two projects
 @import 'config';
-$last_year_color: #e0e0e0;
-$current_year_color: $trib-blue2;
-$fatal_color: $trib-red2;
 
-
+// MIXINS
 @import 'base-mixins';
 @import 'responsive-font';
 
+
+// PARTIALS
 @import 'leaflet';
+@import 'page-topper'; // For the headline/topper
+@import 'year-to-date'; // The cumulative line chart
+@import 'victim-list'; // For the victims at the bottom
+@import 'map'; // For the map, duh!
+@import 'causes-of-death'; // The treemap
 
-@import 'monthly-table';
-@import 'page-topper';
-@import 'year-to-date';
-@import 'map';
-@import 'time';
+.graphic-wrapper{
+  max-width: 800px;
+  margin: auto;
+}
 
-.chart {
-  @include trib-chart();
-  margin-bottom: 25px;
-  padding-bottom:25px;
+// MAIN STRUCTURE OF PAGE + TOP-LEVEL TYPOGRAPHY
+
+
+.trb_mainContent {
+  .topic{
+  // These are the basic divisions of the content
+  margin-bottom: 35px;
+  padding-bottom: 35px;
   border-bottom: 1px solid $trib-gray4;
-  position: relative;
-  
-  &__headline{
+
+  display:grid;
+  grid-template-columns: repeat(#{$number_of_columns}, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-gap: 0 $gutter_width; //  row gutter / column gutter
+
+  // grid-template-rows
+
+  &:last-child{
+    padding-bottom:0;
+    border-bottom: none;
+  }
+
+  &__topper{
+    grid-column: 1 / -1; // The end-column value of -1 means "span all columns" -- no, when we adjust the # of columns in media queries, we don't need to constantly adjust this, too.
+  }
+
+  &__header{
     @include label5();
-    margin: 0 0 7px 0;
+    margin-top:0;
+  }
+  &__sub-header{
+    @include label7();
+    margin-top:0;
+    text-align:center;
+  }
+
+  &__chart-wrapper{
+    position: relative;
+  }
+
+  }
+
+  .chart{
+    // This is the container for each chart or graphic
+    height: $chart_height_default;
+  }
+
+  // The demographics section has a map and other charts. Put them in a two-column layout.
+  .topic--demographics{
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+  // These charts are fullwidth
+  .topic--cumulative, .topic--causes{
+    .topic__chart-wrapper{
+      grid-column: 1 / -1;
+    }
+  }
+
+  .topic--cumulative .chart{
+    height: $ytd_chart_height;
+  }
+  .topic--causes .chart{
+    // nudge the treemap taller so things fit.
+    height: $cause_of_death_chart_height;
   }
 }
 
-.chart--ytd  .chart__wrapper {
-  height:300px;
-  // background:#eee;
-  margin: 0 0 10px 0;
-  position:relative;
+.trb_mainContent .note{
+  @include agate()
 }
 
-//MAP STYLES GO HERE
-.shooting-icon{
-  height:10px;
-  width:10px;
-  background-color:$trib_blue2;
-  border-radius: 50%;
-  // border:1px solid black;
-  opacity:0.3;
-}
-
-//REST OF PROJECT STYLES
-.category {
-	h2{
-    @include serif-text(30px, 1.3em, bold);
-    margin-bottom:0px;
-    margin-top:40px;
-    }
-	p{
-		margin-top:3px;
-	}
-}
-  .radials{
-    display:flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    padding-bottom:25px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .radial{
-    width: 32%;
-    
-    background: $trib-gray4;
-
-    .container{
-      height: 250px;
-    }
-    h2{
-      text-align:center;
-    }
-}
-
-.trb_mainContent p{
-	width:100%;
-}
-
- 
-.legend{
-  @include trib-legend('inline');
-
-  &__dot{
-    @include trib_legend__box(0);
-    margin-right: 6px;
-    &--last-year{ background: $last_year_color}
-    &--current-year{ background: $current_year_color}
-  }
-}
+// ------------
+// CREDITS
+// ------------
 
 .trb_mainContent .credits, .credits{
   p {@include agate()}
 }
 
+@media all and (max-width: 849px){
+  .trb_mainContent .topic{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    &__header{
+      text-align: center;
+    }
+  }
+
+  .chart{
+    margin-bottom: $gutter_width;
+  }
+}
+
 @media (max-width:579px){
-      .category{
-        h2{@include serif-text(24px, 1.3em, bold);}
-      }  
+  .topic--causes {
+    .chart{
+      // nudge the treemap taller so things fit.
+      height: $cause_of_death_chart__mobile_height;
+    }
+  }
 }
 
 
