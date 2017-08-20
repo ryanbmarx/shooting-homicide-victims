@@ -54,6 +54,7 @@
   &__sub-header{
     @include label7();
     margin-top:0;
+    text-align:center;
   }
 
   &__chart-wrapper{
@@ -99,6 +100,21 @@
 
 .trb_mainContent .credits, .credits{
   p {@include agate()}
+}
+
+@media all and (max-width: 849px){
+  .trb_mainContent .topic{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    &__header{
+      text-align: center;
+    }
+  }
+
+  .chart{
+    margin-bottom: $gutter_width;
+  }
 }
 
 @media (max-width:579px){
