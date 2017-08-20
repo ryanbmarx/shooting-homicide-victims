@@ -175,7 +175,7 @@ class CrimeSite{
 		const cumulativeChart = new MultilineChart({
 			container: document.querySelector('#cumulative'),
 			data: groupBy(data, d=> d['YEAR']), // seperate the rows into year groups
-	        innerMargins:{ top:7,right:0,bottom:20,left:50 },
+	        innerMargins:{ top:7,right:0,bottom:20,left:40 },
 			currentColor: app.options.currentColor,
 			otherColor: app.options.otherColor
 		});
