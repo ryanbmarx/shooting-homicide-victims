@@ -70,7 +70,7 @@ fs.readFile(`./data/${ type }/${ type }.csv`, 'utf-8', (err, data) => {
 
 	const 	verb = type == 'homicides' ? 'killed' : 'shot',
 			htmlString = minify(`<h2 class='title__headline'>In Chicago, <strong class='title__current-year'>${numberFormatter(thisYearSum)} people</strong> have been ${verb} this year. That is <strong class='title__last-year'>${numberFormatter(Math.abs(thisYearSum - lastYearSum))} ${lessMore}</strong> ${ lastYear }.</h2>
-		<p class='title__subtitle'>Data through ${ d3.timeFormat('%A, %B %-d')(mostCurrentDate) }</p>`, {
+			<p class='title__subtitle'>Data through ${ d3.timeFormat('%A, %B %-d')(mostCurrentDate) }</p>`, {
 			collapseWhitespace:true,
 			collapseInlineTagWhitespace:false
 		});
