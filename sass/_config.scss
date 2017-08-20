@@ -1,3 +1,4 @@
+
 // Basic structure variables
 $number_of_columns: 3;
 $gutter_width: 25px;
@@ -14,6 +15,9 @@ $desktop_min_width: 850px;
 $mobile_max_width: $tablet_min_width - 1;
 $tablet_max_width: $desktop_min_width - 1;
 
+$mobile_max_width: $tablet_min_width - 1;
+$tablet_max_width: $desktop_min_width - 1;
+
 // Chart heights
 $chart_height_default: 250px;
 $ytd_chart_height: 350px;
@@ -24,6 +28,7 @@ $cause_of_death_chart__mobile_height: 450px;
 $ytd-table-width: 300px;
 $ytd-border-width: 10px;
 $ytd-highlight-total-years: 6;
+// $scrubber_height: 30px;
 
 // MAP
 $map_height: 100%;
