@@ -1,8 +1,48 @@
 import * as L from 'leaflet';
 import "leaflet-providers";
 import {timeParse, timeFormat} from 'd3';
-require('waypoints/lib/noframework.waypoints.min');
+// require('waypoints/lib/noframework.waypoints.min');
 
+function formatSex(s){
+	// We have room in here to accomadate others. If not specified, will return supplied value.
+	if (s.length > 0){
+		if (s.toUpperCase() == "M") return "male";
+		if (s.toUpperCase() == "F") return "female";
+		return s;
+	}
+	// If it is blank, skip it.
+	return false;
+}
+
+function formatAge(a){
+	if (a > 0) return `${a}-year-old`;
+	if (a == 0) return 'Baby';
+	return false;
+}
+
+function makePopupText(incident){
+	const 	dateTimeParser = timeParse('%Y-%m-%d %H:%M:%S'),
+			dateFormatter = timeFormat('%b %e'), // For when we don't know time
+			dateTimeFormatter = timeFormat('%-I:%M %p, %b %e'), // For when we know time.
+			inputDate = incident['HOUR'].length > 0 ? dateTimeParser(`${incident['DATE']} ${incident['HOUR']}`) : dateTimeParser(`${incident['DATE']} 00:01:00`),
+			outputDate = incident['HOUR'].length > 0 ? dateTimeFormatter(inputDate) : dateFormatter(inputDate),
+			sex = formatSex(incident['SEX']),
+			age = formatAge(incident['AGE']);
+			
+	let victimString;
+			
+	victimString += `<p class='victim__date'>${outputDate}</p>`		
+
+	if (age && sex) {
+		victimString += `<p class='victim__desc'>${age} ${sex}</p>`;
+	} else if (age && !sex){
+		victimString += `<p class='victim__desc'>${age}</p>`;
+	}  else if (!age && sex){
+		victimString += `<p class='victim__desc'>${sex}</p>`;
+	}
+
+	return victimString;
+}
 
 function setIncidentMarkerOpacity(markerOpacity, app){	
 	const markerGroups = [app.fatalIncidentMarkers, app.nonFatalIncidentMarkers];
@@ -74,6 +114,8 @@ class ViolenceMap{
 				} else {
 					incidentMarker.addTo(app.nonFatalIncidentMarkers);	
 				}
+
+				incidentMarker.bindPopup(makePopupText(incident));
 				
 			}
 		})
