@@ -28,7 +28,6 @@ class LineChart{
 				y = app.options.yAttribute, 
 				x = app.options.xAttribute;
 
-		console.log(data)
 		// ----------------------------------
 		// MAKE SCALES
 		// ----------------------------------
@@ -69,7 +68,6 @@ class LineChart{
 		// If user has selected a curvy line, then make it curvy.
 		if (app.options.curvyLine) app.line.curve(d3.curveBasisOpen)
 
-		console.log(xMax, xMin, yMax, yMin);
 
 		if(app.options.filled) {
 			// STILL TK: Make an area generator to place under the line for a filled line chart

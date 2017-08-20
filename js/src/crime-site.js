@@ -34,8 +34,6 @@ class CrimeSite{
 		
 		app.options = options; // The options object as app attribute
 
-	console.log(options)
-
 	const base_data_url = `http://${options.ROOT_URL}/data/${options.version}`;
 	
 	csv(`${base_data_url}/${options.version}_geocode_current.csv`, (err, data) => {

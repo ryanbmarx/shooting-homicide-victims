@@ -29,7 +29,6 @@ class TreeMap{
 					getTribColor('trib_blue_gray')
 				];
 		
-		console.log(data);
 		const colorScale = d3.scaleOrdinal()
 			.range(colors)
 

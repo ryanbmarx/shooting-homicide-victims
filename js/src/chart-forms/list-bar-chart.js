@@ -12,9 +12,6 @@ class ListBarChart{
 				innerWidth = width - margin.right - margin.left,
 				data = options.data;
 
-		console.log(options, options.xTicks, data);
-
-
 		// ----------------------------------
 		// SCALES AND AXES
 		// ----------------------------------
