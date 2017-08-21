@@ -225,7 +225,7 @@ class MultilineChart{
 					.duration(animateDuration)
 					.attr('transform', `translate(2, 0)`)
 					.on('end', function(){
-						if (keepAnimatingArrow) repeatAnimation();
+						if (app.keepAnimatingArrow) repeatAnimation();
 					})
 			}
 			
@@ -233,7 +233,7 @@ class MultilineChart{
 				app.keepAnimatingArrow = false;
 				d3.select('.scrubber__arrow')
 					.attr('transform', `translate(0, 0)`);
-					
+
 				let newX;
 
 				if (d3.event.x < 0){
