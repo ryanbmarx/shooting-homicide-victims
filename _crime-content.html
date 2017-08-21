@@ -14,7 +14,7 @@
 
     <section class='topic topic--cumulative'>
       <div class ='topic__topper'>
-        <h2 class='topic__header'>Cumulative homicides</h2>
+        <h2 class='topic__header'>Cumulative {{ v }}</h2>
       </div>
       <div class='topic__chart-wrapper'>
         <div class='highlight'>
@@ -53,11 +53,11 @@
       </div>
     </section>
   {% endif %}
+  {% if homicides %}
     <section class='topic topic--demographics'>    
       <div class ='topic__topper'>
-        <h2 class='topic__header'>Where?</h2>
+        <h2 class='topic__header'>Demographics</h2>
       </div>
-      <div>
         {% if homicides %}
         <div class='topic__chart-wrapper'>
           <h3 class='topic__sub-header'>By Age</h3>
@@ -76,8 +76,13 @@
           <div id='race-ethnicity' class='chart'></div>
         </div>
         {% endif %}
+      </section>
+    {% endif %}
+    <section class='topic topic--geography'>    
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>Where?</h2>
       </div>
-      <div class='map'>
+      <div class='topic__chart-wrapper map'>
       {% if not homicides %}
         <div class='map__legend'>
           <span class='map__legend-label'>Toggle:</span>
