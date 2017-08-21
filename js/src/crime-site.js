@@ -1,7 +1,5 @@
 import {csv} from 'd3';
 import groupBy from 'lodash.groupby';
-import sortBy from 'lodash.sortby';
-import countBy from 'lodash.countby';
 
 import GroupedBarChart from './chart-forms/grouped-bar-chart.js';
 import MultilineChart from './chart-forms/multiline-chart.js';
@@ -17,7 +15,7 @@ import getTribColor from './utils/getTribColors.js';
 // TODO: FILTERS TO VICTIMS
 // TODO: ADD INSIGHTS TO THE HEADER
 // TODO: ADD DATA DOWNLOAD LINKS
-
+// TODO: Fix JAN1 problem
 class CrimeSite{
 
 	// This custom class will handle the three (or maybe four) 
@@ -93,15 +91,7 @@ class CrimeSite{
 				container: document.querySelector('#causes'),
 				data: dataUtilities.getTreeMapData(currentYearData),
 		        innerMargins:{ top:0,right:0,bottom:0,left:20 }
-			})
-
-
-
-			// const age = new LineHistogram({
-			// 	container: document.querySelector('#age'),
-			// 	data: dataUtilities.GetAgeData(currentYearData),
-		 //        innerMargins:{ top:0,right:0,bottom:40,left:40 }
-			// });
+			});
 
 			const age = new LineChart({
 		        filled:false, // Include a filled area under the line

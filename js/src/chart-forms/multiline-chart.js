@@ -243,8 +243,6 @@ class MultilineChart{
 				} else {
 					newX = d3.event.x;
 				}
-				// d3.select('.scrubber__box').attr('x', newX);
-				// d3.select('.scrubber__arrow').attr('x', newX);
 				d3.select(this).attr('transform', `translate(${newX}, 0)`);
 
 				const 	xx = d3.event.x / (innerWidth - scrubberHeight);
@@ -344,6 +342,7 @@ class MultilineChart{
 			.call(xAxisFunc);
 
 		years.forEach(year => {
+
 			const 	lineColor = year == app.lastYear ? app.options.currentColor : app.options.otherColor,
 					lineWeight = year == app.lastYear ? 4 : 2;
 
