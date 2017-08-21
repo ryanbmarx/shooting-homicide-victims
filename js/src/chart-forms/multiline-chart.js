@@ -3,9 +3,6 @@ import * as d3 from 'd3';
 import filter from 'lodash.filter';
 import orderBy from 'lodash.orderby';
 import monthFormatter from '../utils/month-formatter.js';
-// import {TweenMax, Power2, TimelineLite} from "gsap";
-// import Draggable from "gsap/Draggable";
-
 
 function leapYear(year) {
 	// returns true if supplied year is a leap year
@@ -171,6 +168,8 @@ class MultilineChart{
 			.attr('height', height);
 
 		if (app.isMobile){
+			app.keepAnimatingArrow = true;
+
 			const scrubber = svg.append('g')
 				.classed('scrubber', true)
 				.attr('transform', `translate(${margin.left},${margin.top + margin.bottom + innerHeight + (.5 * scrubberHeight)})`);
@@ -179,18 +178,62 @@ class MultilineChart{
 				.classed('scrubber__container', true) 
 				.attr('width', innerWidth)
 				.attr('height', scrubberHeight)
+				.attr('rx', 8)
+				.attr('ry', 8)
 				.style('fill', '#eee');
 
-			scrubber.append('rect')
+			const scrubberAssembly = scrubber.append('g')
+				.classed('draggable', true)
+				.style('cursor', 'move');
+
+
+			scrubberAssembly.append('rect')
 				.classed('scrubber__box', true) 
 				.attr('width', scrubberHeight)
 				.attr('height', scrubberHeight)
+				.attr('rx', 8)
+				.attr('ry', 8)
 				.style('fill', 'black')
+				
+			scrubberAssembly.append('text')
+				.classed('scrubber__arrow', true) 
+				// .attr('transform', `translate(${scrubberHeight / 2},${scrubberHeight / 2}`)
+				.attr('text-anchor', 'middle')
+				.attr('dy', '0.3em')
+				.attr('x', scrubberHeight / 2)
+				.attr('y', scrubberHeight / 2)
+				.style('fill', 'white')
+				.style('font-size', '16px')
+				.text('\u2194')
+				.call(repeatAnimation);
+
+			d3.selectAll('.draggable')
 				.call(d3.drag()
 			        .on("drag", dragged));
 
+			function repeatAnimation(){
+				// Lifted this from https://bl.ocks.org/d3noob/bf44061b1d443f455b3f857f82721372
+				// This animates the little arrow on the srubber
+				
+				const animateDuration = 1500;
 
+				d3.select('.scrubber__arrow')
+					.transition()
+					.duration(animateDuration)
+					.attr('transform', `translate(-2, 0)`)
+					.transition()
+					.duration(animateDuration)
+					.attr('transform', `translate(2, 0)`)
+					.on('end', function(){
+						if (keepAnimatingArrow) repeatAnimation();
+					})
+			}
+			
 			function dragged(d) {
+				app.keepAnimatingArrow = false;
+				d3.select('.scrubber__arrow')
+					.attr('transform', `translate(0, 0)`);
+					
 				let newX;
 
 				if (d3.event.x < 0){
@@ -200,7 +243,9 @@ class MultilineChart{
 				} else {
 					newX = d3.event.x;
 				}
-				d3.select(this).attr('x', newX);
+				// d3.select('.scrubber__box').attr('x', newX);
+				// d3.select('.scrubber__arrow').attr('x', newX);
+				d3.select(this).attr('transform', `translate(${newX}, 0)`);
 
 				const 	xx = d3.event.x / (innerWidth - scrubberHeight);
 				let xDate;
@@ -216,7 +261,6 @@ class MultilineChart{
 	        	
 				app.highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth);
 			}
-	
 		}
 
 		const chartInner = svg
