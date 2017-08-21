@@ -33,7 +33,7 @@ class MultilineChart{
 		app.data = options.data;
 		app._container = options.container;
 		app.mobileLayoutBreakpoint = 600;
-		app.isMobile = window.innerWidth < 850 ? true : false;
+		app.isMobile = window.innerWidth < 850 ? true : true;
 		MultilineChart.initChart(app);
 	}
 	
