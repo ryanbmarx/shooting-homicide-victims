@@ -16,6 +16,8 @@ import getTribColor from './utils/getTribColors.js';
 // TODO: ADD INSIGHTS TO THE HEADER
 // TODO: ADD DATA DOWNLOAD LINKS
 // TODO: Fix JAN1 problem
+// TODO: Race/ethnicity lookup/format function
+
 class CrimeSite{
 
 	// This custom class will handle the three (or maybe four) 

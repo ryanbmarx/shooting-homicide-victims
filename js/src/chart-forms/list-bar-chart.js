@@ -79,7 +79,8 @@ class ListBarChart{
 			.attr('transform', d => `translate(0,${y(d['x'])})`)
 			.attr('text-anchor', 'start')
 			.style('font-family','Arial, sans-serif')
-			.style('font-size','16px')
+			.style('font-size','13px')
+			.style('font-weight', 'bold')
 			.style('stroke-linecap','round');
 
 		ethnicity.append('rect')
@@ -95,16 +96,7 @@ class ListBarChart{
 			.attr('transform', d => `translate(10,0)`)
 			.text(d => `${d['x']} (${d['y']})`)
 			.attr('dy', '.3em')
-			.style('font-weight','normal')
 			.style('fill','black');
-
-		// ethnicity.append('line')
-		// 	.attr('x1', 0)
-		// 	.attr('y1', y.bandwidth())
-		// 	.attr('x2', innerWidth)
-		// 	.attr('y2', y.bandwidth())
-		// 	.style('stroke', 'black')
-		// 	.style('stroke-width', 1)
 	}
 }
 
