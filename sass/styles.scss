@@ -68,6 +68,7 @@
   .chart{
     // This is the container for each chart or graphic
     height: $chart_height_default;
+    position:relative;
   }
 
   // These charts are fullwidth
@@ -98,6 +99,21 @@
   p {@include agate()}
 }
 
+.legend{
+  @include trib-legend();
+
+    font-size: 13px;
+  span{
+    @include trib-legend__box(50%);
+  }
+
+  &--centered{
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+  }
+}
 @media all and (max-width: 849px){
   .trb_mainContent .topic{
     grid-template-columns: 1fr;
