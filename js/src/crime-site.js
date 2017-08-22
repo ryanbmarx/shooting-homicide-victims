@@ -8,6 +8,7 @@ import RadialBarChart from './chart-forms/radial-bar-chart.js';
 import TreeMap from './chart-forms/tree-map.js';
 import LineChart from './chart-forms/line-chart.js';
 import ListBarChart from './chart-forms/list-bar-chart.js';
+import PieChart from './chart-forms/pie-chart.js';
 
 import * as dataUtilities from './utils/data-utilities.js'
 import getTribColor from './utils/getTribColors.js';
@@ -102,7 +103,7 @@ class CrimeSite{
 		        dataset: dataUtilities.GetAgeData(currentYearData), // Will be charted AS IS. All transforms, etc., should be done by now.
 		        xAttribute:'x', // The key of the x attribute in the data set
 		        yAttribute:'y', // The key of the y attribute in the data set
-		        innerMargins:{ top:10,right:10,bottom:40,left:40 }, // This will inset the chart from the base container (which should be controlled by CSS)
+		        innerMargins:{ top:10,right:10,bottom:19,left:40 }, // This will inset the chart from the base container (which should be controlled by CSS)
 		        strokeColor:app.options.currentColor, // must be a valid color syntax, #HEX, rgba(), etc.
 		        strokeWidth:2, // no units. this is svg
 		        areaFillColor: false, // Also must be a valid color syntax, #HEX, rgba(), etc. 
@@ -122,21 +123,30 @@ class CrimeSite{
 		        },
 		        meta:{
 		            headline:false,
-		            xAxisLabel: "Age",
+		            xAxisLabel: false,
 		            yAxisLabel: "Homicides",
 		            sources: false,
 		            credit: false
 		        }
 		    });
 
-
-
-			const sexChart = new RadialBarChart({
+			const sexChart = new PieChart({
 				container: document.querySelector('#sex'),
 				data: dataUtilities.GetSexData(currentYearData),
-				innerMargins:radialMargins,
-				labelKey: 'sex'
-			});
+				innerMargins:{ top:0, right:0, bottom:0, left:0 },
+				labelKey: 'sex',
+				donutWidth: 35, // Set to "false" if you don't want a donut
+				xKey: "x",
+				yKey: "y",
+				fillColor:app.options.currentColor
+			})
+
+			// const sexChart = new RadialBarChart({
+			// 	container: document.querySelector('#sex'),
+			// 	data: dataUtilities.GetSexData(currentYearData),
+			// 	innerMargins:radialMargins,
+			// 	labelKey: 'sex'
+			// });
 
 			const raceEthnicityChart = new ListBarChart({
 				container: document.querySelector('#race-ethnicity'),

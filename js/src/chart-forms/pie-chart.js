@@ -61,7 +61,6 @@ class PieChart{
 			.attr('transform', `translate(${margin.left + (innerWidth/2) }, ${margin.top + (innerHeight/2)})`);
 	
 
-		console.log(data, pie(data));
 		const slices = chartInner.selectAll('.pie-slice')
 			.data(pie(data))
 			.enter();
@@ -87,7 +86,6 @@ class PieChart{
 			.attr('class', 'legend legend--centered');
 
 		data.forEach(cat => {
-			console.log(cat);
 			pieLegend
 				.append('dt')
 				.html(`<span style='background-color:${colors(cat[x])}'></span>`);

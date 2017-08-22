@@ -28,6 +28,7 @@ class LineChart{
 				y = app.options.yAttribute, 
 				x = app.options.xAttribute;
 
+		console.log(height, innerHeight, margin);
 		// ----------------------------------
 		// MAKE SCALES
 		// ----------------------------------

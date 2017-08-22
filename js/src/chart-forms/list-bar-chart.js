@@ -70,7 +70,6 @@ class ListBarChart{
 		// Add the data
 		// ----------------------------------
 
-
 		const ethnicity = chartInner.selectAll('g')
 			.data(data)
 			.enter()
