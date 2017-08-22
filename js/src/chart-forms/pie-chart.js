@@ -81,6 +81,14 @@ class PieChart{
 			.style('font-size','13px')
 			.style('font-weight', 'bold')
 
+		chartInner.append('circle')
+			.style('stroke', 'black')
+			.style('stroke-width', 2)
+			.style('fill', 'transparent')
+			.attr('cx', 0)
+			.attr('cy', 0)
+			.attr('r', innerRadius)
+
 		const pieLegend = d3.select(options.container)
 			.append('dl')
 			.attr('class', 'legend legend--centered');
