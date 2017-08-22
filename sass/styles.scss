@@ -24,15 +24,15 @@
 
 .trb_mainContent {
   .topic{
-  // These are the basic divisions of the content
-  margin-bottom: 35px;
-  padding-bottom: 35px;
-  border-bottom: 1px solid $trib-gray4;
+    // These are the basic divisions of the content
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid $trib-gray4;
 
-  display:grid;
-  grid-template-columns: repeat(#{$number_of_columns}, 1fr);
-  grid-template-rows: auto 1fr;
-  grid-gap: 0 $gutter_width; //  row gutter / column gutter
+    display:grid;
+    grid-template-columns: repeat(#{$number_of_columns}, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-gap: 0 $gutter_width; //  row gutter / column gutter
 
   // grid-template-rows
 
@@ -43,6 +43,10 @@
 
   &__topper{
     grid-column: 1 / -1; // The end-column value of -1 means "span all columns" -- no, when we adjust the # of columns in media queries, we don't need to constantly adjust this, too.
+    & > p {
+      // for intro text inside the topper, let's make sure they are fullwidth
+      width: auto;
+    }
   }
 
   &__header{
@@ -66,14 +70,8 @@
     height: $chart_height_default;
   }
 
-  // The demographics section has a map and other charts. Put them in a two-column layout.
-  // .topic--demographics{
-  //   grid-template-columns: repeat(2, 1fr);
-
-  // }
-
   // These charts are fullwidth
-  .topic--cumulative, .topic--causes, .topic--geography{
+  .topic--cumulative, .topic--causes, .topic--geography, .topic--victims{
     .topic__chart-wrapper{
       grid-column: 1 / -1;
     }
