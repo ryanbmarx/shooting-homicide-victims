@@ -28,7 +28,8 @@ class LineChart{
 				y = app.options.yAttribute, 
 				x = app.options.xAttribute;
 
-		console.log(height, innerHeight, margin);
+		console.log(data)
+
 		// ----------------------------------
 		// MAKE SCALES
 		// ----------------------------------
@@ -67,7 +68,10 @@ class LineChart{
 		    .y(d => yScale(d[y]));
 
 		// If user has selected a curvy line, then make it curvy.
-		if (app.options.curvyLine) app.line.curve(d3.curveBasisOpen)
+		// if (app.options.curvyLine) app.line.curve(d3.curveCatmullRom.alpha(0.3))
+		// if (app.options.curvyLine) app.line.curve(d3.curveMonotoneX)
+		if (app.options.curvyLine) app.line.curve(d3.curveNatural)
+
 
 
 		if(app.options.filled) {
