@@ -118,7 +118,7 @@ class CrimeSite{
 		        showXAxis:true,
 		        ticks:{
 		            yAxis:5,
-		            xAxis:false
+		            xAxis:5
 		        },
 		        meta:{
 		            headline:false,
