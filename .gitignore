@@ -14,3 +14,5 @@ homicides.min.js
 .DS_Store
 data/monthly.json
 subtemplates
+homicidesBycommunity.csv
+homicidesByNeighborhood.csv
