@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import scaleRadial from '../utils/scale-radial.js';
+import getTextColor from '../utils/get-text-color.js';
 
 class PieChart{
 	constructor(options){
@@ -34,7 +35,8 @@ class PieChart{
 		
 		// This is the pie generator. 
 		const pie = d3.pie()
-		    .value(d => d[y]);
+		    .value(d => d[y])
+		    .padAngle(options.sliceSpacing);
 
 		const pieMaker = d3.arc()
 			.innerRadius(innerRadius)
@@ -77,7 +79,7 @@ class PieChart{
 			.text(d => d['data'][y])
 			.attr('text-anchor', 'middle')
 			.attr('dy', '0.35em')
-			.style('fill', 'white')
+			.style('fill', d => getTextColor(colors(d['data'][x]), true))
 			.style('font-family','Arial, sans-serif')
 			.style('font-size','13px')
 			.style('font-weight', 'bold')

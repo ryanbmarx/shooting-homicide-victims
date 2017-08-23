@@ -17,13 +17,13 @@ function formatXTicks(category, num){
 				return "Mon.";
 				break;
 			case "2":
-				return "Tues.";
+				return "Tue.";
 				break;
 			case "3":
-				return "Wedn.";
+				return "Wed.";
 				break;
 			case "4":
-				return "Thurs.";
+				return "Thu.";
 				break;
 			case "5":
 				return "Fri.";

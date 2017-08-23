@@ -1,9 +1,14 @@
-// Take from here: https://stackoverflow.com/a/35970186/4476336
+// Taken from here: https://stackoverflow.com/a/35970186/4476336
 // Takes a hex color, i.e. a background color, and determines whether black
 // or white text will be most readable/have most contrast. 
 // @param [hex] <string> A 3- or 6-digit hex color, with or without the "#"
 // @param [bw] <boolean> If false, will return opposite of [hex] color. If true, will return black or white, whichever provides most contrast.
 
+function padZero(str, len) {
+    len = len || 2;
+    var zeros = new Array(len).join('0');
+    return (zeros + str).slice(-len);
+}
 
 function getTextColor(hex, bw) {
     if (hex.indexOf('#') === 0) {

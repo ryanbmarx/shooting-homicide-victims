@@ -118,7 +118,7 @@ class CrimeSite{
 		        showXAxis:true,
 		        ticks:{
 		            yAxis:5,
-		            xAxis:false
+		            xAxis:5
 		        },
 		        meta:{
 		            headline:false,
@@ -137,7 +137,8 @@ class CrimeSite{
 				donutWidth: 35, // Set to "false" if you don't want a donut
 				xKey: "x",
 				yKey: "y",
-				fillColor:app.options.currentColor
+				fillColor:app.options.currentColor,
+				sliceSpacing: 0.03 // the angle, in radians, between elements. Suggested value < 0.1
 			})
 
 			// const sexChart = new RadialBarChart({
