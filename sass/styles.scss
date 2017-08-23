@@ -101,8 +101,7 @@
 
 .legend{
   @include trib-legend();
-
-    font-size: 13px;
+  dd, dt{ font-size: 13px; }
   span{
     @include trib-legend__box(50%);
   }
