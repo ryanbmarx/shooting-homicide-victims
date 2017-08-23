@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import formatRaceEthnicity from '../utils/format-race-ethnicity.js';
 
 class ListBarChart{
 	constructor(options){
@@ -93,11 +94,10 @@ class ListBarChart{
 			.attr('x', 0)
 			.attr('y', y.bandwidth() / 2)
 			.attr('transform', d => `translate(10,0)`)
-			.text(d => `${d['x']} (${d['y']})`)
+			.text(d => `${formatRaceEthnicity(d['x'])} (${d['y']})`)
 			.attr('dy', '.3em')
 			.style('fill','black');
 	}
 }
-
 
 module.exports = ListBarChart;
