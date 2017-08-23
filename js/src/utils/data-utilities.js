@@ -68,18 +68,6 @@ function GetMonthData(data){
 	return objectToArray(countedData);
 }
 
-function GetCurrentYearData(data){
-	// Takes a data array of incident objects and returns an array of objects from the current year.
-	const 	currentYear = new Date().getFullYear(),
-			currentYearIncidents = filter(data, d => {
-				const 	dateString = d['DATE'].split('-'),
-						incidentYear = new Date(dateString[0], dateString[1], dateString[2]).getFullYear();
-				return incidentYear == currentYear;
-			});
-	return currentYearIncidents;
-	
-}
-
 function GetAgeData(data){
 
 	let ageData = countBy(data, d =>{
@@ -103,9 +91,9 @@ function getTreeMapData(data){
 	// Takes the allVictims data object and summarizes by cause of death. 
 	// Obviously, this will not work with shootings data since there are no
 	// causes listed. Even so, the cause would be shooting. Anyhow ...
-	// It returns an array of incident objects formatted in a d3.hierarchy-compamtible
+	// It returns an array of incident objects formatted in a d3.hierarchy-compatible
 	// format. Also, any cause of death repesenting 1% or less of the overall total 
-	// will be lumped with "other.""
+	// will be lumped with "other."
 
 	const countedData = countBy(data, d => {
 		return d['PUB_CAUSE'] == "" ? "Unknown" : d['PUB_CAUSE'];
@@ -156,7 +144,6 @@ module.exports = {
 	GetTimeData: GetTimeData,
 	GetDayData:GetDayData, 
 	GetMonthData:GetMonthData,
-	GetCurrentYearData:GetCurrentYearData,
 	getTreeMapData:getTreeMapData,
 	GetAgeData: GetAgeData,
 	GetSexData:GetSexData,
