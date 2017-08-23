@@ -195,16 +195,14 @@ class MultilineChart{
 				.attr('ry', 8)
 				.style('fill', 'black')
 				
-			scrubberAssembly.append('text')
+			scrubberAssembly
+				.append('image')
 				.classed('scrubber__arrow', true) 
-				// .attr('transform', `translate(${scrubberHeight / 2},${scrubberHeight / 2}`)
-				.attr('text-anchor', 'middle')
-				.attr('dy', '0.3em')
-				.attr('x', scrubberHeight / 2)
-				.attr('y', scrubberHeight / 2)
-				.style('fill', 'white')
-				.style('font-size', '16px')
-				.text('\u2194')
+				.attr('xlink:href', `http://${window.ROOT_URL}/img/arrow-double.svg`)
+				.attr('width', .8 * scrubberHeight)
+				.attr('height', .5 * scrubberHeight)
+				.attr('x', scrubberHeight * 0.1)
+				.attr('y', scrubberHeight * .25)
 				.call(repeatAnimation);
 
 			d3.selectAll('.draggable')
