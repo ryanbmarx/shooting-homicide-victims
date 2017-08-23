@@ -13,6 +13,22 @@ import sys
 
 from datetime import datetime
 
+def date_missing_january(x):
+		all_years = set(x['Year'].unique().tolist())
+		years_in_data = set(x.loc[(x['Month']==1) & (x['Day']==1)]['Year'].unique().tolist())
+		missing_years = all_years - years_in_data
+		for y in missing_years:
+			x.loc[len(x)] = [y,1,1,0,0]
+		return (x)
+	
+def date_missing_december(x):
+	all_years = set(x['Year'].unique().tolist())
+	years_in_data = set(x.loc[(x['Month']==12) & (x['Day']==31)]['Year'].unique().tolist())
+	missing_years = all_years - years_in_data
+	for y in missing_years:
+		x.loc[len(x)] = [y,12,31,0,0]
+	return (x)
+
 def isFatal(s):
     if (s in ['110','0110','130','141','142']):
         return (1)
@@ -92,6 +108,16 @@ def get_shootings(shootings,outputPath):
 	output['cum_sum'] = [cs for l in cum_sum for cs in l]
 	output #tally number of shootings per day
 	#output this file so that Kyle can use it for plotting
+
+	#######################################
+	# we found that charts are breaking for some years because the dates 01/01/YYYY and 12/31/YYYY is not present.
+	# In this step, we are manually appending those dates for years that are missing with a value of 0 for their cum_sum.
+	tmp_output = output
+	tmp_output = date_missing_january(tmp_output)
+	tmp_output = date_missing_december(tmp_output)
+	output = tmp_output
+	############################################
+
 
 	output['ID'] = np.arange(0,len(output),1) #adding ID column
 	#output.index.names=['ID']
