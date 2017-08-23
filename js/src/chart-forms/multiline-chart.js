@@ -32,11 +32,9 @@ class MultilineChart{
 		app.options = options;
 		app.data = options.data;
 		app._container = options.container;
-		app.mobileLayoutBreakpoint = 600
-		console.log(options);
+		app.mobileLayoutBreakpoint = 600;
+		app.isMobile = window.innerWidth < 850 ? true : true;
 		MultilineChart.initChart(app);
-
-
 	}
 	
 	highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth){
@@ -137,13 +135,14 @@ class MultilineChart{
 
 		const 	data = app.data,
 				container = d3.select(app._container),
-				bbox = app._container.getBoundingClientRect();
+				bbox = app._container.getBoundingClientRect(),
+				scrubberHeight = 30;
 
 				let width= bbox.width;
 
 		const	height = bbox.height,
 				margin = app.options.innerMargins,
-				innerHeight = height - margin.top - margin.bottom,
+				innerHeight = app.isMobile ? height - margin.top - margin.bottom - (1.5 * scrubberHeight): height - margin.top - margin.bottom,
 				innerWidth = width - margin.right - margin.left,
 				years = Object.keys(data),
 				useYear = years[0]; // The arbitrary year used to feed the xScale a full Date()
@@ -167,6 +166,98 @@ class MultilineChart{
 			.append('svg')
 			.attr('width', width)
 			.attr('height', height);
+
+		if (app.isMobile){
+			app.keepAnimatingArrow = true;
+
+			const scrubber = svg.append('g')
+				.classed('scrubber', true)
+				.attr('transform', `translate(${margin.left},${margin.top + margin.bottom + innerHeight + (.5 * scrubberHeight)})`);
+	
+			scrubber.append('rect')
+				.classed('scrubber__container', true) 
+				.attr('width', innerWidth)
+				.attr('height', scrubberHeight)
+				.attr('rx', 8)
+				.attr('ry', 8)
+				.style('fill', '#eee');
+
+			const scrubberAssembly = scrubber.append('g')
+				.classed('draggable', true)
+				.style('cursor', 'move');
+
+
+			scrubberAssembly.append('rect')
+				.classed('scrubber__box', true) 
+				.attr('width', scrubberHeight)
+				.attr('height', scrubberHeight)
+				.attr('rx', 8)
+				.attr('ry', 8)
+				.style('fill', 'black')
+				
+			scrubberAssembly
+				.append('image')
+				.classed('scrubber__arrow', true) 
+				.attr('xlink:href', `http://${window.ROOT_URL}/img/arrow-double.svg`)
+				.attr('width', .8 * scrubberHeight)
+				.attr('height', .5 * scrubberHeight)
+				.attr('x', scrubberHeight * 0.1)
+				.attr('y', scrubberHeight * .25)
+				.call(repeatAnimation);
+
+			d3.selectAll('.draggable')
+				.call(d3.drag()
+			        .on("drag", dragged));
+
+			function repeatAnimation(){
+				// Lifted this from https://bl.ocks.org/d3noob/bf44061b1d443f455b3f857f82721372
+				// This animates the little arrow on the srubber
+				
+				const animateDuration = 1500;
+
+				d3.select('.scrubber__arrow')
+					.transition()
+					.duration(animateDuration)
+					.attr('transform', `translate(-2, 0)`)
+					.transition()
+					.duration(animateDuration)
+					.attr('transform', `translate(2, 0)`)
+					.on('end', function(){
+						if (app.keepAnimatingArrow) repeatAnimation();
+					})
+			}
+			
+			function dragged(d) {
+				app.keepAnimatingArrow = false;
+				d3.select('.scrubber__arrow')
+					.attr('transform', `translate(0, 0)`);
+
+				let newX;
+
+				if (d3.event.x < 0){
+					newX = 0;
+				} else if(d3.event.x > (innerWidth - scrubberHeight)){
+					newX = innerWidth - scrubberHeight;
+				} else {
+					newX = d3.event.x;
+				}
+				d3.select(this).attr('transform', `translate(${newX}, 0)`);
+
+				const 	xx = d3.event.x / (innerWidth - scrubberHeight);
+				let xDate;
+				if(innerWidth * xx > innerWidth){
+				xDate = innerWidth;
+				} else if(innerWidth * xx < 0){
+					xDate = 0;
+				} else {
+					xDate = innerWidth * xx;
+				}
+
+				const 	date = xScale.invert(xDate);
+	        	
+				app.highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth);
+			}
+		}
 
 		const chartInner = svg
 			.append('g')
@@ -218,14 +309,6 @@ class MultilineChart{
 		const yAxisFunc = d3.axisLeft(yScale);
 
 
-		// const xScale = d3.scaleTime()
-		// 	.range([0,innerWidth])
-		// 	.domain(d3.extent(data[useYear], d=> {
-		// 		// create a domain extent out of the first year's dates
-		// 		return new Date(d['YEAR'], d['MONTH'] - 1, d['DAY'],0,0,0,0);
-		// 	}));
-
-
 
 		const yearExtent = [
 			new Date(useYear, 0, 1,0,0,0,0),
@@ -257,6 +340,7 @@ class MultilineChart{
 			.call(xAxisFunc);
 
 		years.forEach(year => {
+
 			const 	lineColor = year == app.lastYear ? app.options.currentColor : app.options.otherColor,
 					lineWeight = year == app.lastYear ? 4 : 2;
 
@@ -297,15 +381,16 @@ class MultilineChart{
 					.attr('fill', 'black');
 				}
 		});
-
-		chartInner.append('rect')
-			.attr('height', innerHeight)
-			.attr('width', innerWidth)
-			.attr('fill', 'transparent')
-			.on('mousemove', function(){
-				const 	date = xScale.invert(d3.mouse(this)[0]);
-				app.highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth);
-	    	});
+		if (!app.isMobile){
+			chartInner.append('rect')
+				.attr('height', innerHeight)
+				.attr('width', innerWidth)
+				.attr('fill', 'transparent')
+				.on('mousemove', function(){
+					const 	date = xScale.invert(d3.mouse(this)[0]);
+					app.highlightDay(date, years, data, xScale, yScale, innerHeight, innerWidth);
+		    	});
+		}
 
 		app.highlightDay(app.lastDate, years, data, xScale, yScale, innerHeight, innerWidth);
 			

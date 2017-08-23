@@ -27,9 +27,6 @@ class RadialChart{
 
 		app.options = options;	
 
-		// console.log(options);
-
-
 		// some housekeeping variable declarations
 		const 	overallRadius = Math.min(innerWidth/2, innerHeight/2), // find the radius that fits in the box, in case it is not square
 				minRadius = overallRadius / 4 > 75 ? overallRadius / 4 : 75,
@@ -183,44 +180,6 @@ class RadialChart{
 			.style('stroke', 'red')
 			.style('stroke-width', 3)
 			.attr('d', d => radarLine(d));
-
-		/*
-		const x = d3.scaleTime()
-			.range([0, data.length]) 
-			.domain([new Date(1,1,1,0,0,0,0), new Date(1,1,1,23,59,0,0)]);
-
-		*/
-
-		// const divisions = 4;
-
-		// const labels = svg.append('g')
-		// 	.classed('x-labels', true)
-		// 	.attr('transform', `translate(${margin.left + (innerWidth / 2)}, ${margin.top + (innerHeight / 2)})rotate(-90)`)
-		// 	.selectAll('g')
-		// 	.data(data)
-		// 	.enter()
-		// 	.append('g')
-		// 	.attr('text-anchor', 'middle')
-		// 	.attr('transform', (d,i) => {
-		// 		// console.log(angleSlice, d.x, x(d.x), x(d.x) * angleSlice);
-		// 		return `rotate(${ (360 / 24 * i) }) translate(${minRadius - 25},0)`;
-		// 		// return `rotate(${ x(d.x) * angleSlice })translate(${minRadius},0)`;
-		// 	});
-
-		// labels.append('text')
-		// 	.attr("transform", (d,i) => { 
-		// 		return `rotate(${ (360 / -24 * i) + 90 })`;
-		// 	})
-		// 	.attr('dy', '0.25em')
-		// 	.style('font-size', '13px')
-		// 	.style('font-weight', 'bold')
-		// 	.style('font-family', 'Arial, sans-serif')
-		// 	.text(d => {
-		// 		const timeLabel = new Date(d.x).getHours();
-		// 		return timeLabel == 0 || timeLabel % 6 == 0 ? d3.timeFormat('%-I %p')(d.x) : "" ;
-		// 	})
-		
-
 
 	}
 }

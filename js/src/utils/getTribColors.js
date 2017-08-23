@@ -1,3 +1,11 @@
+// A quick-reference library to get colors from the tribune pallete. 
+// @param [color] <string> The name of desired color
+// @param [opacity] < 0 < number < 1 > Optional, desired opacity of color, returned in rgba() format. 
+
+// Example usage:
+// getTribColor('trib-blue2') => "#004E87"
+// getTribColor('trib-blue2', .5) => "rgba(0, 78, 135, 0.5)"
+
 
 const colors = {
 	trib_gray1:"#222",
@@ -84,8 +92,5 @@ function getTribColor(colorName, rgba=false){
 }
 
 
-// Example usage:
-// getTribColor('trib-blue2') => "#004E87"
-// getTribColor('trib-blue2', .5) => "rgba(0, 78, 135, 0.5)"
 
 module.exports = getTribColor;

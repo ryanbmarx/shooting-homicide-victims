@@ -1,23 +1,12 @@
-
-// $list_width: 270px;
-// $list_gutter: 0px;
-// $list_padding:20px;
-
-// .chart--map figcaption{
-// 	@include clearfix();
-
-// 	.chart__headline{
-// 		float: left;
-// 	}
-// }
-
 .trb_mainContent .map{
-
+	align-self:stretch;
 	&__map{
 		// the actual map holder, filled by Leaflet
 		width:100%; 
 		height:$map_height;
 		background:#eee;
+		min-height:$map_min_height;
+
 	}
 }
 

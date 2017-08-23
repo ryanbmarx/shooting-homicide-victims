@@ -1,7 +1,8 @@
 import {scaleLinear} from 'd3';
 
+// A helper scale to make radial charts. Lifted from https://github.com/d3/d3-scale/issues/90 by Bostock.
+
 function scaleRadial() {
-	// lifted from https://github.com/d3/d3-scale/issues/90
   var domain = [0, 1],
       range = [0, 1];
 

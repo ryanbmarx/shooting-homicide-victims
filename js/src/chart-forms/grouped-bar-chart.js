@@ -18,10 +18,7 @@ class GroupedBarChart{
 
 	}
 
-	static initChart(app){
-		// console.log('Building chart', app.options, app.data)
-		
-
+	static initChart(app){		
 		// ----------------------------------
 		// GET THE KNOW THE CONTAINER
 		// ----------------------------------
@@ -43,7 +40,6 @@ class GroupedBarChart{
 		// Find the most shootings from either year.
 		const yMax = d3.max(data, d => {
 			return d3.max(keys, key => {
-				// console.log(d[key]);
 				return parseInt(d[key]);
 			})
 		})
@@ -61,7 +57,7 @@ class GroupedBarChart{
 			.range([0, innerWidth])
 			.paddingInner(0.2)
 			.domain(data.map(d => d.month));
-		// console.log(xScale0.bandwidth());
+
 		// This will govern position WITHIN the bar groups. We need a bar position for each year, and
 		// those bars will need to be constrained to the width (the `bandwidth()`) defined by the other
 		// xScale

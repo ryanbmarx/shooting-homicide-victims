@@ -18,17 +18,16 @@ class TreeMap{
 				innerHeight = height - margin.top - margin.bottom,
 				innerWidth = width - margin.right - margin.left,
 				colors = [
-					getTribColor('trib_red2'),
-					getTribColor('trib_orange'),
-					getTribColor('trib_yellow1'),
 					getTribColor('trib_blue2'),
 					getTribColor('trib_blue3'),
 					getTribColor('trib_blue5'),
+					getTribColor('trib_blue_gray'),
+					getTribColor('trib_blue1'),
+					getTribColor('trib_blue4'),
 					getTribColor('trib_green2'),
 					getTribColor('trib_green4'),
-					getTribColor('trib_blue_gray')
 				];
-
+		
 		const colorScale = d3.scaleOrdinal()
 			.range(colors)
 
@@ -112,8 +111,6 @@ class TreeMap{
 				// This is for aesthetic cleanup, but if the node/box is either
 				// too skinny or too short to fit the label, then remove the label.
 				// The raw #s are in the legend, anyhow.
-
-				console.log(d, this.getBBox());
 				const 	textWidth = this.getBBox().widthz, 
 						textHeight = this.getBBox().height,
 						nodeWidth = d.x1 - d.x0,

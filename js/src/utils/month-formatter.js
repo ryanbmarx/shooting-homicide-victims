@@ -1,7 +1,8 @@
-function monthFormatter(month, version){
-
+function monthFormatter(month, version=false){
 	// takes a month as number and returns AP style abbreviation. If the window width is too small, then it returns an even shorter version.
-	
+	// @param [month] <integer> The number of the desired month.
+	// @param [version] <string> Optional. the specific format (full/short/AP) desired. If not specified, will return AP at larger widths and short at smaller widths. 
+
 	const months = {
 		0:{ap: "Jan.", short:"J", full:"January"},
 		1:{ap: "Feb.", short:"F", full:"February"},

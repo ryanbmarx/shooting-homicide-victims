@@ -1,6 +1,4 @@
-$ytd-table-width: 300px;
-$ytd-border-width: 10px;
-$ytd-highlight-total-years: 6;
+
 
 @keyframes strokeDraw{
 	to{
@@ -15,6 +13,8 @@ $ytd-highlight-total-years: 6;
 	animation: strokeDraw 5s linear forwards;
 }
 
+
+/* @keyframes duration | timing-function | delay | iteration-count | direction | fill-mode | play-state | name */
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
    /* 
@@ -37,7 +37,7 @@ $ytd-highlight-total-years: 6;
 	// width: 105px;
 	opacity:0;
 	position: absolute;
-	top:45px;
+	top:0;
 	left:70px;
 	width: $ytd-table-width;
 
