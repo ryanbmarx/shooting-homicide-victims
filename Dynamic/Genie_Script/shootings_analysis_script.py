@@ -116,6 +116,7 @@ def get_shootings(shootings,outputPath):
 	tmp_output = date_missing_january(tmp_output)
 	tmp_output = date_missing_december(tmp_output)
 	output = tmp_output
+	output.sort(['Year','Month','Day','num_of_shootings','cum_sum'],ascending=[False,False,True,False,False],inplace=True)
 	############################################
 
 
