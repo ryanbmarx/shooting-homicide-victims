@@ -37,6 +37,18 @@ function objectToArray(obj, sortByX = true, sortDirection = 'asc'){
 	return sorted;
 }
 
+ 
+function GetCurrentYearData(data){
+	// Takes a data array of incident objects and returns an array of objects from the current year.
+	const 	currentYear = new Date().getFullYear(),
+			currentYearIncidents = filter(data, d => {
+				const 	dateString = d['DATE'].split('-'),
+						incidentYear = new Date(dateString[0], dateString[1], dateString[2]).getFullYear();
+				return incidentYear == currentYear;
+			});
+	return currentYearIncidents;
+}
+
 function GetTimeData(data, summarizeBy){
 
 	// Takes the victims data and aggregates into a data format for the radial charts.
@@ -144,6 +156,7 @@ module.exports = {
 	GetTimeData: GetTimeData,
 	GetDayData:GetDayData, 
 	GetMonthData:GetMonthData,
+	GetCurrentYearData:GetCurrentYearData,
 	getTreeMapData:getTreeMapData,
 	GetAgeData: GetAgeData,
 	GetSexData:GetSexData,
