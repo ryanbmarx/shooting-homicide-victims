@@ -119,19 +119,23 @@ def get_homicides(homicides,outputPath):
 	tmp_output = date_missing_december(tmp_output)
 	output = tmp_output
 	output.sort_values(by=['Year','Month','Day','num_of_homicides','cum_sum'],ascending=[True,True,True,False,False],inplace=True)
+	output = output.reset_index() #index must be reset after appending at missing_date_january and missing_date_december.
+	output = output.drop('index',axis=1) #removing previous index, which based on appending a row to the end of a dataframe
 	#avoiding any rows with cum_sum ==0
 	index_list = output.loc[output['cum_sum']==0].index.tolist()
+	#print (index_list)
 	for index in index_list:
-		print(output.iloc[index]['cum_sum'])
-		print (output.iloc[index-1]['cum_sum'])
-		print ("***********")
+		#print(output.iloc[index]['cum_sum'])
+		#print (output.iloc[index-1]['cum_sum'])
+		#print ("***********")
 		output.iloc[index]['cum_sum']=output.iloc[index-1]['cum_sum']
-		output = output
+	output = output
+	#print (output.columns)
 	############################################
 
 	output['ID'] = np.arange(0,len(output),1) #adding ID column
 	output.columns = ['YEAR','MONTH','DAY','NUM_OF_INCIDENTS','CUMULATIVE_SUM','ID']
-	output.to_csv(outputPath,index=False)
+	output.to_csv(outputPath,index=True)
 
 	#####geo-coding######
 	homicides['Geocode Override']=homicides['Geocode Override'].replace(np.nan,'')
