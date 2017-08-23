@@ -118,7 +118,7 @@ def get_homicides(homicides,outputPath):
 	tmp_output = date_missing_january(tmp_output)
 	tmp_output = date_missing_december(tmp_output)
 	output = tmp_output
-	output.sort(['Year','Month','Day','num_of_homicides','cum_sum'],ascending=[False,False,True,False,False],inplace=True)
+	output.sort_values(by=['Year','Month','Day','num_of_homicides','cum_sum'],ascending=[False,False,True,False,False],inplace=True)
 	############################################
 
 	output['ID'] = np.arange(0,len(output),1) #adding ID column
