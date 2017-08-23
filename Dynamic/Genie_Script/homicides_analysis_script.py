@@ -119,6 +119,14 @@ def get_homicides(homicides,outputPath):
 	tmp_output = date_missing_december(tmp_output)
 	output = tmp_output
 	output.sort_values(by=['Year','Month','Day','num_of_homicides','cum_sum'],ascending=[True,True,True,False,False],inplace=True)
+	#avoiding any rows with cum_sum ==0
+	index_list = output.loc[output['cum_sum']==0].index.tolist()
+	for index in index_list:
+		print(output.iloc[index]['cum_sum'])
+		print (output.iloc[index-1]['cum_sum'])
+		print ("***********")
+		output.iloc[index]['cum_sum']=output.iloc[index-1]['cum_sum']
+		output = output
 	############################################
 
 	output['ID'] = np.arange(0,len(output),1) #adding ID column
