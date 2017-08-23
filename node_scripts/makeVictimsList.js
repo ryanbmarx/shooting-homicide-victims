@@ -96,7 +96,7 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 					victimString += `<p class='victim__desc'>${sex}</p>`;
 				}
 	
-				if (link) victimString += `<a target='_blank' class='victim__link'>READ STORY (ID: ${v['ID']})</a>`;
+				if (link) victimString += `<a target='_blank' class='victim__link'>READ STORY</a>`;
 	
 				victimString += "</div>";
 	
