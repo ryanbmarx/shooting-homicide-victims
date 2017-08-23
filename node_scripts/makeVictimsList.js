@@ -32,7 +32,7 @@ function formatSex(s){
 
 function formatAge(a){
 	if (a > 0) return `${a}-year-old`;
-	if (a == 0) return 'Baby';
+	if (a === 0) return 'Baby';
 	return false;
 }
 
@@ -62,6 +62,17 @@ function transformData(data){
 	return retval;
 }
 
+function getAgeSexString(age, sex){
+	let retval="";
+	if (age && sex) {
+		retval = `${age} ${sex}`;
+	} else if (age && !sex){
+		retval = age;
+	}  else if (!age && sex){
+		retval = sex.replace('male', "Male").replace('female', 'Female');
+	}
+	return retval;
+}
 fs.readFile(inputPath, 'utf-8', (err, data) => {
 	if (err) throw err;
 
@@ -82,20 +93,26 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 						inputDate = v['HOUR'].length > 0 ? dateTimeParser(`${v['DATE']} ${v['HOUR']}`) : dateTimeParser(`${v['DATE']} 00:01:00`),
 						outputDate = v['HOUR'].length > 0 ? dateTimeFormatter(inputDate) : dateFormatter(inputDate),
 						sex = formatSex(v['SEX']),
-						age = formatAge(v['AGE'])
+						age = formatAge(v['AGE']),
+						name = v['NAME_FIRST'] && v['NAME_LAST'] ? `${v['NAME_FIRST']} ${v['NAME_LAST']}` : false;
 						
 				let victimString = "<div class='victim'>";
 						
 				victimString += `<p class='victim__date'>${outputDate}</p>`		
 		
-				if (age && sex) {
-					victimString += `<p class='victim__desc'>${age} ${sex}</p>`;
-				} else if (age && !sex){
-					victimString += `<p class='victim__desc'>${age}</p>`;
-				}  else if (!age && sex){
-					victimString += `<p class='victim__desc'>${sex}</p>`;
-				}
-	
+				let descriptionBig, descriptionSmall = false;
+
+				if (name){
+					descriptionBig = name;
+					descriptionSmall = getAgeSexString(age, sex);
+				}  else {
+					descriptionBig = getAgeSexString(age, sex);
+				}				
+
+				victimString += `<p class='victim__desc-big'>${descriptionBig}</p>`;
+
+				if (descriptionSmall) victimString += `<p class='victim__desc-small'>${descriptionSmall}</p>`;;
+
 				if (link) victimString += `<a target='_blank' class='victim__link'>READ STORY</a>`;
 	
 				victimString += "</div>";
