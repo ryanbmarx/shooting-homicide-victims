@@ -18,15 +18,14 @@ class TreeMap{
 				innerHeight = height - margin.top - margin.bottom,
 				innerWidth = width - margin.right - margin.left,
 				colors = [
-					getTribColor('trib_red2'),
-					getTribColor('trib_orange'),
-					getTribColor('trib_yellow1'),
 					getTribColor('trib_blue2'),
 					getTribColor('trib_blue3'),
 					getTribColor('trib_blue5'),
+					getTribColor('trib_blue_gray'),
+					getTribColor('trib_blue1'),
+					getTribColor('trib_blue4'),
 					getTribColor('trib_green2'),
 					getTribColor('trib_green4'),
-					getTribColor('trib_blue_gray')
 				];
 		
 		const colorScale = d3.scaleOrdinal()
