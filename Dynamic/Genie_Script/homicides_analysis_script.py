@@ -128,7 +128,7 @@ def get_homicides(homicides,outputPath):
 		#print(output.iloc[index]['cum_sum'])
 		#print (output.iloc[index-1]['cum_sum'])
 		#print ("***********")
-		if((output.iloc[index]['Month']!=1) & (output.iloc[index]['Day']!=1)):
+		if((output.iloc[index]['Month']!=1) & (output.iloc[index]['Day']!=1)): #if it's the first day of the year, don't change it as the cum_sum for some years is equal to zero
 			output.iloc[index]['cum_sum']=output.iloc[index-1]['cum_sum']
 	output = output
 	#print (output.columns)
