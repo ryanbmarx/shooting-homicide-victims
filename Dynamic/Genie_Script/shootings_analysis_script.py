@@ -26,7 +26,9 @@ def date_missing_december(x):
 	years_in_data = set(x.loc[(x['Month']==12) & (x['Day']==31)]['Year'].unique().tolist())
 	missing_years = all_years - years_in_data
 	for y in missing_years:
-		x.loc[len(x)] = [y,12,31,0,0]
+		if(y!=dt.now().year): #if we are plotting data and the year is equals to the current year, don't fill anything as we haven't reached 12/31 yet.
+		#the above if statement was necessary to remove the constant linear part of the shootings plot.
+			x.loc[len(x)] = [y,12,31,0,0]
 	return (x)
 
 def isFatal(s):
