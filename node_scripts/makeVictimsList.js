@@ -32,7 +32,7 @@ function formatSex(s){
 
 function formatAge(a){
 	if (a > 0) return `${a}-year-old`;
-	if (a === 0) return 'Baby';
+	if (a === 0 || a === "0") return 'Baby';
 	return false;
 }
 
@@ -42,6 +42,11 @@ function isFatal(victim){
 		return true;
 	}
 	return false;
+}
+
+function capFirstLetter(string) 
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function transformData(data){
@@ -64,12 +69,17 @@ function transformData(data){
 
 function getAgeSexString(age, sex){
 	let retval="";
+
 	if (age && sex) {
-		retval = `${age} ${sex}`;
+		if (age.toUpperCase() == "BABY"){
+			retval = `${capFirstLetter(sex)} baby`;
+		} else {
+			retval = `${age} ${sex}`;
+		}
 	} else if (age && !sex){
 		retval = age;
 	}  else if (!age && sex){
-		retval = sex.replace('male', "Male").replace('female', 'Female');
+		retval = capFirstLetter(sex);
 	}
 	return retval;
 }

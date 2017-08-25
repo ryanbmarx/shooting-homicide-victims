@@ -13,7 +13,6 @@ import VictimsFilter from './victims-filter.js';
 import * as dataUtilities from './utils/data-utilities.js'
 import getTribColor from './utils/getTribColors.js';
 
-// TODO: FILTERS TO VICTIMS
 // TODO: ADD INSIGHTS TO THE HEADER
 // TODO: ADD DATA DOWNLOAD LINKS
 // TODO: Test leap year, equal totals with page topper
