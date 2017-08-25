@@ -17,6 +17,7 @@
     "build:victims-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/homicides/homicides_geocode.csv ./subtemplates/homicides/_victims-list.html",
     "build:year-counter-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeYTDCounter.js ./subtemplates/homicides/_year-counter.html",
     "build:year-counter-shootings": "mkdir -p ./subtemplates/shootings && node node_scripts/makeYTDCounter.js ./subtemplates/shootings/_year-counter.html",
+    "build:victim-filters-homicides" :"mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimFilters.js ./data/homicides/homicides_geocode_current.csv ./subtemplates/homicides/_victim-filters.html",
     "publish": "npm run build && tarbell publish production"
   },
   "repository": {
@@ -39,6 +40,7 @@
     "grunt-sass": "^1.2.0",
     "html-minifier": "^3.5.2",
     "json2csv": "^3.11.1",
+    "lodash.uniqby": "^4.7.0",
     "minifyify": "^7.3.3",
     "trib-styles": "git+https://tribune.unfuddle.com/git/tribune_trib-styles/"
   },

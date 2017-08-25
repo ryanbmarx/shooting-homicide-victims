@@ -9,7 +9,7 @@ import TreeMap from './chart-forms/tree-map.js';
 import LineChart from './chart-forms/line-chart.js';
 import ListBarChart from './chart-forms/list-bar-chart.js';
 import PieChart from './chart-forms/pie-chart.js';
-
+import VictimsFilter from './victims-filter.js';
 import * as dataUtilities from './utils/data-utilities.js'
 import getTribColor from './utils/getTribColors.js';
 
@@ -88,6 +88,11 @@ class CrimeSite{
 		// ---------------------------------
 
 		if (window.version == "homicides"){
+
+			const victims = new VictimsFilter({
+				buttons: document.querySelectorAll('.topic--victims .filter-button'),
+				victims: document.querySelectorAll('.topic--victims .victim')
+			});
 
 			const causesOfDeath = new TreeMap({
 				container: document.querySelector('#causes'),

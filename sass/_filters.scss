@@ -1,0 +1,71 @@
+// The filter button container
+.trb_mainContent .filters{
+	margin: 25px 0;
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-gap: 25px;
+
+	// &__label{
+	// 	@include label();
+	// 	text-align:center;
+	// }
+
+	// &__sublabel{
+	// 	@include sans-serif();
+	// 	text-align:center;
+	// 	margin: 0 0 15px 0;
+	// 	width:100%;
+	// }
+
+	&__buttons{
+		display: flex;
+		justify-content: space-between;
+		align-content: flex-start;
+		align-items:stretch; 
+		flex-wrap:wrap;
+		margin-bottom:25px;
+		&:last-child {margin:0;}
+	}
+}
+
+.filter-button{
+	border:none;
+	background:#e0e0e0;
+	display:block;
+	padding: 10px 0;
+	margin-bottom: 5px;
+	text-align:center;
+	width: 100%;
+	cursor:pointer;
+	transition:background 100ms ease;
+
+	&:last-child{
+		margin-bottom:0;
+	}
+
+	&:hover{
+		background: $trib-blue4;
+	}
+
+	&[data-checked="true"], &:hover[data-checked="true"]{
+		transition:background 100ms ease;
+		background: $trib-blue2;
+		color:white;
+	}
+}
+
+
+
+@media all and (min-width: $tablet-min-width){
+	
+}
+
+@media all and (min-width: 600px){
+
+}
+
+@media all and (min-width: $desktop-min-width){
+	.trb_mainContent .filters{
+		grid-template-columns: repeat(3, 150px) 1fr;
+	}
+}

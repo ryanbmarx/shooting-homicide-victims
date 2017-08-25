@@ -105,6 +105,7 @@
     {% if homicides %}
     <section class='topic topic--victims'>
         {{ topic_topper("victims") }}
+        {% include 'subtemplates/' + v + "/_victim-filters.html" %}
         <div class='topic__chart-wrapper'>
           {% include "subtemplates/" + v + "/_victims-list.html" %}
         </div>
