@@ -131,7 +131,7 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 
 				if (descriptionSmall) victimString += `<p class='victim__desc-small'>${descriptionSmall}</p>`;;
 
-				if (link) victimString += `<a target='_blank' class='victim__link'>READ STORY</a>`;
+				if (link) victimString += `<a target='_blank' class='victim__link' href='${link}'>READ STORY</a>`;
 	
 				victimString += "</div>";
 	
