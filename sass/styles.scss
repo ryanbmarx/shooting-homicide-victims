@@ -16,6 +16,12 @@
 @import 'map'; // For the map, duh!
 @import 'causes-of-death'; // The treemap
 @import 'filters'; // Victims filters
+@import '../node_modules/nouislider/distribute/nouislider.min.css'; // css needed for the slider module
+// A couple of edits to the slider
+.noUi-connect{
+  background: $current_year_color;
+}
+
 
 .graphic-wrapper{
   max-width: 800px;

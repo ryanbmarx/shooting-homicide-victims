@@ -12,7 +12,8 @@ module.exports = function(grunt) {
     'lodash.groupby',
     'lodash.countby',
     'd3-queue',
-    'leaflet-providers'
+    'leaflet-providers',
+    'nouislider'
   ];
 
   config.browserify = {

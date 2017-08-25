@@ -17,7 +17,7 @@
     "build:victims-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/homicides/homicides_geocode.csv ./subtemplates/homicides/_victims-list.html",
     "build:year-counter-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeYTDCounter.js ./subtemplates/homicides/_year-counter.html",
     "build:year-counter-shootings": "mkdir -p ./subtemplates/shootings && node node_scripts/makeYTDCounter.js ./subtemplates/shootings/_year-counter.html",
-    "build:victim-filters-homicides" :"mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimFilters.js ./data/homicides/homicides_geocode_current.csv ./subtemplates/homicides/_victim-filters.html",
+    "build:victim-filters-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimFilters.js ./data/homicides/homicides_geocode_current.csv ./subtemplates/homicides/_victim-filters.html",
     "publish": "npm run build && tarbell publish production"
   },
   "repository": {
@@ -62,6 +62,7 @@
     "lodash.sortby": "^4.7.0",
     "lodash.sumby": "^4.6.0",
     "lodash.union": "^4.6.0",
+    "nouislider": "^10.1.0",
     "waypoints": "^4.0.1"
   }
 }
