@@ -71,6 +71,9 @@ labelFormatters.RACE = function(att){
 		case "W(H)":
 			return "White, hispanic";
 			break;
+		case "A":
+			return "Asian";
+			break;
 		case "UNKNOWN":
 			return "Unknown";
 			break;
@@ -136,7 +139,13 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 		buttons[att] = getButtonString(att, tempArray);
 	})
 
-	let filtersHTML = "<div class='filters'>";
+	let filtersHTML = `<div class='filters'>
+		<div class="filters__group filters__group--age age-slider">
+          <p class='filters__group-label'>Filter by age</p>
+          <div id='age-slider' data-min-age=0 data-max-age=100></div>
+          <span class="age-slider__label age-slider__label--left"></span>
+          <span class="age-slider__label age-slider__label--right"></span>
+        </div>`;
 
 	// Put our buttons into some HTML architecture 
 	attributes.forEach(att => {

@@ -66,6 +66,14 @@ module.exports = class VictimsFilter{
 
         slider.on('end', function(){ app.filterVictims() });
 
+        console.log(document.querySelector('.topic--victims .filters'));
+
+        // Initialize click handlers to hide and show the filters;
+        document.querySelector('.topic--victims .filters').addEventListener('click', function(e) {
+            console.log('click', this);
+            this.classList.add('filters--open');
+        })
+
     }
 
     filterVictims(){
