@@ -15,12 +15,9 @@
 @import 'victim-list'; // For the victims at the bottom
 @import 'map'; // For the map, duh!
 @import 'causes-of-death'; // The treemap
-@import 'filters'; // Victims filters
 @import '../node_modules/nouislider/distribute/nouislider.min.css'; // css needed for the slider module
-// A couple of edits to the slider
-.noUi-connect{
-  background: $current_year_color;
-}
+@import 'filters'; // Victims filters
+
 
 
 .graphic-wrapper{
@@ -41,34 +38,34 @@
     grid-template-rows: auto 1fr;
     grid-gap: 0 $gutter_width; //  row gutter / column gutter
 
-  // grid-template-rows
+    // grid-template-rows
 
-  &:last-child{
-    padding-bottom:0;
-    border-bottom: none;
-  }
-
-  &__topper{
-    grid-column: 1 / -1; // The end-column value of -1 means "span all columns" -- no, when we adjust the # of columns in media queries, we don't need to constantly adjust this, too.
-    & > p {
-      // for intro text inside the topper, let's make sure they are fullwidth
-      width: auto;
+    &:last-child{
+      padding-bottom:0;
+      border-bottom: none;
     }
-  }
 
-  &__header{
-    @include label5();
-    margin-top:0;
-  }
-  &__sub-header{
-    @include label7();
-    margin-top:0;
-    text-align:center;
-  }
+    &__topper{
+      grid-column: 1 / -1; // The end-column value of -1 means "span all columns" -- no, when we adjust the # of columns in media queries, we don't need to constantly adjust this, too.
+      & > p {
+        // for intro text inside the topper, let's make sure they are fullwidth
+        width: auto;
+      }
+    }
 
-  &__chart-wrapper{
-    position: relative;
-  }
+    &__header{
+      @include label5();
+      margin-top:0;
+    }
+    &__sub-header{
+      @include label7();
+      margin-top:0;
+      text-align:center;
+    }
+
+    &__chart-wrapper{
+      position: relative;
+    }
 
   }
 
