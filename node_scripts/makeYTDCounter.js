@@ -59,9 +59,9 @@ fs.readFile(`./data/${ type }/${ type }.csv`, 'utf-8', (err, data) => {
 
 	let lessMore;
 	if (thisYearSum > lastYearSum){
-		lessMore = "more than";
+		lessMore = `${numberFormatter(Math.abs(thisYearSum - lastYearSum))} more than`;
 	} else if (thisYearSum < lastYearSum ){
-		lessMore = "fewer than";
+		lessMore = `${numberFormatter(Math.abs(thisYearSum - lastYearSum))} fewer than`;
 	} else {
 		lessMore = "the same as";
 	}
@@ -69,7 +69,7 @@ fs.readFile(`./data/${ type }/${ type }.csv`, 'utf-8', (err, data) => {
 
 
 	const 	verb = type == 'homicides' ? 'killed' : 'shot',
-			htmlString = minify(`<h2 class='title__headline'>In Chicago, <strong class='title__current-year'>${numberFormatter(thisYearSum)} people</strong> have been ${verb} this year. That is <strong class='title__last-year'>${numberFormatter(Math.abs(thisYearSum - lastYearSum))} ${lessMore}</strong> ${ lastYear }.</h2>
+			htmlString = minify(`<h2 class='title__headline'>In Chicago, <strong class='title__current-year'>${numberFormatter(thisYearSum)} people</strong> have been ${verb} this year. That is <strong class='title__last-year'>${lessMore}</strong> ${ lastYear }.</h2>
 			<p class='title__subtitle'>Data through ${ d3.timeFormat('%A, %B %-d')(mostCurrentDate) }</p>`, {
 			collapseWhitespace:true,
 			collapseInlineTagWhitespace:false

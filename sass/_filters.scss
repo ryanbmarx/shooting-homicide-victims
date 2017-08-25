@@ -1,0 +1,132 @@
+$filter-button-width: 100%;
+$filter-button-height: 25px;
+
+// The filter button container
+.trb_mainContent .filters{
+	margin: 25px 0;
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-gap: 25px;
+    grid-column: 1/-1; // make the container itself stretch fullwidth
+	
+	// the hide/show properties
+	position:relative;
+	max-height: $filter-button-height;
+	overflow:hidden;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	transition: max-height 250ms ease;
+	cursor:pointer;
+
+	&:after{
+		@include sans-serif-text(14px, 1em, normal);
+		font-style: italic; 
+		text-align: center;
+		content:"CLICK FOR FILTERS";
+
+		display:flex;
+		justify-content: center;
+		align-items: center;
+
+		position:absolute;
+		top: 0%; 
+		left: 0%;
+		width: $filter-button-width;
+		height: $filter-button-height;
+
+		background:#ededed;
+		// margin: #{$filter-button-width / -2} 0 0 #{$filter-button-width / -2};
+
+	}
+
+	&.filters--open{
+		max-height: 1000vh;
+		border-top: none;
+		border-bottom: none;
+
+		&:after{
+			content:none;
+		}
+		
+	}
+	
+	&__group--age{
+		grid-column: 1/-1; // make this one fullwidth
+	}
+
+	&__group-label{
+		@include sans-serif-text(16px, 1em, bold);
+		margin-top: 0;
+		text-align: center;
+	}
+
+}
+
+
+.filter-button{
+	border:none;
+	background:#e0e0e0;
+	display:block;
+	padding: 10px 0;
+	margin-bottom: 5px;
+	text-align:center;
+	width: 100%;
+	cursor:pointer;
+	transition:background 100ms ease;
+
+	&:last-child{
+		margin-bottom:0;
+	}
+
+	&:hover{
+		background: $trib-blue4;
+	}
+
+	&[data-checked="true"], &:hover[data-checked="true"]{
+		transition:background 100ms ease;
+		background: $trib-blue2;
+		color:white;
+	}
+}
+
+// format the slider and label
+.noUi-connect{ background: $slider-background-color; }
+
+.trb_mainContent .age-slider{
+	@include clearfix();
+    margin: 0 auto;
+    width: calc(100% - 32px);
+
+	&__label{
+		@include sans-serif-text(14px, 1em, bold);
+		text-align: center;
+		padding: 5px;
+	    margin: 7px 0 0 0;
+	    border-radius: 5px;
+		width: 40px;
+		background: rgba($slider-background-color, .5);
+		color:white;
+		
+	    &--left{
+    	    float: left;
+	    }
+	    &--right{
+	    	float: right;
+	    }
+	}
+}
+
+
+@media all and (min-width: $tablet-min-width){
+	
+}
+
+@media all and (min-width: 600px){
+
+}
+
+@media all and (min-width: $desktop-min-width){
+	.trb_mainContent .filters{
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

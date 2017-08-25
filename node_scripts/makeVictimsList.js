@@ -94,10 +94,28 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 						outputDate = v['HOUR'].length > 0 ? dateTimeFormatter(inputDate) : dateFormatter(inputDate),
 						sex = formatSex(v['SEX']),
 						age = formatAge(v['AGE']),
-						name = v['NAME_FIRST'] && v['NAME_LAST'] ? `${v['NAME_FIRST']} ${v['NAME_LAST']}` : false;
+						name = v['NAME_FIRST'] && v['NAME_LAST'] ? `${v['NAME_FIRST']} ${v['NAME_LAST']}` : false;	
 						
-				let victimString = "<div class='victim'>";
-						
+				let dataAttrString = ``;
+
+
+				if (sex) dataAttrString += ` data-sex="${v['SEX'].toLowerCase()}"`; 
+				if (age) dataAttrString += ` data-age="${v['AGE']}"`;
+				
+				if (v['RACE']) {					
+					dataAttrString += ` data-race="${v['RACE'].toLowerCase()}"`;
+				} else {
+					dataAttrString += ` data-race="unknown" `;
+				}
+
+				if (v['PUB_CAUSE']) {
+					dataAttrString += ` data-pub_cause="${v['PUB_CAUSE'].toLowerCase()}"`;
+				} else {
+					dataAttrString += ` data-pub_cause="unknown"`;
+				}
+
+				let victimString = `<div class='victim' ${ dataAttrString }>`;
+				
 				victimString += `<p class='victim__date'>${outputDate}</p>`		
 		
 				let descriptionBig, descriptionSmall = false;
@@ -113,7 +131,7 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 
 				if (descriptionSmall) victimString += `<p class='victim__desc-small'>${descriptionSmall}</p>`;;
 
-				if (link) victimString += `<a target='_blank' class='victim__link'>READ STORY</a>`;
+				if (link) victimString += `<a target='_blank' class='victim__link' href='${link}'>READ STORY</a>`;
 	
 				victimString += "</div>";
 	
