@@ -10,6 +10,24 @@ const 	fs = require('fs'),
 		inputPath = process.argv[2],
 		outputPath = process.argv[3];
 
+function getMaxAge(data){
+	let retval = 0;
+	data.forEach(d => {
+		const age = parseInt(d['AGE']);
+		retval = Math.max(retval, age);
+	})
+	return retval;
+}
+
+function getMinAge(data){
+	let retval = 200;
+	data.forEach(d => {
+		const age = parseInt(d['AGE']);
+		retval = Math.min(age, retval);
+	})
+	return retval;
+}
+
 function getButtonString(category, victimsArray){
 	// From an array of victim objects (representing the unique values of the object 
 	// attribute <category>), create an html string to be filter buttons in our app.
@@ -142,7 +160,7 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 	let filtersHTML = `<div class='filters'>
 		<div class="filters__group filters__group--age age-slider">
           <p class='filters__group-label'>Filter by age</p>
-          <div id='age-slider' data-min-age=0 data-max-age=100></div>
+          <div id='age-slider' data-min-age=${getMinAge(victimsData)} data-max-age=${getMaxAge(victimsData)}></div>
           <span class="age-slider__label age-slider__label--left"></span>
           <span class="age-slider__label age-slider__label--right"></span>
         </div>`;
