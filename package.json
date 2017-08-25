@@ -16,7 +16,8 @@
     "build": "npm run download && npm run process && mkdir -p css && grunt && npm run build:victims-homicides && npm run build:year-counter-homicides && npm run build:year-counter-shootings",
     "build:victims-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/homicides/homicides_geocode.csv ./subtemplates/homicides/_victims-list.html",
     "build:year-counter-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeYTDCounter.js ./subtemplates/homicides/_year-counter.html",
-    "build:year-counter-shootings": "mkdir -p ./subtemplates/shootings && node node_scripts/makeYTDCounter.js ./subtemplates/shootings/_year-counter.html"
+    "build:year-counter-shootings": "mkdir -p ./subtemplates/shootings && node node_scripts/makeYTDCounter.js ./subtemplates/shootings/_year-counter.html",
+    "publish": "npm run build && tarbell publish production"
   },
   "repository": {
     "type": "git",

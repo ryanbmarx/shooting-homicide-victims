@@ -153,9 +153,13 @@ def get_homicides(homicides,outputPath):
 	geoDF['Hour']=geoDF['Occ Time'].apply(date_to_t)
 	geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
 	geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
+	
+	#NAMES/ID
 	geoDF['ID'] = np.arange(0,len(geoDF),1)
+	geoDF['NAME_FIRST'] = homicides['First Name']
+	geoDF['NAME_LAST'] = homicides['Last Name']
 	geoDF.columns = ['DATE','TIME','AGE','SEX','RACE','GEOCODE_OVERRIDE','DISTRICT_NUM',
-	'DISTRICT_NAME','NEIGHBORHOOD_NAME','COMMUNITY_NAME','LINK','MURDER','PUB_CAUSE','LAT','LNG','IS_MURDER','IS_FATAL','HOUR','HOUR_HH','MINUTES_MM','ID']
+	'DISTRICT_NAME','NEIGHBORHOOD_NAME','COMMUNITY_NAME','LINK','MURDER','PUB_CAUSE','LAT','LNG','IS_MURDER','IS_FATAL','HOUR','HOUR_HH','MINUTES_MM','ID', 'NAME_FIRST', 'NAME_LAST']
 
 	#The output path already has ".csv" in it, so let's remove it before appending the geocode extentsion
 	geocode_output_path = outputPath.replace('.csv', '')

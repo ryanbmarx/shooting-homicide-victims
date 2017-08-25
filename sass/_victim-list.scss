@@ -57,10 +57,16 @@
   	.victim__date{
   		color:$trib-blue2;
   		font-weight: normal;
+  		margin-bottom:7px;
   	}
 
-  	.victim__desc{
+  	.victim__desc-big{
 		font-size: 19px;
+  	}
+
+  	.victim__desc-small{
+		// font-size: 16px;
+		margin-bottom:7px;
 		
   	}
 
