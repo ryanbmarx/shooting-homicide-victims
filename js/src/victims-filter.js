@@ -69,14 +69,13 @@ module.exports = class VictimsFilter{
             sexSelectors.push(`[data-${selectedSex[i].dataset.cat}='${selectedSex[i].dataset.catValue}']`);
         }
         
-        console.log(raceSelectors.toString(), causeSelectors.toString(), sexSelectors.toString());
-
         app.victims.forEach(v => {
-
-            if(v.matches(raceSelectors.toString()) && v.matches(causeSelectors.toString()) && v.matches(sexSelectors.toString())){
-                console.log(v);
+            // For each victim ...
+            if(v.matches(raceSelectors.toString()) && v.matches(sexSelectors.toString()) && v.matches(causeSelectors.toString())){
+                // ... test if it matches our race, sex and cause buttons. If so, show it.
                 v.style.display = 'block';
             } else {
+                // ... otherwise hide it.
                 v.style.display = 'none';
             }
         })

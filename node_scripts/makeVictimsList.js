@@ -101,13 +101,18 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 
 				if (sex) dataAttrString += ` data-sex="${v['SEX'].toLowerCase()}"`; 
 				if (age) dataAttrString += ` data-age="${v['AGE']}"`;
+				
 				if (v['RACE']) {					
 					dataAttrString += ` data-race="${v['RACE'].toLowerCase()}"`;
 				} else {
-					
 					dataAttrString += ` data-race="unknown" `;
 				}
-				if (v['PUB_CAUSE']) dataAttrString += ` data-cause="${v['PUB_CAUSE'].toLowerCase()}"`;
+
+				if (v['PUB_CAUSE']) {
+					dataAttrString += ` data-pub_cause="${v['PUB_CAUSE'].toLowerCase()}"`;
+				} else {
+					dataAttrString += ` data-pub_cause="unknown"`;
+				}
 
 				let victimString = `<div class='victim' ${ dataAttrString }>`;
 				

@@ -17,6 +17,8 @@ import getTribColor from './utils/getTribColors.js';
 // TODO: ADD INSIGHTS TO THE HEADER
 // TODO: ADD DATA DOWNLOAD LINKS
 // TODO: Test leap year, equal totals with page topper
+// TODO: In victims, look for reasons of "feMale"
+// TODO: Victim 'Lisa JA316043'????
 
 
 class CrimeSite{
