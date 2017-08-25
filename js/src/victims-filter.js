@@ -57,10 +57,10 @@ module.exports = class VictimsFilter{
         });
 
         slider.on('update', function(values){
-            sliderLabelLeft.value = Math.round(values[0]);
+            sliderLabelLeft.innerHTML = Math.round(values[0]) == 0 ? "Baby" : Math.round(values[0]);
             app.selectedMinAge = Math.round(values[0]);
 
-            sliderLabelRight.value = Math.round(values[1]);
+            sliderLabelRight.innerHTML = Math.round(values[1]);
             app.selectedMaxAge = Math.round(values[1]);
         })
 
