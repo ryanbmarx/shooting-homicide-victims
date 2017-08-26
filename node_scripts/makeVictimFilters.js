@@ -146,7 +146,7 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 	let buttons = {};
 
 	// This is the array of attributes for which we want buttons
-	const attributes = ['RACE', 'PUB_CAUSE', 'SEX'];
+	const attributes = ['RACE', 'SEX', 'PUB_CAUSE'];
 
 	attributes.forEach(att => {
 

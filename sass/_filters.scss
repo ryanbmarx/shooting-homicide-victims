@@ -5,7 +5,8 @@ $filter-button-height: 25px;
 .trb_mainContent .filters{
 	margin: 25px 0;
 	display:grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: [col1] 1fr [col1-end col2] 1fr [col2-end];
+	grid-template-rows: [row1] auto [row1-end row2] auto [row2-end row3] auto [row3-end];
 	grid-gap: 25px;
     grid-column: 1/-1; // make the container itself stretch fullwidth
 	
@@ -50,10 +51,28 @@ $filter-button-height: 25px;
 		}
 		
 	}
-	
-	&__group--age{
-		grid-column: 1/-1; // make this one fullwidth
+
+	&__group{
+
+		&--age{
+			grid-column: col1 / -1; // make this one fullwidth
+			grid-row: row1;
+		}
+
+		&--race{
+			grid-column: col1;
+			grid-row: row2;
+		}
+		&--pub_cause{
+			grid-column: col2;
+			grid-row: row2 / span 2;
+		}
+		&--sex{
+			grid-column: col1;
+			grid-row: row3;
+		}
 	}
+
 
 	&__group-label{
 		@include sans-serif-text(16px, 1em, bold);
@@ -122,12 +141,34 @@ $filter-button-height: 25px;
 	
 }
 
-@media all and (min-width: 600px){
-
-}
 
 @media all and (min-width: $desktop-min-width){
 	.trb_mainContent .filters{
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr;
+		grid-template-rows: [row1] auto [row2] auto;
+	
+
+		&__group{
+
+			&--age{
+				grid-column: col1 / col3; // make this one fullwidth
+				grid-row: row1 / span 1;
+			}
+			
+			&--race{
+				grid-column: col1;
+				grid-row: row2 / span 1;
+			}
+			&--pub_cause{
+				grid-column: col3;
+				grid-row: row1 / span 2;
+			}
+
+			&--sex{
+				grid-column: col2;
+				grid-row: row2 / span 1;
+			}
+		}
+
 	}
 }
