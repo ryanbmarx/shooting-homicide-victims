@@ -140,7 +140,7 @@ function getOtherNoteText(data) {
 		return el.x == "Other";
 	})
 
-	let noteString = "Note: Other includes ";
+	let noteString = `Note: "Other" collects categories representing less than 1 percent each of total homicides. This incldues `;
 
 	other.causes.forEach((cause, index) => {
 		// Iterate over the "other"	causes of death and concat a note to readers.

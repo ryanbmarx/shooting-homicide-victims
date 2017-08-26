@@ -59,6 +59,27 @@
       </div>
     </section>
   {% endif %}
+
+  <section class='topic topic--geography'>    
+    {{ topic_topper("map") }}
+    <div class='topic__chart-wrapper map'>
+    {% if not homicides %}
+      <div class='map__legend'>
+        <span class='map__legend-label'>Toggle:</span>
+        <button class='map__legend-button'  data-checked="true" data-toggle="fatalIncidentMarkers">  
+          <span class='map__legend-dot map__legend-dot--fatal'></span>
+          Fatal
+        </button>
+        <button class='map__legend-button' data-checked="true" data-toggle="nonFatalIncidentMarkers">
+          <span class='map__legend-dot map__legend-dot--non-fatal'></span>
+          Non-fatal
+        </button>
+      </div>
+      {% endif %}
+      <div class='map__map' id="map"></div>
+    </div>
+  </section>
+
   {% if homicides %}
     <section class='topic topic--demographics'>    
       {{ topic_topper("demographics") }}
@@ -83,28 +104,8 @@
 
       </section>
     {% endif %}
-    <section class='topic topic--geography'>    
-      {{ topic_topper("map") }}
-      <div class='topic__chart-wrapper map'>
-      {% if not homicides %}
-        <div class='map__legend'>
-          <span class='map__legend-label'>Toggle:</span>
-          <button class='map__legend-button'  data-checked="true" data-toggle="fatalIncidentMarkers">  
-            <span class='map__legend-dot map__legend-dot--fatal'></span>
-            Fatal
-          </button>
-          <button class='map__legend-button' data-checked="true" data-toggle="nonFatalIncidentMarkers">
-            <span class='map__legend-dot map__legend-dot--non-fatal'></span>
-            Non-fatal
-          </button>
-        </div>
-        {% endif %}
-        <div class='map__map' id="map"></div>
-      </div>
-    </section>
+
     {% if homicides %}
-
-
     <section class='topic topic--victims'>
         {{ topic_topper("victims") }}
 

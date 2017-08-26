@@ -199,9 +199,9 @@ class MultilineChart{
 				.append('image')
 				.classed('scrubber__arrow', true) 
 				.attr('xlink:href', `http://${window.ROOT_URL}/img/arrow-double.svg`)
-				.attr('width', .8 * scrubberHeight)
+				.attr('width', .64 * scrubberHeight)
 				.attr('height', .5 * scrubberHeight)
-				.attr('x', scrubberHeight * 0.1)
+				.attr('x', scrubberHeight * 0.18)
 				.attr('y', scrubberHeight * .25)
 				.call(repeatAnimation);
 
