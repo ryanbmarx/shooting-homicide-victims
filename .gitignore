@@ -6,6 +6,8 @@ node_modules
 .sass-cache
 # You probably want to ignore files created by the front-end build
 # process.  Uncomment these lines to do so:
-
-
+app.min.js
+*.map
+css
+subtemplates
 .DS_Store
