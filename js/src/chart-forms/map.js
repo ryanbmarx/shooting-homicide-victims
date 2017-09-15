@@ -1,6 +1,8 @@
 import * as L from 'leaflet';
 import "leaflet-providers";
+// require('leaflet.markercluster');
 import {timeParse, timeFormat} from 'd3';
+
 // require('waypoints/lib/noframework.waypoints.min');
 
 function formatSex(s){
@@ -29,7 +31,7 @@ function makePopupText(incident){
 			sex = formatSex(incident['SEX']),
 			age = formatAge(incident['AGE']);
 			
-	let victimString;
+	let victimString = "";
 			
 	victimString += `<p class='victim__date'>${outputDate}</p>`		
 
@@ -40,7 +42,7 @@ function makePopupText(incident){
 	}  else if (!age && sex){
 		victimString += `<p class='victim__desc'>${sex}</p>`;
 	}
-
+	
 	return victimString;
 }
 

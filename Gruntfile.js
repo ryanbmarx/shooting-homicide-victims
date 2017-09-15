@@ -71,7 +71,13 @@ module.exports = function(grunt) {
     options: {
       outputStyle: 'compressed',
       sourceMap: true,
-      includePaths: [ 'sass/', 'node_modules/trib-styles/sass/', 'node_modules/leaflet/dist/' ]
+      includePaths: [ 
+        'sass/', 
+        'node_modules/trib-styles/sass/', 
+        'node_modules/leaflet/dist/', 
+        'node_modules/leaflet.markercluster/dist/',
+        'node_modules/nouislider/distribute/' 
+      ]
     },
     app: {
       files: {

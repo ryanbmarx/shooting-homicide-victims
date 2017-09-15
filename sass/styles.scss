@@ -10,12 +10,14 @@
 
 // PARTIALS
 @import 'leaflet';
+// @import 'MarkerCluster.css'; // required for clustering
+// @import 'MarkerCluster.Default.css'; // required for clustering
 @import 'page-topper'; // For the headline/topper
 @import 'year-to-date'; // The cumulative line chart
 @import 'victim-list'; // For the victims at the bottom
 @import 'map'; // For the map, duh!
 @import 'causes-of-death'; // The treemap
-@import '../node_modules/nouislider/distribute/nouislider.min.css'; // css needed for the slider module
+@import 'nouislider.min'; // css needed for the slider module
 @import 'filters'; // Victims filters
 
 
