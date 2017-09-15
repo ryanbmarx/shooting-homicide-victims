@@ -52,6 +52,13 @@ $filter-button-height: 25px;
 		
 	}
 
+	&__total{
+		@include sans-serif();
+		margin:0;
+		font-style: italic;
+		grid-column: 1/-1;
+	}
+
 	&__group{
 
 		&--age{

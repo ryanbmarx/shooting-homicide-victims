@@ -175,8 +175,8 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 		filtersHTML += filterGroup;
 	})
 
-	filtersHTML += "</div>";
-
+	// Add the placeholder for the "now showing" total
+	filtersHTML += `<p class='filters__total'></p></div>`;
 
 	filtersHTML = minify(filtersHTML, {
 		collapseWhitespace:true,
@@ -188,7 +188,4 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 	fs.writeFile(outputPath, filtersHTML, err => {
 		if (err) throw err;
 	})
-
-
-
 });
