@@ -2,6 +2,7 @@ import * as L from 'leaflet';
 import "leaflet-providers";
 // require('leaflet.markercluster');
 import {timeParse, timeFormat} from 'd3';
+import validateCoordinates from '../utils/validate-coordinates.js'
 
 // require('waypoints/lib/noframework.waypoints.min');
 
@@ -96,7 +97,8 @@ class ViolenceMap{
 
 			const isFatal = parseInt(incident['IS_FATAL']) == 1 ? true : false;
 
-			if(incident['LAT'] && incident['LNG']){
+			if(validateCoordinates(incident['LAT']) && validateCoordinates(incident['LNG'])){
+				// Only proceed if we have valid coordinates
 
 				const incidentMarker = L.circleMarker({
 					lat:parseFloat(incident['LAT']),
