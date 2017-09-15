@@ -80,6 +80,20 @@
 	}
 }
 
+
+.trb_mainContent .leaflet-popup{
+	p{ 
+		@include sans-serif(); 
+		margin: 0;
+		padding: 0;
+		text-align:center;
+	}
+
+
+
+
+}
+
 @media all and (max-width:450px){
 	
 	.trb_mainContent .map__legend{
