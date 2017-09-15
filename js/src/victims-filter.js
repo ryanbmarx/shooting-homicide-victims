@@ -26,9 +26,13 @@ module.exports = class VictimsFilter{
     constructor(options){
         const app = this;
         
-        // Found the nodelist>array trick here --> https://davidwalsh.name/nodelist-array
+        // Found the nodelist > array trick here --> https://davidwalsh.name/nodelist-array
         app.buttons = [].slice.call(options.buttons);
         app.victims = [].slice.call(options.victims);
+
+
+        // Init the "now showing" label
+        document.querySelector('.filters__total').innerHTML = `Showing ${app.victims.length} of ${app.victims.length} homicide victims`;
 
         // init the checking/unchecking event handler
         app.buttons.forEach(button => {
@@ -66,11 +70,8 @@ module.exports = class VictimsFilter{
 
         slider.on('end', function(){ app.filterVictims() });
 
-        console.log(document.querySelector('.topic--victims .filters'));
-
         // Initialize click handlers to hide and show the filters;
         document.querySelector('.topic--victims .filters').addEventListener('click', function(e) {
-            console.log('click', this);
             this.classList.add('filters--open');
         })
 
@@ -79,7 +80,6 @@ module.exports = class VictimsFilter{
     filterVictims(){
 
         const app = this;
-        console.log('filtering', app.selectedMinAge, app.selectedMaxAge);
 
         // Find out how many options are checked from each option category
         const   selectedRaces = document.querySelectorAll('.filters__group--race .filter-button[data-checked=true]'),
@@ -108,7 +108,8 @@ module.exports = class VictimsFilter{
             sexSelectors.push(`[data-${selectedSex[i].dataset.cat}='${selectedSex[i].dataset.catValue}']`);
         }
 
-        console.log(app.victims);
+        let displayedVictims = 0;
+        
         app.victims.forEach(v => {
             // For each victim ...
             if(v.matches(raceSelectors.toString()) && v.matches(sexSelectors.toString()) && v.matches(causeSelectors.toString())){
@@ -116,6 +117,7 @@ module.exports = class VictimsFilter{
                 const age = parseInt(v.dataset.age);
                 if (age >= app.selectedMinAge && age <= app.selectedMaxAge){
                     v.style.display = 'block';
+                    displayedVictims += 1;
                 } else {
                     v.style.display = 'none';
                 }
@@ -123,6 +125,9 @@ module.exports = class VictimsFilter{
                 // ... otherwise hide it.
                 v.style.display = 'none';
             }
-        })
+        });
+        
+        document.querySelector('.filters__total').innerHTML = `Showing ${displayedVictims} of ${app.victims.length} homicide victims`;
+
     }
 }

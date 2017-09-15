@@ -175,7 +175,7 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 		filtersHTML += filterGroup;
 	})
 
-	filtersHTML += "</div>";
+	filtersHTML += `<p class='filters__total'></p></div>`;
 
 
 	filtersHTML = minify(filtersHTML, {
