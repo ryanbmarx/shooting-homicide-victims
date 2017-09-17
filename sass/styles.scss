@@ -1,3 +1,9 @@
+/*
+
+Help for the IE bs - https://docs.microsoft.com/en-us/microsoft-edge/dev-guide/css/grid-layout
+
+*/
+
 @import 'base-variables';
 
 // Some colors to be shared between the two projects
@@ -10,8 +16,8 @@
 
 // PARTIALS
 @import 'leaflet';
-// @import 'MarkerCluster.css'; // required for clustering
-// @import 'MarkerCluster.Default.css'; // required for clustering
+// @import 'MarkerCluster'; // required for clustering
+// @import 'MarkerCluster.Default'; // required for clustering
 @import 'page-topper'; // For the headline/topper
 @import 'year-to-date'; // The cumulative line chart
 @import 'victim-list'; // For the victims at the bottom
@@ -48,7 +54,9 @@
     }
 
     &__topper{
-      grid-column: 1 / -1; // The end-column value of -1 means "span all columns" -- no, when we adjust the # of columns in media queries, we don't need to constantly adjust this, too.
+      grid-column: 1 / -1; // The end-column value of -1 means "span all columns" -- so, when we adjust the # of columns in media queries, we don't need to constantly adjust this, too.
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
       & > p {
         // for intro text inside the topper, let's make sure they are fullwidth
         width: auto;
@@ -67,9 +75,15 @@
 
     &__chart-wrapper{
       position: relative;
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+
     }
 
   }
+
+
+
 
   .chart{
     // This is the container for each chart or graphic
@@ -77,13 +91,43 @@
     position:relative;
   }
 
-  // These charts are fullwidth
-  .topic--cumulative, .topic--causes, .topic--geography, .topic--victims{
-    .topic__chart-wrapper{
-      grid-column: 1 / -1;
+  // This is an IE hack to make grid work. Each item needs to be placed in it's column and row individually.
+  @for $i from 1 to ($number_of_columns + 1){
+    .trb_mainContent .topic__chart-wrapper:nth-child(#{$i}n+1){
+        -ms-grid-column: #{$i};
+        -ms-grid-column-span: 1;
+
     }
   }
 
+  // These charts are fullwidth
+  .topic--cumulative, .topic--causes, .topic--geography, .topic--victims {
+    .topic__chart-wrapper{
+      grid-column: 1 / -1;
+      -ms-grid-column: 1 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-column-span: 3 !important; // This important overrides for @for loop, which places the other charts
+    }
+  }
+
+  // The victims section needs a little extra help, because the filters is an added element
+  // This only will matter on IE
+  .topic--victims{
+
+    .filters{
+      -ms-grid-column: 1 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-column-span: 3 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-row: 2 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-row-span: 1 !important; // This important overrides for @for loop, which places the other charts
+    }
+
+    .topic__chart-wrapper{
+      -ms-grid-column: 1 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-column-span: 3 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-row: 3 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-row-span: 1 !important; // This important overrides for @for loop, which places the other charts
+    }
+  }
+  
   .topic--cumulative .chart{
     height: $ytd_chart_height;
   }
@@ -92,6 +136,14 @@
     height: $cause_of_death_chart_height;
   }
 }
+
+
+
+
+
+
+    
+
 
 .trb_mainContent .note{
   @include agate()
