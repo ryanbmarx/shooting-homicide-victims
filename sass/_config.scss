@@ -32,7 +32,10 @@ $ytd-highlight-total-years: 6;
 
 // MAP
 $map_height: 100%;
-$map_min_height: 350px;
+// $map_min_height: 350px;
+$map_min_height_mobile: 350px;
+$map_min_height_tablet: 450px;
+$map_min_height_desktop: 550px;
 
 // Victim list
 $victim_inner_padding: 10px;

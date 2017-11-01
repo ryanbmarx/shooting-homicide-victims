@@ -5,7 +5,7 @@
 		width:100%; 
 		height:$map_height;
 		background:#eee;
-		min-height:$map_min_height;
+		min-height:$map_min_height_desktop;
 
 	}
 }
@@ -89,31 +89,43 @@
 		text-align:center;
 	}
 
-
-
-
 }
 
-@media all and (max-width:450px){
+@media all and (max-width: $tablet_max_width){
+	.trb_mainContent .map{
+		&__map{
+			min-height: $map_min_height_tablet; 
+		}
+	}
+}
+
+@media all and (max-width:$mobile_max_width){
 	
-	.trb_mainContent .map__legend{
-		justify-content: space-between;
-		align-items: center;
-		flex-wrap:wrap;
+	.trb_mainContent {
 
-		&-label{
-			// Slide the label above the two buttons, which should stretch to cover full width.
-			// Also, thus will keep button text from wrapping.
-			width:100%;
-			margin: 0 0 10px 0;
+		.map__map{
+			min-height: $map_min_height_mobile;
 		}
 
-		&-button{
-			width: 45%; // fallback
-			width: calc(50% - 8px); // Should put a 16px gutter between the two buttons
-			padding: 10px 0;
-			margin-right:0;
-		}
-	}	
-
-};
+		.map__legend{
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap:wrap;
+	
+			&-label{
+				// Slide the label above the two buttons, which should stretch to cover full width.
+				// Also, thus will keep button text from wrapping.
+				width:100%;
+				margin: 0 0 10px 0;
+			}
+	
+			&-button{
+				width: 45%; // fallback
+				width: calc(50% - 8px); // Should put a 16px gutter between the two buttons
+				padding: 10px 0;
+				margin-right:0;
+			}
+		}	
+	
+	}
+}
