@@ -78,6 +78,15 @@ Help for the IE bs - https://docs.microsoft.com/en-us/microsoft-edge/dev-guide/c
       -ms-grid-row: 2;
       -ms-grid-row-span: 1;
 
+      &:nth-child(3){
+        // The third child (which is the second chart/column if you include the header, too)
+        -ms-grid-column: 2;
+      }
+        &:nth-child(4){
+        // The fourth child (which is the third chart/column if you include the header, too)
+        -ms-grid-column: 3;
+      }
+
     }
 
   }
