@@ -32,7 +32,7 @@ module.exports = class VictimsFilter{
 
 
         // Init the "now showing" label
-        document.querySelector('.filters__total').innerHTML = `Showing ${app.victims.length} of ${app.victims.length} homicide victims`;
+        document.querySelector('.filters__total').innerHTML = `Showing <strong>${app.victims.length}</strong> of <strong>${app.victims.length}</strong> homicide victims`;
 
         // init the checking/unchecking event handler
         app.buttons.forEach(button => {
@@ -127,7 +127,7 @@ module.exports = class VictimsFilter{
             }
         });
         
-        document.querySelector('.filters__total').innerHTML = `Showing ${displayedVictims} of ${app.victims.length} homicide victims`;
+        document.querySelector('.filters__total').innerHTML = `Showing <strong>${displayedVictims}</strong> of <strong>${app.victims.length}</strong> homicide victims`;
 
     }
 }
