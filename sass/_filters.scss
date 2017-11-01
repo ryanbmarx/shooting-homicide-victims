@@ -6,10 +6,10 @@ $filter-button-height: 25px;
 	margin: 25px 0;
 	display:grid;
 	grid-template-columns: [col1] 1fr [col1-end col2] 1fr [col2-end];
-	grid-template-rows: [row1] auto [row1-end row2] auto [row2-end row3] auto [row3-end];
+	grid-template-rows: [row1] auto [row1-end row2] auto [row2-end row3] auto [row3-end row4] auto [row4-end];
 	grid-gap: 25px;
     grid-column: 1/-1; // make the container itself stretch fullwidth
-	
+
 	// the hide/show properties
 	position:relative;
 	max-height: $filter-button-height;
@@ -56,27 +56,27 @@ $filter-button-height: 25px;
 		@include sans-serif();
 		margin:0;
 		font-style: italic;
-		grid-column: 1/-1;
+		grid-column: 1 / span 2;
 	}
 
 	&__group{
 
 		&--age{
-			grid-column: col1 / -1; // make this one fullwidth
-			grid-row: row1;
+			grid-column: 1 / span 2; // make this one fullwidth
+			grid-row: 1;
 		}
 
 		&--race{
-			grid-column: col1;
-			grid-row: row2;
+			grid-column: 1;
+			grid-row: 2;
 		}
 		&--pub_cause{
-			grid-column: col2;
-			grid-row: row2 / span 2;
+			grid-column: 2;
+			grid-row: 2 / span 2;
 		}
 		&--sex{
-			grid-column: col1;
-			grid-row: row3;
+			grid-column: 1;
+			grid-row: 3;
 		}
 	}
 
@@ -116,6 +116,16 @@ $filter-button-height: 25px;
 	}
 }
 
+// This is a check to see if grid-gap is supported. The buttons need spacing if not.
+@supports not (grid-gap:25px){
+	.filter-button{
+		max-width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
 // format the slider and label
 .noUi-connect{ background: $slider-background-color; }
 
@@ -151,29 +161,35 @@ $filter-button-height: 25px;
 
 @media all and (min-width: $desktop-min-width){
 	.trb_mainContent .filters{
-		grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr;
-		grid-template-rows: [row1] auto [row2] auto;
+		grid-template-columns: 1fr  1fr 1fr;
+		grid-template-rows: auto auto auto;
 	
+		&__total{
+			grid-column: 1 / span 3;
+			grid-row: 3 / span 1;
+		}
+
+
 
 		&__group{
 
 			&--age{
-				grid-column: col1 / col3; // make this one fullwidth
-				grid-row: row1 / span 1;
+				grid-column: 1 / span 2; // make this one fullwidth
+				grid-row: 1 / span 1;
 			}
 			
 			&--race{
-				grid-column: col1;
-				grid-row: row2 / span 1;
+				grid-column: 1 / span 1;
+				grid-row: 2 / span 1;
 			}
 			&--pub_cause{
-				grid-column: col3;
-				grid-row: row1 / span 2;
+				grid-column: 3 / span 1;
+				grid-row: 1 / span 3;
 			}
 
 			&--sex{
-				grid-column: col2;
-				grid-row: row2 / span 1;
+				grid-column: 2 / span 1;
+				grid-row: 2 / span 1;
 			}
 		}
 
