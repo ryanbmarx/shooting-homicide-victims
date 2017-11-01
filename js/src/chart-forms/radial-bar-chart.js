@@ -176,7 +176,7 @@ class RadialBarChart{
 
 		// Create the data join to guide our application of tick labeling (circles, labels)
 		const yTicks = yLabels.selectAll('.labels__circle')
-			.data(y.ticks(4))
+			.data(y.ticks(options.yTicks))
 			.enter();
 
 		// Create the circles

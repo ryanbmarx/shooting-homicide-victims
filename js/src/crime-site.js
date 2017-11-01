@@ -44,13 +44,15 @@ class CrimeSite{
 		// Load the radials
 		// -------------------
 
-		const radialMargins = {top:10,right:0,bottom:0,left:0};
+		const 	radialMargins = {top:10,right:0,bottom:0,left:0},
+				radialContainerWidth = document.querySelector('#time').getBoundingClientRect().width; // This will determine the # of ticks.
 
 		const timeRadial = new RadialBarChart({
 			container: document.querySelector('#time'),
 			data: dataUtilities.GetTimeData(currentYearData, "HOUR_HH"),
 			innerMargins:radialMargins,
-			labelKey: 'time'
+			labelKey: 'time',
+			yTicks: radialContainerWidth > 200 ? 4 : 2
 
 		});
 
@@ -58,7 +60,8 @@ class CrimeSite{
 			container: document.querySelector('#day'),
 			data: dataUtilities.GetDayData(currentYearData),
 			innerMargins:radialMargins,
-			labelKey: 'day'
+			labelKey: 'day',
+			yTicks: radialContainerWidth > 200 ? 4 : 2
 
 		});
 
@@ -66,7 +69,8 @@ class CrimeSite{
 			container: document.querySelector('#month'),
 			data: dataUtilities.GetMonthData(currentYearData),
 			innerMargins:radialMargins,
-			labelKey: 'month'
+			labelKey: 'month',
+			yTicks: radialContainerWidth > 200 ? 4 : 2
 		});
 
 
@@ -144,14 +148,7 @@ class CrimeSite{
 				yKey: "y",
 				fillColor:app.options.currentColor,
 				sliceSpacing: 0.03 // the angle, in radians, between elements. Suggested value < 0.1
-			})
-
-			// const sexChart = new RadialBarChart({
-			// 	container: document.querySelector('#sex'),
-			// 	data: dataUtilities.GetSexData(currentYearData),
-			// 	innerMargins:radialMargins,
-			// 	labelKey: 'sex'
-			// });
+			});
 
 			const raceEthnicityChart = new ListBarChart({
 				container: document.querySelector('#race-ethnicity'),
