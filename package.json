@@ -7,17 +7,17 @@
     "watch": "grunt watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "pip install -r dynamic/requirements.txt",
-    "download": "npm run download:homicides && npm run download:shootings",
+    "download": "run-p download:*",
     "download:homicides": "mkdir -p ./data/homicides && python dynamic/Genie_Script/genie_script.py data/homicides/homicides.csv -h",
     "download:shootings": "mkdir -p ./data/shootings && python dynamic/Genie_Script/genie_script.py data/shootings/shootings.csv -s",
-    "process": "npm run process:current-shootings && npm run process:current-homicides",
+    "process": "run-p process:*",
     "process:current-shootings": "node node_scripts/getCurrentYear.js ./data/shootings/shootings_geocode.csv ./data/shootings/shootings_geocode_current.csv",
     "process:current-homicides": "node node_scripts/getCurrentYear.js ./data/homicides/homicides_geocode.csv ./data/homicides/homicides_geocode_current.csv",
-    "build": "npm run download && npm run process && mkdir -p css && grunt && npm run build:victims-homicides && npm run build:year-counter-homicides && npm run build:year-counter-shootings && npm run build:victim-filters-homicides",
-    "build:victims-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/homicides/homicides_geocode.csv ./subtemplates/homicides/_victims-list.html",
-    "build:year-counter-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeYTDCounter.js ./subtemplates/homicides/_year-counter.html",
-    "build:year-counter-shootings": "mkdir -p ./subtemplates/shootings && node node_scripts/makeYTDCounter.js ./subtemplates/shootings/_year-counter.html",
-    "build:victim-filters-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimFilters.js ./data/homicides/homicides_geocode_current.csv ./subtemplates/homicides/_victim-filters.html",
+    "build": "npm run download && npm run process && mkdir -p css && grunt && run-p prebuild:*",
+    "prebuild:victims-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/homicides/homicides_geocode.csv ./subtemplates/homicides/_victims-list.html",
+    "prebuild:year-counter-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeYTDCounter.js ./subtemplates/homicides/_year-counter.html",
+    "prebuild:year-counter-shootings": "mkdir -p ./subtemplates/shootings && node node_scripts/makeYTDCounter.js ./subtemplates/shootings/_year-counter.html",
+    "prebuild:victim-filters-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimFilters.js ./data/homicides/homicides_geocode_current.csv ./subtemplates/homicides/_victim-filters.html",
     "publish": "npm run build && tarbell publish production"
   },
   "repository": {
@@ -42,6 +42,7 @@
     "json2csv": "^3.11.1",
     "lodash.uniqby": "^4.7.0",
     "minifyify": "^7.3.3",
+    "npm-run-all": "^4.1.1",
     "trib-styles": "git+https://tribune.unfuddle.com/git/tribune_trib-styles/"
   },
   "browserify": {
@@ -51,6 +52,7 @@
   "dependencies": {
     "d3": "^4.9.1",
     "d3-queue": "^3.0.7",
+    "d3-shape": "^1.2.0",
     "leaflet": "^1.2.0",
     "leaflet-providers": "^1.1.17",
     "lodash.countby": "^4.6.0",
