@@ -1,9 +1,9 @@
 'use strict'
 
 /*
-	This script takes an input csv, filters to current year, then outputs it to a new file.
-
-	TODO: Make this output a CSV
+	This script takes an input csv, filters to current year, 
+	sorts it with most-current victims first, then outputs it 
+	to a new file.
 */
 
 const 	fs = require('fs'),
@@ -28,14 +28,19 @@ function getCurrentYear(lastDate){
 fs.readFile(inputPath, 'utf-8', (err, data) => {
 	if (err) throw err;
 
+	// Take the data file and parse the csv string into JSON.
 	let currentYearVictims = filter(d3.csvParse(data), o => {
-		// Do the actual slicing of the current year's data
+		// Do the actual slicing of the current year's data by seeking the four-digit year in the datetime string
 		return o['DATE'].indexOf(currentYear) > -1 ? true : false;
 	});
 
-	currentYearVictims = sortBy(currentYearVictims, o => dateParser(o['DATE'], 'asc'))
+	// Now sort the data by date, with most current coming first.
+	currentYearVictims = sortBy(currentYearVictims, o => dateParser(o['DATE'], 'asc'));
 
-	// Take the nicely-filtered and -sorted JSON and make it a CSV
+	// Since sortBy only sorts in ascending order, reverse it to put current first.
+	currentYearVictims.reverse();
+
+	// Take the nicely-filtered and nicely-sorted JSON and make it a CSV
 	const 	keys = Object.keys(currentYearVictims[0]),
 			csv = json2csv({
 				data: currentYearVictims,
@@ -45,6 +50,6 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 	// Write the CSV to a seperate file
 	fs.writeFile(outputPath, csv, err => {
 		if (err) throw err;
-	})
+	});
 
-})
+});
