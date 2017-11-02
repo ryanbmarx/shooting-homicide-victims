@@ -16,7 +16,8 @@ const 	fs = require('fs'),
 		dateFormatter = d3.timeFormat('%b %e'), // For when we don't know time
 		dateTimeFormatter = d3.timeFormat('%-I:%M %p, %b %e'), // For when we know time.
 		inputPath = process.argv[2],
-		outputPath = process.argv[3];
+		outputPath = process.argv[3],
+		ageUnknownString = "Age unknown";
 
 
 function formatSex(s){
@@ -33,7 +34,7 @@ function formatSex(s){
 function formatAge(a){
 	if (a > 0) return `${a}-year-old`;
 	if (a === 0 || a === "0") return 'Baby';
-	if (a === null || a === "null") return "Age unknown"
+	if (a < 0) return ageUnknownString;
 	return false;
 }
 
@@ -111,7 +112,7 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 
 				if (sex) dataAttrString += ` data-sex="${v['SEX'].toLowerCase()}"`; 
 				if (age) dataAttrString += ` data-age="${v['AGE']}"`;
-				
+
 				if (v['RACE']) {					
 					dataAttrString += ` data-race="${v['RACE'].toLowerCase()}"`;
 				} else {

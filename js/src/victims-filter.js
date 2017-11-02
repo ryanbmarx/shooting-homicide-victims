@@ -61,7 +61,19 @@ module.exports = class VictimsFilter{
         });
 
         slider.on('update', function(values){
-            sliderLabelLeft.innerHTML = Math.round(values[0]) == 0 ? "Baby" : Math.round(values[0]);
+            
+            // We have two special cases for ages. If the age is unknown, 
+            // it will be -1. If it is less than a year old (a baby) then it is zero
+            let leftLabel;
+            if (Math.round(values[0]) == 0){
+                leftLabel = "Baby";
+            } else if (Math.round(values[0]) == -1) {
+                leftLabel = "Unk.";
+            } else {
+                leftLabel = Math.round(values[0]);
+            }
+
+            sliderLabelLeft.innerHTML = leftLabel;
             app.selectedMinAge = Math.round(values[0]);
 
             sliderLabelRight.innerHTML = Math.round(values[1]);
