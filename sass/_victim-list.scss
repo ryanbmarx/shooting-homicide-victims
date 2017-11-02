@@ -14,7 +14,7 @@
 	} @else {
 	  
 		width: #{95% / $num}; // fallback
-		width: calc(((100% - #{$gutter_width * ($num - 1)}) / #{$num}) - #{$victim_inner_padding * 2});
+		width: calc(((100% - #{$gutter_width * ($num - 1)}) / #{$num}));
 		
 		&:nth-child(#{$number_of_columns}n+1):nth-last-child(-n+#{$number_of_columns}),
 		&:nth-child(#{$number_of_columns}n+1):nth-last-child(-n+#{$number_of_columns}) ~ & {
@@ -36,7 +36,7 @@
 }
 
 .trb_mainContent .victim{
-	@include distribute_victims_across_columns(1, $gutter_width);
+	@include distribute_victims_across_columns(2, $gutter_width);
   	background: $trib-gray4;
   	text-align:center;
   	padding: $victim_inner_padding;
@@ -46,6 +46,8 @@
 	align-items:center;
 	flex-wrap:wrap;
 	justify-content:center;
+
+	box-sizing:border-box;
 	
 	p,a{
 		// reset stupid NGUX styles
