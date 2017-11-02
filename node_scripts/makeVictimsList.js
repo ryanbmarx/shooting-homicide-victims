@@ -33,6 +33,7 @@ function formatSex(s){
 function formatAge(a){
 	if (a > 0) return `${a}-year-old`;
 	if (a === 0 || a === "0") return 'Baby';
+	if (a === null || a === "null") return "Age unknown"
 	return false;
 }
 
@@ -83,14 +84,13 @@ function getAgeSexString(age, sex){
 	}
 	return retval;
 }
+
 fs.readFile(inputPath, 'utf-8', (err, data) => {
 	if (err) throw err;
 
 	let victims = transformData(data);
 
-	// // This var will hold our growing string of victims
-	// let victimsListString = `<h3 class='map__victims-headline'>Fatal shootings</h3><ul class='victims'>`;
-	
+	// // This var will hold our growing string of victims	
 	let victimListString = "<div class='victims'>";
 
 	victims.forEach(v => {
@@ -131,9 +131,15 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 				let descriptionBig, descriptionSmall = false;
 
 				if (name){
+					// If there is a name, put that in the big spot, with the age on the secondary line
 					descriptionBig = name;
 					descriptionSmall = getAgeSexString(age, sex);
-				}  else {
+				} else if (age == "Age unknown"){
+					// If the age is not known, make sure it's in the secondary position
+					descriptionBig = sex;
+					descriptionSmall = age;
+				} else {
+					// Otherwise just go with the "XX-yo Male" construction	
 					descriptionBig = getAgeSexString(age, sex);
 				}				
 
