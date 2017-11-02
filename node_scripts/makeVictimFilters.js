@@ -11,6 +11,7 @@ const 	fs = require('fs'),
 		outputPath = process.argv[3];
 
 function getMaxAge(data){
+	// Takes the data and finds the oldest age
 	let retval = 0;
 	data.forEach(d => {
 		const age = parseInt(d['AGE']);
@@ -20,6 +21,7 @@ function getMaxAge(data){
 }
 
 function getMinAge(data){
+	// Takes the data and finds the youngest age, with "unknown" being theyoungest at -1
 	let retval = 200;
 	data.forEach(d => {
 		const age = parseInt(d['AGE']);

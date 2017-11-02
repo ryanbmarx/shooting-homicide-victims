@@ -3,14 +3,12 @@
 /*
 	This script takes the victims data (at the moment just from homicides)
 	and slices off this year's victims, outputtng it as a subtemplate
-
-	TODO: Make this output a CSV
 */
 
 const 	fs = require('fs'),
 		d3 = require('d3'),
 		orderBy = require('lodash.orderBy'),
-		filter = require('lodash.filter'),
+		// filter = require('lodash.filter'),
 		minify = require('html-minifier').minify,
 		dateTimeParser = d3.timeParse('%Y-%m-%d %H:%M:%S'),
 		dateFormatter = d3.timeFormat('%b %e'), // For when we don't know time
@@ -51,23 +49,23 @@ function capFirstLetter(string)
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function transformData(data){
-	// Takes the data, parses the CSV, strips it to current year, then orders by date/time
-	const currentYear = new Date().getFullYear();
+// function transformData(data){
+// 	// Takes the data, parses the CSV, strips it to current year, then orders by date/time
+// 	const currentYear = new Date().getFullYear();
 
-	let retval = d3.csvParse(data);
+// 	let retval = d3.csvParse(data);
 
-	// Filter to current year
-	retval = filter(retval, r =>  r['DATE'].slice(0,4) == currentYear);
+// 	// Filter to current year
+// 	retval = filter(retval, r =>  r['DATE'].slice(0,4) == currentYear);
 
-	// Order by datetime
-	retval = orderBy(retval, r => {
-		// We need to catch instnaces without a time. Just make it 12:01 a.m.
-		return r['HOUR'].length > 0 ? dateTimeParser(`${r['DATE']} ${r['HOUR']}`) : dateTimeParser(`${r['DATE']} 00:01:00`);
-	}, 'desc')
+// 	// Order by datetime
+// 	retval = orderBy(retval, r => {
+// 		// We need to catch instnaces without a time. Just make it 12:01 a.m.
+// 		return r['HOUR'].length > 0 ? dateTimeParser(`${r['DATE']} ${r['HOUR']}`) : dateTimeParser(`${r['DATE']} 00:01:00`);
+// 	}, 'desc')
 
-	return retval;
-}
+// 	return retval;
+// }
 
 function getAgeSexString(age, sex){
 	let retval="";
@@ -89,7 +87,7 @@ function getAgeSexString(age, sex){
 fs.readFile(inputPath, 'utf-8', (err, data) => {
 	if (err) throw err;
 
-	let victims = transformData(data);
+	let victims = d3.csvParse(data);
 
 	// // This var will hold our growing string of victims	
 	let victimListString = "<div class='victims'>";
