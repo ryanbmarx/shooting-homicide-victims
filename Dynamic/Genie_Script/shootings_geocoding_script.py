@@ -113,7 +113,7 @@ def date_to_t(t):
 geoDF['Hour']=geoDF['Time'].apply(date_to_t)
 geoDF['Hour HH'] = [m.hour if m!='' else -1 for m in geoDF['Hour']]
 geoDF['Minutes MM'] = [m.minute if m!='' else -1 for m in geoDF['Hour']]
-
+geoDF['Age'] = geoDF['Age'].replace(np.nan,-1) #replacing all empty cells with -1 so that we can differentiate between victims <1 year and non empty cells
 geoDF.columns = ['DATE','SEX','UCR','AGE','TIME', 'LOCATION','GEOCODE_OVERRIDE','LINK','ID','LAT','LNG','IS_FATAL','HOUR','HOUR_HH','MINUTES_MM']
 geoDF.to_csv(outputPath,index=False)
 

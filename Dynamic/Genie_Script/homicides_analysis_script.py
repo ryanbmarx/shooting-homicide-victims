@@ -145,9 +145,8 @@ def get_homicides(homicides,outputPath):
 	geoDF['Murder'] = geoDF['Murder'].replace(np.nan,'')
 	geoDF['isMurder'] = geoDF['Murder'].apply(isMurder)
 	geoDF['isFatal']=[1]*len(geoDF)
+	geoDF['Age'] = geoDF['Age'].replace(np.nan,-1) #replacing empty cells with -1
 	geoDF['Age'] = geoDF['Age'].apply(clean_age) #recoding the Age column. Any reported age in alphabetical strings (e.g, 1 week, day, 3 months.) will be assigned a value of zero.
-
-
 	#time
 	geoDF['Occ Time']=geoDF['Occ Time'].replace(np.nan,'') #replacing empty NaN values with empty strings
 	geoDF['Hour']=geoDF['Occ Time'].apply(date_to_t)
