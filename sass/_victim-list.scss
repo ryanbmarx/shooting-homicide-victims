@@ -60,6 +60,7 @@
   		color:$trib-blue2;
   		font-weight: normal;
   		margin-bottom:7px;
+  		font-size: 14px;
   	}
 
   	.victim__desc-big{
@@ -85,6 +86,8 @@
 	.trb_mainContent  .victim{
 	  @include distribute_victims_across_columns(2, $gutter_width);
 	}
+
+	.trb_mainContent .victim .victim__date{ font-size: 16px; }
 }
 
 @media all and (min-width:$desktop_min_width){
