@@ -15,8 +15,8 @@ const 	fs = require('fs'),
 		dateTimeFormatter = d3.timeFormat('%-I:%M %p, %b %e'), // For when we know time.
 		inputPath = process.argv[2],
 		outputPath = process.argv[3],
+		limit = process.argv[4] != undefined ? parseInt(process.argv[4]) : false,
 		ageUnknownString = "Age unknown";
-
 
 function formatSex(s){
 	// We have room in here to accomadate others. If not specified, will return supplied value.
@@ -86,9 +86,10 @@ function getAgeSexString(age, sex){
 
 fs.readFile(inputPath, 'utf-8', (err, data) => {
 	if (err) throw err;
-
-	let victims = d3.csvParse(data);
-
+	
+	// If we passed in an optional limit (n), slice off the n most recent records.
+	let victims = limit ? d3.csvParse(data).slice(0, limit + 1) : d3.csvParse(data);
+	
 	// // This var will hold our growing string of victims	
 	let victimListString = "<div class='victims'>";
 
@@ -97,62 +98,60 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 			// If there is some error parsing the data, we will want to catch that, but move on and
 			// and generate the others in the list.
 
-			if (isFatal(v)){
-				const 	link = v['LINK'].length > 0 ? v['LINK'] : false,
-						inputDate = v['HOUR'].length > 0 ? dateTimeParser(`${v['DATE']} ${v['HOUR']}`) : dateTimeParser(`${v['DATE']} 00:01:00`),
-						outputDate = v['HOUR'].length > 0 ? dateTimeFormatter(inputDate) : dateFormatter(inputDate),
-						sex = formatSex(v['SEX']),
-						age = formatAge(v['AGE']),
-						name = v['NAME_FIRST'] && v['NAME_LAST'] ? `${v['NAME_FIRST']} ${v['NAME_LAST']}` : false;	
-						
-				let dataAttrString = ``;
+			const 	link = v['LINK'].length > 0 ? v['LINK'] : false,
+					inputDate = v['HOUR'].length > 0 ? dateTimeParser(`${v['DATE']} ${v['HOUR']}`) : dateTimeParser(`${v['DATE']} 00:01:00`),
+					outputDate = v['HOUR'].length > 0 ? dateTimeFormatter(inputDate) : dateFormatter(inputDate),
+					sex = formatSex(v['SEX']),
+					age = formatAge(v['AGE']),
+					name = v['NAME_FIRST'] && v['NAME_LAST'] ? `${v['NAME_FIRST']} ${v['NAME_LAST']}` : false;	
+					
+			let dataAttrString = ``;
 
 
-				if (sex) dataAttrString += ` data-sex="${v['SEX'].toLowerCase()}"`; 
-				if (age) dataAttrString += ` data-age="${v['AGE']}"`;
+			if (sex) dataAttrString += ` data-sex="${v['SEX'].toLowerCase()}"`; 
+			if (age) dataAttrString += ` data-age="${v['AGE']}"`;
 
-				if (v['RACE']) {					
-					dataAttrString += ` data-race="${v['RACE'].toLowerCase()}"`;
-				} else {
-					dataAttrString += ` data-race="unknown" `;
-				}
-
-				if (v['PUB_CAUSE']) {
-					dataAttrString += ` data-pub_cause="${v['PUB_CAUSE'].toLowerCase()}"`;
-				} else {
-					dataAttrString += ` data-pub_cause="unknown"`;
-				}
-
-				let victimString = `<div class='victim' ${ dataAttrString }>`;
-				
-				victimString += `<p class='victim__date'>${outputDate}</p>`		
-		
-				let descriptionBig, descriptionSmall = false;
-
-				if (name){
-					// If there is a name, put that in the big spot, with the age on the secondary line
-					descriptionBig = name;
-					descriptionSmall = getAgeSexString(age, sex);
-				} else if (age == "Age unknown"){
-					// If the age is not known, make sure it's in the secondary position
-					descriptionBig = sex;
-					descriptionSmall = age;
-				} else {
-					// Otherwise just go with the "XX-yo Male" construction	
-					descriptionBig = getAgeSexString(age, sex);
-				}				
-
-				victimString += `<p class='victim__desc-big'>${descriptionBig}</p>`;
-
-				if (descriptionSmall) victimString += `<p class='victim__desc-small'>${descriptionSmall}</p>`;;
-
-				if (link) victimString += `<a target='_blank' class='victim__link' href='${link}'>READ STORY</a>`;
-	
-				victimString += "</div>";
-	
-				// Add our newly-formed victim to the running list
-				victimListString += victimString;
+			if (v['RACE']) {					
+				dataAttrString += ` data-race="${v['RACE'].toLowerCase()}"`;
+			} else {
+				dataAttrString += ` data-race="unknown" `;
 			}
+
+			if (v['PUB_CAUSE']) {
+				dataAttrString += ` data-pub_cause="${v['PUB_CAUSE'].toLowerCase()}"`;
+			} else {
+				dataAttrString += ` data-pub_cause="unknown"`;
+			}
+
+			let victimString = `<div class='victim' ${ dataAttrString }>`;
+			
+			victimString += `<p class='victim__date'>${outputDate}</p>`		
+	
+			let descriptionBig, descriptionSmall = false;
+
+			if (name){
+				// If there is a name, put that in the big spot, with the age on the secondary line
+				descriptionBig = name;
+				descriptionSmall = getAgeSexString(age, sex);
+			} else if (age == "Age unknown"){
+				// If the age is not known, make sure it's in the secondary position
+				descriptionBig = sex;
+				descriptionSmall = age;
+			} else {
+				// Otherwise just go with the "XX-yo Male" construction	
+				descriptionBig = getAgeSexString(age, sex);
+			}				
+
+			victimString += `<p class='victim__desc-big'>${descriptionBig}</p>`;
+
+			if (descriptionSmall) victimString += `<p class='victim__desc-small'>${descriptionSmall}</p>`;;
+
+			if (link) victimString += `<a target='_blank' class='victim__link' href='${link}'>READ STORY</a>`;
+
+			victimString += "</div>";
+
+			// Add our newly-formed victim to the running list
+			victimListString += victimString;
 		}
 
 
