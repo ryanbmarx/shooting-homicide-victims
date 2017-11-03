@@ -19,7 +19,7 @@
     "prebuild:year-counter-shootings": "mkdir -p ./subtemplates/shootings && node node_scripts/makeYTDCounter.js ./subtemplates/shootings/_year-counter.html",
     "prebuild:victim-filters-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimFilters.js ./data/homicides/homicides_geocode_current.csv ./subtemplates/homicides/_victim-filters.html",
     "grunt": "mkdir -p css && grunt",
-    "build:sequence":"run-s download process prebuild",
+    "build:sequence": "run-s download process prebuild",
     "build": "run-p grunt build:sequence",
     "publish": "npm run build && tarbell publish production"
   },
