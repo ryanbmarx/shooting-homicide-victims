@@ -128,11 +128,9 @@ class RadialBarChart{
 		// Define our scales
 		const angleSlice = ((2 * Math.PI)  - yScaleGap) / data.length; // This is the arc, in radians, reserved for each bar, with room for the blank one added in.
 
-		console.log(2 * Math.PI, angleSlice * data.length);
-
 		// though it's circular, this is basically a bar chart, so use the scale band.
 		const x = d3.scaleBand()
-		    .range([0, angleSlice * data.length]) // starting angle = 0, ending angle = full circle less one unit, in radians
+		    .range([yScaleGap / 2, angleSlice * data.length]) // starting angle = 0, ending angle = full circle less one unit, in radians
 		    .align(0)
 		    .domain(data.map(d => d['x']));
 
@@ -198,7 +196,7 @@ class RadialBarChart{
 		yTicks.append('text')
 			.attr('class', 'labels__label labels__label--outline')
 			.attr('transform', d => `translate(-5, ${0 - y (d)})`)
-			.attr('text-anchor', 'end')
+			.attr('text-anchor', 'middle')
 			.style('font-size', '12px')
 			// .style('font-weight', 'bold')
 			.style('font-family', 'Arial, sans-serif')
@@ -211,7 +209,7 @@ class RadialBarChart{
 		yTicks.append('text')
 			.attr('class', 'labels__label labels__label--black')
 			.attr('transform', d => `translate(-5, ${0 - y (d)})`)
-			.attr('text-anchor', 'end')
+			.attr('text-anchor', 'middle')
 			.style('font-size', '12px')
 			// .style('font-weight', 'bold')
 			.style('font-family', 'Arial, sans-serif')
