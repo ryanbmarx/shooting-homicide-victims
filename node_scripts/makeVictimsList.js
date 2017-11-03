@@ -49,23 +49,6 @@ function capFirstLetter(string)
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// function transformData(data){
-// 	// Takes the data, parses the CSV, strips it to current year, then orders by date/time
-// 	const currentYear = new Date().getFullYear();
-
-// 	let retval = d3.csvParse(data);
-
-// 	// Filter to current year
-// 	retval = filter(retval, r =>  r['DATE'].slice(0,4) == currentYear);
-
-// 	// Order by datetime
-// 	retval = orderBy(retval, r => {
-// 		// We need to catch instnaces without a time. Just make it 12:01 a.m.
-// 		return r['HOUR'].length > 0 ? dateTimeParser(`${r['DATE']} ${r['HOUR']}`) : dateTimeParser(`${r['DATE']} 00:01:00`);
-// 	}, 'desc')
-
-// 	return retval;
-// }
 
 function getAgeSexString(age, sex){
 	let retval="";
