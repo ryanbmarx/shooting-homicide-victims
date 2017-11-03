@@ -114,7 +114,8 @@ class RadialBarChart{
 				yMax = d3.max(data, d => d.y),
 				guideColor = getTribColor('trib-grey4'),
 				chartBackgroundColor = "white",
-				tickLength = 7;
+				tickLength = 7,
+				yScaleGap = options.yScaleGap;
 
 
 		// some housekeeping variable declarations
@@ -125,11 +126,13 @@ class RadialBarChart{
 
 		
 		// Define our scales
-		const angleSlice = 2 * Math.PI / (data.length + 1); // This is the arc, in radians, reserved for each bar, with room for the blank one added in.
+		const angleSlice = ((2 * Math.PI)  - yScaleGap) / data.length; // This is the arc, in radians, reserved for each bar, with room for the blank one added in.
+
+		console.log(2 * Math.PI, angleSlice * data.length);
 
 		// though it's circular, this is basically a bar chart, so use the scale band.
 		const x = d3.scaleBand()
-		    .range([0, (2 * Math.PI) - angleSlice]) // starting angle = 0, ending angle = full circle less one unit, in radians
+		    .range([0, angleSlice * data.length]) // starting angle = 0, ending angle = full circle less one unit, in radians
 		    .align(0)
 		    .domain(data.map(d => d['x']));
 

@@ -45,14 +45,15 @@ class CrimeSite{
 		// -------------------
 
 		const 	radialMargins = {top:10,right:0,bottom:0,left:0},
-				radialContainerWidth = document.querySelector('#time').getBoundingClientRect().width; // This will determine the # of ticks.
-
+				radialContainerWidth = document.querySelector('#time').getBoundingClientRect().width, // This will determine the # of ticks.
+				radialScaleGap = 130/360;
 		const timeRadial = new RadialBarChart({
 			container: document.querySelector('#time'),
 			data: dataUtilities.GetTimeData(currentYearData, "HOUR_HH"),
 			innerMargins:radialMargins,
 			labelKey: 'time',
-			yTicks: radialContainerWidth > 200 ? 4 : 2
+			yTicks: radialContainerWidth > 200 ? 4 : 2,
+			yScaleGap: radialScaleGap
 
 		});
 
@@ -61,7 +62,8 @@ class CrimeSite{
 			data: dataUtilities.GetDayData(currentYearData),
 			innerMargins:radialMargins,
 			labelKey: 'day',
-			yTicks: radialContainerWidth > 200 ? 4 : 2
+			yTicks: radialContainerWidth > 200 ? 4 : 2,
+			yScaleGap: radialScaleGap
 
 		});
 
@@ -70,7 +72,8 @@ class CrimeSite{
 			data: dataUtilities.GetMonthData(currentYearData),
 			innerMargins:radialMargins,
 			labelKey: 'month',
-			yTicks: radialContainerWidth > 200 ? 4 : 2
+			yTicks: radialContainerWidth > 200 ? 4 : 2,
+			yScaleGap: radialScaleGap
 		});
 
 
