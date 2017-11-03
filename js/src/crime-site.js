@@ -34,11 +34,11 @@ class CrimeSite{
 
 	const base_data_url = `http://${options.ROOT_URL}/data/${options.version}`;
 	
-	csv(`${base_data_url}/${options.version}_geocode_current.csv`, (err, data) => {
+	csv(`${base_data_url}/${options.version}_geocode_last365.csv`, (err, data) => {
 		if (err) throw err;
 
 		// This dataset will get used in a few different ways.
-		const currentYearData = dataUtilities.GetCurrentYearData(data);
+		const currentYearData = data;
 
 		// -------------------
 		// Load the radials
@@ -84,7 +84,7 @@ class CrimeSite{
 
 		const map = new ViolenceMap({
 			container: document.querySelector('#map'),
-			data:currentYearData,
+			data:dataUtilities.GetCurrentYearData(data),
 			currentColor: app.options.currentColor,
 			fatalColor: app.options.fatalColor,
 			legendButtons: document.querySelectorAll('.map__legend-button')
