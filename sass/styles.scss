@@ -65,8 +65,15 @@ Help for the IE bs - https://docs.microsoft.com/en-us/microsoft-edge/dev-guide/c
 
     &__header{
       @include label5();
-      margin-top:0;
+      margin: 0 0 10px 0;
     }
+
+    &__describer{
+      @include sans-serif();
+      margin: 0 0 18px 0;
+      padding:0;
+    }
+
     &__sub-header{
       @include label7();
       margin-top:0;

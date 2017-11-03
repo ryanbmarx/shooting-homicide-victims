@@ -3,6 +3,9 @@
     {% if labels[key + "_label"][v] %}
       <h2 class='topic__header'>{{ labels[key + "_label"][v] }}</h2>
     {% endif %}
+    {% if labels[key + "_sublabel"][v] %}
+      <p class='topic__describer'>{{ labels[key + "_sublabel"][v] }}</p>
+    {% endif %}
     {% if labels[key + "_intro"][v] %}
       {{ labels[key + "_intro"][v]|markdown }}
     {% endif %}
