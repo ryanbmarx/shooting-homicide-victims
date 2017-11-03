@@ -7,13 +7,13 @@ module.exports = function formatRaceEthnicity(str){
 			return "Black, not hispanic";
 			break;
 		case "W(H)":
-			return "White, hispanic";
+			return "Hispanic";
 			break;
 		case "W":
 			return "White, not hispanic"
 			break;
 		case "B(H)":
-			return "Black, not hispanic";
+			return "Black, hispanic";
 			break;
 		case "A":
 			return "Asian";
