@@ -83,9 +83,10 @@ function GetMonthData(data){
 function GetAgeData(data){
 
 	let ageData = countBy(data, d =>{
-		if (parseInt(d.AGE) > 1) return d.AGE;
-		if (typeof(d.AGE) == 'string' && d.AGE.toUpperCase() != "NONE" && d.AGE.toUpperCase() != "M") return 0;
-		return "bogus";
+		if (parseInt(d.AGE) > 1) return d.AGE; // If the age is a number, return it. If it's -1, then that means age is not known.
+		// if (parseInt(d.AGE) < 0) return false; 
+		if (typeof(d.AGE) == 'string' && d.AGE.toUpperCase() != "NONE" && d.AGE.toUpperCase() != "M") return 0; // All manner of methodsa re used for baby ages < 1 year. Basically, if it's a string, then assume it is a baby, age = 0;
+		return false; // If you've made it this far through the if statements, you deserve some rest. Skip it.
 	});
 
 	ageData = objectToArray(ageData, false);
