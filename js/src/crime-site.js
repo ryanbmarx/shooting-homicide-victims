@@ -34,11 +34,12 @@ class CrimeSite{
 
 	const base_data_url = `http://${options.ROOT_URL}/data/${options.version}`;
 	
+	// This is the last 365 data being downloaded.
 	csv(`${base_data_url}/${options.version}_geocode_last365.csv`, (err, data) => {
 		if (err) throw err;
 
 		// This dataset will get used in a few different ways.
-		const currentYearData = data;
+		const last365Data = data;
 
 		// -------------------
 		// Load the radials
@@ -49,7 +50,7 @@ class CrimeSite{
 				radialScaleGap = 130/360;
 		const timeRadial = new RadialBarChart({
 			container: document.querySelector('#time'),
-			data: dataUtilities.GetTimeData(currentYearData, "HOUR_HH"),
+			data: dataUtilities.GetTimeData(last365Data, "HOUR_HH"),
 			innerMargins:radialMargins,
 			labelKey: 'time',
 			yTicks: radialContainerWidth > 200 ? 4 : 2,
@@ -59,7 +60,7 @@ class CrimeSite{
 
 		const dayRadial = new RadialBarChart({
 			container: document.querySelector('#day'),
-			data: dataUtilities.GetDayData(currentYearData),
+			data: dataUtilities.GetDayData(last365Data),
 			innerMargins:radialMargins,
 			labelKey: 'day',
 			yTicks: radialContainerWidth > 200 ? 4 : 2,
@@ -69,7 +70,7 @@ class CrimeSite{
 
 		const monthRadial = new RadialBarChart({
 			container: document.querySelector('#month'),
-			data: dataUtilities.GetMonthData(currentYearData),
+			data: dataUtilities.GetMonthData(last365Data),
 			innerMargins:radialMargins,
 			labelKey: 'month',
 			yTicks: radialContainerWidth > 200 ? 4 : 2,
@@ -103,7 +104,7 @@ class CrimeSite{
 
 			const causesOfDeath = new TreeMap({
 				container: document.querySelector('#causes'),
-				data: dataUtilities.getTreeMapData(currentYearData),
+				data: dataUtilities.getTreeMapData(last365Data),
 		        innerMargins:{ top:0,right:0,bottom:0,left:20 }
 			});
 
@@ -111,7 +112,7 @@ class CrimeSite{
 		        filled:false, // Include a filled area under the line
 		        curvyLine: true, // soften the angles of the line
 		        container:document.querySelector('#age'),
-		        dataset: dataUtilities.GetAgeData(currentYearData), // Will be charted AS IS. All transforms, etc., should be done by now.
+		        dataset: dataUtilities.GetAgeData(last365Data), // Will be charted AS IS. All transforms, etc., should be done by now.
 		        xAttribute:'x', // The key of the x attribute in the data set
 		        yAttribute:'y', // The key of the y attribute in the data set
 		        innerMargins:{ top:10,right:10,bottom:19,left:40 }, // This will inset the chart from the base container (which should be controlled by CSS)
@@ -143,7 +144,7 @@ class CrimeSite{
 
 			const sexChart = new PieChart({
 				container: document.querySelector('#sex'),
-				data: dataUtilities.GetSexData(currentYearData),
+				data: dataUtilities.GetSexData(last365Data),
 				innerMargins:{ top:0, right:0, bottom:0, left:0 },
 				labelKey: 'sex',
 				donutWidth: 35, // Set to "false" if you don't want a donut
@@ -155,7 +156,7 @@ class CrimeSite{
 
 			const raceEthnicityChart = new ListBarChart({
 				container: document.querySelector('#race-ethnicity'),
-				data: dataUtilities.GetRaceEthnicityData(currentYearData),
+				data: dataUtilities.GetRaceEthnicityData(last365Data),
 		        innerMargins:{ top:20,right:10,bottom:20,left:0 },
 		        barColor: getTribColor('trib-blue3'),
 		        xTicks: 5
@@ -163,6 +164,7 @@ class CrimeSite{
 		}
 	});
 
+	// This is the cumulative chart data.
 	csv(`${base_data_url}/${options.version}.csv`, (d,i,columns) => {
 		// This coerces the data into numbers
 		for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
