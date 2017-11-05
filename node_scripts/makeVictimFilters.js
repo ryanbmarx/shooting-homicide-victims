@@ -38,7 +38,7 @@ function getButtonString(category, victimsArray){
 
 	orderBy(victimsArray, v => v[category] == "" ? "Unknown" : v[category]).forEach(v => {
 		let label = v[category] == "" ? "Unknown" : v[category];
-		retval += `<button class='filter-button' data-checked=true data-cat='${category.toLowerCase()}' data-cat-value='${label.toLowerCase()}'>${labelFormatters[category](label)}</button>`;
+		retval += `<button class='filter-button' data-checked=false data-cat='${category.toLowerCase()}' data-cat-value='${label.toLowerCase()}'>${labelFormatters[category](label)}</button>`;
 	})
 
 	return retval;
@@ -71,7 +71,7 @@ labelFormatters.SEX = function(att){
 			return "Female";
 			break;
 		case "UNKNOWN":
-			return "Unknown";
+			return "Not known";
 			break;
 	}
 	return att;
@@ -89,13 +89,13 @@ labelFormatters.RACE = function(att){
 			return "White, not hispanic";
 			break;
 		case "W(H)":
-			return "White, hispanic";
+			return "Hispanic";
 			break;
 		case "A":
 			return "Asian";
 			break;
 		case "UNKNOWN":
-			return "Unknown";
+			return "Not known";
 			break;
 
 	}
