@@ -1,0 +1,131 @@
+.trb_mainContent .map{
+	align-self:stretch;
+	&__map{
+		// the actual map holder, filled by Leaflet
+		width:100%; 
+		height:$map_height;
+		background:#eee;
+		min-height:$map_min_height_desktop;
+
+	}
+}
+
+.trb_mainContent .map__legend{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 0 10px 0;
+	// float:right;
+	&-label{
+		@include agate();
+		margin: 0 10px 0 0;
+	}
+
+	&-button{
+		@include sans-serif();
+		width: 150px;
+		display:inline-block;
+		border:none;
+		padding: 10px;
+		background: white;
+		border:1px solid black;
+		color:black;
+		transition: all 150ms ease;
+		margin-right:10px;
+		cursor: pointer;
+		
+		&:last-child{
+			margin-right:0;
+		}
+
+		&[data-checked="true"]{
+			background:black;
+			color:white;
+			transition: all 150ms ease;
+		}
+
+		.map__legend-dot{
+			@include trib-legend__box(50%);
+			border: 2px solid white;
+
+			&--fatal{
+				background: $fatal_color;
+			}
+
+			&--non-fatal{
+				background: $trib-blue2;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 849px){
+
+	.chart--map figcaption{
+
+		.chart__headline{
+			float: none;
+		}
+	}
+	// .trb_mainContent .map__legend{ float:none; }
+
+	.trb_mainContent .map{
+		display:block;	
+
+		&__map{
+			// width:auto;
+			// height: 380px;
+			// margin-bottom:25px;
+		}
+	}
+}
+
+
+.trb_mainContent .leaflet-popup{
+	p{ 
+		@include sans-serif(); 
+		margin: 0;
+		padding: 0;
+		text-align:center;
+	}
+
+}
+
+@media all and (max-width: $tablet_max_width){
+	.trb_mainContent .map{
+		&__map{
+			min-height: $map_min_height_tablet; 
+		}
+	}
+}
+
+@media all and (max-width:$mobile_max_width){
+	
+	.trb_mainContent {
+
+		.map__map{
+			min-height: $map_min_height_mobile;
+		}
+
+		.map__legend{
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap:wrap;
+	
+			&-label{
+				// Slide the label above the two buttons, which should stretch to cover full width.
+				// Also, thus will keep button text from wrapping.
+				width:100%;
+				margin: 0 0 10px 0;
+			}
+	
+			&-button{
+				width: 45%; // fallback
+				width: calc(50% - 8px); // Should put a 16px gutter between the two buttons
+				padding: 10px 0;
+				margin-right:0;
+			}
+		}	
+	
+	}
+}

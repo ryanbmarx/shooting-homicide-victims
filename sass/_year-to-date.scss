@@ -1,0 +1,101 @@
+
+
+@keyframes strokeDraw{
+	to{
+		stroke-dashoffset:0;
+	}
+}
+
+.line{
+	// This will animate each line of the multiline chart at load
+	// stroke-dasharray: 2000;
+	// stroke-dashoffset: 2000;
+	// animation: strokeDraw 5s linear forwards;
+}
+
+
+/* @keyframes duration | timing-function | delay | iteration-count | direction | fill-mode | play-state | name */
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+   /* 
+	HACK ALERT:
+	https://paper-leaf.com/blog/2014/09/targeting-ie-10-11-browsers-css/
+   	IE10+ specific styles go here 
+   */  
+   .line{
+   		// This animation won't work on IE, so we will avoid it.
+		stroke-dasharray: 0 !important;
+		stroke-dashoffset: 0 !important;
+		animation: none !important;
+   }
+}
+
+
+.highlight {
+    z-index: 100000;
+	// padding: 15px;
+	// width: 105px;
+	opacity:0;
+	position: absolute;
+	top:0;
+	left:70px;
+	width: $ytd-table-width;
+
+	&__label{
+		@include sans-serif()
+		display: inline-block;
+		font-weight: bold;
+		margin: 0;
+		padding:7px;
+		color: #fff;
+		background:black;
+	}
+
+	&__table{
+		@include trib-table(compressed);
+		background: #fff;
+		// border: 1px solid black;
+		margin:0;
+		// width:100%;
+		table-layout: fixed;
+		thead { border-bottom: none; }
+
+		tr th{
+			border-bottom: 2px solid $trib-grey2;
+		}
+
+		tr td, tr th{
+			text-align: center;
+			width: $ytd-table-width / 6; // fallback
+			width: calc((100% - #{$ytd-border-width * ($ytd-highlight-total-years - 1)}) / 6);
+			padding-left:0;
+			padding-right:0;
+		    border-right: 10px solid white;
+
+		    &:last-child{
+		    	 border-right:none;
+		    	 font-weight: bold;
+		    }
+		}
+	}
+
+}
+@media all and (max-width: 650px){
+
+	.chart--ytd{
+		@include clearfix();
+	}
+
+	.highlight{
+		width:100%;
+		position:static;
+		margin: 10px 0;
+	}
+	.highlight__label{
+		text-align: center;
+		display: block;
+		padding: 0;
+		color:black;
+		background:white;
+	}
+}

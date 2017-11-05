@@ -22,3 +22,8 @@ python shootings_script_Dynamic.py shootings/data (this is just an example of ho
 
 ```
 
+## Aggregating Chicago Police Department IUCR codes to shootings data
+
+As an initiative to classify shooting incidents based on fatality (whether a shooting is fatal or not), we referred to Chicago Data Portal [link](https://data.cityofchicago.org/Public-Safety/Chicago-Police-Department-Illinois-Uniform-Crime-R/c7ck-438e/data) to add a "is_fatal" column to the shootings data file that determines whether a shooting is fatal or not. We will be aggregating data based on Illinois Uniform Crime Reporting Code for Homicide which are 110: 1st degree murder, 130: 2nd degree murder, 141:involuntary manslaughter, 142: reckless homicide
+
+NOTE: reporters have entered UCR code 110 as 110 and 0110. This has been resolved on the analysis end.

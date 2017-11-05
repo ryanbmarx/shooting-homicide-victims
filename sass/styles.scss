@@ -1,111 +1,218 @@
+/*
+
+Help for the IE bs - https://docs.microsoft.com/en-us/microsoft-edge/dev-guide/css/grid-layout
+
+*/
+
 @import 'base-variables';
+
+// Some colors to be shared between the two projects
+@import 'config';
+
+// MIXINS
 @import 'base-mixins';
+@import 'responsive-font';
 
-//MAP STYLES GO HERE
-.shooting-icon{
-  height:10px;
-  width:10px;
-  background-color:$trib_blue2;
-  border-radius: 50%;
-  border:1px solid black;
-  opacity:0.75;
-}
 
-//REST OF PROJECT STYLES
-.category {
-	h2{
-    @include serif-text(30px, 1.3em, bold);
-    margin-bottom:0px;
-    margin-top:40px;
-    }
-	p{
-		margin-top:3px;
-	}
-}
+// PARTIALS
+@import 'leaflet';
+// @import 'MarkerCluster'; // required for clustering
+// @import 'MarkerCluster.Default'; // required for clustering
+@import 'page-topper'; // For the headline/topper
+@import 'year-to-date'; // The cumulative line chart
+@import 'victim-list'; // For the victims at the bottom
+@import 'map'; // For the map, duh!
+@import 'causes-of-death'; // The treemap
+@import 'nouislider.min'; // css needed for the slider module
+@import 'filters'; // Victims filters
 
-.big-numbers {
-	display:flex;
 
-	.number{
-		padding-right: 20px;
-		text-align:center;
-		width:320px;	
 
-		p.num2016 {
-			@include sans-serif-text(55px, 1 em, bold);
-			margin-top:20px;
-			margin-bottom:0px;
-		}
-		p.num2017 {
-			@include sans-serif-text(55px, 1 em, bold);
-			margin-top:20px;
-			margin-bottom:0px;
-			color:$trib_blue2;
-		}
-		p.keynum{
-			@include sans-serif-text(16px, 1.4em);
-		}
-	}
-}
-
-.map{
-	@include responsive_embed(16,9,25px);
+.graphic-wrapper{
+  max-width: 800px;
+  margin: auto;
 }
 
 
+.trb_mainContent {
+  .topic{
+    // These are the basic divisions of the content
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid $trib-gray4;
 
-.trb_mainContent p{
-	width:100%;
-}
+    display:grid;
+    grid-template-columns: repeat(#{$number_of_columns}, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-gap: 0 $gutter_width; //  row gutter / column gutter
 
- 
+    // grid-template-rows
 
-@media (min-width:720px){
-      #g-cumulative-mobile{display:none}
-      #g-cumulative-phablet{display:none}
-      #g-cumulative-desktop{display:none} 
-      #g-cumulative-large{display:block}
-      #g-monthly-mobile{display:none}
-      #g-monthly-phablet{display:none}
-      #g-monthly-desktop{display:none} 
-      #g-monthly-large{display:block}    
+    &:last-child{
+      padding-bottom:0;
+      border-bottom: none;
     }
 
-@media (max-width:719px){
-      #g-cumulative-mobile{display:none}
-      #g-cumulative-phablet{display:none}
-      #g-cumulative-desktop{display:block} 
-      #g-cumulative-large{display:none}
-      #g-monthly-mobile{display:none}
-      #g-monthly-phablet{display:none}
-      #g-monthly-desktop{display:block} 
-      #g-monthly-large{display:none}  
+    &__topper{
+      grid-column: 1 / -1; // The end-column value of -1 means "span all columns" -- so, when we adjust the # of columns in media queries, we don't need to constantly adjust this, too.
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      & > p {
+        // for intro text inside the topper, let's make sure they are fullwidth
+        width: auto;
+      }
     }
-@media (max-width:579px){
-      #g-cumulative-mobile{display:none}
-      #g-cumulative-phablet{display:block}
-      #g-cumulative-desktop{display:none} 
-      #g-cumulative-large{display:none}
-      #g-monthly-mobile{display:none}
-      #g-monthly-phablet{display:block}
-      #g-monthly-desktop{display:none} 
-      #g-monthly-large{display:none}  
 
-      .category{
-        h2{@include serif-text(24px, 1.3em, bold);}
-      }  
-}
-@media (max-width:429px){
-      #g-cumulative-mobile{display:block}
-      #g-cumulative-phablet{display:none}
-      #g-cumulative-desktop{display:none} 
-      #g-cumulative-large{display:none}
-      #g-monthly-mobile{display:block}
-      #g-monthly-phablet{display:none}
-      #g-monthly-desktop{display:none} 
-      #g-monthly-large{display:none}    
-    }           
+    &__header{
+      @include label5();
+      margin: 0 0 10px 0;
+    }
+
+    &__describer{
+      @include sans-serif();
+      margin: 0 0 18px 0;
+      padding:0;
+    }
+
+    &__sub-header{
+      @include label7();
+      margin-top:0;
+      text-align:center;
+    }
+
+    &__chart-wrapper{
+      position: relative;
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+
+      &:nth-child(3){
+        // The third child (which is the second chart/column if you include the header, too)
+        -ms-grid-column: 2;
+      }
+        &:nth-child(4){
+        // The fourth child (which is the third chart/column if you include the header, too)
+        -ms-grid-column: 3;
+      }
+
+    }
+
+  }
+
+
+
+
+  .chart{
+    // This is the container for each chart or graphic
+    height: $chart_height_default;
+    position:relative;
+  }
+
+  // This is an IE hack to make grid work. Each item needs to be placed in it's column and row individually.
+  @for $i from 1 to ($number_of_columns + 1){
+    .trb_mainContent .topic__chart-wrapper:nth-child(#{$i}n+1){
+        -ms-grid-column: #{$i};
+        -ms-grid-column-span: 1;
+
+    }
+  }
+
+  // These charts are fullwidth
+  .topic--cumulative, .topic--causes, .topic--geography, .topic--victims {
+    .topic__chart-wrapper{
+      grid-column: 1 / -1;
+      -ms-grid-column: 1 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-column-span: 3 !important; // This important overrides for @for loop, which places the other charts
+    }
+  }
+
+  // The victims section needs a little extra help, because the filters is an added element
+  // This only will matter on IE
+  .topic--victims{
+
+    .filters{
+      -ms-grid-column: 1 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-column-span: 3 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-row: 2 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-row-span: 1 !important; // This important overrides for @for loop, which places the other charts
+    }
+
+    .topic__chart-wrapper{
+      -ms-grid-column: 1 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-column-span: 3 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-row: 3 !important; // This important overrides for @for loop, which places the other charts
+      -ms-grid-row-span: 1 !important; // This important overrides for @for loop, which places the other charts
+    }
+  }
   
+  .topic--cumulative .chart{
+    height: $ytd_chart_height;
+  }
+  .topic--causes .chart{
+    // nudge the treemap taller so things fit.
+    height: $cause_of_death_chart_height;
+  }
+}
 
+
+
+
+
+
+    
+
+
+.trb_mainContent .note{
+  @include agate()
+}
+
+// ------------
+// CREDITS
+// ------------
+
+.trb_mainContent .credits, .credits{
+  p {@include agate()}
+}
+
+.legend{
+  @include trib-legend();
+  dd, dt{ font-size: 13px; }
+  span{
+    @include trib-legend__box(50%);
+  }
+
+  &--centered{
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+  }
+}
+@media all and (max-width: 849px){
+  .trb_mainContent .topic{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    &__header{
+      text-align: center;
+    }
+
+    &__describer{
+      text-align:center;
+    }
+  }
+
+  .chart{
+    margin-bottom: $gutter_width;
+  }
+}
+
+@media (max-width:579px){
+  .topic--causes {
+    .chart{
+      // nudge the treemap taller so things fit.
+      height: $cause_of_death_chart__mobile_height;
+    }
+  }
+}
 
 

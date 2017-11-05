@@ -1,0 +1,197 @@
+$filter-button-width: 100%;
+$filter-button-height: 25px;
+
+// The filter button container
+.trb_mainContent .filters{
+	margin: 25px 0;
+	display:grid;
+	grid-template-columns: [col1] 1fr [col1-end col2] 1fr [col2-end];
+	grid-template-rows: [row1] auto [row1-end row2] auto [row2-end row3] auto [row3-end row4] auto [row4-end];
+	grid-gap: 25px;
+    grid-column: 1/-1; // make the container itself stretch fullwidth
+
+	// the hide/show properties
+	position:relative;
+	max-height: $filter-button-height;
+	overflow:hidden;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	transition: max-height 250ms ease;
+	cursor:pointer;
+
+	&:after{
+		@include sans-serif-text(14px, 1em, normal);
+		font-style: italic; 
+		text-align: center;
+		content:"CLICK FOR FILTERS";
+
+		display:flex;
+		justify-content: center;
+		align-items: center;
+
+		position:absolute;
+		top: 0%; 
+		left: 0%;
+		width: $filter-button-width;
+		height: $filter-button-height;
+
+		background:#ededed;
+		// margin: #{$filter-button-width / -2} 0 0 #{$filter-button-width / -2};
+
+	}
+
+	&.filters--open{
+		transition: max-height 250ms ease;
+		max-height: 1000vh;
+		border-top: none;
+		border-bottom: none;
+
+		&:after{
+			content:none;
+		}
+		
+	}
+
+	&__total{
+		@include sans-serif();
+		margin:0;
+		font-style: italic;
+		grid-column: 1 / span 2;
+	}
+
+	&__group{
+
+		&--age{
+			grid-column: 1 / span 2; // make this one fullwidth
+			grid-row: 1;
+		}
+
+		&--race{
+			grid-column: 1;
+			grid-row: 2;
+		}
+		&--pub_cause{
+			grid-column: 2;
+			grid-row: 2 / span 2;
+		}
+		&--sex{
+			grid-column: 1;
+			grid-row: 3;
+		}
+	}
+
+
+	&__group-label{
+		@include sans-serif-text(16px, 1em, bold);
+		margin-top: 0;
+		text-align: center;
+	}
+
+}
+
+
+.filter-button{
+	border:none;
+	background:#e0e0e0;
+	display:block;
+	padding: 10px 0;
+	margin-bottom: 5px;
+	text-align:center;
+	width: 100%;
+	cursor:pointer;
+	transition:background 100ms ease;
+
+	&:last-child{
+		margin-bottom:0;
+	}
+
+	&:hover{
+		background: $trib-blue4;
+	}
+
+	&[data-checked="true"], &:hover[data-checked="true"]{
+		transition:background 100ms ease;
+		background: $trib-blue2;
+		color:white;
+	}
+}
+
+// This is a check to see if grid-gap is supported. The buttons need spacing if not.
+@supports not (grid-gap:25px){
+	.filter-button{
+		max-width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+// format the slider and label
+.noUi-connect{ background: $slider-background-color; }
+
+.trb_mainContent .age-slider{
+	@include clearfix();
+    margin: 0 auto;
+    width: calc(100% - 32px);
+
+	&__label{
+		@include sans-serif-text(14px, 1em, bold);
+		text-align: center;
+		padding: 5px;
+	    margin: 7px 0 0 0;
+	    border-radius: 5px;
+		width: 40px;
+		background: rgba($slider-background-color, .5);
+		color:white;
+		
+	    &--left{
+    	    float: left;
+	    }
+	    &--right{
+	    	float: right;
+	    }
+	}
+}
+
+
+@media all and (min-width: $tablet-min-width){
+	
+}
+
+
+@media all and (min-width: $desktop-min-width){
+	.trb_mainContent .filters{
+		grid-template-columns: 1fr  1fr 1fr;
+		grid-template-rows: auto auto auto;
+	
+		&__total{
+			grid-column: 1 / span 3;
+			grid-row: 3 / span 1;
+		}
+
+
+
+		&__group{
+
+			&--age{
+				grid-column: 1 / span 2; // make this one fullwidth
+				grid-row: 1 / span 1;
+			}
+			
+			&--race{
+				grid-column: 1 / span 1;
+				grid-row: 2 / span 1;
+			}
+			&--pub_cause{
+				grid-column: 3 / span 1;
+				grid-row: 1 / span 3;
+			}
+
+			&--sex{
+				grid-column: 2 / span 1;
+				grid-row: 2 / span 1;
+			}
+		}
+
+	}
+}

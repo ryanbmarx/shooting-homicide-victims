@@ -1,0 +1,16 @@
+.causes-legend{
+	@include trib-legend();
+	float:left;
+	width:150px;
+	&__box{
+		@include trib-legend__box(0);
+	}
+}
+
+.topic--causes .topic__chart-wrapper{
+	@include clearfix();
+}
+
+.tree-label{
+	@include sans-serif();
+}

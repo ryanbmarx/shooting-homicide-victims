@@ -1,0 +1,129 @@
+{% macro topic_topper(key) %}
+  <div class ='topic__topper'>
+    {% if labels[key + "_label"][v] %}
+      <h2 class='topic__header'>{{ labels[key + "_label"][v] }}</h2>
+    {% endif %}
+    {% if labels[key + "_sublabel"][v] %}
+      <p class='topic__describer'>{{ labels[key + "_sublabel"][v] }}</p>
+    {% endif %}
+    {% if labels[key + "_intro"][v] %}
+      {{ labels[key + "_intro"][v]|markdown }}
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{% if v == "homicides" %}
+  {% set homicides = True %}
+{% endif %}
+
+<div class='trb_mainContent'>
+
+  <div class='graphic-wrapper'>
+
+    <section class='intro'>
+      {% include "subtemplates/" + v + "/_year-counter.html" %}
+      {{ labels['intro'][v]|markdown }}
+    </section>
+
+
+    <section class='topic topic--cumulative'>
+      <div class ='topic__topper'>
+        <h2 class='topic__header'>{{ labels['cumulative'][v] }}</h2>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <div class='highlight'>
+          <table id='cumulative-table' class='highlight__table'></table>
+          <h3 id='cumulative-label' class='highlight__label'></h3>
+        </div>
+        <div id='cumulative' class='chart chart--cumulative'></div>
+      </div>
+    </section>
+
+    <section class='topic topic--when'>
+      {{ topic_topper("time") }}
+      <div class='topic__chart-wrapper'>
+        <h3 class='topic__sub-header'>{{ month_label }}</h3>
+        <div id='month' class='chart'></div>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <h3 class='topic__sub-header'>{{ day_label }}</h3>
+        <div id='day' class='chart'></div>
+      </div>
+      <div class='topic__chart-wrapper'>
+        <h3 class='topic__sub-header'>{{ time_label }}</h3>
+        <div id='time' class='chart'></div>
+      </div>
+    </section>
+  {% if homicides %}
+    <section class='topic topic--causes'>
+      {{ topic_topper("cause_of_death") }}
+      <div class='topic__chart-wrapper'>
+        <div id='causes' class='chart'></div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class='topic topic--geography'>    
+    {{ topic_topper("map") }}
+    <div class='topic__chart-wrapper map'>
+    {% if not homicides %}
+      <div class='map__legend'>
+        <span class='map__legend-label'>Toggle:</span>
+        <button class='map__legend-button'  data-checked="true" data-toggle="fatalIncidentMarkers">  
+          <span class='map__legend-dot map__legend-dot--fatal'></span>
+          Fatal
+        </button>
+        <button class='map__legend-button' data-checked="true" data-toggle="nonFatalIncidentMarkers">
+          <span class='map__legend-dot map__legend-dot--non-fatal'></span>
+          Non-fatal
+        </button>
+      </div>
+      {% endif %}
+      <div class='map__map' id="map"></div>
+    </div>
+  </section>
+
+  {% if homicides %}
+    <section class='topic topic--demographics'>    
+      {{ topic_topper("demographics") }}
+        {% if homicides %}
+        <div class='topic__chart-wrapper'>
+          <h3 class='topic__sub-header'>{{ race_label }}</h3>
+          <div id='race-ethnicity' class='chart'></div>
+        </div>
+        {% endif %}
+        {% if homicides %}
+        <div class='topic__chart-wrapper'>
+          <h3 class='topic__sub-header'>{{ age_label }}</h3>
+          <div id='age' class='chart'></div>
+        </div>
+        {% endif %}
+        {% if homicides %}
+        <div class='topic__chart-wrapper'>
+          <h3 class='topic__sub-header'>{{ sex_label }}</h3>
+          <div id='sex' class='chart'></div>
+        </div>
+        {% endif %}
+
+      </section>
+    {% endif %}
+    <section class='topic topic--victims'>
+    {% if homicides %}
+        {{ topic_topper("victims") }}
+        {% include 'subtemplates/' + v + "/_victim-filters.html" %}
+        <div class='topic__chart-wrapper'>
+          {% include "subtemplates/" + v + "/_victims-list.html" %}
+        </div>
+    {% else %}
+        {{ topic_topper("victims") }}
+        <div class='topic__chart-wrapper'>
+          {% include "subtemplates/" + v + "/_victims-list.html" %}
+        </div>
+    {% endif %}
+    </section>      
+    <section class='credits'>
+      {{ source|markdown }}
+      {{ tag|markdown }}
+    </section>
+  </div>
+</div>

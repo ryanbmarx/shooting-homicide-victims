@@ -1,0 +1,97 @@
+@mixin distribute_victims_across_columns($num: 1, $gutter_width:25px){
+  	// This mixin calculates the needed info to spread flexbox items across an arbitrary number of columns.
+  	// If the number of columns is 1 (i.e. mobile) then it just makes things fullwidth.
+  	// The mixin is intended to be applied to the flex-box container's child elements.
+	
+	margin-bottom: $gutter_width;
+
+	@if $num < 2{
+		width: 100%;
+		&:last-child{
+			margin-bottom:0;
+		}
+
+	} @else {
+	  
+		width: #{95% / $num}; // fallback
+		width: calc(((100% - #{$gutter_width * ($num - 1)}) / #{$num}));
+		
+		&:nth-child(#{$number_of_columns}n+1):nth-last-child(-n+#{$number_of_columns}),
+		&:nth-child(#{$number_of_columns}n+1):nth-last-child(-n+#{$number_of_columns}) ~ & {
+			// This targets the last row of the grid.
+			// http://keithclark.co.uk/articles/targeting-first-and-last-rows-in-css-grid-layouts/
+			margin-bottom: 0;
+		}	
+
+	}
+}
+
+
+
+.victims{
+	display:flex;
+	align-items:stretch;
+	justify-content: space-between;
+	flex-wrap:wrap;
+}
+
+.trb_mainContent .victim{
+	@include distribute_victims_across_columns(2, $gutter_width);
+  	background: $trib-gray4;
+  	text-align:center;
+  	padding: $victim_inner_padding;
+  	cursor:pointer;
+
+  	display:flex;
+	align-items:center;
+	flex-wrap:wrap;
+	justify-content:center;
+
+	box-sizing:border-box;
+	
+	p,a{
+		// reset stupid NGUX styles
+		@include sans-serif-text(16px, 1.3em, bold);
+		margin:0;
+		width: 100%;
+	}
+
+  	.victim__date{
+  		color:$trib-blue2;
+  		font-weight: normal;
+  		margin-bottom:7px;
+  		font-size: 14px;
+  	}
+
+  	.victim__desc-big{
+		font-size: 19px;
+		text-transform: capitalize;
+  	}
+
+  	.victim__desc-small{
+		// font-size: 16px;
+		margin-bottom:7px;
+		
+  	}
+
+  	.victim__link{
+  		display:block;
+  		font-size: 13px;
+		text-transform:uppercase;
+		margin-top:5px;
+  	}
+}
+
+@media all and (min-width:$tablet_min_width){
+	.trb_mainContent  .victim{
+	  @include distribute_victims_across_columns(2, $gutter_width);
+	}
+
+	.trb_mainContent .victim .victim__date{ font-size: 16px; }
+}
+
+@media all and (min-width:$desktop_min_width){
+	.trb_mainContent  .victim{
+		@include distribute_victims_across_columns(3, $gutter_width);
+	}
+}

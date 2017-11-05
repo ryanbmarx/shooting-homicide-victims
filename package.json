@@ -4,9 +4,27 @@
   "description": "",
   "main": "js/src/app.js",
   "scripts": {
+    "watch": "grunt watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "grunt",
-    "watch": "grunt watch"
+    "postinstall": "pip install -r dynamic/requirements.txt",
+    "download": "run-p download:*",
+    "download:homicides": "mkdir -p ./data/homicides && python dynamic/Genie_Script/genie_script.py data/homicides/homicides.csv -h",
+    "download:shootings": "mkdir -p ./data/shootings && python dynamic/Genie_Script/genie_script.py data/shootings/shootings.csv -s",
+    "process": "run-p process:*",
+    "process:current-shootings": "node node_scripts/getCurrentYear.js ./data/shootings/shootings_geocode.csv ./data/shootings/shootings_geocode_current.csv",
+    "process:current-homicides": "node node_scripts/getCurrentYear.js ./data/homicides/homicides_geocode.csv ./data/homicides/homicides_geocode_current.csv",
+    "process:last365-shootings": "node node_scripts/getLast365.js ./data/shootings/shootings_geocode.csv ./data/shootings/shootings_geocode_last365.csv",
+    "process:last365-homicides": "node node_scripts/getLast365.js ./data/homicides/homicides_geocode.csv ./data/homicides/homicides_geocode_last365.csv",
+    "prebuild": "run-p prebuild:*",
+    "prebuild:victims-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/homicides/homicides_geocode_current.csv ./subtemplates/homicides/_victims-list.html",
+    "prebuild:victims-shootings": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimsList.js ./data/shootings/shootings_geocode_current.csv ./subtemplates/shootings/_victims-list.html 100",
+    "prebuild:year-counter-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeYTDCounter.js ./subtemplates/homicides/_year-counter.html",
+    "prebuild:year-counter-shootings": "mkdir -p ./subtemplates/shootings && node node_scripts/makeYTDCounter.js ./subtemplates/shootings/_year-counter.html",
+    "prebuild:victim-filters-homicides": "mkdir -p ./subtemplates/homicides && node node_scripts/makeVictimFilters.js ./data/homicides/homicides_geocode_current.csv ./subtemplates/homicides/_victim-filters.html",
+    "grunt": "mkdir -p css && grunt",
+    "build:sequence": "run-s download process prebuild",
+    "build": "run-p grunt build:sequence",
+    "publish": "npm run build && tarbell publish production"
   },
   "repository": {
     "type": "git",
@@ -16,18 +34,43 @@
   "author": "Chicago Tribune News Applications",
   "license": "MIT",
   "devDependencies": {
-    "babel-preset-es2015": "^6.9.0",
+    "autoprefixer": "^7.1.2",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "babelify": "^7.3.0",
-    "browserify": "^10.2.4",
+    "browserify": "^14.4.0",
     "grunt": "^0.4.5",
-    "grunt-browserify": "^3.8.0",
+    "grunt-browserify": "^5.2.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "^1.2.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.0.0",
+    "html-minifier": "^3.5.2",
+    "json2csv": "^3.11.1",
+    "lodash.uniqby": "^4.7.0",
     "minifyify": "^7.3.3",
+    "npm-run-all": "^4.1.1",
     "trib-styles": "git+https://tribune.unfuddle.com/git/tribune_trib-styles/"
   },
   "browserify": {
     "debug": true
   },
-  "tribune": {}
+  "tribune": {},
+  "dependencies": {
+    "d3": "^4.9.1",
+    "d3-queue": "^3.0.7",
+    "d3-shape": "^1.2.0",
+    "leaflet": "^1.2.0",
+    "leaflet-providers": "^1.1.17",
+    "lodash.countby": "^4.6.0",
+    "lodash.filter": "^4.6.0",
+    "lodash.find": "^4.6.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.merge": "^4.6.0",
+    "lodash.orderby": "^4.6.0",
+    "lodash.sortby": "^4.7.0",
+    "lodash.sumby": "^4.6.0",
+    "lodash.union": "^4.6.0",
+    "nouislider": "^10.1.0",
+    "waypoints": "^4.0.1"
+  }
 }
