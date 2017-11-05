@@ -91,7 +91,12 @@ fs.readFile(inputPath, 'utf-8', (err, data) => {
 			let dataAttrString = ``;
 
 
-			if (sex) dataAttrString += ` data-sex="${v['SEX'].toLowerCase()}"`; 
+			if (sex) {
+				dataAttrString += ` data-sex="${v['SEX'].toLowerCase()}"`
+			} else {
+				dataAttrString += ` data-sex="unknown"`
+			}; 
+			
 			if (age) dataAttrString += ` data-age="${v['AGE']}"`;
 
 			if (v['RACE']) {					

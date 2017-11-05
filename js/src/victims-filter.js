@@ -104,6 +104,7 @@ module.exports = class VictimsFilter{
                 causeSelectors = selectedCauses.length > 0 ? [] : ["*"], 
                 sexSelectors = selectedSex.length > 0 ? [] : ["*"];
 
+        console.log(sexSelectors);
         // Populate the category arrays with strings representing css selectors that would
         // select that category. Fpr instance, black would be "[data-race='b']"
         for (let i=0; i < selectedRaces.length; i++){

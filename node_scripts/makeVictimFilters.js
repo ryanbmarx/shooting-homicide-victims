@@ -129,7 +129,7 @@ labelFormatters.PUB_CAUSE = function(att){
 			return "Thrown from Auto";
 			break;
 		case "UNKNOWN":
-			return "Unknown";
+			return "Not known";
 			break;
 		case "VEHICLE":
 			return "Vehicle";
