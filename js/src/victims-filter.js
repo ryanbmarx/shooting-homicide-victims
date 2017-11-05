@@ -94,17 +94,15 @@ module.exports = class VictimsFilter{
         const app = this;
 
         // Find out how many options are checked from each option category
-        const   selectedRaces = document.querySelectorAll('.filters__group--race .filter-button[data-checked=true]'),
-                selectedCauses = document.querySelectorAll('.filters__group--pub_cause .filter-button[data-checked=true]'), 
-                selectedSex = document.querySelectorAll('.filters__group--sex .filter-button[data-checked=true]');
-            
+        const   selectedRaces = document.querySelectorAll('.filters__group--race .filter-button[data-checked=true], .filters__group--race .filter-button[data-checked="true"]'),
+                selectedCauses = document.querySelectorAll('.filters__group--pub_cause .filter-button[data-checked=true], .filters__group--pub_cause .filter-button[data-checked="true"]'), 
+                selectedSex = document.querySelectorAll('.filters__group--sex .filter-button[data-checked=true], .filters__group--sex .filter-button[data-checked="true"]');
+
         // These arrays will hold the selected categories in the form of css selector strings.
         // BUT, if there are no selections from the category, we want to show ALL, not show NONE.
         let     raceSelectors = selectedRaces.length > 0 ? [] : ["*"],
                 causeSelectors = selectedCauses.length > 0 ? [] : ["*"], 
-                sexSelectors = selectedCauses.length > 0 ? [] : ["*"];
-
-
+                sexSelectors = selectedSex.length > 0 ? [] : ["*"];
 
         // Populate the category arrays with strings representing css selectors that would
         // select that category. Fpr instance, black would be "[data-race='b']"
