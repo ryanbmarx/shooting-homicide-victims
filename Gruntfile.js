@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   var config = {};
-
+  
   var VENDOR_LIBRARIES = [
     'leaflet',
     'd3',
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     'leaflet-providers',
     'nouislider'
   ];
-
+  
   config.browserify = {
     options: {
       browserifyOptions: {
@@ -50,12 +50,12 @@ module.exports = function(grunt) {
       }
     }
   };
-
+  
   // Check if there are vendor libraries and build a vendor bundle if needed
   if (VENDOR_LIBRARIES.length) {
     config.browserify.app.options = config.browserify.app.options || {};
     config.browserify.app.options.exclude = VENDOR_LIBRARIES;
-
+  
     config.browserify.vendor = {
       src: [],
       dest: 'js/vendor.min.js',
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
       }
     };
   }
-
+  
   config.sass = {
     options: {
       outputStyle: 'compressed',
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
         'node_modules/trib-styles/sass/', 
         'node_modules/leaflet/dist/', 
         'node_modules/leaflet.markercluster/dist/',
-        'node_modules/nouislider/distribute/' 
+        'node_modules/nouislider/distribute/'
       ]
     },
     app: {
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
       }
     }
   };
-
+  
 config.postcss = {
     options:{
       map:{
@@ -119,7 +119,7 @@ config.postcss = {
       src: 'css/**/*.css'
     }
   }
-
+  
   config.watch = {
     sass: {
       files: ['sass/**/*.scss'],
@@ -130,19 +130,19 @@ config.postcss = {
       tasks: ['browserify:app']
     }
   };
-
+  
   grunt.initConfig(config);
-
+  
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
-
+  
   var defaultTasks = [];
-
+  
   defaultTasks.push('sass');
   defaultTasks.push('browserify');
   defaultTasks.push('postcss');
-
+  
   grunt.registerTask('default', defaultTasks);
 };
