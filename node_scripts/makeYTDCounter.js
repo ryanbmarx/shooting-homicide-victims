@@ -53,9 +53,8 @@ fs.readFile(`./data/${ type }/${ type }.csv`, 'utf-8', (err, data) => {
 	let i = bisectDate(lastYearIncidents, searchDate) - 1,
 		lastYearEntry = lastYearIncidents[i];
 
-	const 	thisYearSum = mostCurrentEntry['CUMULATIVE_SUM'],
-			lastYearSum = lastYearEntry['CUMULATIVE_SUM'];
-
+	const 	thisYearSum = parseInt(mostCurrentEntry['CUMULATIVE_SUM']),
+			lastYearSum = parseInt(lastYearEntry['CUMULATIVE_SUM']);
 
 	let lessMore;
 	if (thisYearSum > lastYearSum){
